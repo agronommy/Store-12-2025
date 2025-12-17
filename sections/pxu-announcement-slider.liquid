@@ -1,0 +1,479 @@
+{%- comment -%}
+  🧰 Announcement slider section
+{%- endcomment -%}
+
+{%- liquid
+  assign text_color = section.settings.text_color
+  assign auto_rotate = section.settings.auto_rotate
+  assign rotation_speed = section.settings.rotation_speed
+  assign show_arrows = section.settings.show_arrows
+  
+  assign has_slider = false
+  if section.blocks.size > 1
+    assign has_slider = true
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-announcement-slider
+    {% if has_slider %}pxu-announcement-slider--has-slider{% endif %}
+  "
+  style="
+    --pxu-section-text-color: {{ text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-text-size: {{ section.settings.text_size }}px;
+    --pxu-text-size-mobile: {{ section.settings.text_size_mobile }}px;
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+  "
+  data-pxu-announcement-slider
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-announcement-slider",
+      "className": "AnnouncementSliderSection", 
+      "name": "Announcement slider",
+      "version": "1.0.0",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}",
+      "hasSlider": {{ has_slider }},
+      "auto_rotate": {{ auto_rotate | json }},
+      "rotation_speed": {{ rotation_speed | json }},
+      "show_arrows": {{ show_arrows | json }}
+    }
+  </script>
+
+  <div class="pxu-section__container pxu-announcement-slider__container">
+    {%- if section.blocks.size > 0 -%}
+      {%- if has_slider -%}
+        <div class="pxu-carousel pxu-carousel--fade pxu-carousel--slideshow-arrows">
+          <div 
+            class="pxu-carousel__items"
+            data-pxu-carousel
+          >
+            {%- for block in section.blocks -%}
+              <div class="pxu-carousel__item" data-pxu-carousel-item>
+                {%- case block.type -%}
+                  {%- when 'announcement' -%}
+                    {%- liquid
+                      assign text = block.settings.text | strip
+                      assign mobile_text = block.settings.mobile_text | strip
+                      assign link = block.settings.link
+                      assign content_link = false
+
+                      if text contains "<a" or mobile_text contains "<a"
+                        assign content_link = true
+                      endif
+                    -%}
+
+                    {% if link != blank and content_link == false %}
+                    <a
+                      href="{{ link }}" 
+                    {% else %}
+                    <div
+                    {% endif %}
+                      id="{{ block.id }}"
+                      class="pxu-announcement-slider__announcement"
+                    >
+                      {%- if mobile_text != blank -%}
+                        <span class="pxu-announcement-slider__text pxu-announcement-slider__text--desktop pxu-rte">{{ text }}</span>
+                        <span class="pxu-announcement-slider__text pxu-announcement-slider__text--mobile pxu-rte">{{ mobile_text }}</span>
+                      {%- else -%}
+                        <span class="pxu-announcement-slider__text pxu-rte">{{ text }}</span>
+                      {%- endif -%}
+
+                    {% if link != blank and content_link == false %}
+                    </a>
+                    {% else %}
+                    </div>
+                    {% endif %}
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'announcement' -%}
+              {%- liquid
+                assign text = block.settings.text | strip
+                assign mobile_text = block.settings.mobile_text | strip
+                assign link = block.settings.link
+                assign content_link = false
+
+                if text contains "<a" or mobile_text contains "<a"
+                  assign content_link = true
+                endif
+              -%}
+              
+              {% if link != blank and content_link == false %}
+              <a
+                href="{{ link }}" 
+              {% else %}
+              <div
+              {% endif %}
+                id="{{ block.id }}"
+                class="pxu-announcement-slider__announcement"
+              >
+                {%- if mobile_text != blank -%}
+                  <span class="pxu-announcement-slider__text pxu-announcement-slider__text--desktop pxu-rte">{{ text }}</span>
+                  <span class="pxu-announcement-slider__text pxu-announcement-slider__text--mobile pxu-rte">{{ mobile_text }}</span>
+                {%- else -%}
+                  <span class="pxu-announcement-slider__text pxu-rte">{{ text }}</span>
+                {%- endif -%}
+
+              {% if link != blank and content_link == false %}
+              </a>
+              {% else %}
+              </div>
+              {% endif %}
+          {%- endcase -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-announcement-slider{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-announcement-slider{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-announcement-slider.pxu-announcement-slider--has-slider:not(.pxu-announcement-slider--initialized){height:0;opacity:0;visibility:hidden}.pxu-announcement-slider.pxu-announcement-slider--has-slider.pxu-announcement-slider--initialized{height:auto;opacity:1;visibility:visible}.pxu-announcement-slider__container{margin:0 auto;position:relative}.pxu-announcement-slider__container>.pxu-announcement-slider__announcement{padding:var(--pxu-space-3)}.pxu-announcement-slider__container a span,.pxu-announcement-slider__container a:focus,.pxu-announcement-slider__container a:hover,.pxu-announcement-slider__container a:link,.pxu-announcement-slider__container a:visited{color:inherit}.pxu-announcement-slider .pxu-carousel__items.flickity-enabled{padding:var(--pxu-space-3) var(--pxu-space-8)}@media only screen and (max-width:719px){.pxu-announcement-slider .pxu-carousel__items.flickity-enabled{padding:var(--pxu-space-3) var(--pxu-space-4)}}.pxu-announcement-slider__announcement{align-items:center;color:inherit;display:flex;font-size:var(--pxu-text-size-mobile);justify-content:center;text-align:center;text-decoration:none}@media only screen and (min-width:860px){.pxu-announcement-slider__announcement{font-size:var(--pxu-text-size)}}.pxu-announcement-slider__text--desktop{display:none}@media only screen and (min-width:860px){.pxu-announcement-slider__text--desktop{display:block}}.pxu-announcement-slider__text--mobile{display:block}@media only screen and (min-width:860px){.pxu-announcement-slider__text--mobile{display:none}}.pxu-announcement-slider .flickity-slider{align-items:center;display:flex}.pxu-announcement-slider .pxu-carousel__item{padding:0 var(--pxu-space-3);transition:opacity 175ms ease-in!important;width:100%}.pxu-announcement-slider .pxu-carousel__item.is-selected{transition:opacity 175ms ease-out .25s!important}.pxu-announcement-slider .flickity-prev-next-button{display:block;top:50%;transform:translateY(-50%)}.pxu-announcement-slider .flickity-prev-next-button:hover{transform:translateY(-50%) scale(1.125)}.pxu-announcement-slider .flickity-prev-next-button .flickity-button-icon{height:20px;width:12px;fill:currentColor}.pxu-announcement-slider .pxu-carousel--slideshow-arrows .flickity-prev-next-button{background:transparent;color:var(--pxu-section-text-color);transition:transform .2s ease-in-out}.pxu-announcement-slider .pxu-carousel--slideshow-arrows .flickity-prev-next-button:hover{background:transparent}.pxu-announcement-slider .pxu-carousel--slideshow-arrows .flickity-prev-next-button svg{color:inherit}</style>
+{% javascript %}
+const { Section, Carousel } = window.PxuThemeSections;
+
+class AnnouncementSliderSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.carousel = null;
+    this.resizeTimeout = null;
+    this.showArrows = this.data.show_arrows;
+    this.observers = []; 
+    this.onMount();
+  }
+
+  onMount() {
+    if (!this.data.hasSlider) return;
+
+    this.$root.classList.remove('pxu-announcement-slider--initialized');
+
+    const options = {
+      prevNextButtons: true,
+      pageDots: false,
+      groupCells: false,
+      cellAlign: 'left',
+      wrapAround: true,
+      autoPlay: this.data.auto_rotate ? this.data.rotation_speed * 1000 : false,
+    };
+
+    this.carousel = new Carousel(this.$root, options);
+    this.carousel.onMount();
+
+    setTimeout(() => {
+      this.adjustNavigationButtons();
+      this.toggleButtonVisibility(this.showArrows);
+      this.$root.classList.add('pxu-announcement-slider--initialized'); 
+    }, 0);
+  
+    this.initEventListeners();
+  }
+
+  waitForElement(selector, callback) {
+    const element = this.$root.querySelector(selector);
+    
+    if (element) {
+      callback(element);
+      return;
+    }
+
+    const observer = new MutationObserver((mutations, obs) => {
+      const element = this.$root.querySelector(selector);
+      if (element) {
+        obs.disconnect();
+        callback(element);
+        this.observers = this.observers.filter(o => o !== obs); 
+      }
+    });
+
+    observer.observe(this.$root, { childList: true, subtree: true });
+    this.observers.push(observer); 
+  }
+
+  initEventListeners() {
+    this.events.register(window, 'resize', () => {
+      this.toggleButtonVisibility(false);
+      clearTimeout(this.resizeTimeout);
+
+      this.resizeTimeout = setTimeout(() => {
+        this.adjustNavigationButtons();
+        this.toggleButtonVisibility(this.showArrows);
+      }, 200);
+    });
+
+    this.events.register(window, 'load', () => {
+      this.adjustNavigationButtons();
+      this.toggleButtonVisibility(this.showArrows);
+    });
+
+    this.events.register(document, 'keydown', (event) => {
+      if (event.key === 'Tab') {
+        this.toggleButtonVisibility(true);
+      }
+    });
+
+    this.events.register(document, 'click', (event) => {
+      if (this.showArrows === false && !event.target.closest('.flickity-prev-next-button')) {
+        this.toggleButtonVisibility(false);
+      }
+    });
+
+    this.toggleButtonVisibility(false);
+  }
+
+  toggleButtonVisibility(visible) {
+    this.waitForElement('.flickity-prev-next-button', () => {
+      const buttons = this.$root.querySelectorAll('.flickity-prev-next-button');
+      buttons.forEach(button => {
+        button.style.transition = visible ? 'opacity 0.2s ease-out' : 'none';
+        button.style.opacity = visible ? '1' : '0';
+        button.style.pointerEvents = visible ? 'auto' : 'none';
+      });
+    });
+  }
+
+  adjustNavigationButtons() {
+    this.waitForElement('.flickity-prev-next-button', () => {
+      const prevButton = this.$root.querySelector('.flickity-prev-next-button.previous');
+      const nextButton = this.$root.querySelector('.flickity-prev-next-button.next');
+      const announcements = this.$root.querySelectorAll('.pxu-announcement-slider__text');
+      const viewport = window.innerWidth;
+      const container = this.$root.querySelector('.pxu-section__container');
+
+      if (!announcements.length || !container) return;
+
+      let maxWidth = 0;
+      announcements.forEach((el) => {
+        const width = el.getBoundingClientRect().width;
+        maxWidth = Math.max(maxWidth, width);
+      });
+
+      const containerRect = container.getBoundingClientRect();
+      const minWidth = 650;
+      let buttonOffset = 8;
+
+      if (viewport >= 860) {
+        const containerLeftEdge = containerRect.left;
+        const containerRightEdge = viewport - containerRect.right;
+        const announcementMaxWidth = maxWidth;
+        const announcementLeftEdge = containerLeftEdge + (containerRect.width - announcementMaxWidth) / 2;
+        const announcementRightEdge = containerRightEdge + (containerRect.width - announcementMaxWidth) / 2;
+
+        if (maxWidth <= minWidth) {
+          const leftGap = (announcementLeftEdge - containerLeftEdge) / 2;
+          const rightGap = (containerRightEdge - announcementRightEdge) / 2;
+          const maxOffset = Math.min(leftGap, rightGap);
+          buttonOffset = maxOffset;
+        }
+      }
+
+      prevButton.style.left = `${-buttonOffset}px`;
+      nextButton.style.right = `${-buttonOffset}px`;
+    });
+  }
+
+  onUnmount() {
+    if (!this.carousel) return;
+    this.carousel.onUnmount();
+    this.carousel = null;
+    this.events.unregisterAll();
+    this.observers.forEach(observer => observer.disconnect());
+    this.observers = [];
+  }
+
+  onBlockSelect(event) {
+    if (!this.carousel) return;
+    const $slide = event.target.parentElement;
+    this.carousel.selectSlide($slide);
+  }
+}
+
+document.querySelectorAll('[data-pxu-announcement-slider]').forEach(($section) => {
+  Section.init($section, AnnouncementSliderSection);
+});
+
+if (Shopify.designMode) {
+  window.PxuThemeSections.AnnouncementSliderSection = AnnouncementSliderSection;
+}{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.announcement_slider.name",
+  "class": "pxu-announcement-slider-section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "t:pxu_sections.sections.announcement_slider.auto_rotate.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "rotation_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "t:pxu_sections.sections.announcement_slider.rotation_speed.label", 
+      "default": 5
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrows",
+      "label": "t:pxu_sections.sections.announcement_slider.show_arrows.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.typography.block_typography"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size",
+      "default": 14
+    },
+    {
+      "type": "range", 
+      "id": "text_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size_mobile",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announcement",
+      "name": "t:pxu_sections.sections.announcement_slider.blocks.announcement.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:pxu_sections.sections.announcement_slider.blocks.announcement.text.label",
+          "default": "t:pxu_sections.sections.announcement_slider.blocks.announcement.text.default"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "mobile_text",
+          "label": "t:pxu_sections.sections.announcement_slider.blocks.announcement.mobile_text.label",
+          "info": "t:pxu_sections.sections.announcement_slider.blocks.announcement.mobile_text.info"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:pxu_sections.common.navigation.link",
+          "info": "t:pxu_sections.common.navigation.section_link_info"
+        }
+      ]
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ],
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.announcement_slider.name",
+      "blocks": [
+        {
+          "type": "announcement"
+        },
+        {
+          "type": "announcement"
+        }
+      ]
+    }
+  ]
+}{% endschema %}

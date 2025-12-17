@@ -1,0 +1,458 @@
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-face-treatments-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    padding: 20px;
+     align-items: stretch;
+  }
+.ai-face-treatment-card-{{ ai_gen_id }} {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex !important;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  height: 100%; /* ensures it fills grid row */
+  align-self: stretch;
+}
+
+.ai-face-treatment-info-{{ ai_gen_id }} {
+  display: flex !important;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.ai-face-treatment-descritpion-{{ ai_gen_id }} {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  flex-grow: 1;
+  
+}
+
+.ai-face-treatment-meta-{{ ai_gen_id }} {
+  display: flex !important;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  margin-top: auto;Push this block to the bottom */
+}
+  
+  .ai-face-treatment-img-{{ ai_gen_id }} {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+ 
+
+  .ai-face-treatment-title-{{ ai_gen_id }} {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+    
+  }
+
+ 
+
+  
+
+  .ai-time-icon-{{ ai_gen_id }} {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: text-bottom;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-face-treatments-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+    }
+  }
+
+.ai-face-treatment-contact-{{ ai_gen_id }} {
+  /* Add margin-top: auto; here to push it and the meta above it to the bottom */
+  margin-top: auto;
+  /* Add any existing styles for your contact div here */
+  display: inline-block; /* Based on your original CSS */
+  margin-top: 8px; /* This margin-top might get overridden by auto, consider padding-top instead if spacing needed */
+  text-decoration: none;
+  color: #444;
+  padding-top: 8px; /* Use padding for spacing after meta if margin-top:auto is set on contact */
+}
+.ai-face-treatment-contact-{{ ai_gen_id }} a {
+  /* This rule applies to the anchor inside the contact div.
+     If you only have an <a> inside, you might want to put margin-top:auto on the <a> directly.
+     However, keeping it on the parent div is safer if you have other content in the contact div. */
+  display: inline-block;
+  /* margin-top: 8px; <--- This will likely be ignored if parent has margin-top: auto */
+  text-decoration: none;
+  color: #444;
+}
+{% endstyle %}
+
+<!-- Filter Section -->
+<div class="ai-face-treatment-filter-{{ ai_gen_id }}">
+  <label for="filter-type-{{ ai_gen_id }}">Filter by type:</label>
+
+  {% assign types_string = '' %}
+  {% assign locations_string = '' %}
+
+  {% for entry in shop.metaobjects.face_treatments.values %}
+    {%- assign type_clean = entry.type | strip | handleize -%}
+    {%- unless types_string contains type_clean -%}
+      {% assign types_string = types_string | append: ',' | append: type_clean %}
+    {%- endunless -%}
+
+    {%- assign raw_locations = entry.location | split: ',' -%}
+    {% for loc in raw_locations %}
+      {% assign loc_clean = loc | strip | handleize %}
+      {% unless locations_string contains loc_clean %}
+        {% assign locations_string = locations_string | append: ',' | append: loc_clean %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+
+  {% assign types_array = types_string | remove_first: ',' | split: ',' %}
+  {% assign locations_array = locations_string | remove_first: ',' | split: ',' %}
+
+  <select id="filter-type-{{ ai_gen_id }}">
+    <option value="all">All</option>
+    {% for t in types_array %}
+      <option value="{{ t }}">{{ t | replace: '-', ' ' | capitalize }}</option>
+    {% endfor %}
+  </select>
+
+  <label for="filter-location-{{ ai_gen_id }}">Filter by location:</label>
+  <select id="filter-location-{{ ai_gen_id }}">
+    <option value="all">All</option>
+    {% for l in locations_array %}
+      <option value="{{ l }}">{{ l | replace: '-', ' ' | capitalize }}</option>
+    {% endfor %}
+  </select>
+</div>
+
+<!-- Treatment Cards -->
+<div class="ai-face-treatments-{{ ai_gen_id }}">
+  {% for entry in shop.metaobjects.face_treatments.values %}
+
+    {% assign type_string = entry.type | strip | handleize %}
+
+    {% assign raw_locations = entry.location | split: ',' %}
+    {% assign location_string = '' %}
+    {% for loc in raw_locations %}
+      {% assign loc_clean = loc | strip | handleize %}
+      {% assign location_string = location_string | append: loc_clean %}
+      {% unless forloop.last %}
+        {% assign location_string = location_string | append: ',' %}
+      {% endunless %}
+    {% endfor %}
+
+    <div class="ai-face-treatment-card-{{ ai_gen_id }}" 
+         data-type="{{ type_string }}" 
+         data-location="{{ location_string }}">
+
+      <img class="ai-face-treatment-img-{{ ai_gen_id }}"
+           src="{{ entry.image | image_url: width: 600 }}"
+           alt="{{ entry.title | escape }}"
+           height="{{ block.settings.image_height }}"
+           loading="lazy">
+
+      <div class="ai-face-treatment-info-{{ ai_gen_id }}">
+        <h3 class="ai-face-treatment-title-{{ ai_gen_id }}">{{ entry.title }}</h3>
+        <div class="ai-face-treatment-descritpion-{{ ai_gen_id }}">{{ entry.descritpion | metafield_tag }}</div>
+
+        <div class="ai-face-treatment-meta-{{ ai_gen_id }}">
+          <span>
+            <svg class="ai-time-icon-{{ ai_gen_id }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            {{ entry.time }}
+          </span>
+          <span>${{ entry.cost }}</span>
+        </div>
+        {% assign raw_locations = entry.location | split: ',' %}
+{% assign handleized_locations = '' %}
+{% for loc in raw_locations %}
+  {% assign loc_clean = loc | strip | downcase | handleize %}
+  {% assign handleized_locations = handleized_locations | append: loc_clean %}
+  {% unless forloop.last %}
+    {% assign handleized_locations = handleized_locations | append: ',' %}
+  {% endunless %}
+{% endfor %}
+<div class="ai-face-treatment-contact-{{ ai_gen_id }}"
+     data-treatment-locations="{{ handleized_locations }}">
+
+            <!-- JS will inject phone links here -->
+        </div>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>
+
+<!-- JavaScript Filtering -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const typeFilter = document.getElementById("filter-type-{{ ai_gen_id }}");
+  const locationFilter = document.getElementById("filter-location-{{ ai_gen_id }}");
+  const cards = document.querySelectorAll(".ai-face-treatment-card-{{ ai_gen_id }}");
+
+  function applyFilters() {
+    const selectedType = typeFilter.value;
+    const selectedLocation = locationFilter.value;
+
+    cards.forEach(card => {
+      const cardType = card.getAttribute("data-type") || "";
+      const cardLocation = card.getAttribute("data-location") || "";
+      const locationMatches = cardLocation.split(',').includes(selectedLocation);
+
+      const typeMatch = selectedType === "all" || cardType === selectedType;
+      const locationMatch = selectedLocation === "all" || locationMatches;
+
+      card.style.display = typeMatch && locationMatch ? "block" : "none";
+    });
+  }
+
+  typeFilter.addEventListener("change", applyFilters);
+  locationFilter.addEventListener("change", applyFilters);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const typeFilter = document.getElementById("filter-type-{{ ai_gen_id }}");
+  const locationFilter = document.getElementById("filter-location-{{ ai_gen_id }}");
+  const cards = document.querySelectorAll(".ai-face-treatment-card-{{ ai_gen_id }}");
+
+  const contactMap = {
+  "tribeca": {
+    label: "Tribeca Spa",
+    phone: "2121234567"
+  },
+  "upper-east-side": {
+    label: "Upper East Side Spa",
+    phone: "2129876543"
+  }
+};
+
+
+  function updateContactInfo(selectedLocation) {
+    const contactElements = document.querySelectorAll(".ai-face-treatment-contact-{{ ai_gen_id }}");
+
+    contactElements.forEach(el => {
+      const treatmentLocs = el.dataset.treatmentLocations.split(",").map(l => l.trim());
+      el.innerHTML = ""; // Clear previous
+
+      if (selectedLocation === "all") {
+        for (const loc in contactMap) {
+          if (treatmentLocs.includes(loc)) {
+            el.innerHTML += `<a href="tel:${contactMap[loc].phone}">📞 ${contactMap[loc].label}</a><br>`;
+          }
+        }
+      } else {
+        if (treatmentLocs.includes(selectedLocation)) {
+          const contact = contactMap[selectedLocation];
+          el.innerHTML = `<a href="tel:${contact.phone}">📞 ${contact.label}</a>`;
+        }
+      }
+    });
+  }
+
+  function applyFilters() {
+    const selectedType = typeFilter.value;
+    const selectedLocation = locationFilter.value;
+
+    cards.forEach(card => {
+      const cardType = card.getAttribute("data-type") || "";
+      const cardLocation = card.getAttribute("data-location") || "";
+      const locationMatches = cardLocation.split(',').includes(selectedLocation);
+
+      const typeMatch = selectedType === "all" || cardType === selectedType;
+      const locationMatch = selectedLocation === "all" || locationMatches;
+
+      card.style.display = typeMatch && locationMatch ? "block" : "none";
+    });
+
+    updateContactInfo(selectedLocation); // 📞 Inject phone info
+  }
+
+  typeFilter.addEventListener("change", applyFilters);
+  locationFilter.addEventListener("change", applyFilters);
+
+  // Initial injection
+  applyFilters();
+});
+</script>
+
+
+
+{% schema %}
+{
+  "name": "Face Treatments Display",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "card_spacing",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Card spacing",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "min": 0,
+      "max": 60,
+      "step": 4,
+      "unit": "px",
+      "label": "Section padding",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 12,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Card padding",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "min": 150,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Image height",
+      "default": 200
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "descritpion_color",
+      "label": "Descritpion color",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "details_color",
+      "label": "Time color",
+      "default": "#888888"
+    },
+    {
+      "type": "color",
+      "id": "cost_color",
+      "label": "Cost color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 14,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Title size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "descritpion_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Descritpion size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "details_size",
+      "min": 12,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Time size",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "cost_size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Cost size",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Card border radius",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Face Treatments Display"
+    }
+  ]
+}
+{% endschema %}

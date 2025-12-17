@@ -1,0 +1,343 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_ikiFAG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_AYJpFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Methodo_desktop.webp",
+            "pretext": "",
+            "title": "Biologique Recherche",
+            "subtitle": "<p>3 Step Methodology</p>",
+            "button1": "The Collection",
+            "button1_link": "shopify://collections/biologique-recherche-face-products",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "left",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_AYJpFR"
+      ],
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "pxu_image_with_text_JpjkqD": {
+      "type": "pxu-image-with-text",
+      "blocks": {
+        "heading_QXjqwf": {
+          "type": "heading",
+          "settings": {
+            "heading": "A THREE-STEP METHODOLOGY",
+            "heading_size": 40,
+            "heading_size_mobile": 24
+          }
+        },
+        "text_AdGncc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Biologique Recherche methodology is based on forty years of experience and is based on unique and personalized care protocols according to each person's Skin Moment. Suitable for both men and women, face, body and scalp treatments take place in three fundamental phases:</p>",
+            "text_size": 16,
+            "text_size_mobile": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading_QXjqwf",
+        "text_AdGncc"
+      ],
+      "name": "t:pxu_sections.sections.image_with_text.name",
+      "settings": {
+        "image": "shopify://shop_images/3faze.png",
+        "image_height": "adapt",
+        "desktop_image_width": "50",
+        "desktop_image_placement": "row",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_image_placement": "column",
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "",
+        "padding_top": 6,
+        "padding_bottom": 6,
+        "margin_top": 24,
+        "margin_bottom": 24
+      }
+    },
+    "psb_navigation_navigation_01_3UPaEL": {
+      "type": "psb-navigation-navigation-01",
+      "blocks": {
+        "item_kYBiwP": {
+          "type": "item",
+          "settings": {
+            "title": "Cleansers",
+            "url": "shopify://collections/biologique-recherche-cleansers"
+          }
+        },
+        "item_ttHqQ3": {
+          "type": "item",
+          "settings": {
+            "title": "Lotions",
+            "url": "shopify://collections/biologique-recherche-p50-lotions"
+          }
+        },
+        "item_773Ar4": {
+          "type": "item",
+          "settings": {
+            "title": "Serums",
+            "url": "shopify://collections/biologique-recherche-serums"
+          }
+        },
+        "item_NR4eQG": {
+          "type": "item",
+          "settings": {
+            "title": "Creams",
+            "url": "shopify://collections/biologique-recherche-creams"
+          }
+        },
+        "item_RJJkHQ": {
+          "type": "item",
+          "settings": {
+            "title": "Masks",
+            "url": "shopify://collections/biologique-recherche-masks"
+          }
+        },
+        "item_mJzEQJ": {
+          "type": "item",
+          "settings": {
+            "title": "Finishing Serums",
+            "url": "shopify://collections/biologique-recherche-finishing-serums"
+          }
+        }
+      },
+      "block_order": [
+        "item_kYBiwP",
+        "item_ttHqQ3",
+        "item_773Ar4",
+        "item_NR4eQG",
+        "item_RJJkHQ",
+        "item_mJzEQJ"
+      ],
+      "name": "⚡︎PSB: Navigation 01",
+      "settings": {
+        "container_width": "psb-container-fluid",
+        "heading_tag": "h3",
+        "item_height": 1,
+        "enable_border": true,
+        "enable_center_mode": false,
+        "heading_color": "#020f4c",
+        "background_color": "#ecf0f3",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
+      }
+    },
+    "pxu_multicolumn_3jDHPF": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_M9hWVV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Evaluation.jpg",
+            "image_link": "shopify://products/lip-perfecting-overnight-mask-growth-factor-lip-perfecting-complex",
+            "heading": "THE EVALUATION PHASE",
+            "text": "<p>The first step in the Biologique Recherche methodology is to perform an in-depth analysis of your Skin Instant.<br/><br/>This ensures that you receive the most personalised care prescription for your skin, body and scalp at home. Our Skin Experts are at your disposal at any time to diagnose your Skin© Moment and help you create your tailor-made routine.</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_egMRMK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Initialization.jpg",
+            "image_link": "shopify://products/elixir-de-volume-lip-volumizing-serum",
+            "heading": "THE INITIALIZATION PHASE",
+            "text": "<p>The initialization phase is at the heart of Biologique Recherche's methodology.<br/><br/>During this phase, the epidermis is thoroughly cleansed, delicately exfoliated, its pH is rebalanced and the protein-lipid film is reconstituted. Impurities and dead cells are gradually brought to the surface, where they are removed. Once the gentle exfoliation is done and the mask is applied, the skin is ready to receive the products of the treatment phase.</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_nt9yQP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/deep-regenerating-lip-balm-monika-heiligmann-aida-bicaj-953455.webp",
+            "image_link": "shopify://products/deep-regenerating-lip-balm",
+            "heading": "THE Treatment PHASE",
+            "text": "<p>The treatment phase is the most active stage of the Biologique Recherche program.<br/><br/>The products used for this phase are applied to \"recondition\" the epidermis and contribute to the skin's self-regeneration while balancing, moisturizing and revitalizing the epidermis. It starts with the targeted and authentic serums, followed by the creams, before the finishing serums come to protect your skin and give you a radiant complexion.</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_M9hWVV",
+        "column_egMRMK",
+        "column_nt9yQP"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_size": 40,
+        "section_heading_size_mobile": 30,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 3,
+        "desktop_content_alignment": "left",
+        "block_heading_size": 24,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "background_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "qq_basic_text_block_rkwTay": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "textblock_bHWdcr": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Clinically proven results • natural ingredients • effective for lips with and without filler</p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "josefin_slab_n6",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 25,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "textblock_bHWdcr"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 600,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "image_text_CG9Ng3": {
+      "type": "image-text",
+      "blocks": {
+        "image_BNRWGq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Monika_Heiligmann_2_720x_f3e7e22a-e39a-4c02-984b-908dff6211f4.webp",
+            "title": "The Gold Standard in Luxury Lip Treatments",
+            "text": "<p>Our luxurious formulas have been carefully crafted with leading aesthetic doctors and biochemists in our own laboratory. Empowered by cutting-edge science, the synergy of the most potent actives and the finest natural ingredients ensure visible and lasting results.</p><p><strong>We harness the power of science to make Clean Beauty truly efficient. </strong></p><p>We are committed to only using clean sustainable materials to craft haute-couture beauty treatments respectful of health and the environment.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#2b2a2a",
+            "bg_color": "#ffffff",
+            "bg_color_gradient": ""
+          }
+        },
+        "image_QAKUJz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Deep_regenerating_lip_balm_model.webp",
+            "title": "",
+            "text": "<h4><strong>Plump, Perfect, and Define</strong></h4><p>Experience delightfully sensuous doctor-led lip treatments that enhance lip color, perfect contours, and dramatically volumize.</p><h4><strong>Soothe, Hydrate, and Protect</strong></h4><p>You can kiss goodbye to dry damaged lips. Our ultra-nourishing lip cosmetics are designed to deeply regenerate your lips. Even after fillers and injections.</p><h4><strong>Revitalize, Rejuvenate, and Reverse the Signs of Aging</strong></h4><p>Uncover potent luxurious formulations that restore fullness and reduce lines for irresistibly smooth and supple lips.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#2b2a2a",
+            "bg_color": "#ffffff",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BNRWGq",
+        "image_QAKUJz"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ikiFAG",
+    "pxu_image_with_text_JpjkqD",
+    "psb_navigation_navigation_01_3UPaEL",
+    "pxu_multicolumn_3jDHPF",
+    "qq_basic_text_block_rkwTay",
+    "image_text_CG9Ng3"
+  ]
+}

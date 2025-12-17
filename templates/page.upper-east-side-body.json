@@ -1,0 +1,98 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-multi-column-template",
+      "settings": {}
+    },
+    "86f31cfc-d6b0-4b65-88b5-69daafee0f67": {
+      "type": "image-text",
+      "blocks": {
+        "template--18414489469250__86f31cfc-d6b0-4b65-88b5-69daafee0f67-1679609747cfd6d9b8-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/bckmassage2.jpg",
+            "title": "Palper Rouler",
+            "text": "<p> It is a subdermal tissue massage that dislocates fat deposits and accelerates lipolysis (fat melting), which in turn, removes cellulite and tones and remodels the body’s silhouette.</p><p>It combines manual pinching and rolling massage techniques to break down fat cells, improve circulation in the lymphatic drainage system, and reduce the appearance of cellulite. I also add my signature touch through the application of Biologique Recherche products during the treatment.</p><p>Body-60 minutes, $525</p><p>Body and Face-90 minutes, $595</p>",
+            "button_label": "call for appointment",
+            "link": "tel:2128611007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        },
+        "68eed8e7-6d97-48a4-8d06-04537620025c": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/LymphaticDrainage.jpg",
+            "title": "Lymphatic Body Treatment",
+            "text": "<p>Targets and breaks down areas of cellulite and fat deposits which improves blood circulation, and will visibly firm and tone the skin.  The body is exfoliated with Lotion P50 corps, followed by specific slimming massage techniques, and the application of personalized serums and creams using a silicone glove.  Manual cupping and wooden therapy is also applied. Your skin will look radiant, toned, and firmer.  To achieve optimal results, this treatment is recommended once a week for the first two months.<br/> <br/>60 min -$425<br/></p>",
+            "button_label": "call for appointment",
+            "link": "tel:2128611007",
+            "text_color": "",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        },
+        "f6d99d16-3a69-4ce4-9960-d8a4d0fa96fd": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/dryPedicure.jpg",
+            "title": "Nail Treatments",
+            "text": "<p>Dry Pedicure This unique pedicure is unlike other <br/>pedicures that involve soaking feet in the water. Instead, we use lotion to soften and disinfect the skin. A set of special tools is then used to buff the feet revealing the softest skin possible.</p><p>Pedicure - $270</p><p>Manicure - $102</p><p><br/><em>Pedicures and Manicures are also offered simultaneously with your facial treatments.</em></p>",
+            "button_label": "Call for appointment",
+            "link": "tel:2128611007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18414489469250__86f31cfc-d6b0-4b65-88b5-69daafee0f67-1679609747cfd6d9b8-1",
+        "68eed8e7-6d97-48a4-8d06-04537620025c",
+        "f6d99d16-3a69-4ce4-9960-d8a4d0fa96fd"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "e4f6c5e7-53fe-4726-bef6-cbab8113ba39": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases, and more … in addition, enjoy 10% off your next purchase</p>",
+        "newsletter_section_text_align": "center",
+        "image": "shopify://shop_images/aidabicajTreatmentRoom_a4c65b18-f8f5-4078-a049-0402d8aabe09.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "86f31cfc-d6b0-4b65-88b5-69daafee0f67",
+    "e4f6c5e7-53fe-4726-bef6-cbab8113ba39"
+  ]
+}

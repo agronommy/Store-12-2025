@@ -1,0 +1,625 @@
+{%- comment -%}
+  🧰 Image collage with text section
+{%- endcomment -%}
+
+{%- liquid
+  assign image_1 = section.settings.image_1
+  assign image_2 = section.settings.image_2
+  assign mobile_image_1 = section.settings.mobile_image_1
+  assign mobile_image_2 = section.settings.mobile_image_2
+
+  assign loading = 'lazy'
+  assign fetch_priority = 'auto'
+  if section.index <= 3
+    assign loading = 'eager'
+    assign fetch_priority = 'high'
+  endif
+
+  assign background_color = section.settings.background_color
+  assign background_color_alpha = background_color | color_extract: 'alpha'
+  if background_color_alpha > 0.0
+    assign has_background_color = true
+  endif
+
+  assign desktop_image_height = section.settings.desktop_image_height
+  assign mobile_image_height = section.settings.mobile_image_height
+  assign desktop_image_height_2x = desktop_image_height | times: 2
+  assign mobile_image_height_2x = mobile_image_height | times: 2
+-%}
+
+<section
+  class="
+    pxu-section
+    pxu-image-collage-with-text
+    pxu-image-collage-with-text--{{ section.settings.layout }}
+    pxu-image-collage-with-text--desktop-image-{{ section.settings.desktop_image_placement }}
+  {% if section.settings.show_image_border %}pxu-image-collage-with-text--image-border{% endif %}
+  "
+  style="
+    --pxu-section-text-color: {{ section.settings.text_color }};
+    {% if has_background_color %}
+      --pxu-section-background-color: {{ background_color }};
+    {% endif %}
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    --pxu-section-desktop-image-placement: {{ desktop_image_placement }};
+    --pxu-section-desktop-image-height: {{ desktop_image_height }}px;
+    --pxu-section-desktop-content-position: {{ section.settings.desktop_content_position }};
+    --pxu-section-desktop-content-alignment: {{ section.settings.desktop_content_alignment }};
+
+    --pxu-section-mobile-image-placement: {{ section.settings.mobile_image_placement }};
+    --pxu-section-mobile-image-height: {{ mobile_image_height }}px;
+    --pxu-section-mobile-content-alignment: {{ section.settings.mobile_content_alignment }};
+
+    --pxu-section-placeholder-fill-color: #8d8d8d;
+    --pxu-section-placeholder-background-color: #D9D9D9;
+  "
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-image-collage-with-text",
+      "className": "ImageCollageWithTextSection",
+      "name": "Image collage-with-text",
+      "version": "1.0.0"
+    }
+  </script>
+
+  <div class="pxu-section__container pxu-image-collage-with-text__container">
+    <div class="pxu-image-collage-with-text__inner">
+      <div class="pxu-image-collage-with-text__collage-container">
+        <div class="pxu-image-collage-with-text__collage">
+          {% if image_1 or mobile_image_1 %}
+            <picture
+              class="
+                pxu-image-collage-with-text__image-1
+                {% if mobile_image_1 %}pxu-image-collage-with-text__image-1--has-mobile{% endif %}
+              "
+              style="--pxu-mobile-image-1-focal-point: {{ mobile_image_1.presentation.focal_point }}"
+            >
+              {% if mobile_image_1 %}
+                <source
+                  media="(max-width: 719px)"
+                  srcset="
+                    {{ mobile_image_1 | image_url: height: mobile_image_height_2x }} 2x,
+                    {{ mobile_image_1 | image_url: height: mobile_image_height }} 1x
+                  "
+                >
+              {% endif %}
+              {% if image_1 %}
+                <source
+                  media="(min-width: 720px)"
+                  srcset="
+                    {{ image_1 | image_url: height: desktop_image_height_2x }} 2x,
+                    {{ image_1 | image_url: height: desktop_image_height }} 1x
+                  "
+                >
+                {{ image_1 | image_url: height: desktop_image_height | image_tag: loading: loading, fetchpriority: fetch_priority }}
+              {% endif %}
+            </picture>
+          {% else %}
+            <div class="pxu-image-collage-with-text__image-1">
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'pxu-placeholder' }}
+            </div>
+          {% endif %}
+
+          {% if image_2 or mobile_image_2 %}
+            <picture
+              class="
+                pxu-image-collage-with-text__image-2
+                {% if mobile_image_2 %}pxu-image-collage-with-text__image-2--has-mobile{% endif %}
+              "
+              style="--pxu-mobile-image-2-focal-point: {{ mobile_image_2.presentation.focal_point }}"
+            >
+              {% if mobile_image_2 %}
+                <source
+                  media="(max-width: 719px)"
+                  srcset="
+                    {{ mobile_image_2 | image_url: height: mobile_image_height_2x }} 2x,
+                    {{ mobile_image_2 | image_url: height: mobile_image_height }} 1x
+                  "
+                >
+              {% endif %}
+              {% if image_2 %}
+                <source
+                  media="(min-width: 720px)"
+                  srcset="
+                    {{ image_2 | image_url: height: desktop_image_height_2x }} 2x,
+                    {{ image_2 | image_url: height: desktop_image_height }} 1x
+                  "
+                >
+                {{ image_2 | image_url: height: desktop_image_height | image_tag: loading: loading, fetchpriority: fetch_priority }}
+              {% endif %}
+            </picture>
+          {% else %}
+            <div class="pxu-image-collage-with-text__image-2">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'pxu-placeholder' }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="pxu-image-collage-with-text__content-container">
+        {%- if section.blocks.size > 0 -%}
+          {%- for block in section.blocks -%}
+            <div {{ block.shopify_attributes }}>
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  {%- assign heading = block.settings.heading -%}
+                  {%- if heading != blank -%}
+                    <h2
+                      class="
+                        {% if forloop.first %}
+                          pxu-image-collage-with-text__block--first
+                        {% endif %}
+                        pxu-image-collage-with-text__block-heading
+                        pxu-heading
+                      "
+                      style="
+                        --pxu-section-block-heading-size: {{ block.settings.heading_size }}px;
+                        --pxu-section-block-heading-size-mobile: {{ block.settings.heading_size_mobile }}px;
+                      "
+                    >
+                      {{- heading -}}
+                    </h2>
+                  {%- endif -%}
+
+                {%- when 'text' -%}
+                  {%- assign text = block.settings.text -%}
+                  {%- if text != blank -%}
+                    <div
+                      class="
+                        {% if forloop.first %}
+                          pxu-image-collage-with-text__block--first
+                        {% endif %}
+                        pxu-image-collage-with-text__block-text
+                        pxu-rte
+                      "
+                      style="
+                        --pxu-section-block-text-size: {{ block.settings.text_size }}px;
+                        --pxu-section-block-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+                      "
+                    >
+                      {{- text -}}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'button' -%}
+                  {%- assign button_label = block.settings.button_label | escape -%}
+                  {%- if button_label != blank -%}
+                    {%- liquid
+                      assign button_url = block.settings.button_url
+                      assign button_style = block.settings.button_style
+                      assign button_text_color = block.settings.button_text_color
+                      assign button_background_color = block.settings.button_background_color
+
+                      assign button_brightness = button_background_color | color_brightness
+                      assign button_brightness_mod = 'light-on-dark'
+                      if button_brightness > 127.5
+                        assign button_brightness_mod = 'dark-on-light'
+                      endif
+                    -%}
+                    <div
+                      class="
+                        {% if forloop.first %}
+                          pxu-image-collage-with-text__block--first
+                        {% endif %}
+                        pxu-image-collage-with-text__block-button
+                      "
+                    >
+                      <a
+                          class="
+                            pxu-btn
+                            pxu-btn--{{ button_style }}
+                            pxu-btn--{{ button_brightness_mod }}
+                          "
+                          style="
+                            --pxu-btn-background-color: {{ button_background_color }};
+                            --pxu-btn-text-color: {{ button_text_color }};
+                          "
+                          href="{{ button_url }}"
+                        >
+                          {{- button_label -}}
+                        </a>
+                    </div>
+                  {%- endif -%}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-image-collage-with-text{background-color:var(--pxu-section-background-color,transparent);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75);text-align:var(--pxu-section-content-alignment)}@media only screen and (min-width:480px){.pxu-image-collage-with-text{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-image-collage-with-text__inner{display:flex;flex-direction:var(--pxu-section-mobile-image-placement)}@media only screen and (min-width:860px){.pxu-image-collage-with-text__inner{align-items:var(--pxu-section-desktop-content-position)}.pxu-image-collage-with-text__collage-container{width:50%}}.pxu-image-collage-with-text__collage{--pxu-overlap:72px;display:flex;height:var(--pxu-section-mobile-image-height);position:relative}@media only screen and (min-width:860px){.pxu-image-collage-with-text__collage{--pxu-overlap:112px;height:var(--pxu-section-desktop-image-height)}}.pxu-image-collage-with-text__image-1,.pxu-image-collage-with-text__image-2{font-size:0;line-height:0}.pxu-image-collage-with-text__image-1 img,.pxu-image-collage-with-text__image-1 svg,.pxu-image-collage-with-text__image-2 img,.pxu-image-collage-with-text__image-2 svg{border-radius:var(--pxu-section-corner-radius);height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.pxu-image-collage-with-text__image-1{height:calc(100% - var(--pxu-space-6)*2);position:absolute;right:0;top:50%;transform:translateY(-50%);width:calc(35% + var(--pxu-overlap));z-index:1}@media only screen and (min-width:860px){.pxu-image-collage-with-text__image-1{height:calc(100% - var(--pxu-space-14)*2)}}@media only screen and (max-width:859px){.pxu-image-collage-with-text__image-1--has-mobile img{-o-object-position:var(--pxu-mobile-image-1-focal-point)!important;object-position:var(--pxu-mobile-image-1-focal-point)!important}}.pxu-image-collage-with-text__image-2{width:65%}@media only screen and (max-width:859px){.pxu-image-collage-with-text__image-2--has-mobile img{-o-object-position:var(--pxu-mobile-image-2-focal-point)!important;object-position:var(--pxu-mobile-image-2-focal-point)!important}}.pxu-image-collage-with-text__content-container{padding:var(--pxu-space-8) var(--pxu-space-4);text-align:var(--pxu-section-mobile-content-alignment)}@media only screen and (min-width:860px){.pxu-image-collage-with-text__content-container{display:flex;flex-direction:column;justify-content:var(--pxu-section-desktop-content-position);padding:var(--pxu-space-14);text-align:var(--pxu-section-desktop-content-alignment);width:50%}}.pxu-image-collage-with-text__block-heading{color:var(--pxu-section-text-color);font-size:var(--pxu-section-block-heading-size-mobile);margin:var(--pxu-space-5) 0 0}.pxu-image-collage-with-text__block-heading.pxu-image-collage-with-text__block--first{margin:0}@media only screen and (min-width:860px){.pxu-image-collage-with-text__block-heading{font-size:var(--pxu-section-block-heading-size)}}.pxu-image-collage-with-text__block-text{font-size:var(--pxu-section-block-text-size-mobile);margin:var(--pxu-space-5) 0 0}.pxu-image-collage-with-text__block-text.pxu-image-collage-with-text__block--first{margin:0}@media only screen and (min-width:860px){.pxu-image-collage-with-text__block-text{font-size:var(--pxu-section-block-text-size)}}.pxu-image-collage-with-text__block-button{margin:var(--pxu-space-8) 0 0}.pxu-image-collage-with-text__block-button.pxu-image-collage-with-text__block--first{margin:0}.pxu-image-collage-with-text--image-border .pxu-image-collage-with-text__image-1{border:10px solid var(--pxu-section-background-color,#fff)}@media only screen and (max-width:859px){.pxu-image-collage-with-text--image-border .pxu-image-collage-with-text__image-1{border-right:none}}@media only screen and (min-width:860px){.pxu-image-collage-with-text--desktop-image-first .pxu-image-collage-with-text__inner{flex-direction:row}.pxu-image-collage-with-text--desktop-image-second .pxu-image-collage-with-text__inner{flex-direction:row-reverse}.pxu-image-collage-with-text--desktop-image-second .pxu-image-collage-with-text__collage{justify-content:flex-end}.pxu-image-collage-with-text--desktop-image-second .pxu-image-collage-with-text__image-1{left:0;right:auto}}.pxu-image-collage-with-text--offset .pxu-image-collage-with-text__collage{margin-bottom:var(--pxu-space-6)}@media only screen and (min-width:860px){.pxu-image-collage-with-text--offset .pxu-image-collage-with-text__collage{margin-bottom:var(--pxu-space-14)}}.pxu-image-collage-with-text--offset .pxu-image-collage-with-text__image-1{border-bottom:none;bottom:auto;height:100%;top:var(--pxu-space-14);transform:none;width:calc(50% + var(--pxu-overlap)/2)}@media only screen and (max-width:859px){.pxu-image-collage-with-text--offset .pxu-image-collage-with-text__image-1{top:var(--pxu-space-6)}}.pxu-image-collage-with-text--offset .pxu-image-collage-with-text__image-2{width:calc(50% + var(--pxu-overlap)/2)}</style>
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.image_collage_with_text.name",
+  "class": "pxu-image-collage-with-text-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "t:pxu_sections.common.image.image_1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "t:pxu_sections.common.image.image_2"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_height",
+      "label": "t:pxu_sections.common.image.desktop_image_height",
+      "options": [
+        {
+          "value": "350",
+          "label": "t:pxu_sections.common.image.small"
+        },
+        {
+          "value": "500",
+          "label": "t:pxu_sections.common.image.medium"
+        },
+        {
+          "value": "650",
+          "label": "t:pxu_sections.common.image.large"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_placement",
+      "label": "t:pxu_sections.common.image.desktop_image_placement",
+      "options": [
+        {
+          "value": "first",
+          "label": "t:pxu_sections.common.image.image_first"
+        },
+        {
+          "value": "second",
+          "label": "t:pxu_sections.common.image.image_second"
+        }
+      ],
+      "default": "first"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "t:pxu_sections.common.layout.layout",
+      "options": [
+        {
+          "value": "overlap",
+          "label": "t:pxu_sections.common.layout.overlap"
+        },
+        {
+          "value": "offset",
+          "label": "t:pxu_sections.common.layout.offset"
+        }
+      ],
+      "default": "overlap"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image_border",
+      "label": "t:pxu_sections.sections.image_collage_with_text.show_image_border",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "label": "t:pxu_sections.common.layout.desktop_content_position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:pxu_sections.common.layout.top"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.middle"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:pxu_sections.common.layout.bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "label": "t:pxu_sections.common.layout.desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image_1",
+      "label": "t:pxu_sections.common.image.mobile_image_1"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image_2",
+      "label": "t:pxu_sections.common.image.mobile_image_2"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_height",
+      "label": "t:pxu_sections.common.image.mobile_image_height",
+      "options": [
+        {
+          "value": "250",
+          "label": "t:pxu_sections.common.image.small"
+        },
+        {
+          "value": "350",
+          "label": "t:pxu_sections.common.image.medium"
+        },
+        {
+          "value": "400",
+          "label": "t:pxu_sections.common.image.large"
+        }
+      ],
+      "default": "350"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_placement",
+      "label": "t:pxu_sections.common.image.mobile_image_placement",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:pxu_sections.common.image.image_first"
+        },
+        {
+          "value": "column-reverse",
+          "label": "t:pxu_sections.common.image.image_second"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "label": "t:pxu_sections.common.layout.mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:pxu_sections.common.heading.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.sections.image_collage_with_text.blocks.heading.default"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size_mobile",
+          "default": 32
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:pxu_sections.common.text.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.content",
+          "default": "t:pxu_sections.sections.image_collage_with_text.blocks.text.default"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:pxu_sections.common.button.button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "info": "t:pxu_sections.common.button.background_color_info",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.image_collage_with_text.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

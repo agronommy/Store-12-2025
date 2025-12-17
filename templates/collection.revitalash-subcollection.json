@@ -1,0 +1,127 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "818312d3-48df-46d2-b443-dddaab7bc899": {
+      "type": "collection-list",
+      "blocks": {
+        "template--21521982161218__818312d3-48df-46d2-b443-dddaab7bc899-collection-1": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "revitalash-lash-brow-collection",
+            "custom_title": "Lash & Brow"
+          }
+        },
+        "template--21521982161218__818312d3-48df-46d2-b443-dddaab7bc899-collection-2": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "revitalash-hair-collection",
+            "custom_title": "Hair"
+          }
+        }
+      },
+      "block_order": [
+        "template--21521982161218__818312d3-48df-46d2-b443-dddaab7bc899-collection-1",
+        "template--21521982161218__818312d3-48df-46d2-b443-dddaab7bc899-collection-2"
+      ],
+      "custom_css": [
+        ".image-element__wrap {border-radius: 50%; border: 2px solid #cebaaf;}"
+      ],
+      "settings": {
+        "title": "Revitalash Cosmetics collections",
+        "align_height": true,
+        "collection_height": 150,
+        "frontpage_collections_per_row": 2,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "f6738d81-fa30-452e-abe0-b9e20ff308a3": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Category",
+            "filter_tags": "Face products, Body Products, Hand Products, Eye Contour, Hair Products, Home",
+            "enable_filter_swatches": false
+          }
+        },
+        "47d3bce9-d8c5-4e8a-b513-0a9629fac4fd": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Type",
+            "filter_tags": "Cleansers, Lotions, Toners, Gels, Masks, Serums, Creams, Oils, Sun Care, Perfumes, Tools, Devices, Candles, Diffusers",
+            "enable_filter_swatches": false
+          }
+        },
+        "c8107eb1-ce8d-44a9-8f10-d538d0325cd1": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Brand",
+            "filter_tags": "Biologique Recherche, Valmont, Future, MBR, Environ, Institut Esthederm, Forlled, Emmanuel, Leonor Greyl, Vie De Mer, NuFace, Cosmetics 27, Mineral Air, La Fervance, Trudon, Osea, Omni Hiraya, Nescens",
+            "enable_filter_swatches": false
+          }
+        },
+        "7a33e107-c0fe-41a1-ba9e-9715c2df88fb": {
+          "type": "faceted_filtering",
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "f6738d81-fa30-452e-abe0-b9e20ff308a3",
+        "47d3bce9-d8c5-4e8a-b513-0a9629fac4fd",
+        "c8107eb1-ce8d-44a9-8f10-d538d0325cd1",
+        "7a33e107-c0fe-41a1-ba9e-9715c2df88fb"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "caption_content_background": "original",
+        "display_collection_title": false,
+        "collection_breadcrumb": false,
+        "collection_tags": false,
+        "collection_sort": true,
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "toggle": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …, and 10% off your next order</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "818312d3-48df-46d2-b443-dddaab7bc899",
+    "main",
+    "newsletter"
+  ]
+}

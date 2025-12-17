@@ -1,0 +1,579 @@
+{% comment %}
+[[ QQ - Custom Liquid ]] [[ Section for Shopify Websites to display Custom Liquid Code ]]
+Author: qwiqode.com
+Created: 01.01.2022 Version: 1.12
+Company website: qwiqode.com
+Email: hello@qwiqode.com
+* (c) Copyright by Studio Umbrella Inc. /
+{% endcomment %}
+  {% liquid
+  assign sectionClass = section.settings.section_class
+  assign contentMaxWidth = section.settings.content_max_width
+  assign sectionBackgroundColor = section.settings.section_background_color
+  assign sectionWidth = section.settings.section_width
+  assign sectionMarginTop = section.settings.section_margin_top
+	assign sectionMarginTopMobile = section.settings.section_margin_top_mobile
+	assign sectionMarginBottom = section.settings.section_margin_bottom
+	assign sectionMarginBottomMobile = section.settings.section_margin_bottom_mobile
+  assign sectionPaddingTop = section.settings.section_padding_top
+	assign sectionPaddingTopMobile = section.settings.section_padding_top_mobile
+  assign sectionPaddingBottom = section.settings.section_padding_bottom
+	assign sectionPaddingBottomMobile = section.settings.section_padding_bottom_mobile
+  assign title = section.settings.title
+  assign titleType = section.settings.title_type
+  assign titleColor = section.settings.title_color
+  assign titleCustomFont = section.settings.title_custom_font
+  assign titleFont = section.settings.title_font
+  assign titleFontName = section.settings.title_font_name
+  assign titleFontWeight = section.settings.title_font_weight
+  assign titleFontSize = section.settings.title_font_size
+  assign titleFontSizeMobile = section.settings.title_font_size_mobile
+  assign titleLineHeight = section.settings.title_line_height
+  assign titleLineHeightMobile = section.settings.title_line_height_mobile
+  assign titleLetterSpacing = section.settings.title_letter_spacing
+  assign subtitle = section.settings.subtitle
+  assign subtitleType = section.settings.subtitle_type
+  assign subtitleColor = section.settings.subtitle_color
+  assign subtitleCustomFont = section.settings.subtitle_custom_font
+  assign subtitleFont = section.settings.subtitle_font
+   assign subtitleFontName = section.settings.subtitle_font_name
+  assign subtitleFontWeight = section.settings.subtitle_font_weight
+  assign subtitleFontSize = section.settings.subtitle_font_size
+  assign subtitleFontSizeMobile = section.settings.subtitle_font_size_mobile
+  assign subtitleLineHeight = section.settings.subtitle_line_height
+  assign subtitleLineHeightMobile = section.settings.subtitle_line_height_mobile
+  assign subtitleLetterSpacing = section.settings.subtitle_letter_spacing
+  assign textAlignment = section.settings.text_alignment
+  assign liquidCode = section.settings.liquid
+%}
+<div class="qq-section-wrap-{{sectionWidth}} {{sectionClass}}">
+  {%- if subtitle != blank or title != blank -%}
+    <div class="qq-section-header">
+      {% if subtitle != blank %}
+        <{{subtitleType}} class="qq-subtitle">{{subtitle}}</{{subtitleType}}>
+      {% endif %}
+      {% if title != blank %}
+        <{{titleType}} class="qq-title">{{title}}</{{titleType}}>
+      {% endif %}
+    </div>
+  {%- endif -%}
+    <div class="qq-custom-liquid">
+      {% if liquidCode != blank %}
+        {{liquidCode}}
+      {% else %}
+        <h4 class="qq-instructions" style="text-align:{{textAlignment}};">Enter your custom liquid code</h4>
+      {% endif %}
+    </div>
+</div>
+<style data='../CustomLiquid.css.liquid'>section.qq-custom-liquid-section>div{width:100%}@media only screen and (min-width:769px){section.qq-custom-liquid-section>div .qq-section-header,section.qq-custom-liquid-section>div h4.qq-instructions{padding:0 30px}}@media only screen and (max-width:768px){section.qq-custom-liquid-section>div .qq-section-header,section.qq-custom-liquid-section>div h4.qq-instructions{padding:0 20px}}section.qq-custom-liquid-section>div .qq-custom-liquid{width:100%}</style>
+{% assign sectionID = 'shopify-section-' | append: section.id %}
+<style data='../CustomLiquid-inline-css.min.css.liquid'>{% if titleCustomFont %} {{titleFont | font_face: font_display: 'swap' | strip_newlines }} {% endif %} {% if subtitleCustomFont %} {{subtitleFont | font_face: font_display: 'swap' | strip_newlines }} {% endif %} #{{sectionID}}, #{{sectionID}} > div { margin-left:auto; margin-right:auto; } #{{sectionID}} .qq-section-header * { text-transform:none; } {% if sectionWidth == 'fullwidth' %} #{{sectionID}} { width: 100vw !important; position: relative !important; height: auto !important; background: {{sectionBackgroundColor}}; } html:not([dir="rtl"]) #{{sectionID}} { margin-left: -50vw !important; left: 50% !important; } html[dir="rtl"] #{{sectionID}} { margin-right: -50vw !important; right: 50% !important; } #{{sectionID}} > div { max-width:{{contentMaxWidth}}px; } {% else %} #{{sectionID}} { max-width:{{contentMaxWidth}}px; } {% endif %} #{{sectionID}} { {% if sectionBackgroundColor contains '#' %}background-color:{{sectionBackgroundColor}};{%endif%} } #{{sectionID}} > div { margin: 0 auto; } #{{sectionID}} .qq-section-header { text-align:{{textAlignment}}; } #{{sectionID}} {{subtitleType}}.qq-subtitle { {% if subtitleCustomFont %} {% if subtitleFontName != blank %} font-family: {{subtitleFontName}}; {% else %} font-family:{{subtitleFont.family}}, {{subtitleFont.fallback_families}} !important; {% endif %} {% endif %} {% if subtitleFontWeight != "default" %}font-weight:{{subtitleFontWeight}} !important;{%endif%} {% if subtitleLetterSpacing != 0 %}letter-spacing:{{subtitleLetterSpacing}}px !important;{% endif %} {% if subtitleColor contains '#' %}color:{{subtitleColor}};{%endif%} } #{{sectionID}} {{titleType}}.qq-title { {% if titleCustomFont %} {% if titleFontName != blank %} font-family: {{titleFontName}}; {% else %} font-family:{{titleFont.family}}, {{titleFont.fallback_families}} !important; {% endif %} {% endif %} {% if titleFontWeight != "default" %}font-weight:{{titleFontWeight}} !important;{%endif%} {% if titleLetterSpacing != 0 %}letter-spacing:{{titleLetterSpacing}}px !important;{% endif %} {% if titleColor contains '#' %}color:{{titleColor}};{%endif%} } @media only screen and (min-width: 769px) { #{{sectionID}} { margin-top:{{sectionMarginTop}}px; margin-bottom:{{sectionMarginBottom}}px; padding-top:{{sectionPaddingTop}}px; padding-bottom:{{sectionPaddingBottom}}px; } #{{sectionID}} {{subtitleType}}.qq-subtitle { {% if subtitleLineHeight != 0 %}line-height:{{subtitleLineHeight}}px;{% endif %} {% if subtitleFontSize != 0 %}font-size:{{subtitleFontSize}}px;{% endif %} } #{{sectionID}} {{titleType}}.qq-title { {% if titleLineHeight != 0 %}line-height:{{titleLineHeight}}px;{% endif %} {% if titleFontSize != 0 %}font-size:{{titleFontSize}}px;{% endif %} } } @media only screen and (max-width: 768px) { #{{sectionID}} { margin-top:{{sectionMarginTopMobile}}px; margin-bottom:{{sectionMarginBottomMobile}}px; padding-top:{{sectionPaddingTopMobile}}px; padding-bottom:{{sectionPaddingBottomMobile}}px; } #{{sectionID}} {{subtitleType}}.qq-subtitle { {% if subtitleLineHeightMobile != 0 %}line-height:{{subtitleLineHeightMobile}}px;{% endif %} {% if subtitleFontSizeMobile != 0 %}font-size:{{subtitleFontSizeMobile}}px;{% endif %} } #{{sectionID}} {{titleType}}.qq-title { {% if titleLineHeightMobile != 0 %}line-height:{{titleLineHeightMobile}}px;{% endif %} {% if titleFontSizeMobile != 0 %}font-size:{{titleFontSizeMobile}}px;{% endif %} } }</style>
+{% schema %}
+{
+  "name": "QQ - Custom Liquid",
+  "tag": "section",
+  "class": "qq-custom-liquid-section",
+  "settings": [
+      {
+        "type": "paragraph",
+        "content": "Please enjoy this free section from [qwiqode](https://qwiqode.com)! This is just a sneak peak at the level of quality that our sections provide. Check out our [continuously growing collection](https://qwiqode.com/shopify-sections)."
+      },
+     {
+        "type": "text",
+        "id": "section_class",
+        "label": "Section Class",
+        "info": "Add section class (without .). Use spaces to add multiple classes"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Section Subtitle (Optional)",
+      "default": "Section Subtitle"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_type",
+      "options": [
+          {
+          "value": "h1",
+          "label": "H1"
+          },
+          {
+          "value": "h2",
+          "label": "H2"
+          },
+          {
+          "value": "h3",
+          "label": "H3"
+          },
+          {
+          "value": "h4",
+          "label": "H4"
+          },
+          {
+          "value": "h5",
+          "label": "H5"
+          },
+          {
+          "value": "h6",
+          "label": "H6"
+          }
+      ],
+      "default": "h3",
+      "label": "HTML Element",
+      "info": "For better SEO"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title (Optional)",
+      "default": "Section Title"
+    },
+    {
+      "type": "select",
+      "id": "title_type",
+      "options": [
+          {
+          "value": "h1",
+          "label": "H1"
+          },
+          {
+          "value": "h2",
+          "label": "H2"
+          },
+          {
+          "value": "h3",
+          "label": "H3"
+          },
+          {
+          "value": "h4",
+          "label": "H4"
+          },
+          {
+          "value": "h5",
+          "label": "H5"
+          },
+          {
+          "value": "h6",
+          "label": "H6"
+          }
+      ],
+      "default": "h2",
+      "label": "HTML Element",
+      "info": "For better SEO"
+    },
+    {
+      "type": "header",
+      "content": "Section Styling"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Section Background Color"
+    },
+    {
+			"type": "select",
+			"id": "section_width",
+			"options": [
+				{
+					"value": "regular",
+					"label": "Regular"
+				},
+				{
+					"value": "fullwidth",
+					"label": "Fullwidth"
+				}
+			],
+			"default": "regular",
+			"label": "Section Width"
+		},
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 500,
+      "max": 1500,
+      "step": 20,
+      "unit": "px",
+      "label": "Content Max Width",
+      "default": 1280
+    },
+    {
+			"type": "range",
+			"id": "section_margin_top",
+			"min": 0,
+			"max": 200,
+			"step": 2,
+			"unit": "px",
+			"label": "Top Margin",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_margin_bottom",
+			"min": 0,
+			"max": 200,
+			"step": 2,
+			"unit": "px",
+			"label": "Bottom Margin",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_padding_top",
+			"min": 0,
+			"max": 100,
+			"step": 5,
+			"unit": "px",
+			"label": "Section Top Padding",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_padding_bottom",
+			"min": 0,
+			"max": 100,
+			"step": 5,
+			"unit": "px",
+			"label": "Section Bottom Padding",
+			"default": 20
+		},
+    {
+      "type": "header",
+      "content": "Section Styling - Mobile"
+    },
+    {
+			"type": "range",
+			"id": "section_margin_top_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 5,
+			"unit": "px",
+			"label": "Mobile - Top Margin",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_margin_bottom_mobile",
+			"min": 0,
+			"max": 200,
+			"step": 2,
+			"unit": "px",
+			"label": "Mobile - Bottom Margin",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_padding_top_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 5,
+			"unit": "px",
+			"label": "Mobile - Section Top Padding",
+			"default": 20
+		},
+    {
+			"type": "range",
+			"id": "section_padding_bottom_mobile",
+			"min": 0,
+			"max": 100,
+			"step": 5,
+			"unit": "px",
+			"label": "Mobile - Section Bottom Padding",
+			"default": 20
+		},
+    {
+      "type": "header",
+      "content": "Subtitle Styling"
+    },
+    {
+      "type": "checkbox",
+      "id": "subtitle_custom_font",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "subtitle_font",
+      "label": "Subtitle Font",
+      "default": "mono"
+    },
+    {
+      "type": "text",
+      "id": "subtitle_font_name",
+      "label": "Custom Font Family Name",
+      "info": "Add your custom font. Example: ‘Helvetica’, sans-serif."
+    },
+    {
+      "type": "select",
+      "id": "subtitle_font_weight",
+      "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "100",
+        "label": "100"
+      },
+      {
+        "value": "200",
+        "label": "200"
+      },
+      {
+        "value": "300",
+        "label": "300"
+      },
+      {
+        "value": "400",
+        "label": "400 (Regular)"
+      },
+      {
+        "value": "500",
+        "label": "500"
+      },
+      {
+        "value": "600",
+        "label": "600"
+      },
+      {
+        "value": "700",
+        "label": "700 (Bold)"
+      },
+      {
+        "value": "800",
+        "label": "800"
+      },
+      {
+        "value": "900",
+        "label": "900"
+      }
+      ],
+      "default": "default",
+      "label": "Font Weight"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Font Size",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "subtitle_line_height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Line Height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "subtitle_letter_spacing",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Subtitle Letter Spacing",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Subtitle Styling - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile - Subtitle Font Size",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "subtitle_line_height_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile - Subtitle Line Height",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Title Styling"
+    },
+    {
+      "type": "checkbox",
+      "id": "title_custom_font",
+      "label": "Use Custom Font",
+      "default": false
+    },
+    {
+      "type": "font_picker",
+      "id": "title_font",
+      "label": "Title Font",
+      "default": "mono"
+    },
+    {
+      "type": "text",
+      "id": "title_font_name",
+      "label": "Custom Font Family Name",
+      "info": "Add your custom font. Example: ‘Helvetica’, sans-serif."
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "options": [
+      {
+        "value": "default",
+        "label": "Default"
+      },
+      {
+        "value": "100",
+        "label": "100"
+      },
+      {
+        "value": "200",
+        "label": "200"
+      },
+      {
+        "value": "300",
+        "label": "300"
+      },
+      {
+        "value": "400",
+        "label": "400 (Regular)"
+      },
+      {
+        "value": "500",
+        "label": "500"
+      },
+      {
+        "value": "600",
+        "label": "600"
+      },
+      {
+        "value": "700",
+        "label": "700 (Bold)"
+      },
+      {
+        "value": "800",
+        "label": "800"
+      },
+      {
+        "value": "900",
+        "label": "900"
+      }
+      ],
+      "default": "default",
+      "label": "Font Weight"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Font Size",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "title_line_height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Line Height",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "label": "Title Letter Spacing",
+      "default": 0
+    },
+    {
+			"type": "select",
+			"id": "text_alignment",
+			"options": [
+				{
+					"value": "left",
+					"label": "Left"
+				},
+				{
+					"value": "center",
+					"label": "Center"
+				},
+				{
+					"value": "right",
+					"label": "Right"
+				}
+			],
+			"default": "center",
+			"label": "Text Alignment"
+		},
+    {
+      "type": "header",
+      "content": "Title Styling - Mobile"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile - Title Font Size",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "title_line_height_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile - Title Line Height",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Liquid"
+    },
+    {
+      "type": "liquid",
+      "id": "liquid",
+      "label": "Liquid Code"
+    }
+  ],
+  "presets": [
+    {
+      "name": "QQ - Custom Liquid",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

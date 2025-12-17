@@ -1,0 +1,144 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "4c31287f-6bd3-443e-91ee-95d6dbe1d991": {
+      "type": "image-text",
+      "blocks": {
+        "template--21728945701186__4c31287f-6bd3-443e-91ee-95d6dbe1d991-image-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/AidaSpa1_7236a531-7612-41c3-8d7a-09d7bb81f830.jpg",
+            "title": "Upper East Side spa",
+            "text": "<p><a href=\"https://www.google.com/search?sca_esv=588490409&q=aida+bicaj+skin+care+nyc+new+york+address&ludocid=17348404520137727556&sa=X&ved=2ahUKEwjx0qP14fuCAxVLXvEDHfWECBkQ6BN6BAgkEAI\"><strong>Address</strong></a><strong>: </strong>30 E 67th St 5th floor, New York, NY 10065, United States</p><p><strong>Email</strong>: <a href=\"mailto:ues@aidabicaj.com\" title=\"mailto:ues@aidabicaj.com\">ues@aidabicaj.com</a></p><p><strong>Phone:</strong><a href=\"tel:2128611007\" title=\"tel:2128611007\"> 212-861-1007</a></p>",
+            "button_label": "Location",
+            "link": "https://maps.app.goo.gl/sMEZ2XqfAusNszds6",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        },
+        "template--21728945701186__4c31287f-6bd3-443e-91ee-95d6dbe1d991-image-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/tribeca.webp",
+            "title": "Tribeca Spa Location",
+            "text": "<p><a href=\"tel: 917-472-7743\" title=\"tel: 917-472-7743\"><strong>Address</strong></a><strong>: </strong>64 N Moore St, New York, NY 10013, United States</p><p><strong>Email: </strong><a href=\"mailto:tribeca@aidabicaj.com\" title=\"mailto:tribeca@aidabicaj.com\">tribeca@aidabicaj.com</a></p><p><strong>Phone: </strong><a href=\"tel:917-472-7743\" title=\"tel:917-472-7743\">917-472-7743</a></p>",
+            "button_label": "Location Map",
+            "link": "https://maps.app.goo.gl/cnnbiYEwHxNtDtuK8",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21728945701186__4c31287f-6bd3-443e-91ee-95d6dbe1d991-image-1",
+        "template--21728945701186__4c31287f-6bd3-443e-91ee-95d6dbe1d991-image-2"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "contact-custom-template",
+      "blocks": {
+        "block-1": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Name",
+            "required": true,
+            "field_type": "text"
+          }
+        },
+        "block-2": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Email",
+            "required": true,
+            "field_type": "email"
+          }
+        },
+        "block-3": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Message",
+            "required": true,
+            "field_type": "textarea"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-2",
+        "block-3"
+      ],
+      "settings": {
+        "wide_display": true,
+        "contact_heading": "To contact us about your online orders:",
+        "subtitle": "Subheading",
+        "caption_content_background": "original",
+        "contact_subheading": "Contact Us Today!",
+        "contact_content": "<p>Customer Service: <a href=\"tel: 9294410431\" title=\"tel: 9294410431\">929-441-0431</a></p><p>Please fill in the information below and we’ll get back to you as soon as possible.</p>",
+        "contact_text_position": "center",
+        "contact_text_alignment": "left",
+        "contact_social_buttons": false
+      }
+    },
+    "map_JP8mhX": {
+      "type": "map",
+      "name": "Map",
+      "settings": {
+        "map_wide_display": true,
+        "map_address": "aida bicaj skincare",
+        "map_height": 400,
+        "zoom_level": 12,
+        "api_key": "",
+        "show_pin": false,
+        "map_style": "default",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "4c31287f-6bd3-443e-91ee-95d6dbe1d991",
+    "main",
+    "map_JP8mhX",
+    "newsletter"
+  ]
+}

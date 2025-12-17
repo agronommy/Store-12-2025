@@ -1,0 +1,68 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer_0": {
+          "type": "logo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/AIDA_BICAJ_LOGO_FINAL_070522.svg",
+            "text_align": "center",
+            "social_icons_footer": false
+          }
+        },
+        "footer_1": {
+          "type": "link_list",
+          "settings": {
+            "menu": "footer",
+            "social_icons_footer": false
+          }
+        },
+        "footer_2": {
+          "type": "link_list",
+          "settings": {
+            "menu": "aidas-picks",
+            "social_icons_footer": false
+          }
+        },
+        "footer_3": {
+          "type": "text",
+          "settings": {
+            "title": "Aida Bicaj Skin Care",
+            "content": "<p>Aida Bicaj is a renowned skincare expert and wellness specialist, known for her personalized approach and deep expertise in Biologique Recherche treatments. With decades of experience, she helps clients achieve radiant, healthy skin through customized regimens and holistic care.<br/><br/></p>",
+            "social_icons_footer": true
+          }
+        }
+      },
+      "block_order": [
+        "footer_0",
+        "footer_1",
+        "footer_2",
+        "footer_3"
+      ],
+      "settings": {
+        "copyright_text": "",
+        "display_designed_by": false,
+        "display_payment_methods": false,
+        "enable_follow_on_shop": false,
+        "show_locale_selector": false,
+        "show_currency_selector": false
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

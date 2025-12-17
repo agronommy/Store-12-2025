@@ -1,0 +1,340 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "pxu_particle_banner_VwehQy": {
+      "type": "pxu-particle-banner",
+      "name": "t:pxu_sections.sections.particle_banner.name",
+      "settings": {
+        "text_desktop": "La Luer",
+        "font": "sans_serif_n4",
+        "line_height": 0.9,
+        "text_width_desktop": 41,
+        "duration": 6,
+        "desktop_aspect_ratio": "32:9",
+        "desktop_image": "shopify://shop_images/MIRA_Detail.webp",
+        "background_link": "shopify://collections/la-luer",
+        "text_mobile": "",
+        "text_width_mobile": 80,
+        "mobile_aspect_ratio": "3:2",
+        "text_color": "#FFF",
+        "background_color": "#000",
+        "background_gradient": "",
+        "image_overlay_opacity": 39,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "qq_basic_text_block_g9UzrT": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "subtitle_dDG7Ck": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "",
+            "subtitle_color": "",
+            "subtitle_custom_font": false,
+            "subtitle_font": "mono",
+            "subtitle_font_name": "",
+            "subtitle_font_weight": "default",
+            "subtitle_margin_top": 10,
+            "subtitle_margin_bottom": 10,
+            "subtitle_font_size": 0,
+            "subtitle_line_height": 0,
+            "subtitle_letter_spacing": 0,
+            "subtitle_margin_top_mobile": 10,
+            "subtitle_margin_bottom_mobile": 10,
+            "subtitle_font_size_mobile": 0,
+            "subtitle_line_height_mobile": 0,
+            "subtitle_letter_spacing_mobile": 0
+          }
+        },
+        "title_WC9RFG": {
+          "type": "title",
+          "settings": {
+            "title": "COMBINING 6 ADVANCED DERMAL TECHNOLOGIES.",
+            "title_color": "",
+            "title_custom_font": false,
+            "title_font": "sans_serif_n4",
+            "title_font_name": "",
+            "title_font_weight": "500",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 28,
+            "title_line_height": 24,
+            "title_letter_spacing": 2,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_tNqw4A": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<h3>La Luer delivers visible results and unparalleled customization.</h3>",
+            "textblock_color": "",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        },
+        "button_7iWFqL": {
+          "type": "button",
+          "settings": {
+            "button_class": "",
+            "button_label": "SHOP LA LUER",
+            "button_link": "shopify://products/la-luer-mira-facial-treatment-system-pro",
+            "button_tab": false,
+            "button_custom_font": false,
+            "button_font": "mono",
+            "button_font_name": "",
+            "button_font_weight": "default",
+            "button_max_width": 180,
+            "button_border_width": 0,
+            "button_radius": 0,
+            "button_margin_top": 20,
+            "button_margin_bottom": 20,
+            "button_padding_horizontal": 20,
+            "button_padding_vertical": 10,
+            "button_margin_top_mobile": 20,
+            "button_margin_bottom_mobile": 20,
+            "button_font_size": 0,
+            "button_letter_spacing": 0,
+            "button_font_size_mobile": 0,
+            "button_letter_spacing_mobile": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_color_hover": "#333333",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_dDG7Ck",
+        "title_WC9RFG",
+        "textblock_tNqw4A",
+        "button_7iWFqL"
+      ],
+      "name": "QQ - Basic Text Section",
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "rgba(0,0,0,0)",
+        "content_max_width": 1280,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "psb_banner_banner_01_YAgYeP": {
+      "type": "psb-banner-banner-01",
+      "blocks": {
+        "subheading_RgWjBt": {
+          "type": "subheading",
+          "settings": {
+            "subheading_text": "THE STONE SERIES"
+          }
+        },
+        "heading_76FXFV": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "EVERY TOOL YOU NEED, ONE DEVICE.",
+            "heading_tag": "h2"
+          }
+        },
+        "text_nwYCA7": {
+          "type": "text",
+          "settings": {
+            "section_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "subheading_RgWjBt",
+        "heading_76FXFV",
+        "text_nwYCA7"
+      ],
+      "name": "⚡︎PSB: Banner 01",
+      "settings": {
+        "container_width": "psb-container",
+        "background_image": "shopify://shop_images/hero_desktop.webp",
+        "text_align": "center",
+        "inherit_fonts": false,
+        "text_color": "#ffffff",
+        "section_padding_top": 350,
+        "section_padding_bottom": 350,
+        "section_padding_top_mobile": 150,
+        "section_padding_bottom_mobile": 150
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "f6738d81-fa30-452e-abe0-b9e20ff308a3": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Category",
+            "filter_tags": "Face products, Body Products, Hand Products, Eye Contour, Hair Products, Home",
+            "enable_filter_swatches": false
+          }
+        },
+        "47d3bce9-d8c5-4e8a-b513-0a9629fac4fd": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Type",
+            "filter_tags": "Cleansers, Lotions, Toners, Gels, Masks, Serums, Creams, Oils, Sun Care, Perfumes, Tools, Devices, Candles, Diffusers",
+            "enable_filter_swatches": false
+          }
+        },
+        "c8107eb1-ce8d-44a9-8f10-d538d0325cd1": {
+          "type": "filter",
+          "disabled": true,
+          "settings": {
+            "filter_name": "Brand",
+            "filter_tags": "Biologique Recherche, Valmont, Future, MBR, Environ, Institut Esthederm, Forlled, Emmanuel, Leonor Greyl, Vie De Mer, NuFace, Cosmetics 27, Mineral Air, La Fervance, Trudon, Osea, Omni Hiraya, Nescens",
+            "enable_filter_swatches": false
+          }
+        },
+        "7a33e107-c0fe-41a1-ba9e-9715c2df88fb": {
+          "type": "faceted_filtering",
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "f6738d81-fa30-452e-abe0-b9e20ff308a3",
+        "47d3bce9-d8c5-4e8a-b513-0a9629fac4fd",
+        "c8107eb1-ce8d-44a9-8f10-d538d0325cd1",
+        "7a33e107-c0fe-41a1-ba9e-9715c2df88fb"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "caption_content_background": "original",
+        "display_collection_title": false,
+        "collection_breadcrumb": false,
+        "collection_tags": false,
+        "collection_sort": true,
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "toggle": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …, and 10% off your next order</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "slideshow_q7KQRY": {
+      "type": "slideshow",
+      "blocks": {
+        "image_RQkHWy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mirabanner.webp",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        },
+        "image_dkcJMG": {
+          "type": "image",
+          "settings": {
+            "pretext": "",
+            "title": "Your headline",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_RQkHWy",
+        "image_dkcJMG"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "pxu_particle_banner_VwehQy",
+    "qq_basic_text_block_g9UzrT",
+    "psb_banner_banner_01_YAgYeP",
+    "main",
+    "newsletter",
+    "slideshow_q7KQRY"
+  ]
+}

@@ -1,0 +1,486 @@
+{%- comment -%}
+  🧰 Menu list section
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading | strip
+  assign text_color = section.settings.text_color
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-menu-list
+    pxu-section--animated-{{ section.settings.enable_animations }}
+  "
+  style="
+    --pxu-section-heading-size: {{ section.settings.section_heading_size }}px;
+    --pxu-section-heading-size-mobile: {{ section.settings.section_heading_size_mobile }}px;
+    --pxu-section-block-heading-size: {{ section.settings.block_heading_size }}px;
+    --pxu-section-block-heading-size-mobile: {{ section.settings.block_heading_size_mobile }}px;
+    --pxu-section-block-text-size: {{ section.settings.block_text_size }}px;
+    --pxu-section-block-text-size-mobile: {{ section.settings.block_text_size_mobile }}px;
+    --pxu-section-text-color: {{ text_color }};
+    --pxu-section-link-color: {{ section.settings.link_color }};
+    --pxu-btn-text-color: {{ text_color }};
+    --pxu-section-text-color-alpha-15: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --pxu-section-text-color-alpha-65: {{ text_color | color_modify: 'alpha', 0.65 }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-placeholder-fill-color: {{ text_color | color_modify: 'alpha', 0.35 }};
+    --pxu-section-placeholder-background-color: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-content-alignment: {{ section.settings.content_alignment }};
+    --pxu-section-desktop-columns: {{ section.settings.desktop_columns }};
+    --pxu-section-mobile-columns: {{ section.settings.mobile_columns }};
+  "
+  data-pxu-menu-list
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-menu-list",
+      "className": "MenuListSection",
+      "name": "Menu list",
+      "version": "1.0.2",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}"
+    }
+  </script>
+
+  <div class="pxu-section__container pxu-menu-list__container">
+    <div class="heading-container">
+      {%- if section_heading != blank -%}
+        <h2 class="pxu-section__section-heading pxu-menu-list__section-heading">
+          {{- section_heading -}}
+        </h2>
+      {%- endif -%}
+    </div>
+    <div class="pxu-menu-list__menus pxu-menu-list--blocks-count-{{ section.blocks.size }}">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {%- when 'menu' -%}
+            {%- liquid
+              assign menu = block.settings.menu
+              assign image = block.settings.image | default: menu.image
+              assign heading = block.settings.heading | default: block.settings.menu.title | default: 'Menu' | escape
+
+              if block.settings.image
+                assign image = block.settings.image
+              elsif menu
+                for link in linklists[menu].links
+                  if link.object.image
+                    assign image = link.object.image
+                    break
+                  elsif link.object.featured_image
+                    assign image = link.object.featured_image
+                  elsif collections[link.object.handle].products.first.featured_media.preview_image
+                    assign image = collections[link.object.handle].products.first.featured_media.preview_image
+                    break
+                  endif
+                endfor
+              endif
+            -%}
+
+            <article
+              class="pxu-menu-list__menu pxu-menu-list__menu-{{ forloop.index }}"
+              {{ block.shopify_attributes }}
+              data-pxu-menu-list-block
+            >
+              <div class="pxu-menu-list__menu-wrapper" data-pxu-menu-list-menu-wrapper>
+                <figure
+                  class="pxu-menu-list__menu-image-wrapper"
+                  data-pxu-menu-list-toggle-mobile
+                  {% if image %}
+                    style="background-image: url('{{- image | image_url: width: 1024, height: 2024 -}}');"
+                  {%- endif -%}
+                >
+                  {%- unless image -%}
+                    {{- 'collection-1' | placeholder_svg_tag: 'pxu-placeholder' -}}
+                  {%- endunless -%}
+                </figure>
+                <div class="pxu-menu-list__menu-content-wrapper">
+                  <h3
+                    class="
+                      pxu-menu-list__menu-heading
+                      pxu-heading
+                    "
+                    data-pxu-menu-list-toggle-mobile
+                  >
+                    {{- heading -}}
+                    <svg
+                      class="pxu-menu-list__icon"
+                      focusable="false"
+                      role="presentation"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="8"
+                      viewBox="0 0 14 8"
+                      fill="none"
+                      data-closed
+                    >
+                      <path class="pxu-menu-list__icon--left" d="M7 6.75L12.5 1.25" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" data-pxu-chevron-left></path>
+                      <path class="pxu-menu-list__icon--right" d="M7 6.75L1.5 1.25" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" data-pxu-chevron-right></path>
+                    </svg>
+                  </h3>
+                  {% assign show_max_items = 6 %}
+                  <ul
+                    class="pxu-menu-list__list"
+                    data-pxu-menu-list-content
+                    data-hidden
+                  >
+                    {% comment %} Blank links as onboarding content {% endcomment %}
+                    {%- if menu == null -%}
+                      {% for n in (1..6) %}
+                        <li
+                          class="pxu-menu-list__list-item"
+                        >
+                          <a href="#">Link</a>
+                        </li>
+                      {% endfor %}
+                    {%- endif -%}
+                    {% for link in menu.links %}
+                      {% if forloop.index > show_max_items %}
+                        <li class="pxu-menu-list__list-item pxu-menu-list__list-item--overflow">
+                          <ul
+                            class="
+                              pxu-menu-list__list
+                              pxu-menu-list__list--overflow
+                            "
+                            data-pxu-menu-list-overflow
+                            data-hidden
+                          >
+                            {% for hidden_link in linklists[menu].links %}
+                              {% if forloop.index <= show_max_items %}
+                                {% continue %}
+                              {% endif %}
+                              <li
+                                class="pxu-menu-list__list-item"
+                              >
+                                <a href="{{ hidden_link.url }}">
+                                  {{ hidden_link.title }}
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                          <button
+                            class="pxu-menu-list__overflow-toggle"
+                            data-pxu-menu-list-toggle
+                          >
+                            <span class="pxu-menu-list__show-more">Show more</span>
+                            <span class="pxu-menu-list__show-less">Show less</span>
+                          </button>
+                        </li>
+                        {% break %}
+                      {% endif %}
+                      <li
+                        class="pxu-menu-list__list-item"
+                      >
+                        <a href="{{ link.url }}">
+                          {{ link.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+            </article>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-menu-list{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-menu-list{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-menu-list__menus{border:1px solid var(--pxu-section-text-color-alpha-15);display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}.pxu-menu-list .pxu-menu-list__overflow-toggle{background-color:transparent;border:none;color:var(--pxu-section-text-color-alpha-65);cursor:pointer;font-size:var(--pxu-section-block-text-size);margin-top:var(--pxu-space-4);padding:0;transition:color var(--pxu-transition-duration-150) var(--pxu-transition-ease)}.pxu-menu-list .pxu-menu-list__overflow-toggle:hover{color:var(--pxu-section-text-color)}.pxu-menu-list .pxu-menu-list__icon{color:var(--pxu-section-text-color);cursor:pointer;height:16px;position:absolute;right:var(--pxu-space-3);top:31px;width:16px}.pxu-menu-list .pxu-menu-list__icon,.pxu-menu-list .pxu-menu-list__icon path{transition:transform var(--pxu-transition-duration-200) var(--pxu-transition-ease-in-out-chevron)}.pxu-menu-list .pxu-menu-list__icon path{transform:rotate(0);transform-origin:50% 89%}.pxu-menu-list .pxu-menu-list__icon[data-open]{transform:translateY(-22%)}.pxu-menu-list .pxu-menu-list__icon[data-open] .pxu-menu-list__icon--left{transform:rotate(45deg)}.pxu-menu-list .pxu-menu-list__icon[data-open] .pxu-menu-list__icon--right{transform:rotate(-45deg)}@media only screen and (min-width:720px){.pxu-menu-list .pxu-menu-list__icon{display:none}}.pxu-menu-list .pxu-menu-list__list-item:not(.pxu-menu-list__list-item--overflow){margin:0;padding-bottom:0;padding-top:var(--pxu-space-0-5)}.pxu-menu-list .pxu-menu-list__list-item:not(.pxu-menu-list__list-item--overflow) a{color:var(--pxu-section-link-color);margin:0;padding:0;text-decoration:none}.pxu-menu-list .pxu-menu-list__list-item:not(.pxu-menu-list__list-item--overflow) a:hover{text-decoration:underline}.pxu-menu-list__menu{border-bottom:1px solid var(--pxu-section-text-color-alpha-15);flex-grow:0;flex-shrink:0;font-size:var(--pxu-section-block-text-size-mobile);padding:var(--pxu-space-3);position:relative;width:100%}.pxu-menu-list__menu:last-child{border-bottom:0}@media only screen and (min-width:720px){.pxu-menu-list__menu{width:50%}.pxu-menu-list__menu:nth-child(odd){border-right:1px solid var(--pxu-section-text-color-alpha-15)}}@media only screen and (min-width:860px){.pxu-menu-list__menu{font-size:var(--pxu-section-block-text-size);padding:var(--pxu-space-5);width:33.33%}.pxu-menu-list--blocks-count-1 .pxu-menu-list__menu,.pxu-menu-list--blocks-count-2 .pxu-menu-list__menu{width:50%}.pxu-menu-list--blocks-count-1 .pxu-menu-list__menu,.pxu-menu-list--blocks-count-2 .pxu-menu-list__menu,.pxu-menu-list--blocks-count-3 .pxu-menu-list__menu{border-bottom:0;border-right:1px solid var(--pxu-section-text-color-alpha-15)}.pxu-menu-list--blocks-count-1 .pxu-menu-list__menu:last-child,.pxu-menu-list--blocks-count-2 .pxu-menu-list__menu:last-child,.pxu-menu-list--blocks-count-3 .pxu-menu-list__menu:last-child{border-right:0}.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu{border-right:1px solid var(--pxu-section-text-color-alpha-15)}.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu.pxu-menu-list__menu-4,.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu.pxu-menu-list__menu-5,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu.pxu-menu-list__menu-4,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu.pxu-menu-list__menu-5{border-bottom:0;width:50%}.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu.pxu-menu-list__menu-3,.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu.pxu-menu-list__menu-5,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu.pxu-menu-list__menu-3,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu.pxu-menu-list__menu-5{border-right:0}.pxu-menu-list--blocks-count-6 .pxu-menu-list__menu{border-right:1px solid var(--pxu-section-text-color-alpha-15)}.pxu-menu-list--blocks-count-6 .pxu-menu-list__menu:nth-child(3n){border-right:0}.pxu-menu-list--blocks-count-6 .pxu-menu-list__menu:nth-child(n+4){border-bottom:0}}.pxu-menu-list__menu-wrapper{display:flex;flex-direction:row;flex-wrap:nowrap;gap:var(--pxu-space-7);justify-content:flex-start}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{background-size:cover;flex:0 0 auto;height:120px;margin-block-end:0;margin-block-start:0;margin-inline-end:0;margin-inline-start:0;position:relative;width:120px}@media only screen and (min-width:720px){.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{height:115px;width:115px}}@media only screen and (min-width:860px){.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{display:block;height:100px;width:100px}}@media only screen and (min-width:1024px){.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{height:160px;width:160px}}@media only screen and (min-width:860px){.pxu-menu-list--blocks-count-2 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu-4 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu-4 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu-5 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{height:130px;width:130px}}@media only screen and (min-width:1024px){.pxu-menu-list--blocks-count-2 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-4 .pxu-menu-list__menu-4 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu-4 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper,.pxu-menu-list--blocks-count-5 .pxu-menu-list__menu-5 .pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{height:180px;width:180px}}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper img,.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper svg{height:auto;line-height:0;width:100%}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-content-wrapper{flex:1 1 auto}.pxu-menu-list__menu-wrapper .pxu-menu-list__list{list-style:none;margin:0;padding:0}@media only screen and (max-width:719px){.pxu-menu-list__menu-wrapper .pxu-menu-list__list:not(.pxu-menu-list__list--overflow){margin-top:var(--pxu-space-3)}}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-heading.pxu-heading{font-size:var(--pxu-section-block-heading-size);margin:0;margin-bottom:var(--pxu-space-2)}@media only screen and (max-width:719px){.pxu-menu-list__menu-wrapper{align-items:flex-start;flex-direction:row-reverse}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-image-wrapper{align-self:flex-start;background-size:cover;flex:0 0 auto;height:52px;margin-right:calc(var(--pxu-space-4) + 15.75px);width:52px}.pxu-menu-list__menu-wrapper .pxu-menu-list__menu-heading.pxu-heading{font-size:var(--pxu-section-block-heading-size-mobile);margin:0;padding:var(--pxu-space-3-5) 0 var(--pxu-space-3)}}@media only screen and (min-width:720px){[data-pxu-menu-list-overflow]{overflow:hidden}[data-pxu-menu-list-overflow][data-hidden]{display:none;transition:height var(--pxu-transition-duration-300) var(--pxu-transition-ease-out)}[data-pxu-menu-list-overflow][data-hidden]~.pxu-menu-list__overflow-toggle .pxu-menu-list__show-more{display:block}[data-pxu-menu-list-overflow][data-hidden]~.pxu-menu-list__overflow-toggle .pxu-menu-list__show-less{display:none}[data-pxu-menu-list-overflow][data-animating]{display:block;height:0}[data-pxu-menu-list-overflow][data-shown]{display:block;height:var(--pxu-hidden-menu-list-height);transition:height var(--pxu-transition-duration-300) var(--pxu-transition-ease-out)}[data-pxu-menu-list-overflow][data-shown]~.pxu-menu-list__overflow-toggle .pxu-menu-list__show-more{display:none}[data-pxu-menu-list-overflow][data-shown]~.pxu-menu-list__overflow-toggle .pxu-menu-list__show-less{display:block}}@media only screen and (max-width:719px){[data-pxu-menu-list-overflow]{display:block}}[data-pxu-menu-list-toggle-mobile]{cursor:pointer}@media only screen and (min-width:720px){[data-pxu-menu-list-toggle-mobile]{pointer-events:none}}@media only screen and (max-width:719px){[data-pxu-menu-list-content]{overflow:hidden}[data-pxu-menu-list-content][data-hidden]{display:none;transition:height var(--pxu-transition-duration-300) var(--pxu-transition-ease-out)}[data-pxu-menu-list-content][data-animating]{display:block;height:0}[data-pxu-menu-list-content][data-shown]{display:block;height:var(--pxu-hidden-menu-list-height);transition:height var(--pxu-transition-duration-300) var(--pxu-transition-ease-out)}[data-pxu-menu-list-content] [data-pxu-menu-list-toggle]{display:none}}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+
+class MenuListSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.menus = this.$root.querySelectorAll('[data-pxu-menu-list-block]');
+
+    this.onMount();
+  }
+
+  // Section lifecycle
+
+  onMount() {
+    this.initEventListeners();
+  }
+
+  onUnmount() {
+    this.events.unregisterAll();
+  }
+
+  initEventListeners() {
+    this.menus.forEach(el => {
+      // Desktop accordian handling
+      const trigger = el.querySelector('[data-pxu-menu-list-toggle]');
+      if (trigger) {
+        const overflowList = el.querySelector('[data-pxu-menu-list-overflow]');
+        this.events.register(trigger, 'click', e => this.handleToggle(overflowList));
+        this.events.register(overflowList, 'transitionend', e => {
+          e.currentTarget.toggleAttribute('data-animating', false);
+        });
+      }
+
+      // Mobile accordion handling
+      const mobileTriggers = el.querySelectorAll('[data-pxu-menu-list-toggle-mobile]');
+      const list = el.querySelector('[data-pxu-menu-list-content]');
+      if (list.querySelector('li')) {
+        mobileTriggers.forEach(mobileTrigger => {
+          this.events.register(mobileTrigger, 'click', e => this.handleMobileToggle(e.currentTarget, list));
+        });
+
+        this.events.register(list, 'transitionend', e => {
+          e.currentTarget.toggleAttribute('data-animating', false);
+        });
+      }
+    });
+  }
+
+  handleToggle(overflowList) {
+    let animateTo = 'data-hidden';
+    let animateFrom = 'data-shown';
+
+    overflowList.setAttribute('data-animating', true);
+
+    if (overflowList.hasAttribute('data-hidden')) {
+      animateTo = 'data-shown';
+      animateFrom = 'data-hidden';
+
+      let height = overflowList.scrollHeight;
+      overflowList.style.setProperty('--pxu-hidden-menu-list-height', `${height}px`);
+    }
+
+    overflowList.toggleAttribute(animateTo, true);
+    overflowList.toggleAttribute(animateFrom, false);
+  }
+
+  handleMobileToggle(target, list) {
+    this.handleToggle(list);
+    const menu = target.closest('[data-pxu-menu-list-menu-wrapper]');
+    menu.querySelector('.pxu-menu-list__icon').toggleAttribute('data-closed');
+    menu.querySelector('.pxu-menu-list__icon').toggleAttribute('data-open');
+  }
+}
+
+document.querySelectorAll('[data-pxu-menu-list]').forEach(($section) => {
+  Section.init($section, MenuListSection);
+});
+
+// export class for theme editor instance management
+if (Shopify.designMode) {
+  window.PxuThemeSections.MenuListSection = MenuListSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.menu_list.name",
+  "class": "pxu-menu-list-section",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "t:pxu_sections.sections.menu_list.header"
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.typography.block_typography"
+    },
+    {
+      "type": "range",
+      "id": "block_heading_size",
+      "min": 12,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "block_heading_size_mobile",
+      "min": 12,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "block_text_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "block_text_size_mobile",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size_mobile",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "t:pxu_sections.sections.menu_list.link_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "t:pxu_sections.sections.menu_list.blocks.heading.default",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "t:pxu_sections.sections.menu_list.blocks.heading.default"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.sections.menu_list.blocks.image.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:pxu_sections.sections.menu_list.blocks.custom_heading.label"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "🧰 Menu list",
+      "blocks": [
+        {
+          "type": "menu"
+        },
+        {
+          "type": "menu"
+        },
+        {
+          "type": "menu"
+        },
+        {
+          "type": "menu"
+        },
+        {
+          "type": "menu"
+        },
+        {
+          "type": "menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

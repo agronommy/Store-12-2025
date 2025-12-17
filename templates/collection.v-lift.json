@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb_seo_HBWhra": {
+      "type": "breadcrumb-seo",
+      "settings": {
+        "custom_class": "",
+        "separator_class": "arrows",
+        "breadcrumbs_alignment": "center",
+        "text_color": "#666666",
+        "font_weight": "normal",
+        "font_case": "uppercase",
+        "font_size": 12,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "psb_banner_banner_01_7PWk6T": {
+      "type": "psb-banner-banner-01",
+      "blocks": {
+        "subheading_RJkQGa": {
+          "type": "subheading",
+          "settings": {
+            "subheading_text": "THE V-LIFT"
+          }
+        },
+        "heading_KbNcYw": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "V-Lift The comfortable alternative to retinol and medical procedures",
+            "heading_tag": "h1"
+          }
+        },
+        "text_k9eRTx": {
+          "type": "text",
+          "settings": {
+            "section_text": "<p>Cutting-edge wrinkle-defying technology and unparalleled comfort to lift your skin.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_RJkQGa",
+        "heading_KbNcYw",
+        "text_k9eRTx"
+      ],
+      "settings": {
+        "container_width": "psb-container-fluid",
+        "background_image": "shopify://shop_images/BANNER_V_LIFT_LANDING_copie.webp",
+        "text_align": "center",
+        "inherit_fonts": true,
+        "text_color": "#ffffff",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_mobile": 0,
+        "section_padding_bottom_mobile": 0
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "14228128-3397-4848-b91a-a78b051323fa": {
+          "type": "faceted_filtering",
+          "disabled": true,
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "14228128-3397-4848-b91a-a78b051323fa"
+      ],
+      "custom_css": [
+        ".product-rating {color: #e8bf67;}"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "image": "shopify://shop_images/BANNER_V_LIFT_LANDING_copie_38e2b428-e71c-43e3-8c0a-3feb0add79a3.webp",
+        "caption_content_background": "original",
+        "display_collection_title": true,
+        "collection_breadcrumb": false,
+        "collection_tags": false,
+        "collection_sort": false,
+        "products_per_row": 4,
+        "pagination_limit": 24,
+        "toggle": false,
+        "padding_top": 13,
+        "padding_bottom": 2
+      }
+    },
+    "custom_html_rwUMjR": {
+      "type": "custom-html",
+      "settings": {
+        "custom_html": "Discover the Power of Lifting and Firming\n\nThe V-Lift Collection harnesses potent active ingredients, such as DNA liposome and peptides, that penetrate deeply into the skin to promote long-lasting firmness and elasticity. From rich creams to intensive serums, each product in this line has been formulated to provide an immediate tightening effect, while offering cumulative anti-aging benefits over time.\n\nWhy Choose Valmont V-Lift?\n\nFor those seeking a visible lift without invasive treatments, the V-Lift delivers salon-level results in the comfort of your home. With its exceptional hydrating and anti-wrinkle properties, this collection offers a luxurious skincare experience designed to enhance and preserve your youthful glow. It’s the ultimate solution for anyone looking to combat sagging skin and fine lines.\n\n<h2>Discover the Power of Lifting and Firming</h2>\n<p>The <strong>V-Lift Collection</strong> harnesses potent active ingredients, such as DNA liposome and peptides, that penetrate deeply into the skin to promote long-lasting firmness and elasticity. From rich creams to intensive serums, each product in this line has been formulated to provide an immediate tightening effect, while offering cumulative anti-aging benefits over time.</p>\n<h2>Why Choose Valmont V-Lift?</h2>\n<p>For those seeking a visible lift without invasive treatments, the <strong>V-Lift</strong> delivers salon-level results in the comfort of your home. With its exceptional hydrating and anti-wrinkle properties, this collection offers a luxurious skincare experience designed to enhance and preserve your youthful glow. It’s the ultimate solution for anyone looking to combat sagging skin and fine lines.</p>\n<h2>Key Benefits of the Valmont V-Lift Collection</h2>\n<ul>\n<li>Instant lifting and firming effects</li>\n<li>Reduces the appearance of fine lines and wrinkles</li>\n<li>Helps restore facial contours</li>\n<li>Deep hydration for smoother, radiant skin</li>\n<li>Powered by Swiss cellular science</li>\n</ul>\n<p>Unlock the secret to timeless beauty with <strong>Valmont’s V-Lift Collection</strong> — the perfect addition to your anti-aging skincare routine.</p>\n<p><br></p>",
+        "padding_top": 27,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …, and 10% off your next order</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_seo_HBWhra",
+    "psb_banner_banner_01_7PWk6T",
+    "main",
+    "custom_html_rwUMjR",
+    "newsletter"
+  ]
+}

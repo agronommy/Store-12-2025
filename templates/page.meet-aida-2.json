@@ -1,0 +1,173 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1647896591b1152e39": {
+      "type": "image-text",
+      "blocks": {
+        "1647896591bfc2d886-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/AidaBsm.jpg",
+            "title": "WE treat THE WOMEN WHO DO WONDERS",
+            "text": "<p>\"We cater to the modern woman – mothers, sisters, friends, entrepreneurs, and bold individuals who inspire us every day. At Aida Bicaj Skincare, we are committed to delivering exceptional care. Our treatments and products are thoughtfully crafted to empower you to invest in your skin with intention and quality, celebrating your unique beauty and confidence.\"</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#ffffff",
+            "bg_color": "#555d85",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "1647896591bfc2d886-0"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "page-no-title-template",
+      "settings": {}
+    },
+    "164789677182780ca0": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1647896594444df152": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "My current collection",
+        "collection_description": false,
+        "collection_view_all": false,
+        "collection": "anti-aging-products-selected-by-aida",
+        "collection_style": "grid",
+        "products_per": 4,
+        "products_limit": 10,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "164789638753fa0393": {
+      "type": "video",
+      "settings": {
+        "wide_display": false,
+        "aspect_ratio": "16:9",
+        "autoplay": false,
+        "autoloop": true,
+        "mute_video": false,
+        "show_controls": false,
+        "video_dark_overlay": false,
+        "iframe_video": "https://youtu.be/kcvIV6m0Fko",
+        "html5_video": "",
+        "display_text_over_video": false,
+        "preheading": "",
+        "heading": "A journey in Skincare",
+        "subheading": "",
+        "button1_label": "Play Video",
+        "button1_link": "",
+        "button1_style": "global-button--banner-highlighted",
+        "button2_label": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "right",
+        "text_align": "right",
+        "caption_content_background": "darken_bg",
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16478963684ebd8853": {
+      "type": "contact-form",
+      "blocks": {
+        "1647896368bc3148fa-0": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Name",
+            "required": true,
+            "field_type": "text"
+          }
+        },
+        "1647896368bc3148fa-1": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Email",
+            "required": true,
+            "field_type": "email"
+          }
+        },
+        "1647896368bc3148fa-2": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Message",
+            "required": true,
+            "field_type": "textarea"
+          }
+        }
+      },
+      "block_order": [
+        "1647896368bc3148fa-0",
+        "1647896368bc3148fa-1",
+        "1647896368bc3148fa-2"
+      ],
+      "settings": {
+        "contact_heading": "",
+        "contact_subheading": "",
+        "contact_content": "<p>Please contact me with any questions you may have about products or custom orders. We can work together to determine what might be the most creative solutions for your special gift, event or milestone.</p>",
+        "contact_text_position": "left",
+        "contact_text_alignment": "left",
+        "contact_social_buttons": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16478969891f8e687f": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 10,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "1647896591b1152e39",
+    "main",
+    "164789677182780ca0",
+    "1647896594444df152",
+    "164789638753fa0393",
+    "16478963684ebd8853",
+    "16478969891f8e687f"
+  ]
+}

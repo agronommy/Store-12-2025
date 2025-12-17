@@ -1,0 +1,333 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-no-title-template",
+      "disabled": true,
+      "custom_css": [],
+      "settings": {}
+    },
+    "slideshow_j9BeL7": {
+      "type": "slideshow",
+      "blocks": {
+        "image_3FzH8A": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Seasonal_Shopping_Event_Invite_10.png",
+            "pretext": "",
+            "title": "",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_3FzH8A"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "wide_display": false,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": "{\n  background-color: #e4ecee;\n}\n.image-element__wrap {\nbackground-color: #e4ecee; !important;\n    overflow: hidden;\n    margin-left: auto;\n    margin-right: auto;\n    max-width: 70%;\n    line-height: 0;\n}\n.banner {\n    background-color\n\n: #e4ecee;\n}"
+      }
+    },
+    "featured_text_XcGc3e": {
+      "type": "featured-text",
+      "disabled": true,
+      "name": "Rich text and image",
+      "settings": {
+        "image": "shopify://shop_images/toastTribeca.webp",
+        "mobile_image": "shopify://shop_images/toastTribecambl.webp",
+        "title": "",
+        "content": "<p><br/><br/></p>",
+        "button_label": "",
+        "button_link": "",
+        "text_size": "regular_text",
+        "text_alignment": "align_left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": "{\n  background-color: #e4ecee;\n}"
+      }
+    },
+    "custom_html_P8LiPA": {
+      "type": "custom-html",
+      "disabled": true,
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<hr>\n\n<style>\n  .ab-section {\n    background:#E4ECEE; /* full section background */\n    padding:30px 16px;\n    border-radius:12px;\n    font-family:Arial,Helvetica,sans-serif;\n    max-width:720px;\n    margin:20px auto;\n  }\n\n  .ab-card {\n    display:flex;\n    justify-content:space-between;\n    text-align:center;\n    position:relative;             /* for desktop divider */\n    margin-bottom:24px;\n  }\n\n  /* Desktop vertical divider */\n  .ab-card::before {\n    content:\"\";\n    position:absolute;\n    top:0;\n    bottom:0;\n    left:50%;\n    width:1px;\n    background:#9BA9AC;\n    transform:translateX(-50%);\n  }\n\n  .cell {\n    flex:1;\n    min-width:200px;\n    padding:12px 10px;\n    display:flex;\n    flex-direction:column;\n    justify-content:center;\n  }\n\n  /* Content section below */\n  .ab-content {\n    color:#111827;\n    line-height:1.6;\n  }\n  .ab-content p {\n    font-size:16px;\n    margin:10px auto 18px;\n    text-align:left;  /* stays left on desktop */\n    max-width:600px;\n  }\n  .ab-list {\n    font-size:16px;\n    list-style:disc;\n    padding-left:40px;\n    margin:0 auto;\n    max-width:600px;\n    text-align:left;\n  }\n  .ab-list li {\n    padding:8px 0;\n    border-bottom:1px solid #ADBFC4;\n    color:#111827;\n  }\n  .ab-list li::marker { color:#ADBFC4; }\n\n  /* Mobile */\n  @media (max-width:600px) {\n    .ab-card {\n      flex-direction:column;\n      align-items:center;\n      text-align:center;\n    }\n\n    /* Hide the desktop divider on mobile */\n    .ab-card::before { display:none; }\n\n    /* Insert a horizontal line BETWEEN the two stacked cells */\n    .cell + .cell {\n      position:relative;\n      margin-top:10px;\n      padding-top:10px;\n    }\n    .cell + .cell::before {\n      content:\"\";\n      position:absolute;\n      top:0;\n      left:0;\n      right:0;\n      height:1px;\n      background:#9BA9AC;\n    }\n\n    /* Keep paragraph left-aligned on mobile */\n    .ab-content p { text-align:left; }\n\n    .ab-list { text-align:left; }\n  }\n</style>\n\n<!-- Full Section -->\n<div class=\"ab-section\">\n  <!-- Time & Location -->\n  <div class=\"ab-card\">\n    <div class=\"cell\">\n      <div style=\"font-size:16px;font-weight:600;color:#111827;\">Tuesday, October 28</div>\n      <div style=\"font-size:14px;color:#374151;margin-top:4px;\">Noon – 6 PM</div>\n    </div>\n\n    <div class=\"cell\">\n      <div style=\"font-size:16px;font-weight:600;color:#111827;\">Aida Bicaj Tribeca</div>\n      <div style=\"font-size:14px;color:#374151;margin-top:4px;\">64 N Moore St, New York</div>\n      <div style=\"margin-top:6px;\">\n        <a href=\"mailto:tribeca@aidabicaj.com\" style=\"font-size:14px;color:#0a3d91;text-decoration:none;\">tribeca@aidabicaj.com</a>\n      </div>\n      <div style=\"margin-top:4px;\">\n        <a href=\"tel:+19174727743\" style=\"font-size:14px;color:#0a3d91;text-decoration:none;\">(917) 472-7743</a>\n      </div>\n    </div>\n  </div>\n\n  <!-- Description & Highlights -->\n  <div class=\"ab-content\">\n    <p>\n      Join us for a celebration of beauty, gratitude, and the community that inspires us each day.\n      Enjoy champagne, macarons, and exclusive experiences inspired by the Aida Bicaj philosophy of care.\n    </p>\n\n    <ul class=\"ab-list\">\n      <li>Introduction to Aida: personally trained by Yvan Allouche, Founder of Biologique Recherche, in 1995</li>\n      <li>Complimentary access to Biologique Recherche’s Skin Instant<sup>®</sup> Lab for a personalized skin analysis</li>\n      <li>Bespoke skincare application tailored to your results</li>\n      <li>Curated gift bag, featuring a selection of Aida Bicaj essentials</li>\n    </ul>\n  </div>\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": "{\n  background-color: #e4ecee;\n}"
+      }
+    },
+    "qq_basic_text_block_9CNGz8": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "subtitle_MAPTEk": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "",
+            "subtitle_color": "",
+            "subtitle_custom_font": false,
+            "subtitle_font": "mono",
+            "subtitle_font_name": "",
+            "subtitle_font_weight": "default",
+            "subtitle_margin_top": 10,
+            "subtitle_margin_bottom": 10,
+            "subtitle_font_size": 0,
+            "subtitle_line_height": 0,
+            "subtitle_letter_spacing": 0,
+            "subtitle_margin_top_mobile": 10,
+            "subtitle_margin_bottom_mobile": 10,
+            "subtitle_font_size_mobile": 0,
+            "subtitle_line_height_mobile": 0,
+            "subtitle_letter_spacing_mobile": 0
+          }
+        },
+        "title_frtkQH": {
+          "type": "title",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_custom_font": false,
+            "title_font": "mono",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 0,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_WbBLWr": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Introduction to <strong>Aida</strong>: personally trained by Yvan Allouche, Founder of Biologique Recherche, in 1995<br/><br/><br/>Complimentary access to <strong>Biologique Recherche’sSkin Instant® Lab</strong> for a personalized skin analysis</p><p><br/>Bespoke <strong>skincare application</strong> tailored to your results</p><p><br/>Curated <strong>gift bag</strong>, featuring a selection of Aida Bicaj essentials<br/><br/></p>",
+            "textblock_color": "",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        },
+        "button_CEwi7i": {
+          "type": "button",
+          "settings": {
+            "button_class": "",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_tab": false,
+            "button_custom_font": false,
+            "button_font": "mono",
+            "button_font_name": "",
+            "button_font_weight": "default",
+            "button_max_width": 180,
+            "button_border_width": 0,
+            "button_radius": 0,
+            "button_margin_top": 20,
+            "button_margin_bottom": 20,
+            "button_padding_horizontal": 20,
+            "button_padding_vertical": 10,
+            "button_margin_top_mobile": 20,
+            "button_margin_bottom_mobile": 20,
+            "button_font_size": 0,
+            "button_letter_spacing": 0,
+            "button_font_size_mobile": 0,
+            "button_letter_spacing_mobile": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_color_hover": "#333333",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_MAPTEk",
+        "title_frtkQH",
+        "textblock_WbBLWr",
+        "button_CEwi7i"
+      ],
+      "disabled": true,
+      "name": "QQ - Basic Text Section",
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 1280,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "1647896594444df152": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "My Favourite Rings",
+        "collection_description": true,
+        "collection_view_all": false,
+        "collection": "aidas-picks-the-collagen-edit",
+        "collection_style": "slider",
+        "products_per": 4,
+        "products_limit": 9,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16478963684ebd8853": {
+      "type": "contact-form",
+      "blocks": {
+        "1647896368bc3148fa-0": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Name",
+            "required": true,
+            "field_type": "text"
+          }
+        },
+        "1647896368bc3148fa-1": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Email",
+            "required": true,
+            "field_type": "email"
+          }
+        },
+        "1647896368bc3148fa-2": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Message",
+            "required": true,
+            "field_type": "textarea"
+          }
+        }
+      },
+      "block_order": [
+        "1647896368bc3148fa-0",
+        "1647896368bc3148fa-1",
+        "1647896368bc3148fa-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "contact_heading": "",
+        "contact_subheading": "",
+        "contact_content": "<p>Please contact me with any questions you may have about my designs or custom orders. We can work together to determine what might be the most creative solutions for your special gift, event or milestone.</p>",
+        "contact_text_position": "left",
+        "contact_text_alignment": "left",
+        "contact_social_buttons": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "custom_html_6TAxiH": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<div style=\"max-width:720px;margin:20px auto;display:flex;align-items:center;justify-content:center;gap:34px;font-family:Arial,Helvetica,sans-serif;\">\n\n  <!-- Left image (Aida) -->\n  <div style=\"flex:0 0 auto;text-align:center;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0112/9612/files/aida.png?v=1760047325\" alt=\"Aida Bicaj\" style=\"width:120px;height:120px;border-radius:50%;object-fit:cover;\">\n  </div>\n\n  <!-- Right content -->\n  <div style=\"flex:1;display:flex;align-items:center;gap:10px;\">\n    <img src=\"https://cdn.shopify.com/s/files/1/0112/9612/files/icon_shapes_47.png?v=1760047324\" alt=\"Icon\" style=\"width:32px;height:32px;\">\n    <span style=\"font-size:16px;color:#111827;\">Kindly RSVP</span>\n  </div>\n\n</div>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": "{\n  background-color: #e4ecee;\n}"
+      }
+    },
+    "1760056696b8473e4b": {
+      "type": "apps",
+      "blocks": {
+        "forms_inline_WnjCiC": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "693140",
+            "text_color": "#202020",
+            "button_background_color": "#202020",
+            "button_label_color": "#ffffff",
+            "links_color": "#1878b9",
+            "errors_color": "#e02229",
+            "text_alignment": "center",
+            "form_alignment": "center",
+            "padding_top": 0,
+            "padding_bottom": 24,
+            "padding_right": 0,
+            "padding_left": 0
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_WnjCiC"
+      ],
+      "custom_css": [
+        "{background-color: #e4ecee;}"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_j9BeL7",
+    "featured_text_XcGc3e",
+    "custom_html_P8LiPA",
+    "qq_basic_text_block_9CNGz8",
+    "1647896594444df152",
+    "16478963684ebd8853",
+    "custom_html_6TAxiH",
+    "1760056696b8473e4b"
+  ]
+}

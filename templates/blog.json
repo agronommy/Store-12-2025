@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "blog-template",
+      "blocks": {
+        "c7f2dbca-a213-4934-8815-aedf516de498": {
+          "type": "search",
+          "settings": {}
+        },
+        "4e9a46dc-1406-4b5a-9e47-c33671a1e72e": {
+          "type": "recent_posts",
+          "settings": {
+            "blog_post_count": "10"
+          }
+        },
+        "d207d173-d4b8-47e8-872c-40b5d8019a5b": {
+          "type": "post_tags",
+          "settings": {}
+        },
+        "89f198fe-704b-42ee-9b81-cd2ad68d2ef0": {
+          "type": "newsletter",
+          "settings": {
+            "newsletter_title": "join our vip club",
+            "newsletter_text": "<p>Subscribe to our newsletter for sneak peeks at new collections and early access to flash sales!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "c7f2dbca-a213-4934-8815-aedf516de498",
+        "4e9a46dc-1406-4b5a-9e47-c33671a1e72e",
+        "d207d173-d4b8-47e8-872c-40b5d8019a5b",
+        "89f198fe-704b-42ee-9b81-cd2ad68d2ef0"
+      ],
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/BW-double.jpg",
+        "subtitle": "",
+        "caption_content_background": "original",
+        "blog_posts_per_row": 3,
+        "blog_posts_per_page": 8,
+        "blog_tags": false,
+        "blog_author": false,
+        "read_time": true,
+        "blog_date": true,
+        "blog_comment_count": false,
+        "read_more_link": false,
+        "excerpt_display": "full_excerpt",
+        "toggle": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

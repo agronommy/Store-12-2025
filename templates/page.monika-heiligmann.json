@@ -1,0 +1,317 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_ikiFAG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_AYJpFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Monika_Heiligmann_1_2048x_57313c0d-2f10-4b33-919b-1d4d6f3c0f2b.webp",
+            "pretext": "",
+            "title": "Lip Care for iconic woman",
+            "subtitle": "<p>Monika Heilingmann's Avant-Garde Skincare for your lips</p>",
+            "button1": "The Collection",
+            "button1_link": "shopify://collections/monika-heiligmann",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_AYJpFR"
+      ],
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "qq_basic_text_block_R6DUki": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "title_zK7xw6": {
+          "type": "title",
+          "settings": {
+            "title": "The Collection",
+            "title_color": "",
+            "title_custom_font": true,
+            "title_font": "ebgaramond_n7",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 25,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_WRXKFc": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Monika Heiligmann's science-led and couture-inspired formulas are a fusion of natural extracts and cutting-edge biotechnology, ensuring transformative results. </p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "josefin_slab_n6",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 25,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "title_zK7xw6",
+        "textblock_WRXKFc"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 660,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "pxu_multicolumn_3jDHPF": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_M9hWVV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/lip-perfecting-overnight-mask-growth-factor-lip-perfecting-complex-monika-heiligmann-aida-bicaj-276384.webp",
+            "image_link": "shopify://products/lip-perfecting-overnight-mask-growth-factor-lip-perfecting-complex",
+            "heading": "Lip Perfecting Overnight Mask",
+            "text": "<p>Growth Factor Anti-Aging Complex</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_egMRMK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/elixir-de-volume-lip-volumizing-serum-monika-heiligmann-aida-bicaj-968842.webp",
+            "image_link": "shopify://products/elixir-de-volume-lip-volumizing-serum",
+            "heading": "Elixir de volume",
+            "text": "<p>Lip Volumizing Serum</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_nt9yQP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/deep-regenerating-lip-balm-monika-heiligmann-aida-bicaj-953455.webp",
+            "image_link": "shopify://products/deep-regenerating-lip-balm",
+            "heading": "Deep Regenerating Lip Balm",
+            "text": "",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_M9hWVV",
+        "column_egMRMK",
+        "column_nt9yQP"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_size": 40,
+        "section_heading_size_mobile": 30,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 3,
+        "desktop_content_alignment": "center",
+        "block_heading_size": 24,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "background_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "qq_basic_text_block_rkwTay": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "textblock_bHWdcr": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Clinically proven results • natural ingredients • effective for lips with and without filler</p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "josefin_slab_n6",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 25,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "textblock_bHWdcr"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 600,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "image_text_CG9Ng3": {
+      "type": "image-text",
+      "blocks": {
+        "image_BNRWGq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Monika_Heiligmann_2_720x_f3e7e22a-e39a-4c02-984b-908dff6211f4.webp",
+            "title": "The Gold Standard in Luxury Lip Treatments",
+            "text": "<p>Our luxurious formulas have been carefully crafted with leading aesthetic doctors and biochemists in our own laboratory. Empowered by cutting-edge science, the synergy of the most potent actives and the finest natural ingredients ensure visible and lasting results.</p><p><strong>We harness the power of science to make Clean Beauty truly efficient. </strong></p><p>We are committed to only using clean sustainable materials to craft haute-couture beauty treatments respectful of health and the environment.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#2b2a2a",
+            "bg_color": "#ffffff",
+            "bg_color_gradient": ""
+          }
+        },
+        "image_QAKUJz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Deep_regenerating_lip_balm_model.webp",
+            "title": "",
+            "text": "<h4><strong>Plump, Perfect, and Define</strong></h4><p>Experience delightfully sensuous doctor-led lip treatments that enhance lip color, perfect contours, and dramatically volumize.</p><h4><strong>Soothe, Hydrate, and Protect</strong></h4><p>You can kiss goodbye to dry damaged lips. Our ultra-nourishing lip cosmetics are designed to deeply regenerate your lips. Even after fillers and injections.</p><h4><strong>Revitalize, Rejuvenate, and Reverse the Signs of Aging</strong></h4><p>Uncover potent luxurious formulations that restore fullness and reduce lines for irresistibly smooth and supple lips.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#2b2a2a",
+            "bg_color": "#ffffff",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_BNRWGq",
+        "image_QAKUJz"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1740609642b81cb6cd": {
+      "type": "apps",
+      "blocks": {
+        "essential_trust_badges_app_block_fVz6kw": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "single",
+            "banner_id": "548e4d6c-17cc-4075-af1e-23281b7517cc"
+          }
+        }
+      },
+      "block_order": [
+        "essential_trust_badges_app_block_fVz6kw"
+      ],
+      "custom_css": [],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ikiFAG",
+    "qq_basic_text_block_R6DUki",
+    "pxu_multicolumn_3jDHPF",
+    "qq_basic_text_block_rkwTay",
+    "image_text_CG9Ng3",
+    "1740609642b81cb6cd"
+  ]
+}

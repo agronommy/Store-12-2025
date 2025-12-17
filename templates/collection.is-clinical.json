@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumb_seo_iMTRtR": {
+      "type": "breadcrumb-seo",
+      "name": "⚡️ Breadcrumbs",
+      "settings": {
+        "custom_class": "",
+        "separator_class": "arrows",
+        "breadcrumbs_alignment": "left",
+        "text_color": "#8d8d8d",
+        "font_weight": "normal",
+        "font_case": "default",
+        "font_size": 14,
+        "max_width": 1200,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "collection_list_43xPbD": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_VJiCm7": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "cleansers-1",
+            "custom_url": "https://aidabicaj.com/collections/is-clinical?filter.p.product_type=Cleansers&sort_by=best-selling#results",
+            "custom_title": "Cleansers"
+          }
+        },
+        "collection_dFFwTN": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "emulsions",
+            "custom_url": "https://aidabicaj.com/collections/is-clinical?filter.p.product_type=Emulsions&sort_by=best-selling#results",
+            "custom_title": "Emulsions"
+          }
+        },
+        "collection_zepHpA": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "masks",
+            "custom_url": "https://aidabicaj.com/collections/is-clinical?filter.p.product_type=Masks&sort_by=best-selling#results",
+            "custom_title": "Masks"
+          }
+        },
+        "collection_MNiGzQ": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "serums",
+            "custom_url": "https://aidabicaj.com/collections/is-clinical?filter.p.product_type=Serums&sort_by=best-selling#results",
+            "custom_title": "Serums"
+          }
+        },
+        "collection_QawQrQ": {
+          "type": "collection",
+          "settings": {
+            "feature_collection": "treatments",
+            "custom_url": "https://aidabicaj.com/collections/is-clinical?filter.p.product_type=Skin+Treatment&sort_by=best-selling#results",
+            "custom_title": "Treatments"
+          }
+        }
+      },
+      "block_order": [
+        "collection_VJiCm7",
+        "collection_dFFwTN",
+        "collection_zepHpA",
+        "collection_MNiGzQ",
+        "collection_QawQrQ"
+      ],
+      "custom_css": [
+        ".image-element__wrap {border-radius: 50%; border: 2px solid #cebaaf;}"
+      ],
+      "settings": {
+        "title": "iS collections",
+        "align_height": true,
+        "collection_height": 150,
+        "frontpage_collections_per_row": 5,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "faceted_filtering_8aHxjX": {
+          "type": "faceted_filtering",
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "faceted_filtering_8aHxjX"
+      ],
+      "custom_css": [
+        ".product-rating {color: #e8bf67;}"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "caption_content_background": "original",
+        "display_collection_title": true,
+        "collection_breadcrumb": false,
+        "collection_tags": true,
+        "collection_sort": true,
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "toggle": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumb_seo_iMTRtR",
+    "collection_list_43xPbD",
+    "main"
+  ]
+}

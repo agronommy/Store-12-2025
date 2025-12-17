@@ -1,0 +1,357 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "175084980307ac4326": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_landing_page_earning_rule_highlight_rYDQHf": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#333333",
+            "secondary_colour": "#ffffff",
+            "title_text": "Earn points for every order placed",
+            "description_text": "The more you spend, the more you save.",
+            "button_text": "Ways to earn"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_landing_page_earning_rule_highlight_rYDQHf"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_zbTqBk": {
+      "type": "slideshow",
+      "blocks": {
+        "image_m4AG9f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/VIPbanner.jpg",
+            "pretext": "",
+            "title": "The New VIP O2",
+            "subtitle": "<p><br/></p>",
+            "button1": "",
+            "button1_link": "",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_m4AG9f"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "wide_display": false,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": true,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "qq_basic_text_block_DCcPQx": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "title_3dAWxp": {
+          "type": "title",
+          "settings": {
+            "title": "A scientific legacy, upgraded",
+            "title_color": "#020f4c",
+            "title_custom_font": false,
+            "title_font": "mono",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 0,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_eX73TU": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>1998. For over 20 years, Biologique Recherche has been developing skincare innovations driven by cutting-edge science. VIP O2 introduced a new era in oxygenating skincare.2025. Science evolves, so does VIP O2.<br/><br/></p>",
+            "textblock_color": "#020f4c",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        },
+        "button_YPaDdn": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_class": "",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_tab": false,
+            "button_custom_font": false,
+            "button_font": "mono",
+            "button_font_name": "",
+            "button_font_weight": "default",
+            "button_max_width": 180,
+            "button_border_width": 0,
+            "button_radius": 0,
+            "button_margin_top": 20,
+            "button_margin_bottom": 20,
+            "button_padding_horizontal": 20,
+            "button_padding_vertical": 10,
+            "button_margin_top_mobile": 20,
+            "button_margin_bottom_mobile": 20,
+            "button_font_size": 0,
+            "button_letter_spacing": 0,
+            "button_font_size_mobile": 0,
+            "button_letter_spacing_mobile": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_color_hover": "#333333",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "title_3dAWxp",
+        "textblock_eX73TU",
+        "button_YPaDdn"
+      ],
+      "name": "QQ - Basic Text Section",
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 600,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "image_with_text_overlay_mKRxpC": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/Product_Hero_Group_16.9_LOGO_1920x1080_7d55ecd6-389c-4cfa-a5e2-9d620485b244.jpg",
+        "pretext": "",
+        "title": "",
+        "subtitle": "",
+        "button1": "",
+        "button1_link": "",
+        "button1_style": "global-button--banner",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "center",
+        "text_align": "center",
+        "caption_content_background": "original",
+        "mobile_image_crop": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "qq_basic_text_block_DpbGPX": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "subtitle_XY6Yhd": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "",
+            "subtitle_color": "",
+            "subtitle_custom_font": false,
+            "subtitle_font": "mono",
+            "subtitle_font_name": "",
+            "subtitle_font_weight": "default",
+            "subtitle_margin_top": 10,
+            "subtitle_margin_bottom": 10,
+            "subtitle_font_size": 0,
+            "subtitle_line_height": 0,
+            "subtitle_letter_spacing": 0,
+            "subtitle_margin_top_mobile": 10,
+            "subtitle_margin_bottom_mobile": 10,
+            "subtitle_font_size_mobile": 0,
+            "subtitle_line_height_mobile": 0,
+            "subtitle_letter_spacing_mobile": 0
+          }
+        },
+        "title_3GNrUr": {
+          "type": "title",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_custom_font": false,
+            "title_font": "mono",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 0,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_cm8jrV": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Every day, science deepens our understanding of the skin. Today, Biologique Recherche turns its focus on biomarkers (precise biological signals) to map each skin’s unique imbalances.<br/><br/>VIP O2 targets cellular respiration precisely where the skin needs it most. It’s the next generation of skin cell oxygenation. Precise. Powerful. This is the new VIP O2.<br/><br/><br/></p>",
+            "textblock_color": "#020f4c",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 60,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_XY6Yhd",
+        "title_3GNrUr",
+        "textblock_cm8jrV"
+      ],
+      "custom_css": [],
+      "name": "QQ - Basic Text Section",
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 600,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "breadcrumb_seo_CHzyAb": {
+      "type": "breadcrumb-seo",
+      "name": "⚡️ Breadcrumbs",
+      "settings": {
+        "custom_class": ".one-whole-column",
+        "separator_class": "arrows",
+        "breadcrumbs_alignment": "left",
+        "text_color": "#8d8d8d",
+        "font_weight": "normal",
+        "font_case": "default",
+        "font_size": 16,
+        "max_width": 1200,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "faceted_filtering_8aHxjX": {
+          "type": "faceted_filtering",
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "faceted_filtering_8aHxjX"
+      ],
+      "custom_css": [
+        ".product-rating {color: #e8bf67;}"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "caption_content_background": "original",
+        "display_collection_title": true,
+        "collection_breadcrumb": false,
+        "collection_tags": true,
+        "collection_sort": true,
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "toggle": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "175084980307ac4326",
+    "slideshow_zbTqBk",
+    "qq_basic_text_block_DCcPQx",
+    "image_with_text_overlay_mKRxpC",
+    "qq_basic_text_block_DpbGPX",
+    "breadcrumb_seo_CHzyAb",
+    "main"
+  ]
+}

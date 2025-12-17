@@ -1,0 +1,777 @@
+{%- comment -%}
+  🧰 Mosaic section
+{%- endcomment -%}
+
+{%- liquid
+  assign background_color = section.settings.background_color
+
+  assign remove_space = section.settings.remove_space
+
+  assign num_blocks = section.blocks | size
+  assign has_slider = false
+  if section.settings.mobile_layout == "slider" and num_blocks > 1
+    assign has_slider = true
+
+    assign background_brightness = background_color | color_brightness
+    assign dots_color = "#000"
+    if background_brightness < 127.5
+      assign dots_color = "#FFF"
+    endif
+  endif
+
+  assign loading = 'lazy'
+  assign fetch_priority = 'auto'
+  if section.index <= 3
+    assign loading = 'eager'
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-section--animated-{{ section.settings.enable_animations }}
+    pxu-mosaic
+    pxu-mosaic--mobile-layout-{{ section.settings.mobile_layout }}
+    pxu-mosaic--align-{{ section.settings.content_alignment }}
+    pxu-mosaic--item-count-{{ num_blocks }}
+    pxu-mosaic--desktop-height-{{ section.settings.desktop_section_height }}
+    {% if remove_space %}pxu-mosaic--remove-space{% endif %}
+  "
+  style="
+    --pxu-section-background-color: {{ background_color }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-corner-radius: {{ section.settings.corner_radius }}px;
+    --pxu-section-mobile-image-height: {{ section.settings.mobile_image_height }}px;
+  "
+  data-pxu-mosaic
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-mosaic",
+      "className": "MosaicSection",
+      "name": "Mosaic",
+      "version": "1.0.0",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}",
+      "hasSlider": {{ has_slider }}
+    }
+  </script>
+
+  <div class="pxu-section__container pxu-mosaic__container">
+    <div class="pxu-mosaic__inner">
+      {% if has_slider %}
+        <div
+          class="
+            pxu-carousel
+            pxu-carousel--spaced
+            pxu-carousel--sm-down
+          "
+        >
+          <div
+            class="pxu-carousel__items"
+            data-pxu-carousel="xxs,sm"
+          >
+            {% for block in section.blocks %}
+              {% liquid
+                assign image = block.settings.image
+                assign mobile_image = block.settings.mobile_image
+
+                assign placeholder_number = forloop.index0 | modulo: 2 | plus: 1
+                assign placeholder = 'lifestyle-' | append: placeholder_number
+
+                assign heading = block.settings.heading | strip
+                assign text = block.settings.text | strip
+
+                assign button_label = block.settings.button_label | escape
+                assign button_url = block.settings.button_url
+                assign button_style = block.settings.button_style
+                assign button_text_color = block.settings.button_text_color
+                assign button_background_color = block.settings.button_background_color
+                assign button_brightness = button_background_color | color_brightness
+                assign button_brightness_mod = 'light-on-dark'
+                if button_brightness > 127.5
+                  assign button_brightness_mod = 'dark-on-light'
+                endif
+
+                assign image_overlay_opacity = block.settings.image_overlay_opacity | divided_by: 100.0
+
+                assign desktop_image_size = "33.33vw"
+                case forloop.index
+                  when 1
+                    if num_blocks == 1
+                      assign desktop_image_size = "100vw"
+                    else
+                      assign desktop_image_size = "66.66vw"
+                    endif
+                  when 2
+                    if num_blocks == 5
+                      assign desktop_image_size = "66.66vw"
+                    endif
+                  when 4
+                    if num_blocks == 4
+                      assign desktop_image_size = "66.66vw"
+                    endif
+                endcase
+
+                assign all_sizes_attr = "(max-width: 719px) 100vw, (min-width: 720px) " | append: desktop_image_size
+              %}
+              <div
+                class="pxu-carousel__item"
+                data-pxu-carousel-item
+                data-pxu-carousel-item-color="{{ dots_color }}"
+              >
+                <div
+                  id="{{ block.id }}"
+                  class="
+                    pxu-mosaic__item
+                    pxu-mosaic__item--pos-{{ forloop.index }}
+                  "
+                  style="
+                    --pxu-block-text-color: {{ block.settings.text_color }};
+                    --pxu-heading-size: {{ block.settings.heading_size }}px;
+                    --pxu-heading-size-mobile: {{ block.settings.heading_size_mobile }}px;
+                    --pxu-text-size: {{ block.settings.text_size }}px;
+                    --pxu-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+                    --pxu-image-overlay-color: {{ block.settings.image_overlay_color }};
+                    --pxu-image-overlay-opacity: {{ image_overlay_opacity }};
+                    --pxu-focal-point-desktop: {{ image.presentation.focal_point }};
+                    --pxu-focal-point-mobile: {{ mobile_image.presentation.focal_point }};
+                  "
+                  {{ block.shopify_attributes }}
+                >
+                  {% if image or mobile_image %}
+                    <picture class="pxu-mosaic__image">
+                      {% if mobile_image %}
+                        <source
+                          media="(max-width: 719px)"
+                          srcset="
+                            {{ mobile_image | image_url: width: 840 }} 840w,
+                            {{ mobile_image | image_url: width: 720 }} 720w,
+                            {{ mobile_image | image_url: width: 420 }} 420w,
+                            {{ mobile_image | image_url: width: 360 }} 360w
+                          "
+                          sizes="100vw"
+                        >
+                      {% endif %}
+                      {% if mobile_image and image == blank %}
+                        {{ mobile_image | 
+                          image_url: width: 1600 | 
+                          image_tag: 
+                            loading: loading, 
+                            fetchpriority: fetch_priority,
+                            widths: "1600, 1100, 768, 420, 360",
+                            sizes: all_sizes_attr
+                        }}
+                      {% else %}
+                        {{ image | 
+                          image_url: width: 1600 | 
+                          image_tag: 
+                            loading: loading, 
+                            fetchpriority: fetch_priority,
+                            widths: "1600, 1100, 768, 420, 360",
+                            sizes: all_sizes_attr
+                        }}
+                      {% endif %}
+                    </picture>
+                  {% else %}
+                    <div class="pxu-mosaic__image">
+                      {% if image_overlay_opacity < 1.0 %}
+                        {{ placeholder | placeholder_svg_tag: 'pxu-placeholder' }}
+                      {% endif %}
+                      &#x200B;
+                    </div>
+                  {% endif %}
+
+                  <div class="pxu-mosaic__content">
+                    {%- if heading != blank -%}
+                      <h2 class="pxu-mosaic__heading pxu-heading">
+                        {{- heading -}}
+                      </h2>
+                    {%- endif -%}
+                    {%- if text != blank -%}
+                      <div class="pxu-mosaic__text pxu-rte">
+                        {{- text -}}
+                      </div>
+                    {%- endif -%}
+                    {%- if button_label != blank -%}
+                      <a
+                        class="
+                          pxu-mosaic__button
+                          pxu-btn
+                          pxu-btn--{{ button_style }}
+                          pxu-btn--{{ button_brightness_mod }}
+                        "
+                        style="
+                          --pxu-btn-background-color: {{ button_background_color }};
+                          --pxu-btn-text-color: {{ button_text_color }};
+                        "
+                        {% if button_url != blank %}
+                          href="{{ button_url }}"
+                        {% endif %}
+                      >
+                        {{- button_label -}}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+      {% elsif has_slider == false %}
+        {% for block in section.blocks %}
+          {% liquid
+            assign image = block.settings.image
+            assign mobile_image = block.settings.mobile_image
+
+            assign placeholder_number = forloop.index0 | modulo: 2 | plus: 1
+            assign placeholder = 'lifestyle-' | append: placeholder_number
+
+            assign heading = block.settings.heading | strip
+            assign text = block.settings.text | strip
+
+            assign button_label = block.settings.button_label | escape
+            assign button_url = block.settings.button_url
+            assign button_style = block.settings.button_style
+            assign button_text_color = block.settings.button_text_color
+            assign button_background_color = block.settings.button_background_color
+            assign button_brightness = button_background_color | color_brightness
+            assign button_brightness_mod = 'light-on-dark'
+            if button_brightness > 127.5
+              assign button_brightness_mod = 'dark-on-light'
+            endif
+
+            assign image_overlay_opacity = block.settings.image_overlay_opacity | divided_by: 100.0
+
+            assign desktop_image_size = "33.33vw"
+            case forloop.index
+              when 1
+                if num_blocks == 1
+                  assign desktop_image_size = "100vw"
+                else
+                  assign desktop_image_size = "66.66vw"
+                endif
+              when 2
+                if num_blocks == 5
+                  assign desktop_image_size = "66.66vw"
+                endif
+              when 4
+                if num_blocks == 4
+                  assign desktop_image_size = "66.66vw"
+                endif
+            endcase
+
+            assign all_sizes_attr = "(max-width: 719px) 100vw, (min-width: 720px) " | append: desktop_image_size
+          %}
+
+          <div
+            id="{{ block.id }}"
+            class="
+              pxu-mosaic__item
+              pxu-mosaic__item--pos-{{ forloop.index }}
+            "
+            style="
+              --pxu-block-text-color: {{ block.settings.text_color }};
+              --pxu-heading-size: {{ block.settings.heading_size }}px;
+              --pxu-heading-size-mobile: {{ block.settings.heading_size_mobile }}px;
+              --pxu-text-size: {{ block.settings.text_size }}px;
+              --pxu-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+              --pxu-image-overlay-color: {{ block.settings.image_overlay_color }};
+              --pxu-image-overlay-opacity: {{ image_overlay_opacity }};
+              --pxu-focal-point-desktop: {{ image.presentation.focal_point }};
+              --pxu-focal-point-mobile: {{ mobile_image.presentation.focal_point }};
+            "
+            {{ block.shopify_attributes }}
+          >
+            {% if image or mobile_image %}
+              <picture class="pxu-mosaic__image">
+                {% if mobile_image %}
+                  <source
+                    media="(max-width: 719px)"
+                    srcset="
+                      {{ mobile_image | image_url: width: 840 }} 840w,
+                      {{ mobile_image | image_url: width: 720 }} 720w,
+                      {{ mobile_image | image_url: width: 420 }} 420w,
+                      {{ mobile_image | image_url: width: 360 }} 360w
+                    "
+                    sizes="100vw"
+                  >
+                {% endif %}
+                {% if mobile_image and image == blank %}
+                  {{ mobile_image | 
+                    image_url: width: 1600 | 
+                    image_tag: 
+                      loading: loading, 
+                      fetchpriority: fetch_priority,
+                      widths: "1600, 1100, 768, 420, 360",
+                      sizes: all_sizes_attr
+                  }}
+                {% else %}
+                  {{ image | 
+                    image_url: width: 1600 | 
+                    image_tag: 
+                      loading: loading, 
+                      fetchpriority: fetch_priority,
+                      widths: "1600, 1100, 768, 420, 360",
+                      sizes: all_sizes_attr
+                  }}
+                {% endif %}
+              </picture>
+            {% else %}
+              <div class="pxu-mosaic__image">
+                {% if image_overlay_opacity < 1.0 %}
+                  {{ placeholder | placeholder_svg_tag: 'pxu-placeholder' }}
+                {% endif %}
+                &#x200B;
+              </div>
+            {% endif %}
+
+            <div class="pxu-mosaic__content">
+              {%- if heading != blank -%}
+                <h2 class="pxu-mosaic__heading pxu-heading">
+                  {{- heading -}}
+                </h2>
+              {%- endif -%}
+              {%- if text != blank -%}
+                <div class="pxu-mosaic__text pxu-rte">
+                  {{- text -}}
+                </div>
+              {%- endif -%}
+              {%- if button_label != blank -%}
+                <a
+                  class="
+                    pxu-mosaic__button
+                    pxu-btn
+                    pxu-btn--{{ button_style }}
+                    pxu-btn--{{ button_brightness_mod }}
+                  "
+                  style="
+                    --pxu-btn-background-color: {{ button_background_color }};
+                    --pxu-btn-text-color: {{ button_text_color }};
+                  "
+                  {% if button_url != blank %}
+                    href="{{ button_url }}"
+                  {% endif %}
+                >
+                  {{- button_label -}}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-mosaic{--pxu-section-placeholder-fill-color:#898989;--pxu-section-placeholder-background-color:hsla(0,0%,39%,.25);background-color:var(--pxu-section-background-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-mosaic{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-mosaic__inner{display:grid;gap:var(--pxu-space-4);grid-template-columns:1fr}@media only screen and (max-width:719px){.pxu-mosaic .flickity-enabled .pxu-carousel__item,.pxu-mosaic__item{width:100%}}.pxu-mosaic__item{border-radius:var(--pxu-section-corner-radius);color:var(--pxu-block-text-color);display:flex;flex-wrap:wrap;min-height:var(--pxu-section-mobile-image-height);padding:var(--pxu-space-4);position:relative}@media only screen and (min-width:860px){.pxu-mosaic__item{padding:var(--pxu-space-8)}}.pxu-mosaic__image{overflow:hidden}.pxu-mosaic__image,.pxu-mosaic__image:before{border-radius:var(--pxu-section-corner-radius);inset:0;position:absolute}.pxu-mosaic__image:before{background-color:var(--pxu-image-overlay-color,transparent);content:"";display:block;opacity:var(--pxu-image-overlay-opacity);z-index:1}.pxu-mosaic__image img,.pxu-mosaic__image svg{border-radius:var(--pxu-section-corner-radius);height:100%;-o-object-fit:cover;object-fit:cover;width:100%}.pxu-mosaic__image img{transform-origin:var(--pxu-focal-point-mobile,var(--pxu-focal-point-desktop));transition:transform .7s cubic-bezier(0,0,.2,1)}@media only screen and (min-width:720px){@media (max-color:2147477350) and (prefers-reduced-motion:no-preference){.pxu-mosaic__image img{transform-origin:var(--pxu-focal-point-desktop)}.pxu-section:not(.pxu-section--animated-false) .pxu-mosaic__item:hover .pxu-mosaic__image img{transform:scale(1.05)}}}@media not screen and (min-width:720px){@media (color:2147477350) and (prefers-reduced-motion:no-preference){.pxu-mosaic__image img{transform-origin:var(--pxu-focal-point-desktop)}.pxu-section:not(.pxu-section--animated-false) .pxu-mosaic__item:hover .pxu-mosaic__image img{transform:scale(1.05)}}}.pxu-mosaic__content{position:relative;width:100%;z-index:1}@media only screen and (min-width:1024px){.pxu-mosaic__content{width:70%}}.pxu-mosaic__heading{font-size:var(--pxu-heading-size-mobile);margin-bottom:var(--pxu-space-3)}@media only screen and (min-width:860px){.pxu-mosaic__heading{font-size:var(--pxu-heading-size)}}.pxu-mosaic__text{font-size:var(--pxu-text-size-mobile)}@media only screen and (min-width:860px){.pxu-mosaic__text{font-size:var(--pxu-text-size)}}.pxu-mosaic__text+.pxu-mosaic__button{margin-top:var(--pxu-space-6)}.pxu-mosaic--remove-space .pxu-mosaic__inner{gap:0}@media only screen and (min-width:720px){.pxu-mosaic--item-count-2 .pxu-mosaic__inner{grid-template-columns:repeat(3,1fr)}.pxu-mosaic--item-count-2 .pxu-mosaic__item--pos-1{grid-column:1/3}.pxu-mosaic--item-count-2 .pxu-mosaic__item--pos-2{grid-column:3}.pxu-mosaic--item-count-3 .pxu-mosaic__inner{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr)}.pxu-mosaic--item-count-3 .pxu-mosaic__item--pos-1{grid-column:1/span 2;grid-row:1/span 2}.pxu-mosaic--item-count-3 .pxu-mosaic__item--pos-2{grid-column:3}.pxu-mosaic--item-count-3 .pxu-mosaic__item--pos-3{grid-row:2}.pxu-mosaic--item-count-4 .pxu-mosaic__inner{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr)}.pxu-mosaic--item-count-4 .pxu-mosaic__item--pos-1{grid-column:1/span 2}.pxu-mosaic--item-count-4 .pxu-mosaic__item--pos-2{grid-column:3}.pxu-mosaic--item-count-4 .pxu-mosaic__item--pos-3{grid-column:1}.pxu-mosaic--item-count-4 .pxu-mosaic__item--pos-4{grid-column:2/span 2}.pxu-mosaic--item-count-5 .pxu-mosaic__inner{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(6,1fr)}.pxu-mosaic--item-count-5 .pxu-mosaic__item--pos-1{grid-column:1/span 2;grid-row:1/span 3}.pxu-mosaic--item-count-5 .pxu-mosaic__item--pos-2{grid-column:1/span 2;grid-row:4/span 3}.pxu-mosaic--item-count-5 .pxu-mosaic__item--pos-3,.pxu-mosaic--item-count-5 .pxu-mosaic__item--pos-4,.pxu-mosaic--item-count-5 .pxu-mosaic__item--pos-5{grid-column:3/span 2;grid-row:auto/span 2}.pxu-mosaic--desktop-height-small .pxu-mosaic__inner{min-height:33vh}.pxu-mosaic--desktop-height-small.pxu-mosaic--item-count-1 .pxu-mosaic__item,.pxu-mosaic--desktop-height-small.pxu-mosaic--item-count-2 .pxu-mosaic__item,.pxu-mosaic--desktop-height-small.pxu-mosaic--item-count-4 .pxu-mosaic__item{min-height:400px}.pxu-mosaic--desktop-height-small.pxu-mosaic--item-count-3 .pxu-mosaic__item,.pxu-mosaic--desktop-height-small.pxu-mosaic--item-count-5 .pxu-mosaic__item{min-height:250px}.pxu-mosaic--desktop-height-medium .pxu-mosaic__inner{min-height:50vh}.pxu-mosaic--desktop-height-medium.pxu-mosaic--item-count-1 .pxu-mosaic__item,.pxu-mosaic--desktop-height-medium.pxu-mosaic--item-count-2 .pxu-mosaic__item,.pxu-mosaic--desktop-height-medium.pxu-mosaic--item-count-4 .pxu-mosaic__item{min-height:450px}.pxu-mosaic--desktop-height-medium.pxu-mosaic--item-count-3 .pxu-mosaic__item,.pxu-mosaic--desktop-height-medium.pxu-mosaic--item-count-5 .pxu-mosaic__item{min-height:300px}.pxu-mosaic--desktop-height-large .pxu-mosaic__inner{min-height:66vh}.pxu-mosaic--desktop-height-large.pxu-mosaic--item-count-1 .pxu-mosaic__item,.pxu-mosaic--desktop-height-large.pxu-mosaic--item-count-2 .pxu-mosaic__item,.pxu-mosaic--desktop-height-large.pxu-mosaic--item-count-4 .pxu-mosaic__item{min-height:500px}.pxu-mosaic--desktop-height-large.pxu-mosaic--item-count-3 .pxu-mosaic__item,.pxu-mosaic--desktop-height-large.pxu-mosaic--item-count-5 .pxu-mosaic__item{min-height:350px}}.pxu-mosaic--align-bottom-center .pxu-mosaic__item,.pxu-mosaic--align-middle-center .pxu-mosaic__item,.pxu-mosaic--align-top-center .pxu-mosaic__item{justify-content:center;text-align:center}.pxu-mosaic--align-bottom-right .pxu-mosaic__item,.pxu-mosaic--align-middle-right .pxu-mosaic__item,.pxu-mosaic--align-top-right .pxu-mosaic__item{justify-content:flex-end;text-align:right}.pxu-mosaic--align-middle-center .pxu-mosaic__item,.pxu-mosaic--align-middle-left .pxu-mosaic__item,.pxu-mosaic--align-middle-right .pxu-mosaic__item{align-items:center}.pxu-mosaic--align-bottom-center .pxu-mosaic__item,.pxu-mosaic--align-bottom-left .pxu-mosaic__item,.pxu-mosaic--align-bottom-right .pxu-mosaic__item{align-items:flex-end}</style>
+{% javascript %}
+const { Section, Carousel } = window.PxuThemeSections;
+
+class MosaicSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.carousel = null;
+
+    this.onMount();
+  }
+
+  onMount() {
+    if (!this.data.hasSlider) return;
+    this.carousel = new Carousel(this.$root, {
+      draggable: true
+    });
+    setTimeout(() => {
+      this.carousel.onMount();
+    }, 100);
+  }
+
+  onUnmount() {
+    if (!this.carousel) return;
+    this.carousel.onUnmount();
+    this.carousel = null;
+  }
+
+  onBlockSelect(event) {
+    if (!this.data.hasSlider || !this.carousel) return;
+    const $slide = event.target.parentElement;
+    this.carousel.selectSlide($slide);
+  }
+}
+
+document.querySelectorAll('[data-pxu-mosaic]').forEach(($section) => {
+  Section.init($section, MosaicSection);
+});
+
+// export class for theme editor instance management
+if (Shopify.designMode) {
+  window.PxuThemeSections.MosaicSection = MosaicSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.mosaic.name",
+  "class": "pxu-mosaic-section",
+  "max_blocks": 5,
+  "settings": [
+    {
+      "type": "select",
+      "id": "desktop_section_height",
+      "label": "t:pxu_sections.common.layout.desktop_section_height",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:pxu_sections.common.image.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:pxu_sections.common.image.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:pxu_sections.common.image.large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "t:pxu_sections.common.layout.content_alignment",
+      "options": [
+        {
+          "value": "top-left",
+          "label": "t:pxu_sections.common.layout.top_left"
+        },
+        {
+          "value": "top-center",
+          "label": "t:pxu_sections.common.layout.top_center"
+        },
+        {
+          "value": "top-right",
+          "label": "t:pxu_sections.common.layout.top_right"
+        },
+        {
+          "value": "middle-left",
+          "label": "t:pxu_sections.common.layout.middle_left"
+        },
+        {
+          "value": "middle-center",
+          "label": "t:pxu_sections.common.layout.middle_center"
+        },
+        {
+          "value": "middle-right",
+          "label": "t:pxu_sections.common.layout.middle_right"
+        },
+        {
+          "value": "bottom-left",
+          "label": "t:pxu_sections.common.layout.bottom_left"
+        },
+        {
+          "value": "bottom-center",
+          "label": "t:pxu_sections.common.layout.bottom_center"
+        },
+        {
+          "value": "bottom-right",
+          "label": "t:pxu_sections.common.layout.bottom_right"
+        }
+      ],
+      "default": "top-left"
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.style.corner_radius",
+      "default": 20
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_space",
+      "label": "t:pxu_sections.sections.mosaic.remove_space.label"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "t:pxu_sections.common.layout.layout",
+      "options": [
+        {
+          "value": "stacked",
+          "label": "t:pxu_sections.sections.mosaic.stacked.label"
+        },
+        {
+          "value": "slider",
+          "label": "t:pxu_sections.common.slider.slider"
+        }
+      ],
+      "default": "stacked"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_height",
+      "label": "t:pxu_sections.common.image.mobile_image_height",
+      "options": [
+        {
+          "value": "350",
+          "label": "t:pxu_sections.common.image.small"
+        },
+        {
+          "value": "400",
+          "label": "t:pxu_sections.common.image.medium"
+        },
+        {
+          "value": "450",
+          "label": "t:pxu_sections.common.image.large"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content":"t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.animations.animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "t:pxu_sections.common.animations.enable_animations",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "mosaic_item",
+      "name": "t:pxu_sections.sections.mosaic.blocks.mosaic_item.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.common.image.image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "t:pxu_sections.common.image.mobile_image"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.sections.mosaic.heading.default"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size_mobile",
+          "default": 22
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.name",
+          "default": "t:pxu_sections.common.text.default_html_3"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "default": 15
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "info": "t:pxu_sections.common.button.background_color_info",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "t:pxu_sections.common.color.color"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "image_overlay_color",
+          "label": "t:pxu_sections.common.color.image_overlay_color",
+          "default": "#000000"
+        },
+        {
+          "type": "range",
+          "id": "image_overlay_opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "t:pxu_sections.common.image.image_overlay_opacity",
+          "default": 20
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.mosaic.name",
+      "blocks": [
+        {
+          "type": "mosaic_item"
+        },
+        {
+          "type": "mosaic_item"
+        },
+        {
+          "type": "mosaic_item"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,614 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "custom_css": [
+        ".nav-desktop__tier-1 {padding: 10px;}"
+      ],
+      "settings": {
+        "promo_text": "",
+        "social_icons_header": false,
+        "phone_number": "",
+        "top_bar_menu": "",
+        "show_cart": true,
+        "cart_icon": "bag",
+        "show_locale_selector": false,
+        "show_currency_selector": false,
+        "logo_display_width": 105,
+        "logo": "shopify://shop_images/AB_Logo_Variants_2_7d9705a5-3994-4183-9e9f-1053ac254686.png",
+        "logo_mobile": "shopify://shop_images/AB_Logo_Variants_2_3e16254a-4852-45d2-a439-12fda658919c.png",
+        "main_linklist": "main-menu",
+        "main_linklist2": "treatments",
+        "vertical_menu": true,
+        "dropdown_click": false,
+        "search_enabled": true,
+        "fixed_header": true,
+        "logo_position": "center",
+        "logo_alignment": "left",
+        "menu_position": "inline",
+        "menu_alignment": "center"
+      }
+    },
+    "mega_menu_1": {
+      "type": "mega-menu-1",
+      "blocks": {
+        "column_0": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "brands",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "aida",
+            "menu_1_link": "",
+            "menu_2": "face-product-types-1",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "skin-types",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "shopify://products/gift-card",
+            "richtext_bottom": ""
+          }
+        },
+        "column_3": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "aidas-picks",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "column_4": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_top": "shopify://shop_images/blue-yellow-gift-wrap.jpg",
+            "image_caption_top": "Reward Program Collection",
+            "image_link_top": "shopify://collections/reward-program",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_bottom": "shopify://shop_images/digital-gift-card-aida-bicaj-aida-bicaj-361640.png",
+            "image_caption_bottom": "Gift Cards",
+            "image_link_bottom": "shopify://products/gift-card",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_0",
+        "column_1",
+        "column_2",
+        "column_3",
+        "column_4"
+      ],
+      "custom_css": [
+        ".menu a {padding-top: 2px; padding-bottom: 2px;}"
+      ],
+      "settings": {
+        "parent": "Face"
+      }
+    },
+    "dc8aed72-4245-4112-97c1-3da179ada797": {
+      "type": "mega-menu-2",
+      "blocks": {
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-0": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "shop-body-care-by-brand",
+            "menu_1_link": "shopify://collections/body-collection",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-1": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "body-by-concern",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-2": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_top": "shopify://shop_images/Creme-MSR-h-Corps-200ml.jpg",
+            "image_caption_top": "Creme MSR-H Corps",
+            "image_link_top": "shopify://products/biologique-recherche-creme-msr-h-corps",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-0",
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-1",
+        "sections--19000560025922__dc8aed72-4245-4112-97c1-3da179ada797-16836420113505a827-2"
+      ],
+      "settings": {
+        "parent": "Body"
+      }
+    },
+    "747e2c76-cfc7-44b4-b6d3-65e301d26061": {
+      "type": "mega-menu-3",
+      "blocks": {
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-0": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "shop-by-hair-type",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-1": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "leonor-greyl",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-2": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "biologique-recherche-hair",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-3": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "revitalash",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-4": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "mbr-hair",
+            "menu_1_link": "shopify://collections/mbr-hair-collection",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-0",
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-1",
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-2",
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-3",
+        "sections--19000560025922__747e2c76-cfc7-44b4-b6d3-65e301d26061-1683642019bc0362da-4"
+      ],
+      "settings": {
+        "parent": "HAIR"
+      }
+    },
+    "70f4de70-bc9f-4da6-a949-676cd2a404a5": {
+      "type": "mega-menu-4",
+      "blocks": {
+        "column_6FQAUw": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Nutritional Supplements</p>",
+            "image_top": "shopify://shop_images/VITALITY-EP-600x600_jpg.webp",
+            "image_caption_top": "Niance Longevity Supplements",
+            "image_link_top": "shopify://collections/niance-nutritional-supplements",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-0": {
+          "type": "column",
+          "disabled": true,
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "trudon",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-1": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Eaux De Parfum</p>",
+            "image_top": "shopify://shop_images/parfums_100ml_mortel.jpg",
+            "image_caption_top": "Trudon Perfumes",
+            "image_link_top": "shopify://collections/eaux-de-parfum",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-2": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Scented Candles</p>",
+            "image_top": "shopify://shop_images/trudon_tuileries_23_visuel_09_1x1_hd_1.jpg",
+            "image_caption_top": "Trudon Scented Candles",
+            "image_link_top": "shopify://collections/classic-scented-candles",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-3": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Diffusers</p>",
+            "image_top": "shopify://shop_images/diffuseur_-_tuileries.jpg",
+            "image_caption_top": "Trudon Diffusers",
+            "image_link_top": "shopify://collections/trudon-diffusers",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_6FQAUw",
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-0",
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-1",
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-2",
+        "sections--19000560025922__70f4de70-bc9f-4da6-a949-676cd2a404a5-1685213650808efeb7-3"
+      ],
+      "settings": {
+        "parent": "Lifestyle"
+      }
+    },
+    "c8fc6b94-45cb-49c5-8a90-0d3a49327767": {
+      "type": "mega-menu-5",
+      "blocks": {
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-1": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Add description, images, menus and links to your mega menu</p>",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-2": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>A column with no settings can be used as a spacer</p>",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-3": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-4": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Link to your collections, sales and even external links</p>",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        },
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-5": {
+          "type": "column",
+          "settings": {
+            "richtext_top": "<p>Add up to five columns</p>",
+            "image_caption_top": "",
+            "image_link_top": "",
+            "menu_1": "",
+            "menu_1_link": "",
+            "menu_2": "",
+            "menu_2_link": "",
+            "menu_3": "",
+            "menu_3_link": "",
+            "menu_4": "",
+            "menu_4_link": "",
+            "image_caption_bottom": "",
+            "image_link_bottom": "",
+            "richtext_bottom": ""
+          }
+        }
+      },
+      "block_order": [
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-1",
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-2",
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-3",
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-4",
+        "sections--19000560025922__c8fc6b94-45cb-49c5-8a90-0d3a49327767-column-5"
+      ],
+      "disabled": true,
+      "settings": {
+        "parent": ""
+      }
+    },
+    "pxu_announcement_slider_7WURAR": {
+      "type": "pxu-announcement-slider",
+      "blocks": {
+        "announcement_Vk86Xb": {
+          "type": "announcement",
+          "settings": {
+            "text": "FAST, FREE U.S. SHIPPING ON ORDERS $50+ • FREE SAMPLES WITH EVERY ORDER",
+            "mobile_text": "",
+            "link": ""
+          }
+        },
+        "announcement_pJCewj": {
+          "type": "announcement",
+          "settings": {
+            "text": "UNLOCK THE SECRETS TO RADIANT SKIN WITH OUR TAILORED QUIZ",
+            "mobile_text": "",
+            "link": "https://aidabicaj.com/pages/aida-skincare-quiz-test"
+          }
+        }
+      },
+      "block_order": [
+        "announcement_Vk86Xb",
+        "announcement_pJCewj"
+      ],
+      "name": "t:pxu_sections.sections.announcement_slider.name",
+      "settings": {
+        "auto_rotate": false,
+        "rotation_speed": 7,
+        "show_arrows": false,
+        "text_size": 12,
+        "text_size_mobile": 12,
+        "text_color": "#ffffff",
+        "background_color": "#000000",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 0,
+        "margin_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "header",
+    "mega_menu_1",
+    "dc8aed72-4245-4112-97c1-3da179ada797",
+    "747e2c76-cfc7-44b4-b6d3-65e301d26061",
+    "70f4de70-bc9f-4da6-a949-676cd2a404a5",
+    "c8fc6b94-45cb-49c5-8a90-0d3a49327767",
+    "pxu_announcement_slider_7WURAR"
+  ]
+}

@@ -1,0 +1,366 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "settings": {}
+    },
+    "image_with_text_overlay_TcGXkB": {
+      "type": "image-with-text-overlay",
+      "name": "Image with text overlay",
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/COLORSCIENCE24-0714_Keirsten_flexfair_Custom.webp",
+        "pretext": "",
+        "title": "know better skin",
+        "subtitle": "",
+        "button1": "View Collection",
+        "button1_link": "shopify://collections/colorscience",
+        "button1_style": "global-button--banner",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "right",
+        "text_align": "center",
+        "caption_content_background": "original",
+        "mobile_image_crop": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "custom_html_8U9jYi": {
+      "type": "custom-html",
+      "name": "Custom HTML",
+      "settings": {
+        "custom_html": "<h2 class=\"text-center\" role=\"heading\" aria-level=\"1\" data-uw-rm-heading=\"level\">\n<small>all-in-one</small> <br>Sun & Environmental Defense</h2>",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "pxu_highlights_banner_NawPiP": {
+      "type": "pxu-highlights-banner",
+      "blocks": {
+        "highlight_KXRY6k": {
+          "type": "highlight",
+          "settings": {
+            "icon": "box",
+            "custom_icon": "shopify://shop_images/03_EnviroScreen_Microsite_icons-uvauvb_180x_9b782719-c7c8-4582-be33-fede09e25486.avif",
+            "heading": "UVA/UVB",
+            "text": "<p>UVB “burning rays” lead to sunburns while UVA “aging rays” are responsible for aging of the skin.</p>"
+          }
+        },
+        "highlight_FKpf7d": {
+          "type": "highlight",
+          "settings": {
+            "icon": "chat",
+            "custom_icon": "shopify://shop_images/03_EnviroScreen_Microsite_icons-infreredradiation_180x_f6f4884a-928b-41c3-9c5d-fd652dfd9708.avif",
+            "heading": "Infrared Radiation",
+            "text": "<p>Uncontrolled and frequent exposure to infrared radiation can lead to skin damage.</p>"
+          }
+        },
+        "highlight_jGfyfF": {
+          "type": "highlight",
+          "settings": {
+            "icon": "transfer",
+            "custom_icon": "shopify://shop_images/03_EnviroScreen_Microsite_icons-bluelight_180x_bf83a7c4-c7c6-46ef-9923-4a340bb8a446.avif",
+            "heading": "HEV (Blue) Light Defense",
+            "text": "<p>High Energy Visible Light (HEV), or \"Blue Light,\" is emitted from LED lights and digital devices that we use daily.</p>"
+          }
+        },
+        "highlight_UDRWXD": {
+          "type": "highlight",
+          "settings": {
+            "icon": "pin",
+            "custom_icon": "shopify://shop_images/03_EnviroScreen_Microsite_icons-pollution_180x_060591fb-43b6-404c-8f53-f645589512c2.avif",
+            "heading": "Pollution",
+            "text": "<p>Pollution breaks down collagen, impairs skin barrier function, causes<br/>inflammation, and leads to the loss of skin elasticity. Ultimately, this<br/>can result in hyperpigmentation, age spots, and wrinkles.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_KXRY6k",
+        "highlight_FKpf7d",
+        "highlight_jGfyfF",
+        "highlight_UDRWXD"
+      ],
+      "name": "🧰 Highlights banner",
+      "settings": {
+        "desktop_content_alignment": "center",
+        "desktop_icon_size": 52,
+        "desktop_dividers": "none",
+        "block_heading_size": 20,
+        "block_heading_size_mobile": 18,
+        "block_text_size": 16,
+        "block_text_size_mobile": 15,
+        "mobile_layout": "grid",
+        "mobile_icon_size": 32,
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "icon_color": "#000000",
+        "icon_background_color": "",
+        "background_color": "#f8f8f8",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 12,
+        "margin_bottom": 12
+      }
+    },
+    "psb_features_features_02_aYfBy3": {
+      "type": "psb-features-features-02",
+      "blocks": {
+        "heading_AMTPnB": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "Plus, Advanced Skincare",
+            "heading_tag": "h2",
+            "sub_heading_text": ""
+          }
+        },
+        "feature_iEBKPa": {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Antioxidants",
+            "feature_text": "Protect skin from harmful visible damage caused by free radicals",
+            "feature_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-stack\" viewbox=\"0 0 16 16\"><path d=\"m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z\"></path><path d=\"m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z\"></path></svg>",
+            "feature_image": "shopify://shop_images/03_EnviroScreen_Microsite_icons-antioxidants_180x_88cf57e0-cf4b-4e7a-bb1d-65355723788b.avif"
+          }
+        },
+        "feature_MxxmKU": {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Moisturizing",
+            "feature_text": "For a strong and healthy skin barrier",
+            "feature_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-palette-fill\" viewbox=\"0 0 16 16\"><path d=\"M12.433 10.07C14.133 10.585 16 11.15 16 8a8 8 0 1 0-8 8c1.996 0 1.826-1.504 1.649-3.08-.124-1.101-.252-2.237.351-2.92.465-.527 1.42-.237 2.433.07zM8 5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm4.5 3a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM5 6.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm.5 6.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z\"></path></svg>",
+            "feature_image": "shopify://shop_images/03_EnviroScreen_Microsite_icons-moisturizing_180x_a024890e-7c97-4af0-977d-edc82476d8bb.avif"
+          }
+        },
+        "feature_X667AX": {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Skin Calming",
+            "feature_text": "Soothe and calm skin for a healthy, radiant complexion",
+            "feature_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-person-lines-fill\" viewbox=\"0 0 16 16\"><path d=\"M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z\"></path></svg>",
+            "feature_image": "shopify://shop_images/03_EnviroScreen_Microsite_icons-skincalming_180x_ffc383d0-8855-4b00-ba80-dca6ca860e49.avif"
+          }
+        }
+      },
+      "block_order": [
+        "heading_AMTPnB",
+        "feature_iEBKPa",
+        "feature_MxxmKU",
+        "feature_X667AX"
+      ],
+      "name": "⚡︎PSB: Features 02",
+      "settings": {
+        "container_width": "psb-container-fluid",
+        "inherit_fonts": true,
+        "text_color": "#262424",
+        "background_color": "#f8f8f8",
+        "icon_color": "#020f4c",
+        "section_height": false,
+        "section_padding_top": 40,
+        "section_padding_bottom": 40,
+        "section_padding_top_mobile": 30,
+        "section_padding_bottom_mobile": 30
+      }
+    },
+    "pxu_image_collage_with_text_KH6hHa": {
+      "type": "pxu-image-collage-with-text",
+      "blocks": {
+        "heading_YXGxqd": {
+          "type": "heading",
+          "settings": {
+            "heading": "colorscience",
+            "heading_size": 40,
+            "heading_size_mobile": 24
+          }
+        },
+        "text_mtQCcf": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>not just another skincare company.</h2><p><br/>We partner with the innovators transforming skincare, so you can offer clients more than just products — you give them results. Whether they're starting fresh or refining what works, we help you deliver proven formulas backed by serious science and a real eye for aesthetics. This is skincare built to last — for today, for tomorrow, and for every generation to come.<br/><br/></p>",
+            "text_size": 16,
+            "text_size_mobile": 16
+          }
+        },
+        "button_f8QzYX": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Collection",
+            "button_url": "shopify://collections/colorscience",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YXGxqd",
+        "text_mtQCcf",
+        "button_f8QzYX"
+      ],
+      "name": "t:pxu_sections.sections.image_collage_with_text.name",
+      "settings": {
+        "image_1": "shopify://shop_images/Total-Protection_Family_Swatch_720x_81da3940-1965-49df-928a-4b435b85eeff.webp",
+        "image_2": "shopify://shop_images/NoShow_PDP_Model5.webp",
+        "desktop_image_height": "500",
+        "desktop_image_placement": "first",
+        "layout": "overlap",
+        "show_image_border": true,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_image_height": "350",
+        "mobile_image_placement": "column",
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "slideshow_GRgj8e": {
+      "type": "slideshow",
+      "blocks": {
+        "image_QcC77K": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/our-brand-hero.webp",
+            "pretext": "<p>We know you expect more from your skincare<br/></p>",
+            "title": "and you should.",
+            "subtitle": "<p>That’s why we stock products that do more than just treat, repair, strengthen, and protect. This line stands out for its unique formulation — therapeutic minerals paired with high-performance ingredients that are clinically proven to deliver visible results. It feels luxurious, wears beautifully, and works hard for your skin. When it feels this good, you know it’s doing even better.</p>",
+            "button1": "Shop Colorscience",
+            "button1_link": "shopify://collections/colorscience",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "right",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_QcC77K"
+      ],
+      "name": "Slideshow",
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeIn",
+        "slideshow_animation": "slide",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "pxu_before_after_image_B86NxT": {
+      "type": "pxu-before-after-image",
+      "blocks": {
+        "image_DLCHzL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mel-before_360x_cbdd6aeb-9398-45cf-8df2-ac9367a456fe.webp",
+            "show_badge": true,
+            "badge_text": "Before",
+            "badge_background_color": "#000000",
+            "badge_text_color": "#ffffff",
+            "badge_position": "bottom-left"
+          }
+        },
+        "image_npVN8f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/mel-after_360x_f49a21fe-a341-4bc4-9572-1348c75a7aa4.webp",
+            "show_badge": true,
+            "badge_text": "After",
+            "badge_background_color": "#000000",
+            "badge_text_color": "#ffffff",
+            "badge_position": "bottom-right"
+          }
+        }
+      },
+      "block_order": [
+        "image_DLCHzL",
+        "image_npVN8f"
+      ],
+      "name": "t:pxu_sections.sections.before_after_image.name",
+      "settings": {
+        "slider_direction": "horizontal",
+        "image_aspect_ratio": "landscape",
+        "desktop_image_width": "two-thirds",
+        "desktop_image_placement": "second",
+        "slider_position": 50,
+        "slider_color": "#ffffff",
+        "slider_control_color": "#000000",
+        "section_heading": "Immediate & Long Term Results",
+        "section_heading_size": 28,
+        "section_heading_size_mobile": 24,
+        "text": "Blemishes, pigmentation, and under-eye circles -    Immediate correction of each skin concern using Colorescience® products",
+        "text_size": 16,
+        "mobile_text_size": 16,
+        "desktop_content_alignment": "center",
+        "button_label": "Shop Colorscience",
+        "button_link": "shopify://collections/colorscience",
+        "button_style": "fill",
+        "button_background_color": "#000000",
+        "button_text_color": "#ffffff",
+        "mobile_image_aspect_ratio": "landscape",
+        "mobile_image_placement": "first",
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_overlay_TcGXkB",
+    "custom_html_8U9jYi",
+    "pxu_highlights_banner_NawPiP",
+    "psb_features_features_02_aYfBy3",
+    "pxu_image_collage_with_text_KH6hHa",
+    "slideshow_GRgj8e",
+    "pxu_before_after_image_B86NxT",
+    "newsletter"
+  ]
+}

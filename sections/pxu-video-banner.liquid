@@ -1,0 +1,608 @@
+{%- comment -%}
+ 🧰 Video banner section
+{%- endcomment -%}
+
+{%- liquid
+  assign video_overlay_opacity = section.settings.video_overlay_opacity | divided_by: 100.0
+ 
+  if section.settings.section_height == 'small'
+    assign height_class = 'small'
+  elsif section.settings.section_height == 'medium'
+    assign height_class = 'medium'
+  elsif section.settings.section_height == 'large'
+    assign height_class = 'large'
+  elsif section.settings.section_height == 'adapt'
+    assign height_class = 'adapt'
+  endif
+  assign text_color = section.settings.text_color | color_to_hex
+  assign white = '#FFFFFF' | color_to_hex
+  assign placeholder_fill_color = section.settings.text_color | color_modify: 'alpha', 0.35
+  
+  if text_color == white
+    assign placeholder_fill_color = '#000000' | color_modify: 'alpha', 0.35
+  endif
+ -%}
+ 
+ <section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-video-banner
+  "
+  style="
+    --pxu-section-content-width: {{ section.settings.content_width }};
+    --pxu-section-text-color: {{ section.settings.text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    {% if section.settings.video_overlay_color.alpha > 0.0 %}
+    --pxu-video-overlay: {{ section.settings.video_overlay_color | color_modify: 'alpha', video_overlay_opacity }};
+    {% endif %}
+    --pxu-section-placeholder-fill-color: {{ placeholder_fill_color }};
+    --pxu-section-placeholder-background-color: {{ section.settings.text_color | color_modify: 'alpha', 0.15 }};
+    --pxu-section-desktop-content-position: {{ section.settings.desktop_content_position }};
+  "
+  data-pxu-video-banner
+ >
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-video-banner",
+      "className": "VideoBannerSection",
+      "name": "Video banner",
+      "version": "1.0.1",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}"
+    }
+  </script>
+ 
+  <div
+    class="
+      pxu-section__container
+      pxu-video-banner__container
+      pxu-video-banner__container--height-{{ height_class }}
+    "
+    {% if height_class == 'adapt' and section.settings.shopify_hosted_video != blank %}
+      style="--video-aspect-ratio: {{ section.settings.shopify_hosted_video.aspect_ratio }};"
+    {% endif %}
+  >
+    <div class="pxu-video-banner__background-overlay">&#x200B;</div>
+    
+    {%- if section.blocks.size > 0 -%}
+      <div class="pxu-video-banner__content-wrapper">
+        <div 
+          class="
+            pxu-video-banner__content
+            pxu-video-banner__content--align-{{ section.settings.desktop_content_alignment }}
+            pxu-video-banner__content--mobile-align-{{ section.settings.mobile_content_alignment }}
+            pxu-video-banner__content--position-{{ section.settings.desktop_content_position }}
+          " 
+          data-pxu-video-banner-overlay
+        >
+          <div class="pxu-video-banner__content-inner">
+            {%- for block in section.blocks -%}
+              <div 
+                id="{{ block.id }}"
+                {{ block.shopify_attributes }}
+              >
+                {%- case block.type -%}
+                  {%- when 'heading' -%}
+                    {%- assign heading = block.settings.heading | strip -%}
+                    {%- if heading != blank -%}
+                      <h2 
+                        class="pxu-video-banner__block-heading pxu-heading"
+                        style="
+                          --pxu-heading-size: {{ block.settings.heading_size }}px;
+                          --pxu-heading-size-mobile: {{ block.settings.heading_size_mobile }}px;
+                        "
+                      >
+                        {{- heading -}}
+                      </h2>
+                    {%- endif -%}
+ 
+                  {%- when 'text' -%}
+                    {%- assign text = block.settings.text -%}
+                    {%- if text != blank -%}
+                      <div 
+                        class="pxu-video-banner__block-text pxu-rte" 
+                        style="
+                          --pxu-text-size: {{ block.settings.text_size }}px;
+                          --pxu-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+                        "
+                      >
+                        {{- text -}}
+                      </div>
+                    {%- endif -%}
+ 
+                  {%- when 'button_group' -%}
+                    {%- liquid
+                      assign button_1_label = block.settings.button_1_label
+                      assign button_1_url = block.settings.button_1_url
+                      assign button_1_style = block.settings.button_1_style
+                      assign button_1_background_color = block.settings.button_1_background_color
+                      assign button_1_text_color = block.settings.button_1_text_color
+                      assign button_1_brightness = button_1_background_color | color_brightness
+                      assign button_1_brightness_mod = 'light-on-dark'
+                      if button_1_brightness > 127.5
+                        assign button_1_brightness_mod = 'dark-on-light'
+                      endif
+ 
+                      assign button_2_label = block.settings.button_2_label
+                      assign button_2_url = block.settings.button_2_url
+                      assign button_2_style = block.settings.button_2_style
+                      assign button_2_background_color = block.settings.button_2_background_color
+                      assign button_2_text_color = block.settings.button_2_text_color
+                      assign button_2_brightness = button_2_background_color | color_brightness
+                      assign button_2_brightness_mod = 'light-on-dark'
+                      if button_2_brightness > 127.5
+                        assign button_2_brightness_mod = 'dark-on-light'
+                      endif
+                    -%}
+ 
+                    {%- if button_1_label != blank or button_2_label != blank -%}
+                      <div 
+                        class="pxu-video-banner__button-group pxu-btn-group" 
+                        {{ block.shopify_attributes }}
+                      >
+                        {%- if button_1_label != blank -%}
+                          <a 
+                            class="pxu-btn pxu-btn--{{ button_1_style }} pxu-btn--{{ button_1_brightness_mod }}" 
+                            href="{{ button_1_url }}" 
+                            style="--pxu-btn-background-color: {{ button_1_background_color }}; --pxu-btn-text-color: {{ button_1_text_color }};"
+                          >
+                            {{- button_1_label -}}
+                          </a>
+                        {%- endif -%}
+ 
+                        {%- if button_2_label != blank -%}
+                          <a 
+                            class="pxu-btn pxu-btn--{{ button_2_style }} pxu-btn--{{ button_2_brightness_mod }}" 
+                            href="{{ button_2_url }}" 
+                            style="--pxu-btn-background-color: {{ button_2_background_color }}; --pxu-btn-text-color: {{ button_2_text_color }};"
+                          >
+                            {{- button_2_label -}}
+                          </a>
+                        {%- endif -%}
+                      </div>
+                    {%- endif -%}
+                {%- endcase -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+ 
+    <div class="pxu-video-banner__video-wrapper">
+      {%- if section.settings.shopify_hosted_video != blank -%}
+        {{ section.settings.shopify_hosted_video | video_tag: 
+          loop: true, 
+          muted: true, 
+          autoplay: true, 
+          class: 'pxu-video-banner__video',
+          image_size: '1200x'
+        }}
+      {%- else -%}
+        {{- 'lifestyle-1' | placeholder_svg_tag: 'pxu-placeholder' -}}
+      {%- endif -%}
+    </div>
+  </div>
+ </section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-video-banner{color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75)}@media only screen and (min-width:480px){.pxu-video-banner{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0)}}.pxu-video-banner__container{display:flex;flex-direction:column;min-height:100%;position:relative}.pxu-video-banner__container--height-adapt{aspect-ratio:var(--video-aspect-ratio,16/9);height:auto}.pxu-video-banner__container--height-small{min-height:300px}.pxu-video-banner__container--height-medium{min-height:450px}.pxu-video-banner__container--height-large{min-height:600px}@media only screen and (min-width:860px){.pxu-video-banner__container--height-small{min-height:500px}.pxu-video-banner__container--height-medium{min-height:650px}.pxu-video-banner__container--height-large{min-height:800px}}.pxu-video-banner__background-overlay{background:var(--pxu-video-overlay);font-size:0;height:100%;left:0;position:absolute;top:0;width:100%;z-index:2}.pxu-video-banner__video-wrapper{height:100%;inset:0;overflow:hidden;position:absolute;width:100%;z-index:1}.pxu-video-banner__video{height:100%;left:50%;-o-object-fit:cover;object-fit:cover;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%}.pxu-video-banner__content-wrapper{display:flex;flex:1;flex-direction:column;height:100%;justify-content:center;left:50%;max-width:var(--pxu-width-max);padding:var(--pxu-space-16) var(--pxu-space-4);position:relative;top:0;transform:translateX(-50%);width:100%;z-index:3}@media only screen and (min-width:860px){.pxu-video-banner__content-wrapper{padding:var(--pxu-space-14)}}.pxu-video-banner__content{display:flex;flex:1;flex-direction:column;height:100%;justify-content:center;position:relative;transition:opacity .3s ease;width:100%}.pxu-video-banner__content--mobile-align-left{align-items:flex-start;text-align:left}.pxu-video-banner__content--mobile-align-center{align-items:center;text-align:center}.pxu-video-banner__content--mobile-align-right{align-items:flex-end;text-align:right}@media only screen and (min-width:860px){.pxu-video-banner__content--position-top{justify-content:flex-start}.pxu-video-banner__content--position-middle{justify-content:center}.pxu-video-banner__content--position-bottom{justify-content:flex-end}.pxu-video-banner__content--align-left{align-items:flex-start;text-align:left}.pxu-video-banner__content--align-center{align-items:center;text-align:center}.pxu-video-banner__content--align-right{align-items:flex-end;text-align:right}}.pxu-video-banner__content-inner{display:flex;flex-direction:column;gap:var(--pxu-space-2);max-width:var(--pxu-section-content-width);position:relative;width:100%;z-index:3}@media only screen and (min-width:480px){.pxu-video-banner__content-inner{gap:var(--pxu-space-3)}}.pxu-video-banner__video::-webkit-media-controls-mute-button,.pxu-video-banner__video::-webkit-media-controls-volume-slider{display:none}.pxu-video-banner__block-heading{font-size:var(--pxu-heading-size-mobile);margin:0}@media only screen and (min-width:860px){.pxu-video-banner__block-heading{font-size:var(--pxu-heading-size)}}.pxu-video-banner__block-text{font-size:var(--pxu-text-size-mobile)}@media only screen and (min-width:860px){.pxu-video-banner__block-text{font-size:var(--pxu-text-size)}}.pxu-video-banner__button-group{margin-top:var(--pxu-space-3)}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+
+class VideoBannerSection extends Section {
+ constructor($root) {
+   super($root);
+   this.$root = $root;
+   this.$video = this.query('.pxu-video-banner__video');
+   this.id = $root.id;
+   this.data = this.loadData();
+   this.observer = null;
+
+   this.onMount();
+ }
+
+ onMount() {
+   this.initIntersectionObserver();
+ }
+
+ onUnmount() {
+   if (this.observer) {
+     this.observer.unobserve(this.$root);
+   }
+ }
+
+ initIntersectionObserver() {
+   this.observer = new IntersectionObserver((entries, observer) => {
+     entries.forEach(entry => {
+       if (entry.isIntersecting) {
+         if (this.$video) {
+           this.initShopifyVideo();
+         }
+         observer.unobserve(this.$root);
+       }
+     });
+   }, { threshold: 0 });
+   this.observer.observe(this.$root);
+ }
+
+ initShopifyVideo() {
+   if (!this.$video) return;
+   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+   if(prefersReducedMotion){
+    this.$video.removeAttribute('autoplay');
+    this.$video.setAttribute('controls', '');
+   } else {
+    this.$video.play();
+   }
+ }
+}
+
+document.querySelectorAll('[data-pxu-video-banner]').forEach(($section) => {
+ Section.init($section, VideoBannerSection);
+});
+
+if (Shopify.designMode) {
+ window.PxuThemeSections.VideoBannerSection = VideoBannerSection;
+}{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.video_banner.name",
+  "class": "pxu-video-banner-section",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "t:pxu_sections.common.content_width.label",
+      "options": [
+        {
+          "value": "650px",
+          "label": "t:pxu_sections.common.content_width.regular"
+        },
+        {
+          "value": "800px",
+          "label": "t:pxu_sections.common.content_width.wide"
+        },
+        {
+          "value": "100%",
+          "label": "t:pxu_sections.common.content_width.full_width"
+        }
+      ],
+      "default": "650px"
+    },
+    {
+      "type": "video",
+      "id": "shopify_hosted_video",
+      "label": "t:pxu_sections.sections.video_banner.shopify_hosted_video.label"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "t:pxu_sections.sections.video_banner.section_height.label",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:pxu_sections.common.video.adapt"
+        },
+        {
+          "value": "small",
+          "label": "t:pxu_sections.common.sizes.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:pxu_sections.common.sizes.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:pxu_sections.common.sizes.large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "center",
+      "label": "t:pxu_sections.common.layout.desktop_content_alignment"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:pxu_sections.common.layout.top"
+        },
+        {
+          "value": "middle",
+          "label": "t:pxu_sections.common.layout.middle"
+        },
+        {
+          "value": "bottom",
+          "label": "t:pxu_sections.common.layout.bottom"
+        }
+      ],
+      "default": "middle",
+      "label": "t:pxu_sections.common.layout.desktop_content_position"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "center",
+      "label": "t:pxu_sections.common.layout.mobile_content_alignment"
+    },
+    {
+      "type": "header",
+      "content":"t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "video_overlay_color",
+      "label": "t:pxu_sections.sections.video_banner.video_overlay.label",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "video_overlay_opacity",
+      "label": "t:pxu_sections.sections.video_banner.video_overlay_opacity.label",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:pxu_sections.common.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.sections.video_banner.blocks.heading.default"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size_mobile",
+          "default": 32
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:pxu_sections.common.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.name",
+          "default": "t:pxu_sections.sections.video_banner.blocks.text.default"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size",
+          "default": 18
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "button_group",
+      "name": "Button group",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:pxu_sections.common.button.button_1"
+        },
+        {
+          "type": "text",
+          "id": "button_1_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_1_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_1_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_1_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_1_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "t:pxu_sections.common.button.button_2"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_2_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_2_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_2_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.video_banner.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button_group"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

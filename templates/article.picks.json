@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-template",
+      "settings": {
+        "featured_image": "content",
+        "wide_display": false,
+        "caption_content_background": "darken_bg",
+        "blog_breadcrumb": true,
+        "blog_pagination": true,
+        "blog_tags": false,
+        "blog_byline": false,
+        "read_time": true,
+        "blog_date": false,
+        "blog_author": false,
+        "display_social_buttons": true,
+        "blog_comment_count": true,
+        "blog_additional_posts": false,
+        "read_more_link": true,
+        "toggle": false
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "psb_banner_banner_01_Lhm788": {
+      "type": "psb-banner-banner-01",
+      "blocks": {
+        "subheading_jbUQnJ": {
+          "type": "subheading",
+          "repeater": "{{ article.metafields.custom.picks_.value }}",
+          "settings": {
+            "subheading_text": "{{ block.repeater.title.value }}"
+          }
+        },
+        "heading_gGtJzJ": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "Great Leather Collection",
+            "heading_tag": "h1"
+          }
+        },
+        "text_mbFwAK": {
+          "type": "text",
+          "settings": {
+            "section_text": "<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_jbUQnJ",
+        "heading_gGtJzJ",
+        "text_mbFwAK"
+      ],
+      "settings": {
+        "container_width": "psb-container",
+        "background_image": "{{ article.image }}",
+        "text_align": "center",
+        "inherit_fonts": false,
+        "text_color": "#ffffff",
+        "section_padding_top": 350,
+        "section_padding_bottom": 350,
+        "section_padding_top_mobile": 150,
+        "section_padding_bottom_mobile": 150
+      }
+    }
+  },
+  "order": [
+    "main",
+    "newsletter",
+    "psb_banner_banner_01_Lhm788"
+  ]
+}

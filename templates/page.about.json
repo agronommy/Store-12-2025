@@ -1,0 +1,194 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-no-title-template",
+      "settings": {}
+    },
+    "1631282626f9accc5e": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 30,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631282542e3709975": {
+      "type": "image-text",
+      "blocks": {
+        "1631282542e3709975-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-1.jpg",
+            "title": "We're here to help.",
+            "text": "<p>We are a mindful collective with a focus on healing and wellness, looking to help people return to their authentic self. With our products, you can soothe your soul – and your joints!</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "1631282542e3709975-0"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312827056d6f4f76": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 10,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128262972e25d4c": {
+      "type": "gallery",
+      "blocks": {
+        "163128262972e25d4c-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-2.jpg"
+          }
+        },
+        "163128262972e25d4c-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-3.jpg"
+          }
+        },
+        "163128262972e25d4c-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-4.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "163128262972e25d4c-0",
+        "163128262972e25d4c-1",
+        "163128262972e25d4c-2"
+      ],
+      "settings": {
+        "wide_display": true,
+        "title": "",
+        "gallery_type": "classic",
+        "grid-size": 3,
+        "enable_lightbox": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312827800258bf90": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 30,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631282783a0adbc02": {
+      "type": "image-text",
+      "blocks": {
+        "1631282783a0adbc02-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-5.jpg",
+            "title": "Something for everyone.",
+            "text": "<p>We believe that our products help people and that they can have a positive impact on your every day life.</p>",
+            "button_label": "View all",
+            "link": "shopify://collections/all",
+            "text_color": "",
+            "bg_color": ""
+          }
+        },
+        "1631282783a0adbc02-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/who-we-are-6.jpg",
+            "title": "Our effective approach.",
+            "text": "<p>Not all cannabinoid products are created the same. We meticulously source our ingredients and are committed to bringing you only the very best.</p>",
+            "button_label": "Learn more",
+            "link": "shopify://blogs/higher-education",
+            "text_color": "",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "1631282783a0adbc02-0",
+        "1631282783a0adbc02-1"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128310857566332": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 30,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631282815c3d5aa5f": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/about-banner.jpg",
+        "pretext": "",
+        "title": "Feel the difference",
+        "subtitle": "<p><strong>Your mind & body will surely thank you later.</strong></p>",
+        "button1": "Explore CBD",
+        "button1_link": "shopify://collections/calm-balms",
+        "button1_style": "global-button--banner-highlighted",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "left",
+        "text_align": "left",
+        "caption_content_background": "original",
+        "mobile_image_crop": "none",
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1631282626f9accc5e",
+    "1631282542e3709975",
+    "16312827056d6f4f76",
+    "163128262972e25d4c",
+    "16312827800258bf90",
+    "1631282783a0adbc02",
+    "163128310857566332",
+    "1631282815c3d5aa5f"
+  ]
+}

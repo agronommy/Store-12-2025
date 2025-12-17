@@ -1,0 +1,3174 @@
+<div class="tua-devkit">
+<script type="application/json" data-component-data>{ "version": "1.1.0" }</script>
+
+{% comment %}assign{% endcomment %}
+{% assign slot_d41d8cd98f00 = slot %}
+{% assign slot = nil %}
+{% comment %}assign{% endcomment %}
+{% assign desktop_video_width_d41d8cd98f00 = desktop_video_width %}
+{% assign desktop_video_width = nil %}
+{% comment %}assign{% endcomment %}
+{% assign shopify_hosted_video_d41d8cd98f00 = shopify_hosted_video %}
+{% assign shopify_hosted_video = nil %}
+{% comment %}assign{% endcomment %}
+{% assign video_url_d41d8cd98f00 = video_url %}
+{% assign video_url = nil %}
+{% comment %}assign{% endcomment %}
+{% assign cover_image_d41d8cd98f00 = cover_image %}
+{% assign cover_image = nil %}
+{% comment %}assign{% endcomment %}
+{% assign desktop_video_aspect_ratio_d41d8cd98f00 = desktop_video_aspect_ratio %}
+{% assign desktop_video_aspect_ratio = nil %}
+{% comment %}assign{% endcomment %}
+{% assign mobile_video_aspect_ratio_d41d8cd98f00 = mobile_video_aspect_ratio %}
+{% assign mobile_video_aspect_ratio = nil %}
+{% comment %}assign{% endcomment %}
+{% assign desktop_video_placement_d41d8cd98f00 = desktop_video_placement %}
+{% assign desktop_video_placement = nil %}
+{% comment %}assign{% endcomment %}
+{% assign mobile_video_placement_d41d8cd98f00 = mobile_video_placement %}
+{% assign mobile_video_placement = nil %}
+{% comment %}assign{% endcomment %}
+{% assign desktop_content_position_d41d8cd98f00 = desktop_content_position %}
+{% assign desktop_content_position = nil %}
+{% comment %}assign{% endcomment %}
+{% assign desktop_content_alignment_d41d8cd98f00 = desktop_content_alignment %}
+{% assign desktop_content_alignment = nil %}
+{% comment %}assign{% endcomment %}
+{% assign mobile_content_alignment_d41d8cd98f00 = mobile_content_alignment %}
+{% assign mobile_content_alignment = nil %}
+{% comment %}assign{% endcomment %}
+{% assign video_playback_d41d8cd98f00 = video_playback %}
+{% assign video_playback = nil %}
+{% comment %}assign{% endcomment %}
+{% assign padding_top_d41d8cd98f00 = padding_top %}
+{% assign padding_top = nil %}
+{% comment %}assign{% endcomment %}
+{% assign padding_bottom_d41d8cd98f00 = padding_bottom %}
+{% assign padding_bottom = nil %}
+{% comment %}assign{% endcomment %}
+{% assign margin_top_d41d8cd98f00 = margin_top %}
+{% assign margin_top = nil %}
+{% comment %}assign{% endcomment %}
+{% assign margin_bottom_d41d8cd98f00 = margin_bottom %}
+{% assign margin_bottom = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_color_d41d8cd98f00 = text_color %}
+{% assign text_color = nil %}
+{% comment %}assign{% endcomment %}
+{% assign background_color_d41d8cd98f00 = background_color %}
+{% assign background_color = nil %}
+{% comment %}assign{% endcomment %}
+{% assign background_gradient_d41d8cd98f00 = background_gradient %}
+{% assign background_gradient = nil %}
+{% comment %}assign{% endcomment %}
+{% assign play_button_color_d41d8cd98f00 = play_button_color %}
+{% assign play_button_color = nil %}
+
+
+  {% capture slot %}
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'heading' %}
+          
+{% comment %}assign{% endcomment %}
+{% assign block_ed43d877a793 = block %}
+{% assign block = block %}
+{% comment %}assign{% endcomment %}
+{% assign heading_ed43d877a793 = heading %}
+{% assign heading = nil %}
+{% comment %}assign{% endcomment %}
+{% assign heading_size_ed43d877a793 = heading_size %}
+{% assign heading_size = nil %}
+{% comment %}assign{% endcomment %}
+{% assign heading_size_mobile_ed43d877a793 = heading_size_mobile %}
+{% assign heading_size_mobile = nil %}
+
+{%- liquid
+  assign heading = heading | default: block.settings.heading
+  assign heading_size = heading_size | default: block.settings.heading_size | default: 40
+  assign heading_size_mobile = heading_size_mobile | default: block.settings.heading_size_mobile | default: 24
+-%}
+
+{% capture _id %}
+{% comment %}assign{% endcomment %}
+{% assign block_f22110b072aa = block %}
+{% assign block = block %}
+
+{%- liquid
+  assign hyphen_separator = '-'
+  assign comma_separator = ','
+
+  capture id
+    if section != empty
+      echo section.id | prepend: comma_separator
+    endif
+
+    if block != blank
+      echo block.id | prepend: comma_separator
+    endif
+
+    if index != blank
+      echo index | prepend: comma_separator
+    endif
+
+    if name != blank
+      echo name | prepend: comma_separator
+    endif
+  endcapture
+
+  echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+-%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_f22110b072aa %}
+{% assign block_f22110b072aa = nil %}{% endcapture %}
+
+{%- if heading != blank -%}
+  <div {{ block.shopify_attributes }}>
+    {% style %}
+      #{{ _id | strip }} {
+        --element-text-font-size: {{ heading_size_mobile }}px;
+        line-height: var(--line-height-md);
+      }
+
+      @media (
+{% comment %}assign{% endcomment %}
+{% assign size_1e0191875419 = size %}
+{% assign size = 'md' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_1e0191875419 %}
+{% assign size_1e0191875419 = nil %}) {
+        #{{ _id | strip }} {
+          --element-text-font-size: {{ heading_size }}px;
+        }
+      }
+    {% endstyle %}
+    
+{% comment %}assign{% endcomment %}
+{% assign id_2a4a20519aa0 = id %}
+{% assign id = _id %}
+{% comment %}assign{% endcomment %}
+{% assign text_2a4a20519aa0 = text %}
+{% assign text = heading %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_2a4a20519aa0 = classlist %}
+{% assign classlist = 'video-with-text__heading' %}
+{% comment %}assign{% endcomment %}
+{% assign as_2a4a20519aa0 = as %}
+{% assign as = 'h2' %}
+{% comment %}assign{% endcomment %}
+{% assign variant_2a4a20519aa0 = variant %}
+{% assign variant = 'heading' %}
+{% comment %}assign{% endcomment %}
+{% assign inherit_2a4a20519aa0 = inherit %}
+{% assign inherit = true %}
+{% comment %}assign{% endcomment %}
+{% assign size_2a4a20519aa0 = size %}
+{% assign size = nil %}
+{% comment %}assign{% endcomment %}
+{% assign style_2a4a20519aa0 = style %}
+{% assign style = nil %}
+{% comment %}assign{% endcomment %}
+{% assign break_word_2a4a20519aa0 = break_word %}
+{% assign break_word = nil %}
+{% comment %}assign{% endcomment %}
+{% assign truncate_2a4a20519aa0 = truncate %}
+{% assign truncate = nil %}
+{% comment %}assign{% endcomment %}
+{% assign visually_hidden_2a4a20519aa0 = visually_hidden %}
+{% assign visually_hidden = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_decoration_2a4a20519aa0 = text_decoration %}
+{% assign text_decoration = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_transform_2a4a20519aa0 = text_transform %}
+{% assign text_transform = nil %}
+{% comment %}assign{% endcomment %}
+{% assign alignment_2a4a20519aa0 = alignment %}
+{% assign alignment = nil %}
+{% comment %}assign{% endcomment %}
+{% assign accent_2a4a20519aa0 = accent %}
+{% assign accent = nil %}
+{% comment %}assign{% endcomment %}
+{% assign locale_2a4a20519aa0 = locale %}
+{% assign locale = nil %}
+
+{% liquid
+  assign text = text | default: ''
+  assign as = as | default: 'span'
+  assign classlist = classlist | default: '' | append: ' element-text' | strip
+  assign id = id | default: ''
+  assign variant = variant | default: ''
+  assign size = size | default: ''
+  assign style = style | default: ''
+  assign attributes = attributes | default: ''
+  assign break_word = break_word | default: false, allow_false: true
+  assign truncate = truncate | default: false, allow_false: true
+  assign visually_hidden = visually_hidden | default: false, allow_false: true
+  assign alignment = alignment | default: ''
+  assign text_transform = text_transform | default: 'none'
+  assign text_decoration = text_decoration | default: 'none'
+  assign accent = accent | default: false, allow_false: true
+  assign inherit = inherit | default: false, allow_false: true
+  if variant != blank
+    assign variant_class = 'element-text--' | append: variant
+    if size != blank
+      assign variant_pieces = variant | split: '-'
+      assign variant_class = variant_pieces[0] | append: '-' | append: size
+    endif
+    assign classlist = classlist | append: ' ' | append: variant_class
+  endif
+
+  if variant == 'rte'
+    assign as = 'element-text-rte'
+  endif
+
+  if accent
+    assign classlist = classlist | append: ' element-text--accent'
+  endif
+
+  if alignment != blank
+    assign classlist = classlist | append: ' element-text--align-' | append: alignment
+  endif
+
+  if break_word
+    assign classlist = classlist | append: ' element-text--break-word'
+  endif
+
+  if truncate
+    assign classlist = classlist | append: ' element-text--truncate'
+  endif
+
+  if visually_hidden
+    assign classlist = classlist | append: ' element-text--visually-hidden'
+  endif
+
+  if text_decoration != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_decoration
+  endif
+
+  if text_transform != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_transform
+  endif
+
+  if inherit
+    assign classlist = classlist | append: ' element-text--inherit'
+  endif
+%}
+
+<{{ as }}
+  {%- if id != blank -%}
+    id="{{ id | strip }}"
+  {%- endif -%}
+
+  class="{{ classlist }}"
+
+  {% if attributes != blank %}
+    {{ attributes }}
+  {% endif %}
+
+  {%- if style != blank -%}
+    style="{{ style }}"
+  {%- endif -%}
+>
+  {% if locale != blank %}
+    {%- render 'utility.translate', key: locale, fallback: text -%}
+  {% else %}
+    {{ text }}
+  {% endif %}
+</{{ as }}>
+
+{% if variant == 'rte' %}
+  
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign id = id_2a4a20519aa0 %}
+{% assign id_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text = text_2a4a20519aa0 %}
+{% assign text_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_2a4a20519aa0 %}
+{% assign classlist_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign as = as_2a4a20519aa0 %}
+{% assign as_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign variant = variant_2a4a20519aa0 %}
+{% assign variant_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign inherit = inherit_2a4a20519aa0 %}
+{% assign inherit_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_2a4a20519aa0 %}
+{% assign size_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_2a4a20519aa0 %}
+{% assign style_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign break_word = break_word_2a4a20519aa0 %}
+{% assign break_word_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign truncate = truncate_2a4a20519aa0 %}
+{% assign truncate_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign visually_hidden = visually_hidden_2a4a20519aa0 %}
+{% assign visually_hidden_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_decoration = text_decoration_2a4a20519aa0 %}
+{% assign text_decoration_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_transform = text_transform_2a4a20519aa0 %}
+{% assign text_transform_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign alignment = alignment_2a4a20519aa0 %}
+{% assign alignment_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign accent = accent_2a4a20519aa0 %}
+{% assign accent_2a4a20519aa0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign locale = locale_2a4a20519aa0 %}
+{% assign locale_2a4a20519aa0 = nil %}
+  </div>
+{%- endif -%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_ed43d877a793 %}
+{% assign block_ed43d877a793 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign heading = heading_ed43d877a793 %}
+{% assign heading_ed43d877a793 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign heading_size = heading_size_ed43d877a793 %}
+{% assign heading_size_ed43d877a793 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign heading_size_mobile = heading_size_mobile_ed43d877a793 %}
+{% assign heading_size_mobile_ed43d877a793 = nil %}
+        {% when 'text' %}
+          
+{% comment %}assign{% endcomment %}
+{% assign block_7b03d1ec23e8 = block %}
+{% assign block = block %}
+{% comment %}assign{% endcomment %}
+{% assign text_7b03d1ec23e8 = text %}
+{% assign text = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_size_7b03d1ec23e8 = text_size %}
+{% assign text_size = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_size_mobile_7b03d1ec23e8 = text_size_mobile %}
+{% assign text_size_mobile = nil %}
+
+{%- liquid
+  assign text = text | default: block.settings.text
+  assign text_size = text_size | default: block.settings.text_size | default: 16
+  assign text_size_mobile = text_size_mobile | default: block.settings.text_size_mobile | default: 16
+-%}
+
+{% capture _id %}
+{% comment %}assign{% endcomment %}
+{% assign block_c8be45b0b590 = block %}
+{% assign block = block %}
+
+{%- liquid
+  assign hyphen_separator = '-'
+  assign comma_separator = ','
+
+  capture id
+    if section != empty
+      echo section.id | prepend: comma_separator
+    endif
+
+    if block != blank
+      echo block.id | prepend: comma_separator
+    endif
+
+    if index != blank
+      echo index | prepend: comma_separator
+    endif
+
+    if name != blank
+      echo name | prepend: comma_separator
+    endif
+  endcapture
+
+  echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+-%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_c8be45b0b590 %}
+{% assign block_c8be45b0b590 = nil %}{% endcapture %}
+
+{%- if text != blank -%}
+  <div {{ block.shopify_attributes }}>
+    {% style %}
+      #{{ _id | strip }} {
+        --element-text-font-size--rte-body: {{ text_size_mobile }}px;
+        line-height: var(--line-height-lg);
+      }
+
+      @media (
+{% comment %}assign{% endcomment %}
+{% assign size_2d667d2955d5 = size %}
+{% assign size = 'md' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_2d667d2955d5 %}
+{% assign size_2d667d2955d5 = nil %}) {
+        #{{ _id | strip }} {
+          --element-text-font-size--rte-body: {{ text_size }}px;
+        }
+      }
+    {% endstyle %}
+    
+{% comment %}assign{% endcomment %}
+{% assign id_3f2ef83052ce = id %}
+{% assign id = _id %}
+{% comment %}assign{% endcomment %}
+{% assign text_3f2ef83052ce = text %}
+{% assign text = text %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_3f2ef83052ce = classlist %}
+{% assign classlist = 'video-with-text__text' %}
+{% comment %}assign{% endcomment %}
+{% assign variant_3f2ef83052ce = variant %}
+{% assign variant = 'rte' %}
+{% comment %}assign{% endcomment %}
+{% assign inherit_3f2ef83052ce = inherit %}
+{% assign inherit = true %}
+{% comment %}assign{% endcomment %}
+{% assign as_3f2ef83052ce = as %}
+{% assign as = nil %}
+{% comment %}assign{% endcomment %}
+{% assign size_3f2ef83052ce = size %}
+{% assign size = nil %}
+{% comment %}assign{% endcomment %}
+{% assign style_3f2ef83052ce = style %}
+{% assign style = nil %}
+{% comment %}assign{% endcomment %}
+{% assign break_word_3f2ef83052ce = break_word %}
+{% assign break_word = nil %}
+{% comment %}assign{% endcomment %}
+{% assign truncate_3f2ef83052ce = truncate %}
+{% assign truncate = nil %}
+{% comment %}assign{% endcomment %}
+{% assign visually_hidden_3f2ef83052ce = visually_hidden %}
+{% assign visually_hidden = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_decoration_3f2ef83052ce = text_decoration %}
+{% assign text_decoration = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_transform_3f2ef83052ce = text_transform %}
+{% assign text_transform = nil %}
+{% comment %}assign{% endcomment %}
+{% assign alignment_3f2ef83052ce = alignment %}
+{% assign alignment = nil %}
+{% comment %}assign{% endcomment %}
+{% assign accent_3f2ef83052ce = accent %}
+{% assign accent = nil %}
+{% comment %}assign{% endcomment %}
+{% assign locale_3f2ef83052ce = locale %}
+{% assign locale = nil %}
+
+{% liquid
+  assign text = text | default: ''
+  assign as = as | default: 'span'
+  assign classlist = classlist | default: '' | append: ' element-text' | strip
+  assign id = id | default: ''
+  assign variant = variant | default: ''
+  assign size = size | default: ''
+  assign style = style | default: ''
+  assign attributes = attributes | default: ''
+  assign break_word = break_word | default: false, allow_false: true
+  assign truncate = truncate | default: false, allow_false: true
+  assign visually_hidden = visually_hidden | default: false, allow_false: true
+  assign alignment = alignment | default: ''
+  assign text_transform = text_transform | default: 'none'
+  assign text_decoration = text_decoration | default: 'none'
+  assign accent = accent | default: false, allow_false: true
+  assign inherit = inherit | default: false, allow_false: true
+  if variant != blank
+    assign variant_class = 'element-text--' | append: variant
+    if size != blank
+      assign variant_pieces = variant | split: '-'
+      assign variant_class = variant_pieces[0] | append: '-' | append: size
+    endif
+    assign classlist = classlist | append: ' ' | append: variant_class
+  endif
+
+  if variant == 'rte'
+    assign as = 'element-text-rte'
+  endif
+
+  if accent
+    assign classlist = classlist | append: ' element-text--accent'
+  endif
+
+  if alignment != blank
+    assign classlist = classlist | append: ' element-text--align-' | append: alignment
+  endif
+
+  if break_word
+    assign classlist = classlist | append: ' element-text--break-word'
+  endif
+
+  if truncate
+    assign classlist = classlist | append: ' element-text--truncate'
+  endif
+
+  if visually_hidden
+    assign classlist = classlist | append: ' element-text--visually-hidden'
+  endif
+
+  if text_decoration != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_decoration
+  endif
+
+  if text_transform != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_transform
+  endif
+
+  if inherit
+    assign classlist = classlist | append: ' element-text--inherit'
+  endif
+%}
+
+<{{ as }}
+  {%- if id != blank -%}
+    id="{{ id | strip }}"
+  {%- endif -%}
+
+  class="{{ classlist }}"
+
+  {% if attributes != blank %}
+    {{ attributes }}
+  {% endif %}
+
+  {%- if style != blank -%}
+    style="{{ style }}"
+  {%- endif -%}
+>
+  {% if locale != blank %}
+    {%- render 'utility.translate', key: locale, fallback: text -%}
+  {% else %}
+    {{ text }}
+  {% endif %}
+</{{ as }}>
+
+{% if variant == 'rte' %}
+  
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign id = id_3f2ef83052ce %}
+{% assign id_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text = text_3f2ef83052ce %}
+{% assign text_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_3f2ef83052ce %}
+{% assign classlist_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign variant = variant_3f2ef83052ce %}
+{% assign variant_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign inherit = inherit_3f2ef83052ce %}
+{% assign inherit_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign as = as_3f2ef83052ce %}
+{% assign as_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_3f2ef83052ce %}
+{% assign size_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_3f2ef83052ce %}
+{% assign style_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign break_word = break_word_3f2ef83052ce %}
+{% assign break_word_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign truncate = truncate_3f2ef83052ce %}
+{% assign truncate_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign visually_hidden = visually_hidden_3f2ef83052ce %}
+{% assign visually_hidden_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_decoration = text_decoration_3f2ef83052ce %}
+{% assign text_decoration_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_transform = text_transform_3f2ef83052ce %}
+{% assign text_transform_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign alignment = alignment_3f2ef83052ce %}
+{% assign alignment_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign accent = accent_3f2ef83052ce %}
+{% assign accent_3f2ef83052ce = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign locale = locale_3f2ef83052ce %}
+{% assign locale_3f2ef83052ce = nil %}
+  </div>
+{%- endif -%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_7b03d1ec23e8 %}
+{% assign block_7b03d1ec23e8 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text = text_7b03d1ec23e8 %}
+{% assign text_7b03d1ec23e8 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_size = text_size_7b03d1ec23e8 %}
+{% assign text_size_7b03d1ec23e8 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_size_mobile = text_size_mobile_7b03d1ec23e8 %}
+{% assign text_size_mobile_7b03d1ec23e8 = nil %}
+        {% when 'button' %}
+          
+{% comment %}assign{% endcomment %}
+{% assign block_8fc03fd660f4 = block %}
+{% assign block = block %}
+{% comment %}assign{% endcomment %}
+{% assign button_label_8fc03fd660f4 = button_label %}
+{% assign button_label = nil %}
+{% comment %}assign{% endcomment %}
+{% assign button_url_8fc03fd660f4 = button_url %}
+{% assign button_url = nil %}
+{% comment %}assign{% endcomment %}
+{% assign button_style_8fc03fd660f4 = button_style %}
+{% assign button_style = nil %}
+{% comment %}assign{% endcomment %}
+{% assign button_background_color_8fc03fd660f4 = button_background_color %}
+{% assign button_background_color = nil %}
+{% comment %}assign{% endcomment %}
+{% assign button_text_color_8fc03fd660f4 = button_text_color %}
+{% assign button_text_color = nil %}
+
+{%- liquid
+  assign button_label = button_label | default: block.settings.button_label
+  assign button_url = button_url | default: block.settings.button_url
+  assign button_style = button_style | default: block.settings.button_style | default: 'fill'
+  assign button_background_color = button_background_color | default: block.settings.button_background_color | default: '#000000'
+  assign button_text_color = button_text_color | default: block.settings.button_text_color | default: '#FFFFFF'
+-%}
+
+{% capture _id %}
+{% comment %}assign{% endcomment %}
+{% assign block_515a3225835b = block %}
+{% assign block = block %}
+
+{%- liquid
+  assign hyphen_separator = '-'
+  assign comma_separator = ','
+
+  capture id
+    if section != empty
+      echo section.id | prepend: comma_separator
+    endif
+
+    if block != blank
+      echo block.id | prepend: comma_separator
+    endif
+
+    if index != blank
+      echo index | prepend: comma_separator
+    endif
+
+    if name != blank
+      echo name | prepend: comma_separator
+    endif
+  endcapture
+
+  echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+-%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_515a3225835b %}
+{% assign block_515a3225835b = nil %}{% endcapture %}
+
+{%- if button_label != blank -%}
+  <div {{ block.shopify_attributes }}>
+    {%- liquid
+      assign inverted = false
+      if button_style == 'outline'
+        assign inverted = true
+      endif
+
+      assign button_brightness = button_background_color | color_brightness
+      assign button_brightness_mod = 'light-on-dark'
+      if button_brightness > 127.5
+        assign button_brightness_mod = 'dark-on-light'
+      endif
+    -%}
+
+    {% style %}
+      #{{ _id | strip }} {
+        border-radius: 0;
+        {% if button_style == 'fill' %}
+          color: {{ button_text_color }};
+          background-color: {{ button_background_color }};
+        {% else %}
+          color: {{ button_background_color }};
+          background-color: transparent;
+          box-shadow: inset 0 0 0 var(--element-button-border-width, var(--size-0-25)) {{ button_background_color }};
+        {% endif %}
+      }
+
+      #{{ _id | strip }}:hover,
+      #{{ _id | strip }}:visited {
+        {% if button_style == 'fill' %}
+          color: {{ button_text_color }};
+        {% else %}
+          color: {{ button_background_color }};
+        {% endif %}
+      }
+
+      #{{ _id | strip }}:hover,
+      #{{ _id | strip }}:focus-visible {
+        {% if button_style == 'fill' %}
+          {% if button_brightness_mod == 'dark-on-light' %}
+            background-color: color-mix(in srgb, {{ button_background_color }} 90%, black);
+          {% else %}
+            background-color: color-mix(in srgb, {{ button_background_color }} 80%, white);
+          {% endif %}
+        {% else %}
+          background-color: color-mix(in srgb, {{ button_background_color }} 10%, transparent);
+        {% endif %}
+      }
+
+      #{{ _id | strip }}:active {
+        {% if button_style == 'fill' %}
+          {% if button_brightness_mod == 'dark-on-light' %}
+            background-color: color-mix(in srgb, {{ button_background_color }} 80%, black);
+          {% else %}
+            background-color: color-mix(in srgb, {{ button_background_color }} 75%, white);
+          {% endif %}
+        {% else %}
+          background-color: color-mix(in srgb, {{ button_background_color }} 15%, transparent);
+        {% endif %}
+      }
+
+      #{{ _id | strip }}:disabled {
+        {% if button_style == 'fill' %}
+          color: #fff;
+          background-color: #808080;
+        {% else %}
+          color: rgba(0, 0, 0, 0.2);
+          background-color: transparent;
+          box-shadow: inset 0 0 0 var(--element-button-border-width, var(--size-0-25)) currentColor;
+        {% endif %}
+      }
+    {% endstyle %}
+
+    
+{% comment %}assign{% endcomment %}
+{% assign text_a0d27a02c8c9 = text %}
+{% assign text = button_label %}
+{% comment %}assign{% endcomment %}
+{% assign href_a0d27a02c8c9 = href %}
+{% assign href = button_url %}
+{% comment %}assign{% endcomment %}
+{% assign inverted_a0d27a02c8c9 = inverted %}
+{% assign inverted = inverted %}
+{% comment %}assign{% endcomment %}
+{% assign id_a0d27a02c8c9 = id %}
+{% assign id = _id %}
+{% comment %}assign{% endcomment %}
+{% assign as_a0d27a02c8c9 = as %}
+{% assign as = nil %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_a0d27a02c8c9 = classlist %}
+{% assign classlist = nil %}
+{% comment %}assign{% endcomment %}
+{% assign attributes_a0d27a02c8c9 = attributes %}
+{% assign attributes = nil %}
+{% comment %}assign{% endcomment %}
+{% assign style_a0d27a02c8c9 = style %}
+{% assign style = nil %}
+{% comment %}assign{% endcomment %}
+{% assign type_a0d27a02c8c9 = type %}
+{% assign type = nil %}
+{% comment %}assign{% endcomment %}
+{% assign name_a0d27a02c8c9 = name %}
+{% assign name = nil %}
+{% comment %}assign{% endcomment %}
+{% assign disabled_a0d27a02c8c9 = disabled %}
+{% assign disabled = nil %}
+{% comment %}assign{% endcomment %}
+{% assign full_a0d27a02c8c9 = full %}
+{% assign full = nil %}
+{% comment %}assign{% endcomment %}
+{% assign transparent_a0d27a02c8c9 = transparent %}
+{% assign transparent = nil %}
+{% comment %}assign{% endcomment %}
+{% assign slot_a0d27a02c8c9 = slot %}
+{% assign slot = nil %}
+{% comment %}assign{% endcomment %}
+{% assign icon_a0d27a02c8c9 = icon %}
+{% assign icon = nil %}
+{% comment %}assign{% endcomment %}
+{% assign icon_position_a0d27a02c8c9 = icon_position %}
+{% assign icon_position = nil %}
+
+{% liquid
+  # Element Defaults
+  assign as = as | default: 'button'
+  assign id = id | default: ''
+  assign classlist = classlist | default: '' | append: ' element-button' | strip
+  assign attributes = attributes | default: ''
+  assign style = style | default: ''
+  assign type = type | default: ''
+  assign href = href | default: ''
+  assign name = name | default: ''
+  assign disabled = disabled | default: false
+
+  # Variants
+  assign inverted = inverted | default: false
+  assign full = full | default: false
+  assign transparent = transparent | default: false
+
+  # Content
+  assign slot = slot | default: ''
+  assign text = text | default: ''
+  assign icon = icon | default: ''
+  assign icon_position = icon_position | default: 'end'
+
+  if href != blank
+    assign as = 'a'
+  endif
+
+  if inverted
+    assign classlist = classlist | append: ' element-button--inverted'
+  endif
+
+  if transparent
+    assign classlist = classlist | append: ' element-button--transparent'
+  endif
+
+  if full
+    assign style = '--element-button-width: 100%; ' | append: style
+  endif
+
+  if icon_position == 'start'
+    assign style = '--element-button-flex-direction: row-reverse; ' | append: style
+  endif
+%}
+
+{% if slot == blank %}
+  {% capture slot %}
+    {%- if text != blank -%}
+      
+{% comment %}assign{% endcomment %}
+{% assign text_eff99a15fdb6 = text %}
+{% assign text = text %}
+{% comment %}assign{% endcomment %}
+{% assign variant_eff99a15fdb6 = variant %}
+{% assign variant = 'body-md' %}
+{% comment %}assign{% endcomment %}
+{% assign as_eff99a15fdb6 = as %}
+{% assign as = nil %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_eff99a15fdb6 = classlist %}
+{% assign classlist = nil %}
+{% comment %}assign{% endcomment %}
+{% assign id_eff99a15fdb6 = id %}
+{% assign id = nil %}
+{% comment %}assign{% endcomment %}
+{% assign size_eff99a15fdb6 = size %}
+{% assign size = nil %}
+{% comment %}assign{% endcomment %}
+{% assign style_eff99a15fdb6 = style %}
+{% assign style = nil %}
+{% comment %}assign{% endcomment %}
+{% assign break_word_eff99a15fdb6 = break_word %}
+{% assign break_word = nil %}
+{% comment %}assign{% endcomment %}
+{% assign truncate_eff99a15fdb6 = truncate %}
+{% assign truncate = nil %}
+{% comment %}assign{% endcomment %}
+{% assign visually_hidden_eff99a15fdb6 = visually_hidden %}
+{% assign visually_hidden = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_decoration_eff99a15fdb6 = text_decoration %}
+{% assign text_decoration = nil %}
+{% comment %}assign{% endcomment %}
+{% assign text_transform_eff99a15fdb6 = text_transform %}
+{% assign text_transform = nil %}
+{% comment %}assign{% endcomment %}
+{% assign alignment_eff99a15fdb6 = alignment %}
+{% assign alignment = nil %}
+{% comment %}assign{% endcomment %}
+{% assign accent_eff99a15fdb6 = accent %}
+{% assign accent = nil %}
+{% comment %}assign{% endcomment %}
+{% assign locale_eff99a15fdb6 = locale %}
+{% assign locale = nil %}
+{% comment %}assign{% endcomment %}
+{% assign inherit_eff99a15fdb6 = inherit %}
+{% assign inherit = nil %}
+
+{% liquid
+  assign text = text | default: ''
+  assign as = as | default: 'span'
+  assign classlist = classlist | default: '' | append: ' element-text' | strip
+  assign id = id | default: ''
+  assign variant = variant | default: ''
+  assign size = size | default: ''
+  assign style = style | default: ''
+  assign attributes = attributes | default: ''
+  assign break_word = break_word | default: false, allow_false: true
+  assign truncate = truncate | default: false, allow_false: true
+  assign visually_hidden = visually_hidden | default: false, allow_false: true
+  assign alignment = alignment | default: ''
+  assign text_transform = text_transform | default: 'none'
+  assign text_decoration = text_decoration | default: 'none'
+  assign accent = accent | default: false, allow_false: true
+  assign inherit = inherit | default: false, allow_false: true
+  if variant != blank
+    assign variant_class = 'element-text--' | append: variant
+    if size != blank
+      assign variant_pieces = variant | split: '-'
+      assign variant_class = variant_pieces[0] | append: '-' | append: size
+    endif
+    assign classlist = classlist | append: ' ' | append: variant_class
+  endif
+
+  if variant == 'rte'
+    assign as = 'element-text-rte'
+  endif
+
+  if accent
+    assign classlist = classlist | append: ' element-text--accent'
+  endif
+
+  if alignment != blank
+    assign classlist = classlist | append: ' element-text--align-' | append: alignment
+  endif
+
+  if break_word
+    assign classlist = classlist | append: ' element-text--break-word'
+  endif
+
+  if truncate
+    assign classlist = classlist | append: ' element-text--truncate'
+  endif
+
+  if visually_hidden
+    assign classlist = classlist | append: ' element-text--visually-hidden'
+  endif
+
+  if text_decoration != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_decoration
+  endif
+
+  if text_transform != 'none'
+    assign classlist = classlist | append: ' element-text--' | append: text_transform
+  endif
+
+  if inherit
+    assign classlist = classlist | append: ' element-text--inherit'
+  endif
+%}
+
+<{{ as }}
+  {%- if id != blank -%}
+    id="{{ id | strip }}"
+  {%- endif -%}
+
+  class="{{ classlist }}"
+
+  {% if attributes != blank %}
+    {{ attributes }}
+  {% endif %}
+
+  {%- if style != blank -%}
+    style="{{ style }}"
+  {%- endif -%}
+>
+  {% if locale != blank %}
+    {%- render 'utility.translate', key: locale, fallback: text -%}
+  {% else %}
+    {{ text }}
+  {% endif %}
+</{{ as }}>
+
+{% if variant == 'rte' %}
+  
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign text = text_eff99a15fdb6 %}
+{% assign text_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign variant = variant_eff99a15fdb6 %}
+{% assign variant_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign as = as_eff99a15fdb6 %}
+{% assign as_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_eff99a15fdb6 %}
+{% assign classlist_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign id = id_eff99a15fdb6 %}
+{% assign id_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_eff99a15fdb6 %}
+{% assign size_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_eff99a15fdb6 %}
+{% assign style_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign break_word = break_word_eff99a15fdb6 %}
+{% assign break_word_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign truncate = truncate_eff99a15fdb6 %}
+{% assign truncate_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign visually_hidden = visually_hidden_eff99a15fdb6 %}
+{% assign visually_hidden_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_decoration = text_decoration_eff99a15fdb6 %}
+{% assign text_decoration_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_transform = text_transform_eff99a15fdb6 %}
+{% assign text_transform_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign alignment = alignment_eff99a15fdb6 %}
+{% assign alignment_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign accent = accent_eff99a15fdb6 %}
+{% assign accent_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign locale = locale_eff99a15fdb6 %}
+{% assign locale_eff99a15fdb6 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign inherit = inherit_eff99a15fdb6 %}
+{% assign inherit_eff99a15fdb6 = nil %}
+    {%- endif -%}
+
+    {%- if icon != blank -%}
+      
+{% comment %}assign{% endcomment %}
+{% assign name_80981c627185 = name %}
+{% assign name = icon %}
+{% comment %}assign{% endcomment %}
+{% assign library_80981c627185 = library %}
+{% assign library = nil %}
+
+{% liquid
+  assign svg = ''
+  assign name = name | default: 'alert'
+  assign library = library | default: settings.icon_library | default: 'default'
+
+  # check to see if theme icon override has been set
+  capture theme_icon
+    assign full_name = 'theme.' | append: name | append: '.svg'
+    assign svg = full_name | inline_asset_content
+  endcapture
+  assign theme_icon = theme_icon | strip
+
+  # If icon does not exist, theme_icon will contain an error message.
+  # Check to see if contents are svg.
+  if theme_icon contains '<svg'
+    assign svg = theme_icon
+  else
+    # check to see if built-in libary icon exists
+    if library != 'default'
+      assign full_name = library | append: '.' | append: name | append: '.svg'
+      assign svg = full_name | inline_asset_content
+    else
+      assign full_name = 'icon.' | append: name | append: '.svg'
+      assign svg = full_name | inline_asset_content
+    endif
+  endif
+%}
+
+<div class="element-icon">{{ svg }}</div>
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign name = name_80981c627185 %}
+{% assign name_80981c627185 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign library = library_80981c627185 %}
+{% assign library_80981c627185 = nil %}
+    {%- endif -%}
+  {% endcapture %}
+{% endif %}
+
+<{{ as }}
+  {% if id != blank %}
+    id="{{ id | strip }}"
+  {% endif %}
+
+  class="{{ classlist }}"
+
+  {% if type != blank %}
+    type="{{ type }}"
+  {% endif %}
+
+  {% if href != blank %}
+    href="{{ href }}"
+  {% endif %}
+
+  {% if disabled %}
+    disabled
+  {% endif %}
+
+  {% if name != blank %}
+    name="{{ name }}"
+  {% endif %}
+
+  {% if attributes != blank %}
+    {{ attributes }}
+  {% endif %}
+
+  {%- if style != blank -%}
+    style="{{ style }}"
+  {%- endif -%}
+>
+  {{ slot }}
+</{{ as }}>
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign text = text_a0d27a02c8c9 %}
+{% assign text_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign href = href_a0d27a02c8c9 %}
+{% assign href_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign inverted = inverted_a0d27a02c8c9 %}
+{% assign inverted_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign id = id_a0d27a02c8c9 %}
+{% assign id_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign as = as_a0d27a02c8c9 %}
+{% assign as_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_a0d27a02c8c9 %}
+{% assign classlist_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign attributes = attributes_a0d27a02c8c9 %}
+{% assign attributes_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_a0d27a02c8c9 %}
+{% assign style_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign type = type_a0d27a02c8c9 %}
+{% assign type_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign name = name_a0d27a02c8c9 %}
+{% assign name_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign disabled = disabled_a0d27a02c8c9 %}
+{% assign disabled_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign full = full_a0d27a02c8c9 %}
+{% assign full_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign transparent = transparent_a0d27a02c8c9 %}
+{% assign transparent_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign slot = slot_a0d27a02c8c9 %}
+{% assign slot_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign icon = icon_a0d27a02c8c9 %}
+{% assign icon_a0d27a02c8c9 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign icon_position = icon_position_a0d27a02c8c9 %}
+{% assign icon_position_a0d27a02c8c9 = nil %}
+  </div>
+{%- endif -%}
+
+{% comment %}unassign{% endcomment %}
+{% assign block = block_8fc03fd660f4 %}
+{% assign block_8fc03fd660f4 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign button_label = button_label_8fc03fd660f4 %}
+{% assign button_label_8fc03fd660f4 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign button_url = button_url_8fc03fd660f4 %}
+{% assign button_url_8fc03fd660f4 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign button_style = button_style_8fc03fd660f4 %}
+{% assign button_style_8fc03fd660f4 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign button_background_color = button_background_color_8fc03fd660f4 %}
+{% assign button_background_color_8fc03fd660f4 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign button_text_color = button_text_color_8fc03fd660f4 %}
+{% assign button_text_color_8fc03fd660f4 = nil %}
+      {% endcase %}
+    {% endfor %}
+  {% endcapture %}
+
+
+{%- liquid
+  assign s = section.settings
+  assign slot = slot | default: ''
+  assign desktop_video_width = desktop_video_width | default: s.desktop_video_width | default: '50'
+  assign shopify_hosted_video = shopify_hosted_video | default: s.shopify_hosted_video
+  assign video_url = video_url | default: s.video_url
+  assign cover_image = cover_image | default: s.cover_image
+  assign desktop_video_aspect_ratio = desktop_video_aspect_ratio | default: s.desktop_video_aspect_ratio | default: 'auto'
+  assign mobile_video_aspect_ratio = mobile_video_aspect_ratio | default: s.mobile_video_aspect_ratio | default: 'auto'
+  assign padding_top = padding_top | default: s.padding_top | default: 32
+  assign padding_bottom = padding_bottom | default: s.padding_bottom | default: 32
+  assign margin_top = margin_top | default: s.margin_top | default: 64
+  assign margin_bottom = margin_bottom | default: s.margin_bottom | default: 64
+  assign text_color = text_color | default: s.text_color | default: '#000000'
+  assign play_button_color = play_button_color | default: s.play_button_color | default: '#FFFFFF'
+  assign desktop_video_placement = desktop_video_placement | default: s.desktop_video_placement | default: 'row'
+  assign mobile_video_placement = mobile_video_placement | default: s.mobile_video_placement | default: 'column'
+  assign desktop_content_position = desktop_content_position | default: s.desktop_content_position | default: 'center'
+  assign desktop_content_alignment = desktop_content_alignment | default: s.desktop_content_alignment | default: 'left'
+  assign mobile_content_alignment = mobile_content_alignment | default: s.mobile_content_alignment | default: 'center'
+  assign background_color = background_color | default: s.background_color | default: '#FFFFFF'
+  assign background_gradient = background_gradient | default: s.background_gradient
+  assign video_playback = video_playback | default: s.video_playback | default: 'autoplay'
+  assign loop = loop | default: s.loop | default: false
+
+  assign enable_video_autoplay = false
+  if video_playback == 'autoplay'
+    assign enable_video_autoplay = true
+  endif
+
+  assign mute_video = false
+  assign play_video_on_loop = loop
+  assign controls = true
+  if enable_video_autoplay
+    assign mute_video = true
+    assign controls = false
+  endif
+
+  assign desktop_video_aspect_ratio_css = desktop_video_aspect_ratio | replace: ':', '/'
+  assign mobile_video_aspect_ratio_css = mobile_video_aspect_ratio | replace: ':', '/'
+
+  if shopify_hosted_video == blank and video_url != blank
+    if desktop_video_aspect_ratio == 'auto'
+      assign desktop_video_aspect_ratio_css = '16 / 9'
+    endif
+    if mobile_video_aspect_ratio == 'auto'
+      assign mobile_video_aspect_ratio_css = '16 / 9'
+    endif
+  endif
+
+  if shopify_hosted_video == blank and video_url == blank
+    if desktop_video_aspect_ratio == 'auto'
+      assign desktop_video_aspect_ratio_css = '16 / 9'
+    endif
+    if mobile_video_aspect_ratio == 'auto'
+      assign mobile_video_aspect_ratio_css = '16 / 9'
+    endif
+  endif
+
+  assign show_play_button = false
+  assign show_cover_image = false
+  if video_playback == 'play_button' and cover_image != blank
+    assign show_play_button = true
+    assign show_cover_image = true
+  endif
+
+  assign video_cover_position = '50% 50%'
+  if cover_image.presentation.focal_point
+    assign video_cover_position = cover_image.presentation.focal_point
+  endif
+
+  assign mobile_video_order = 1
+  assign mobile_content_order = 2
+  if mobile_video_placement == 'column-reverse'
+    assign mobile_video_order = 2
+    assign mobile_content_order = 1
+  endif
+-%}
+
+{% capture _id %}
+{% comment %}assign{% endcomment %}
+{% assign section_e1d47769d5f1 = section %}
+{% assign section = section %}
+
+{%- liquid
+  assign hyphen_separator = '-'
+  assign comma_separator = ','
+
+  capture id
+    if section != empty
+      echo section.id | prepend: comma_separator
+    endif
+
+    if block != blank
+      echo block.id | prepend: comma_separator
+    endif
+
+    if index != blank
+      echo index | prepend: comma_separator
+    endif
+
+    if name != blank
+      echo name | prepend: comma_separator
+    endif
+  endcapture
+
+  echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+-%}
+
+{% comment %}unassign{% endcomment %}
+{% assign section = section_e1d47769d5f1 %}
+{% assign section_e1d47769d5f1 = nil %}{% endcapture %}
+
+{% capture video_content %}
+  <div class="video-with-text__video-container">
+    <div class="video-with-text__video-wrapper">
+      {%- if show_play_button -%}
+        <div class="video-with-text__video-overlay" data-video-overlay>
+          <button class="video-with-text__play-button" aria-label="Play video" data-video-play-button>
+            <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+              <path d="M30 59.6104C13.6465 59.6104 0.389648 46.3535 0.389648 30C0.389648 13.6465 13.6465 0.389648 30 0.389648C46.3535 0.389648 59.6104 13.6465 59.6104 30C59.6104 46.3535 46.3535 59.6104 30 59.6104ZM30 57.2728C45.0624 57.2728 57.2728 45.0624 57.2728 30C57.2728 14.9377 45.0624 2.72731 30 2.72731C14.9377 2.72731 2.72731 14.9377 2.72731 30C2.72731 45.0624 14.9377 57.2728 30 57.2728ZM24.0156 41.2302C23.2309 41.6759 22.5974 41.4016 22.5974 40.613V19.3871C22.5974 18.6 23.2294 18.3226 24.0156 18.7699L42.2696 29.1912C43.0512 29.6369 43.0551 30.36 42.2696 30.8081L24.0148 41.2302H24.0156Z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      {%- endif -%}
+      
+      {%- if shopify_hosted_video != blank -%}
+        
+{% comment %}assign{% endcomment %}
+{% assign video_098ec9199ecb = video %}
+{% assign video = shopify_hosted_video %}
+{% comment %}assign{% endcomment %}
+{% assign aspect_ratio_098ec9199ecb = aspect_ratio %}
+{% assign aspect_ratio = desktop_video_aspect_ratio_css %}
+{% comment %}assign{% endcomment %}
+{% assign autoplay_098ec9199ecb = autoplay %}
+{% assign autoplay = enable_video_autoplay %}
+{% comment %}assign{% endcomment %}
+{% assign loop_098ec9199ecb = loop %}
+{% assign loop = play_video_on_loop %}
+{% comment %}assign{% endcomment %}
+{% assign show_controls_098ec9199ecb = show_controls %}
+{% assign show_controls = controls %}
+{% comment %}assign{% endcomment %}
+{% assign muted_098ec9199ecb = muted %}
+{% assign muted = mute_video %}
+{% comment %}assign{% endcomment %}
+{% assign hydration_098ec9199ecb = hydration %}
+{% assign hydration = 'on:visible' %}
+{% comment %}assign{% endcomment %}
+{% assign external_video_098ec9199ecb = external_video %}
+{% assign external_video = nil %}
+{% comment %}assign{% endcomment %}
+{% assign background_098ec9199ecb = background %}
+{% assign background = nil %}
+{% comment %}assign{% endcomment %}
+{% assign media_crop_098ec9199ecb = media_crop %}
+{% assign media_crop = nil %}
+
+{% liquid
+  assign video = video | default: section.settings.video
+  assign external_video = external_video | default: section.settings.external_video
+  assign autoplay = autoplay | default: section.settings.autoplay, allow_false: true | default: false, allow_false: true
+  assign loop = loop | default: section.settings.loop, allow_false: true | default: false, allow_false: true
+  assign show_controls = show_controls | default: section.settings.show_controls, allow_false: true | default: false, allow_false: true
+  assign muted = muted | default: section.settings.muted, allow_false: true | default: false, allow_false: true
+  assign background = background | default: section.settings.background, allow_false: true | default: false, allow_false: true
+  assign media_crop = media_crop | default: section.settings.media_crop | default: '16-9'
+  assign hydration = hydration | default: 'on:visible'
+
+  if external_video != blank
+    assign external_video_host = external_video.host | default: external_video.type
+    assign external_video_id = external_video.external_id | default: external_video.id
+  endif
+%}
+
+<is-land {{ hydration }}>
+  <div
+    class="element-video aspect-ratio--{{ media_crop }}"
+    data-background="{{ background }}"
+    {% if aspect_ratio %}
+      style="--aspect-ratio: {{ aspect_ratio }}"
+    {% elsif video.aspect_ratio %}
+      style="--aspect-ratio: {{ video.aspect_ratio }}"
+    {% endif %}
+  >
+    {%- if video != blank -%}
+      <video-media
+        {% if autoplay %}
+          autoplay
+        {% endif %}
+        defer-hydration
+      >
+        {{
+          video
+          | video_tag:
+            playsinline: true,
+            controls: show_controls,
+            loop: loop,
+            muted: autoplay,
+            image_size: '500x',
+            preload: 'metadata'
+        }}
+      </video-media>
+    {%- elsif external_video != blank -%}
+      <video-media
+        host="{{ external_video_host }}"
+        {% if autoplay %}
+          autoplay
+        {% endif %}
+        defer-hydration
+      >
+        <template>
+          {%- if external_video_host == 'youtube' -%}
+            <iframe
+              src="https://www.youtube.com/embed/{{ external_video_id }}?playsinline=1&{% if autoplay %}autoplay=1&mute=1&{% endif %}{% if loop %}loop=1&{% endif %}controls=1&playlist={{ external_video_id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}"
+              allow="autoplay; encrypted-media"
+              allowfullscreen="allowfullscreen"
+            ></iframe>
+          {%- elsif external_video_host == 'vimeo' -%}
+            <iframe
+              src="https://player.vimeo.com/video/{{ external_video_id }}?autopause=1&{% if autoplay %}autoplay=1&muted=1&{% endif %}{% if loop %}loop=1&{% endif %}background=0&transparent=0&responsive=1&portrait=0&title=0&byline=0"
+              allow="autoplay; encrypted-media;"
+              allowfullscreen="allowfullscreen"
+            ></iframe>
+          {%- endif -%}
+        </template>
+        <div class="product__video-wrapper__grippy"></div>
+        <div class="product__video-wrapper__grippy"></div>
+      </video-media>
+    {%- else -%}
+      
+{% comment %}assign{% endcomment %}
+{% assign name_7d990a588ded = name %}
+{% assign name = 'hero-apparel-1' %}
+
+{%- liquid
+  assign name = name | default: 'image'
+  assign no_padding = no_padding | default: false, allow_false: true
+  assign classlist = classlist | default: ''
+
+  assign classlist = classlist | append: ' placeholder-svg' | strip
+
+  if no_padding
+    assign classlist = classlist | append: ' placeholder-svg--no-padding' | strip
+  endif
+
+  echo name | placeholder_svg_tag: classlist
+-%}
+
+
+{% comment %}unassign{% endcomment %}
+{% assign name = name_7d990a588ded %}
+{% assign name_7d990a588ded = nil %}
+    {%- endif -%}
+  </div>
+
+  {% if video != blank or external_video != blank %}
+    <template data-island>
+      
+    </template>
+  {% endif %}
+</is-land>
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign video = video_098ec9199ecb %}
+{% assign video_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign aspect_ratio = aspect_ratio_098ec9199ecb %}
+{% assign aspect_ratio_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign autoplay = autoplay_098ec9199ecb %}
+{% assign autoplay_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign loop = loop_098ec9199ecb %}
+{% assign loop_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign show_controls = show_controls_098ec9199ecb %}
+{% assign show_controls_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign muted = muted_098ec9199ecb %}
+{% assign muted_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign hydration = hydration_098ec9199ecb %}
+{% assign hydration_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign external_video = external_video_098ec9199ecb %}
+{% assign external_video_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign background = background_098ec9199ecb %}
+{% assign background_098ec9199ecb = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign media_crop = media_crop_098ec9199ecb %}
+{% assign media_crop_098ec9199ecb = nil %}
+      {%- elsif video_url != blank -%}
+        
+{% comment %}assign{% endcomment %}
+{% assign external_video_588f0cf1f3a0 = external_video %}
+{% assign external_video = video_url %}
+{% comment %}assign{% endcomment %}
+{% assign aspect_ratio_588f0cf1f3a0 = aspect_ratio %}
+{% assign aspect_ratio = desktop_video_aspect_ratio_css %}
+{% comment %}assign{% endcomment %}
+{% assign autoplay_588f0cf1f3a0 = autoplay %}
+{% assign autoplay = enable_video_autoplay %}
+{% comment %}assign{% endcomment %}
+{% assign loop_588f0cf1f3a0 = loop %}
+{% assign loop = play_video_on_loop %}
+{% comment %}assign{% endcomment %}
+{% assign show_controls_588f0cf1f3a0 = show_controls %}
+{% assign show_controls = controls %}
+{% comment %}assign{% endcomment %}
+{% assign muted_588f0cf1f3a0 = muted %}
+{% assign muted = mute_video %}
+{% comment %}assign{% endcomment %}
+{% assign hydration_588f0cf1f3a0 = hydration %}
+{% assign hydration = 'on:visible' %}
+{% comment %}assign{% endcomment %}
+{% assign video_588f0cf1f3a0 = video %}
+{% assign video = nil %}
+{% comment %}assign{% endcomment %}
+{% assign background_588f0cf1f3a0 = background %}
+{% assign background = nil %}
+{% comment %}assign{% endcomment %}
+{% assign media_crop_588f0cf1f3a0 = media_crop %}
+{% assign media_crop = nil %}
+
+{% liquid
+  assign video = video | default: section.settings.video
+  assign external_video = external_video | default: section.settings.external_video
+  assign autoplay = autoplay | default: section.settings.autoplay, allow_false: true | default: false, allow_false: true
+  assign loop = loop | default: section.settings.loop, allow_false: true | default: false, allow_false: true
+  assign show_controls = show_controls | default: section.settings.show_controls, allow_false: true | default: false, allow_false: true
+  assign muted = muted | default: section.settings.muted, allow_false: true | default: false, allow_false: true
+  assign background = background | default: section.settings.background, allow_false: true | default: false, allow_false: true
+  assign media_crop = media_crop | default: section.settings.media_crop | default: '16-9'
+  assign hydration = hydration | default: 'on:visible'
+
+  if external_video != blank
+    assign external_video_host = external_video.host | default: external_video.type
+    assign external_video_id = external_video.external_id | default: external_video.id
+  endif
+%}
+
+<is-land {{ hydration }}>
+  <div
+    class="element-video aspect-ratio--{{ media_crop }}"
+    data-background="{{ background }}"
+    {% if aspect_ratio %}
+      style="--aspect-ratio: {{ aspect_ratio }}"
+    {% elsif video.aspect_ratio %}
+      style="--aspect-ratio: {{ video.aspect_ratio }}"
+    {% endif %}
+  >
+    {%- if video != blank -%}
+      <video-media
+        {% if autoplay %}
+          autoplay
+        {% endif %}
+        defer-hydration
+      >
+        {{
+          video
+          | video_tag:
+            playsinline: true,
+            controls: show_controls,
+            loop: loop,
+            muted: autoplay,
+            image_size: '500x',
+            preload: 'metadata'
+        }}
+      </video-media>
+    {%- elsif external_video != blank -%}
+      <video-media
+        host="{{ external_video_host }}"
+        {% if autoplay %}
+          autoplay
+        {% endif %}
+        defer-hydration
+      >
+        <template>
+          {%- if external_video_host == 'youtube' -%}
+            <iframe
+              src="https://www.youtube.com/embed/{{ external_video_id }}?playsinline=1&{% if autoplay %}autoplay=1&mute=1&{% endif %}{% if loop %}loop=1&{% endif %}controls=1&playlist={{ external_video_id }}&enablejsapi=1&rel=0&modestbranding=1&origin={{ 'https://' | append: request.host | url_encode }}"
+              allow="autoplay; encrypted-media"
+              allowfullscreen="allowfullscreen"
+            ></iframe>
+          {%- elsif external_video_host == 'vimeo' -%}
+            <iframe
+              src="https://player.vimeo.com/video/{{ external_video_id }}?autopause=1&{% if autoplay %}autoplay=1&muted=1&{% endif %}{% if loop %}loop=1&{% endif %}background=0&transparent=0&responsive=1&portrait=0&title=0&byline=0"
+              allow="autoplay; encrypted-media;"
+              allowfullscreen="allowfullscreen"
+            ></iframe>
+          {%- endif -%}
+        </template>
+        <div class="product__video-wrapper__grippy"></div>
+        <div class="product__video-wrapper__grippy"></div>
+      </video-media>
+    {%- else -%}
+      
+{% comment %}assign{% endcomment %}
+{% assign name_6cf0e4d3dd77 = name %}
+{% assign name = 'hero-apparel-1' %}
+
+{%- liquid
+  assign name = name | default: 'image'
+  assign no_padding = no_padding | default: false, allow_false: true
+  assign classlist = classlist | default: ''
+
+  assign classlist = classlist | append: ' placeholder-svg' | strip
+
+  if no_padding
+    assign classlist = classlist | append: ' placeholder-svg--no-padding' | strip
+  endif
+
+  echo name | placeholder_svg_tag: classlist
+-%}
+
+
+{% comment %}unassign{% endcomment %}
+{% assign name = name_6cf0e4d3dd77 %}
+{% assign name_6cf0e4d3dd77 = nil %}
+    {%- endif -%}
+  </div>
+
+  {% if video != blank or external_video != blank %}
+    <template data-island>
+      
+    </template>
+  {% endif %}
+</is-land>
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign external_video = external_video_588f0cf1f3a0 %}
+{% assign external_video_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign aspect_ratio = aspect_ratio_588f0cf1f3a0 %}
+{% assign aspect_ratio_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign autoplay = autoplay_588f0cf1f3a0 %}
+{% assign autoplay_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign loop = loop_588f0cf1f3a0 %}
+{% assign loop_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign show_controls = show_controls_588f0cf1f3a0 %}
+{% assign show_controls_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign muted = muted_588f0cf1f3a0 %}
+{% assign muted_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign hydration = hydration_588f0cf1f3a0 %}
+{% assign hydration_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign video = video_588f0cf1f3a0 %}
+{% assign video_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign background = background_588f0cf1f3a0 %}
+{% assign background_588f0cf1f3a0 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign media_crop = media_crop_588f0cf1f3a0 %}
+{% assign media_crop_588f0cf1f3a0 = nil %}
+      {%- else -%}
+        
+{% comment %}assign{% endcomment %}
+{% assign name_bbd85b2f98da = name %}
+{% assign name = 'lifestyle-1' %}
+{% comment %}assign{% endcomment %}
+{% assign no_padding_bbd85b2f98da = no_padding %}
+{% assign no_padding = true %}
+
+{%- liquid
+  assign name = name | default: 'image'
+  assign no_padding = no_padding | default: false, allow_false: true
+  assign classlist = classlist | default: ''
+
+  assign classlist = classlist | append: ' placeholder-svg' | strip
+
+  if no_padding
+    assign classlist = classlist | append: ' placeholder-svg--no-padding' | strip
+  endif
+
+  echo name | placeholder_svg_tag: classlist
+-%}
+
+
+{% comment %}unassign{% endcomment %}
+{% assign name = name_bbd85b2f98da %}
+{% assign name_bbd85b2f98da = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign no_padding = no_padding_bbd85b2f98da %}
+{% assign no_padding_bbd85b2f98da = nil %}
+      {%- endif -%}
+    </div>
+  </div>
+{% endcapture %}
+
+{% capture content_container %}
+  <div class="video-with-text__content-container">
+    {%- if slot != blank -%}
+      {{ slot }}
+    {%- endif -%}
+  </div>
+{% endcapture %}
+
+{% capture stack_slot %}
+  {{ video_content }}
+  {{ content_container }}
+{% endcapture %}
+
+{% capture contents %}
+  
+{% comment %}assign{% endcomment %}
+{% assign slot_7494e64d83e2 = slot %}
+{% assign slot = stack_slot %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_7494e64d83e2 = classlist %}
+{% assign classlist = 'video-with-text__inner' %}
+{% comment %}assign{% endcomment %}
+{% assign as_7494e64d83e2 = as %}
+{% assign as = nil %}
+{% comment %}assign{% endcomment %}
+{% assign id_7494e64d83e2 = id %}
+{% assign id = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_7494e64d83e2 = gap %}
+{% assign gap = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_xs_7494e64d83e2 = gap_xs %}
+{% assign gap_xs = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_sm_7494e64d83e2 = gap_sm %}
+{% assign gap_sm = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_md_7494e64d83e2 = gap_md %}
+{% assign gap_md = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_lg_7494e64d83e2 = gap_lg %}
+{% assign gap_lg = nil %}
+{% comment %}assign{% endcomment %}
+{% assign gap_xl_7494e64d83e2 = gap_xl %}
+{% assign gap_xl = nil %}
+{% comment %}assign{% endcomment %}
+{% assign horizontal_7494e64d83e2 = horizontal %}
+{% assign horizontal = nil %}
+{% comment %}assign{% endcomment %}
+{% assign reverse_7494e64d83e2 = reverse %}
+{% assign reverse = nil %}
+{% comment %}assign{% endcomment %}
+{% assign wrap_7494e64d83e2 = wrap %}
+{% assign wrap = nil %}
+{% comment %}assign{% endcomment %}
+{% assign justify_7494e64d83e2 = justify %}
+{% assign justify = nil %}
+{% comment %}assign{% endcomment %}
+{% assign align_7494e64d83e2 = align %}
+{% assign align = nil %}
+{% comment %}assign{% endcomment %}
+{% assign attributes_7494e64d83e2 = attributes %}
+{% assign attributes = nil %}
+{% comment %}assign{% endcomment %}
+{% assign style_7494e64d83e2 = style %}
+{% assign style = nil %}
+
+{% liquid
+  assign slot = slot | default: ''
+  assign as = as | default: 'div'
+  assign id = id | default: ''
+  assign classlist = classlist | default: '' | append: ' layout-stack' | strip
+  assign horizontal = horizontal | default: false
+  assign reverse = reverse | default: false
+  assign wrap = wrap | default: 'wrap'
+  assign justify = justify | default: ''
+  assign align = align | default: ''
+  assign attributes = attributes | default: ''
+  assign style = style | default: ''
+
+  assign gap = gap | default: 'none'
+  assign gap_xs = gap_xs | default: gap
+  assign gap_sm = gap_sm | default: gap
+  assign gap_md = gap_md | default: gap
+  assign gap_lg = gap_lg | default: gap
+  assign gap_xl = gap_xl | default: gap
+
+  if gap != 'none'
+    assign style = style | append: '--layout-stack-gap: var(--gap-size-' | append: gap | append: ');'
+  endif
+
+  if gap_xs != gap
+    assign style = style | append: '--layout-stack-gap--xs: var(--gap-size-' | append: gap_xs | append: ');'
+  endif
+
+  if gap_sm != gap
+    assign style = style | append: '--layout-stack-gap--sm: var(--gap-size-' | append: gap_sm | append: ');'
+  endif
+
+  if gap_md != gap
+    assign style = style | append: '--layout-stack-gap--md: var(--gap-size-' | append: gap_md | append: ');'
+  endif
+
+  if gap_lg != gap
+    assign style = style | append: '--layout-stack-gap--lg: var(--gap-size-' | append: gap_lg | append: ');'
+  endif
+
+  if gap_xl != gap
+    assign style = style | append: '--layout-stack-gap--xl: var(--gap-size-' | append: gap_xl | append: ');'
+  endif
+
+  if justify != blank
+    assign style = style | append: ' --layout-stack-justify: ' | append: justify | append: ';'
+  endif
+
+  if align != blank
+    assign style = style | append: ' --layout-stack-align: ' | append: align | append: ';'
+  endif
+
+  if horizontal
+    if reverse
+      assign style = style | append: ' --_layout-stack-direction: row-reverse;'
+    else
+      assign style = style | append: ' --_layout-stack-direction: row;'
+    endif
+  else
+    if reverse
+      assign style = style | append: ' --_layout-stack-direction: column-reverse;'
+    else
+      assign style = style | append: ' --_layout-stack-direction: column;'
+    endif
+  endif
+
+  if wrap == 'nowrap' or wrap == 'wrap-reverse'
+    assign style = style | append: ' --layout-stack-wrap: ' | append: wrap | append: ';'
+  endif
+%}
+
+<{{ as }}
+  {% if id != blank -%}
+    id="{{ id }}"
+  {%- endif %}
+
+  class="{{ classlist }}"
+
+  {% if attributes != blank -%}
+    {{ attributes }}
+  {%- endif %}
+
+  {% if style != blank -%}
+    style="{{ style }}"
+  {%- endif %}
+>
+  {{ slot }}
+</{{ as }}>
+
+
+
+
+
+
+
+
+
+{% style %}
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_4b5abef8b249 = size %}
+{% assign size = 'sm' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_4b5abef8b249 %}
+{% assign size_4b5abef8b249 = nil %}) {
+    .layout-stack {
+      --_row-gap: var(--_row-gap--sm);
+      --_column-gap: var(--_column-gap--sm);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_4b5abef8b249 = size %}
+{% assign size = 'md' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_4b5abef8b249 %}
+{% assign size_4b5abef8b249 = nil %}) {
+    .layout-stack {
+      --_row-gap: var(--_row-gap--md);
+      --_column-gap: var(--_column-gap--md);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_4b5abef8b249 = size %}
+{% assign size = 'lg' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_4b5abef8b249 %}
+{% assign size_4b5abef8b249 = nil %}) {
+    .layout-stack {
+      --_row-gap: var(--_row-gap--lg);
+      --_column-gap: var(--_column-gap--lg);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_4b5abef8b249 = size %}
+{% assign size = 'xl' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_4b5abef8b249 %}
+{% assign size_4b5abef8b249 = nil %}) {
+    .layout-stack {
+      --_row-gap: var(--_row-gap--xl);
+      --_column-gap: var(--_column-gap--xl);
+    }
+  }
+{% endstyle %}
+{% comment %}unassign{% endcomment %}
+{% assign slot = slot_7494e64d83e2 %}
+{% assign slot_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_7494e64d83e2 %}
+{% assign classlist_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign as = as_7494e64d83e2 %}
+{% assign as_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign id = id_7494e64d83e2 %}
+{% assign id_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap = gap_7494e64d83e2 %}
+{% assign gap_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap_xs = gap_xs_7494e64d83e2 %}
+{% assign gap_xs_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap_sm = gap_sm_7494e64d83e2 %}
+{% assign gap_sm_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap_md = gap_md_7494e64d83e2 %}
+{% assign gap_md_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap_lg = gap_lg_7494e64d83e2 %}
+{% assign gap_lg_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign gap_xl = gap_xl_7494e64d83e2 %}
+{% assign gap_xl_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign horizontal = horizontal_7494e64d83e2 %}
+{% assign horizontal_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign reverse = reverse_7494e64d83e2 %}
+{% assign reverse_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign wrap = wrap_7494e64d83e2 %}
+{% assign wrap_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign justify = justify_7494e64d83e2 %}
+{% assign justify_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign align = align_7494e64d83e2 %}
+{% assign align_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign attributes = attributes_7494e64d83e2 %}
+{% assign attributes_7494e64d83e2 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_7494e64d83e2 %}
+{% assign style_7494e64d83e2 = nil %}
+{% endcapture %}
+
+<video-with-text-section
+  id="{{ _id | strip }}"
+  class="video-with-text-section"
+  style="
+    --video-with-text-desktop-video-width: {{ desktop_video_width }}%;
+    --video-with-text-desktop-video-placement: {{ desktop_video_placement }};
+    --video-with-text-mobile-video-placement: {{ mobile_video_placement }};
+    --video-with-text-desktop-content-position: {{ desktop_content_position }};
+    --video-with-text-desktop-content-alignment: {{ desktop_content_alignment }};
+    --video-with-text-mobile-content-alignment: {{ mobile_content_alignment }};
+    --video-with-text-desktop-video-aspect-ratio: {{ desktop_video_aspect_ratio_css }};
+    --video-with-text-mobile-video-aspect-ratio: {{ mobile_video_aspect_ratio_css }};
+    --video-with-text-play-button-color: {{ play_button_color }};
+    --video-with-text-placeholder-fill-color: {{ text_color | color_modify: 'alpha', 0.35 }};
+    --video-with-text-placeholder-background-color: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --video-with-text-margin-top: {{ margin_top }}px;
+    --video-with-text-margin-bottom: {{ margin_bottom }}px;
+    --video-with-text-padding-top: {{ padding_top }}px;
+    --video-with-text-padding-bottom: {{ padding_bottom }}px;
+    --video-with-text-mobile-video-order: {{ mobile_video_order }};
+    --video-with-text-mobile-content-order: {{ mobile_content_order }};
+    {% if show_cover_image %}
+    --video-with-text-video-cover-bg: url({{ cover_image | image_url: width: '1200px' }}) no-repeat {{ video_cover_position }} / cover;
+    {% endif %}
+  "
+>
+  {% capture style %}
+    --layout-section-max-inline-size: 1600px;
+    --layout-section-color: {{ text_color }};
+    --layout-section-background: {{ background_gradient }} {{ background_color }};
+    --layout-section-padding-block: 0;
+    --layout-section-padding-inline: 0;
+  {% endcapture %}
+  
+{% comment %}assign{% endcomment %}
+{% assign slot_e5b722eaa5cc = slot %}
+{% assign slot = contents %}
+{% comment %}assign{% endcomment %}
+{% assign style_e5b722eaa5cc = style %}
+{% assign style = style %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_e5b722eaa5cc = classlist %}
+{% assign classlist = nil %}
+{% comment %}assign{% endcomment %}
+{% assign color_scheme_e5b722eaa5cc = color_scheme %}
+{% assign color_scheme = nil %}
+{% comment %}assign{% endcomment %}
+{% assign divider_e5b722eaa5cc = divider %}
+{% assign divider = nil %}
+{% comment %}assign{% endcomment %}
+{% assign full_width_e5b722eaa5cc = full_width %}
+{% assign full_width = nil %}
+{% comment %}assign{% endcomment %}
+{% assign padding_e5b722eaa5cc = padding %}
+{% assign padding = nil %}
+{% comment %}assign{% endcomment %}
+{% assign hydration_e5b722eaa5cc = hydration %}
+{% assign hydration = nil %}
+
+{%- liquid
+  assign slot = slot | default: ''
+  assign style = style | default: ''
+  assign classlist = classlist | default: ''
+  assign color_scheme = color_scheme | default: section.settings.color_scheme | default: 'none'
+  assign full_width = full_width | default: section.settings.full_width, allow_false: true | default: false, allow_false: true
+  assign padding = padding | default: section.settings.padding | default: 'both'
+
+  if padding == 'top'
+    assign classlist = classlist | append: ' layout-section--padding-top' | strip
+  endif
+
+  if padding == 'bottom'
+    assign classlist = classlist | append: ' layout-section--padding-bottom' | strip
+  endif
+  
+  if padding == 'none'
+    assign classlist = classlist | append: ' layout-section--padding-none' | strip
+  endif
+
+  if full_width
+    assign classlist = classlist | append: ' layout-section--full-width' | strip
+  endif
+
+  if color_scheme != 'none'
+    assign classlist = classlist | append: ' color-scheme-' | append: color_scheme | strip
+  endif
+-%}
+
+<div class="layout-section {{ classlist }}" style="{{ style }}">
+  
+{% comment %}assign{% endcomment %}
+{% assign color_scheme_a0b32f2bfef5 = color_scheme %}
+{% assign color_scheme = color_scheme %}
+
+
+
+{%- capture key -%}color_scheme_{{ color_scheme }}_texture{%- endcapture -%}
+{%- assign texture = settings[key] -%}
+
+{% unless texture == 'none' or texture == blank %}
+  {%- if texture == 'linen.jpg'
+    or texture == 'marble.jpg'
+    or texture == 'paper.jpg'
+    or texture == 'sand.jpg'
+    or texture == 'space.jpg'
+    or texture == 'stone.jpg'
+    or texture == 'wildflower.jpg'
+  -%}
+    {% capture image_classes %}
+      scheme-image scheme-texture--{{ texture | remove: '.jpg' }}
+    {% endcapture %}
+    
+{% comment %}assign{% endcomment %}
+{% assign asset_9782e1832eda = asset %}
+{% assign asset = texture %}
+{% comment %}assign{% endcomment %}
+{% assign host_9782e1832eda = host %}
+{% assign host = 'theme' %}
+{% comment %}assign{% endcomment %}
+{% assign type_9782e1832eda = type %}
+{% assign type = 'asset' %}
+{% comment %}assign{% endcomment %}
+{% assign classes_9782e1832eda = classes %}
+{% assign classes = image_classes %}
+{% comment %}assign{% endcomment %}
+{% assign data-name_9782e1832eda = data-name %}
+{% assign data-name = 'texture' %}
+{% comment %}assign{% endcomment %}
+{% assign data-value_9782e1832eda = data-value %}
+{% assign data-value = texture %}
+{% comment %}assign{% endcomment %}
+{% assign img_9782e1832eda = img %}
+{% assign img = nil %}
+{% comment %}assign{% endcomment %}
+{% assign width_9782e1832eda = width %}
+{% assign width = nil %}
+{% comment %}assign{% endcomment %}
+{% assign height_9782e1832eda = height %}
+{% assign height = nil %}
+{% comment %}assign{% endcomment %}
+{% assign aspect_ratio_9782e1832eda = aspect_ratio %}
+{% assign aspect_ratio = nil %}
+{% comment %}assign{% endcomment %}
+{% assign loading_9782e1832eda = loading %}
+{% assign loading = nil %}
+{% comment %}assign{% endcomment %}
+{% assign fetchpriority_9782e1832eda = fetchpriority %}
+{% assign fetchpriority = nil %}
+{% comment %}assign{% endcomment %}
+{% assign alt_9782e1832eda = alt %}
+{% assign alt = nil %}
+{% comment %}assign{% endcomment %}
+{% assign classlist_9782e1832eda = classlist %}
+{% assign classlist = nil %}
+{% comment %}assign{% endcomment %}
+{% assign id_9782e1832eda = id %}
+{% assign id = nil %}
+
+{%- liquid
+  assign img = img | default: nil
+  assign width = width | default: nil
+  assign height = height | default: nil
+  assign aspect_ratio = aspect_ratio | default: 'initial'
+  assign loading = loading | default: 'eager'
+  assign fetchpriority = fetchpriority | default: 'auto'
+  assign alt = alt | default: img.alt
+  assign classlist = classlist | default: ''
+  assign id = id | default: ''
+
+  assign class = 'element-image ' | append: classlist | strip
+  assign sizes = width | append: 'px'
+
+  # Calculate target_ratio - if width & height, ignore aspect_ratio
+  if width and height
+    assign target_ratio = width | divided_by: height | round
+  elsif aspect_ratio != 'initial'
+    assign ratio_parts = aspect_ratio | split: '/'
+    assign target_ratio = 1.0 | times: ratio_parts[0] | divided_by: ratio_parts[1]
+  else 
+    assign target_ratio = img.aspect_ratio
+  endif
+
+  # Calculate image dimensions
+  if width
+    assign width_2x = width | times: 2
+    assign height_2x = width_2x | divided_by: target_ratio | round
+    assign img_tag_width = width
+    assign img_tag_height = width | divided_by: target_ratio | round
+  elsif height
+    assign height_2x = height | times: 2
+    assign width_2x = height_2x | times: target_ratio | round
+    assign img_tag_height = height
+    assign img_tag_width = height | times: target_ratio | round
+  endif
+
+  assign img_width = width_2x
+  assign img_height = height_2x
+-%}
+
+{% capture widths %}
+  {% if width %}
+    {{ width }}, {{ width_2x }}
+  {% elsif height %}
+    {{ img_tag_width }}, {{ width_2x }}
+  {% endif %}
+{% endcapture %}
+
+{{ img | image_url: width: img_width, height: img_height | image_tag: 
+  id: id,
+  class: class,
+  width: img_tag_width,
+  height: img_tag_height,
+  alt: alt,
+  loading: loading,
+  fetchpriority: fetchpriority,
+  widths: widths,
+  sizes: sizes
+}}
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign asset = asset_9782e1832eda %}
+{% assign asset_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign host = host_9782e1832eda %}
+{% assign host_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign type = type_9782e1832eda %}
+{% assign type_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classes = classes_9782e1832eda %}
+{% assign classes_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign data-name = data-name_9782e1832eda %}
+{% assign data-name_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign data-value = data-value_9782e1832eda %}
+{% assign data-value_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign img = img_9782e1832eda %}
+{% assign img_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign width = width_9782e1832eda %}
+{% assign width_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign height = height_9782e1832eda %}
+{% assign height_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign aspect_ratio = aspect_ratio_9782e1832eda %}
+{% assign aspect_ratio_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign loading = loading_9782e1832eda %}
+{% assign loading_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign fetchpriority = fetchpriority_9782e1832eda %}
+{% assign fetchpriority_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign alt = alt_9782e1832eda %}
+{% assign alt_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_9782e1832eda %}
+{% assign classlist_9782e1832eda = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign id = id_9782e1832eda %}
+{% assign id_9782e1832eda = nil %}
+  {%- else -%}
+    <div class="scheme-{{ texture }}"></div>
+  {%- endif -%}
+{% endunless %}
+
+{% comment %}unassign{% endcomment %}
+{% assign color_scheme = color_scheme_a0b32f2bfef5 %}
+{% assign color_scheme_a0b32f2bfef5 = nil %}
+
+  <div class="layout-section__content">
+    {{ slot }}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% style %}
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_68e9c786f31c = size %}
+{% assign size = 'sm' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_68e9c786f31c %}
+{% assign size_68e9c786f31c = nil %}) {
+    .layout-section {
+      --_padding-inline: var(--_padding-inline--sm);
+      --_padding-block: var(--_padding-block--sm);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_68e9c786f31c = size %}
+{% assign size = 'md' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_68e9c786f31c %}
+{% assign size_68e9c786f31c = nil %}) {
+    .layout-section {
+      --_padding-inline: var(--_padding-inline--md);
+      --_padding-block: var(--_padding-block--md);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_68e9c786f31c = size %}
+{% assign size = 'lg' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_68e9c786f31c %}
+{% assign size_68e9c786f31c = nil %}) {
+    .layout-section {
+      --_padding-inline: var(--_padding-inline--lg);
+      --_padding-block: var(--_padding-block--lg);
+    }
+  }
+
+  @media (
+{% comment %}assign{% endcomment %}
+{% assign size_68e9c786f31c = size %}
+{% assign size = 'xl' %}
+
+{%- liquid 
+  assign size_xs = settings.breakpoint-xs | default: 0
+  assign size_sm = settings.breakpoint-sm | default: 576
+  assign size_md = settings.breakpoint-md | default: 768
+  assign size_lg = settings.breakpoint-lg | default: 992
+  assign size_xl = settings.breakpoint-xl | default: 1200
+
+  assign output = ''
+
+  case size
+    when 'xs'
+      assign output = 'min-width: ' | append: size_xs | append: 'px'
+    when 'sm'
+      assign output = 'min-width: ' | append: size_sm | append: 'px'
+    when 'md'
+      assign output = 'min-width: ' | append: size_md | append: 'px'
+    when 'lg'
+      assign output = 'min-width: ' | append: size_lg | append: 'px'
+    when 'xl'
+      assign output = 'min-width: ' | append: size_xl | append: 'px'
+  endcase
+
+  echo output
+-%}
+{% comment %}unassign{% endcomment %}
+{% assign size = size_68e9c786f31c %}
+{% assign size_68e9c786f31c = nil %}) {
+    .layout-section {
+      --_padding-inline: var(--_padding-inline--xl);
+      --_padding-block: var(--_padding-block--xl);
+    }
+  }
+{% endstyle %}
+{% comment %}unassign{% endcomment %}
+{% assign slot = slot_e5b722eaa5cc %}
+{% assign slot_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign style = style_e5b722eaa5cc %}
+{% assign style_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign classlist = classlist_e5b722eaa5cc %}
+{% assign classlist_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign color_scheme = color_scheme_e5b722eaa5cc %}
+{% assign color_scheme_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign divider = divider_e5b722eaa5cc %}
+{% assign divider_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign full_width = full_width_e5b722eaa5cc %}
+{% assign full_width_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign padding = padding_e5b722eaa5cc %}
+{% assign padding_e5b722eaa5cc = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign hydration = hydration_e5b722eaa5cc %}
+{% assign hydration_e5b722eaa5cc = nil %}
+</video-with-text-section>
+
+
+
+
+
+
+
+
+
+
+
+{% comment %}unassign{% endcomment %}
+{% assign slot = slot_d41d8cd98f00 %}
+{% assign slot_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign desktop_video_width = desktop_video_width_d41d8cd98f00 %}
+{% assign desktop_video_width_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign shopify_hosted_video = shopify_hosted_video_d41d8cd98f00 %}
+{% assign shopify_hosted_video_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign video_url = video_url_d41d8cd98f00 %}
+{% assign video_url_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign cover_image = cover_image_d41d8cd98f00 %}
+{% assign cover_image_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign desktop_video_aspect_ratio = desktop_video_aspect_ratio_d41d8cd98f00 %}
+{% assign desktop_video_aspect_ratio_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign mobile_video_aspect_ratio = mobile_video_aspect_ratio_d41d8cd98f00 %}
+{% assign mobile_video_aspect_ratio_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign desktop_video_placement = desktop_video_placement_d41d8cd98f00 %}
+{% assign desktop_video_placement_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign mobile_video_placement = mobile_video_placement_d41d8cd98f00 %}
+{% assign mobile_video_placement_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign desktop_content_position = desktop_content_position_d41d8cd98f00 %}
+{% assign desktop_content_position_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign desktop_content_alignment = desktop_content_alignment_d41d8cd98f00 %}
+{% assign desktop_content_alignment_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign mobile_content_alignment = mobile_content_alignment_d41d8cd98f00 %}
+{% assign mobile_content_alignment_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign video_playback = video_playback_d41d8cd98f00 %}
+{% assign video_playback_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign padding_top = padding_top_d41d8cd98f00 %}
+{% assign padding_top_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign padding_bottom = padding_bottom_d41d8cd98f00 %}
+{% assign padding_bottom_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign margin_top = margin_top_d41d8cd98f00 %}
+{% assign margin_top_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign margin_bottom = margin_bottom_d41d8cd98f00 %}
+{% assign margin_bottom_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign text_color = text_color_d41d8cd98f00 %}
+{% assign text_color_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign background_color = background_color_d41d8cd98f00 %}
+{% assign background_color_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign background_gradient = background_gradient_d41d8cd98f00 %}
+{% assign background_gradient_d41d8cd98f00 = nil %}
+{% comment %}unassign{% endcomment %}
+{% assign play_button_color = play_button_color_d41d8cd98f00 %}
+{% assign play_button_color_d41d8cd98f00 = nil %}
+</div>
+{% style %}
+.tua-devkit .element-text{&:not(.element-text--inherit){font-family:var(--_font-family),var(--_font-family-fallback);font-weight:var(--_font-weight);letter-spacing:var(--_letter-spacing);line-height:var(--_line-height);text-transform:var(--_text-transform)}&.element-text--align-start{text-align:start}&.element-text--align-center{text-align:center}&.element-text--align-end{text-align:end}&.element-text--align-justify{text-align:justify}&.element-text--break-word{word-break:break-word}&.element-text--truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}&.element-text--visually-hidden{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border:0}&.element-text--line-through{text-decoration:line-through}&.element-text--underline{text-decoration:underline}&.element-text--uppercase{text-transform:uppercase}&.element-text--lowercase{text-transform:lowercase}&.element-text--capitalize{text-transform:capitalize}}.tua-devkit .element-text:is([class*=element-text--body]){&:not(.element-text--inherit){font-family:var(--_font-family--body),var(--_font-family-fallback--body);font-weight:var(--_font-weight--body);letter-spacing:var(--_letter-spacing--body);text-transform:var(--_text-transform--body)}&:where(.element-text--body-xs):not(.element-text--inherit){--_font-size:var(--_font-size--body-xs);line-height:var(--_line-height--body-xs)}&:where(.element-text--body-sm):not(.element-text--inherit){font-size:var(--_font-size--body-sm);line-height:var(--_line-height--body-sm)}&:where(.element-text--body-md):not(.element-text--inherit){font-size:var(--_font-size--body-md);line-height:var(--_line-height--body-md)}&:where(.element-text--body-lg):not(.element-text--inherit){font-size:var(--_font-size--body-lg);line-height:var(--_line-height--body-lg)}}.tua-devkit .element-text:is([class*=element-text--heading]){&:not(.element-text--inherit){font-family:var(--_font-family--heading),var(--_font-family-fallback--heading);font-weight:var(--_font-weight--heading);letter-spacing:var(--_letter-spacing--heading);text-transform:var(--_text-transform--heading)}&:where(.element-text--heading-xs):not(.element-text--inherit){font-size:var(--_font-size--heading-xs);line-height:var(--_line-height--heading-xs)}&:where(.element-text--heading-sm):not(.element-text--inherit){font-size:var(--_font-size--heading-sm);line-height:var(--_line-height--heading-sm)}&:where(.element-text--heading-md):not(.element-text--inherit){font-size:var(--_font-size--heading-md);line-height:var(--_line-height--heading-md)}&:where(.element-text--heading-lg):not(.element-text--inherit){font-size:var(--_font-size--heading-lg);line-height:var(--_line-height--heading-lg)}&:where(.element-text--heading-xl):not(.element-text--inherit){font-size:var(--_font-size--heading-xl);line-height:var(--_line-height--heading-xl)}&:where(.element-text--heading-2xl):not(.element-text--inherit){font-size:var(--_font-size--heading-2xl);line-height:var(--_line-height--heading-2xl)}}.tua-devkit .element-text.element-text--rte{h1,h2,h3,h4,h5,h6{font-family:var(--_font-family--rte-heading),var(--_font-family-fallback--rte-heading);font-weight:var(--_font-weight--rte-heading);letter-spacing:var(--_letter-spacing--rte-heading);margin:0 0 var(--size-4);text-transform:var(--_text-transform--rte-heading);@media only screen and (min-width:769px){margin:0 0 var(--size-5)}}h6{font-size:var(--_font-size--rte-heading-h6);line-height:var(--_line-height--rte-heading-h6)}h5{font-size:var(--_font-size--rte-heading-h5);line-height:var(--_line-height--rte-heading-h5)}h4{font-size:var(--_font-size--rte-heading-h4);line-height:var(--_line-height--rte-heading-h4)}h3{font-size:var(--_font-size--rte-heading-h3);line-height:var(--_line-height--rte-heading-h3)}h2{font-size:var(--_font-size--rte-heading-h2);line-height:var(--_line-height--rte-heading-h2)}h1{font-size:var(--_font-size--rte-heading-h1);line-height:var(--_line-height--rte-heading-h1)}p{margin-bottom:var(--size-8);&:last-child{margin-bottom:0}}& table{@media only screen and (max-width:768px){& td,& th{padding:6px 8px}}}.table-wrapper{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.video-wrapper{max-width:100%;overflow:hidden;padding-bottom:56.25%;position:relative;& iframe,& video{height:100%;left:0;position:absolute;top:0;width:100%}}}.tua-devkit .element-text{&:not(.element-text--inherit){font-family:var(--_font-family),var(--_font-family-fallback);font-weight:var(--_font-weight);letter-spacing:var(--_letter-spacing);line-height:var(--_line-height);text-transform:var(--_text-transform)}&.element-text--align-start{text-align:start}&.element-text--align-center{text-align:center}&.element-text--align-end{text-align:end}&.element-text--align-justify{text-align:justify}&.element-text--break-word{word-break:break-word}&.element-text--truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}&.element-text--visually-hidden{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border:0}&.element-text--line-through{text-decoration:line-through}&.element-text--underline{text-decoration:underline}&.element-text--uppercase{text-transform:uppercase}&.element-text--lowercase{text-transform:lowercase}&.element-text--capitalize{text-transform:capitalize}}.tua-devkit .element-text:is([class*=element-text--body]){&:not(.element-text--inherit){font-family:var(--_font-family--body),var(--_font-family-fallback--body);font-weight:var(--_font-weight--body);letter-spacing:var(--_letter-spacing--body);text-transform:var(--_text-transform--body)}&:where(.element-text--body-xs):not(.element-text--inherit){--_font-size:var(--_font-size--body-xs);line-height:var(--_line-height--body-xs)}&:where(.element-text--body-sm):not(.element-text--inherit){font-size:var(--_font-size--body-sm);line-height:var(--_line-height--body-sm)}&:where(.element-text--body-md):not(.element-text--inherit){font-size:var(--_font-size--body-md);line-height:var(--_line-height--body-md)}&:where(.element-text--body-lg):not(.element-text--inherit){font-size:var(--_font-size--body-lg);line-height:var(--_line-height--body-lg)}}.tua-devkit .element-text:is([class*=element-text--heading]){&:not(.element-text--inherit){font-family:var(--_font-family--heading),var(--_font-family-fallback--heading);font-weight:var(--_font-weight--heading);letter-spacing:var(--_letter-spacing--heading);text-transform:var(--_text-transform--heading)}&:where(.element-text--heading-xs):not(.element-text--inherit){font-size:var(--_font-size--heading-xs);line-height:var(--_line-height--heading-xs)}&:where(.element-text--heading-sm):not(.element-text--inherit){font-size:var(--_font-size--heading-sm);line-height:var(--_line-height--heading-sm)}&:where(.element-text--heading-md):not(.element-text--inherit){font-size:var(--_font-size--heading-md);line-height:var(--_line-height--heading-md)}&:where(.element-text--heading-lg):not(.element-text--inherit){font-size:var(--_font-size--heading-lg);line-height:var(--_line-height--heading-lg)}&:where(.element-text--heading-xl):not(.element-text--inherit){font-size:var(--_font-size--heading-xl);line-height:var(--_line-height--heading-xl)}&:where(.element-text--heading-2xl):not(.element-text--inherit){font-size:var(--_font-size--heading-2xl);line-height:var(--_line-height--heading-2xl)}}.tua-devkit .element-text.element-text--rte{h1,h2,h3,h4,h5,h6{font-family:var(--_font-family--rte-heading),var(--_font-family-fallback--rte-heading);font-weight:var(--_font-weight--rte-heading);letter-spacing:var(--_letter-spacing--rte-heading);margin:0 0 var(--size-4);text-transform:var(--_text-transform--rte-heading);@media only screen and (min-width:769px){margin:0 0 var(--size-5)}}h6{font-size:var(--_font-size--rte-heading-h6);line-height:var(--_line-height--rte-heading-h6)}h5{font-size:var(--_font-size--rte-heading-h5);line-height:var(--_line-height--rte-heading-h5)}h4{font-size:var(--_font-size--rte-heading-h4);line-height:var(--_line-height--rte-heading-h4)}h3{font-size:var(--_font-size--rte-heading-h3);line-height:var(--_line-height--rte-heading-h3)}h2{font-size:var(--_font-size--rte-heading-h2);line-height:var(--_line-height--rte-heading-h2)}h1{font-size:var(--_font-size--rte-heading-h1);line-height:var(--_line-height--rte-heading-h1)}p{margin-bottom:var(--size-8);&:last-child{margin-bottom:0}}& table{@media only screen and (max-width:768px){& td,& th{padding:6px 8px}}}.table-wrapper{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.video-wrapper{max-width:100%;overflow:hidden;padding-bottom:56.25%;position:relative;& iframe,& video{height:100%;left:0;position:absolute;top:0;width:100%}}}.tua-devkit{--element-text-font-family:initial;--element-text-font-family-fallback:initial;--element-text-font-weight:initial;--element-text-letter-spacing:initial;--element-text-text-transform:initial;--element-text-line-height:initial;--element-text-color:initial;--element-text-font-size:initial}.tua-devkit .element-text{--_font-family:var(--element-text-font-family);--_font-family-fallback:var(--element-text-font-family-fallback);--_font-weight:var(--element-text-font-weight);--_letter-spacing:var(--element-text-letter-spacing);--_text-transform:var(--element-text-text-transform);--_line-height:var(--element-text-line-height);--_color:var(--element-text-color);--_font-size:var(--element-text-font-size);color:var(--_color);font-size:var(--_font-size);margin:0;-webkit-font-smoothing:antialiased;&:not(.element-text--inherit){font-family:var(--_font-family),var(--_font-family-fallback);font-weight:var(--_font-weight);letter-spacing:var(--_letter-spacing);line-height:var(--_line-height);text-transform:var(--_text-transform)}&.element-text--align-start{text-align:start}&.element-text--align-center{text-align:center}&.element-text--align-end{text-align:end}&.element-text--align-justify{text-align:justify}&.element-text--break-word{word-break:break-word}&.element-text--truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}&.element-text--visually-hidden{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border:0}&.element-text--line-through{text-decoration:line-through}&.element-text--underline{text-decoration:underline}&.element-text--uppercase{text-transform:uppercase}&.element-text--lowercase{text-transform:lowercase}&.element-text--capitalize{text-transform:capitalize}}.tua-devkit{--element-text-font-family--body:"Arial";--element-text-font-family-fallback--body:"sans-serif";--element-text-font-weight--body:var(--font-weight-400);--element-text-letter-spacing--body:var(--letter-space-md);--element-text-text-transform--body:none;--element-text-color--body:initial;--element-text-font-size--body:initial;--element-text-font-size--body-xs:var(--text-size-3);--element-text-font-size--body-sm:var(--text-size-3-5);--element-text-font-size--body-md:var(--text-size-4);--element-text-font-size--body-lg:var(--text-size-4-5);--element-text-line-height--body:var(--line-height-md);--element-text-line-height--body-xs:initial;--element-text-line-height--body-sm:initial;--element-text-line-height--body-md:initial;--element-text-line-height--body-lg:initial}.tua-devkit .element-text:is([class*=element-text--body]){--_font-family--body:var(--_font-family,var(--element-text-font-family--body));--_font-family-fallback--body:var(--_font-family-fallback,var(--element-text-font-family-fallback--body));--_font-weight--body:var(--_font-weight,var(--element-text-font-weight--body));--_letter-spacing--body:var(--_letter-spacing,var(--element-text-letter-spacing--body));--_text-transform--body:var(--_text-transform,var(--element-text-text-transform--body));--_color--body:var(--_color,var(--element-text-color--body,currentColor));--_font-size--body:var(--_font-size,var(--element-text-font-size--body));--_font-size--body-xs:var(--_font-size--body,var(--element-text-font-size--body-xs));--_font-size--body-sm:var(--_font-size--body,var(--element-text-font-size--body-sm));--_font-size--body-md:var(--_font-size--body,var(--element-text-font-size--body-md));--_font-size--body-lg:var(--_font-size--body,var(--element-text-font-size--body-lg));--_line-height--body:var(--_line-height,var(--element-text-line-height--body));--_line-height--body-xs:var(--element-text-line-height--body-xs,var(--_line-height--body));--_line-height--body-sm:var(--element-text-line-height--body-sm,var(--_line-height--body));--_line-height--body-md:var(--element-text-line-height--body-md,var(--_line-height--body));--_line-height--body-lg:var(--element-text-line-height--body-lg,var(--_line-height--body));color:var(--_color--body);&:not(.element-text--inherit){font-family:var(--_font-family--body),var(--_font-family-fallback--body);font-weight:var(--_font-weight--body);letter-spacing:var(--_letter-spacing--body);text-transform:var(--_text-transform--body)}&:where(.element-text--body-xs):not(.element-text--inherit){--_font-size:var(--_font-size--body-xs);line-height:var(--_line-height--body-xs)}&:where(.element-text--body-sm):not(.element-text--inherit){font-size:var(--_font-size--body-sm);line-height:var(--_line-height--body-sm)}&:where(.element-text--body-md):not(.element-text--inherit){font-size:var(--_font-size--body-md);line-height:var(--_line-height--body-md)}&:where(.element-text--body-lg):not(.element-text--inherit){font-size:var(--_font-size--body-lg);line-height:var(--_line-height--body-lg)}}.tua-devkit{--element-text-font-family--heading:"Arial";--element-text-font-family-fallback--heading:"sans-serif";--element-text-font-weight--heading:var(--font-weight-700);--element-text-letter-spacing--heading:var(--letter-space-md);--element-text-text-transform--heading:none;--element-text-color--heading:initial;--element-text-font-size--heading:initial;--element-text-font-size--heading-2xl:var(--text-size-12);--element-text-font-size--heading-xl:var(--text-size-8);--element-text-font-size--heading-lg:var(--text-size-6);--element-text-font-size--heading-md:var(--text-size-5);--element-text-font-size--heading-sm:var(--text-size-4-5);--element-text-font-size--heading-xs:var(--text-size-4);--element-text-line-height--heading:var(--line-height-md);--element-text-line-height--heading-2xl:initial;--element-text-line-height--heading-xl:initial;--element-text-line-height--heading-lg:initial;--element-text-line-height--heading-md:initial;--element-text-line-height--heading-sm:initial;--element-text-line-height--heading-xs:initial}.tua-devkit .element-text:is([class*=element-text--heading]){--_font-family--heading:var(--_font-family,var(--element-text-font-family--heading));--_font-family-fallback--heading:var(--_font-family-fallback,var(--element-text-font-family-fallback--heading));--_font-weight--heading:var(--_font-weight,var(--element-text-font-weight--heading));--_letter-spacing--heading:var(--_letter-spacing,var(--element-text-letter-spacing--heading));--_text-transform--heading:var(--_text-transform,var(--element-text-text-transform--heading));--_color--heading:var(--_color,var(--element-text-color--heading,currentColor));--_font-size--heading:var(--_font-size,var(--element-text-font-size--heading));--_font-size--heading-2xl:var(--_font-size--heading,var(--element-text-font-size--heading-2xl));--_font-size--heading-xl:var(--_font-size--heading,var(--element-text-font-size--heading-xl));--_font-size--heading-lg:var(--_font-size--heading,var(--element-text-font-size--heading-lg));--_font-size--heading-md:var(--_font-size--heading,var(--element-text-font-size--heading-md));--_font-size--heading-sm:var(--_font-size--heading,var(--element-text-font-size--heading-sm));--_font-size--heading-xs:var(--_font-size--heading,var(--element-text-font-size--heading-xs));--_line-height--heading:var(--_line-height,var(--element-text-line-height--heading));--_line-height--heading-2xl:var(--element-text-line-height--heading-2xl,var(--_line-height--heading));--_line-height--heading-xl:var(--element-text-line-height--heading-xl,var(--_line-height--heading));--_line-height--heading-lg:var(--element-text-line-height--heading-lg,var(--_line-height--heading));--_line-height--heading-md:var(--element-text-line-height--heading-md,var(--_line-height--heading));--_line-height--heading-sm:var(--element-text-line-height--heading-sm,var(--_line-height--heading));--_line-height--heading-xs:var(--element-text-line-height--heading-xs,var(--_line-height--heading));color:var(--_color--heading);&:not(.element-text--inherit){font-family:var(--_font-family--heading),var(--_font-family-fallback--heading);font-weight:var(--_font-weight--heading);letter-spacing:var(--_letter-spacing--heading);text-transform:var(--_text-transform--heading)}&:where(.element-text--heading-xs):not(.element-text--inherit){font-size:var(--_font-size--heading-xs);line-height:var(--_line-height--heading-xs)}&:where(.element-text--heading-sm):not(.element-text--inherit){font-size:var(--_font-size--heading-sm);line-height:var(--_line-height--heading-sm)}&:where(.element-text--heading-md):not(.element-text--inherit){font-size:var(--_font-size--heading-md);line-height:var(--_line-height--heading-md)}&:where(.element-text--heading-lg):not(.element-text--inherit){font-size:var(--_font-size--heading-lg);line-height:var(--_line-height--heading-lg)}&:where(.element-text--heading-xl):not(.element-text--inherit){font-size:var(--_font-size--heading-xl);line-height:var(--_line-height--heading-xl)}&:where(.element-text--heading-2xl):not(.element-text--inherit){font-size:var(--_font-size--heading-2xl);line-height:var(--_line-height--heading-2xl)}}.tua-devkit{--element-text-font-family--rte-body:var(--element-text-font-family--body);--element-text-font-family-fallback--rte-body:var(--element-text-font-family-fallback--body);--element-text-font-weight--rte-body:var(--element-text-font-weight--body);--element-text-letter-spacing--rte-body:var(--element-text-letter-spacing--body);--element-text-text-transform--rte-body:var(--element-text-text-transform--body);--element-text-font-size--rte-body:var(--element-text-font-size--body-md);--element-text-line-height--rte-body:var(--element-text-line-height--body);--element-text-font-family--rte-heading:var(--element-text-font-family--heading);--element-text-font-family-fallback--rte-heading:var(--element-text-font-family-fallback--heading);--element-text-font-weight--rte-heading:var(--element-text-font-weight--heading);--element-text-letter-spacing--rte-heading:var(--element-text-letter-spacing--heading);--element-text-text-transform--rte-heading:var(--element-text-text-transform--heading);--element-text-font-size--rte-heading-h1:var(--element-text-font-size--heading-xl);--element-text-line-height--rte-heading-h1:var(--element-text-line-height--heading-xl);--element-text-font-size--rte-heading-h2:var(--element-text-font-size--heading-lg);--element-text-line-height--rte-heading-h2:var(--element-text-line-height--heading-lg);--element-text-font-size--rte-heading-h3:var(--element-text-font-size--heading-md);--element-text-line-height--rte-heading-h3:var(--element-text-line-height--heading-md);--element-text-font-size--rte-heading-h4:var(--element-text-font-size--heading-sm);--element-text-line-height--rte-heading-h4:var(--element-text-line-height--heading-sm);--element-text-font-size--rte-heading-h5:var(--element-text-font-size--heading-xs);--element-text-line-height--rte-heading-h5:var(--element-text-line-height--heading-xs);--element-text-font-size--rte-heading-h6:var(--element-text-font-size--heading-xs)}.tua-devkit .element-text.element-text--rte{--_font-family--rte-body:var(--element-text-font-family--rte-body);--_font-family-fallback--rte-body:var(--element-text-font-family-fallback--rte-body);--_font-weight--rte-body:var(--element-text-font-weight--rte-body);--_letter-spacing--rte-body:var(--element-text-letter-spacing--rte-body);--_text-transform--rte-body:var(--element-text-text-transform--rte-body);--_line-height--rte-body:var(--element-text-line-height--rte-body);--_font-size--rte-body:var(--element-text-font-size--rte-body);--_font-family--rte-heading:var(--element-text-font-family--rte-heading);--_font-family-fallback--rte-heading:var(--element-text-font-family-fallback--rte-heading);--_font-weight--rte-heading:var(--element-text-font-weight--rte-heading);--_letter-spacing--rte-heading:var(--element-text-letter-spacing--rte-heading);--_text-transform--rte-heading:var(--element-text-text-transform--rte-heading);--_font-size--rte-heading-h1:var(--element-text-font-size--rte-heading-h1);--_line-height--rte-heading-h1:var(--element-text-line-height--rte-heading-h1);--_font-size--rte-heading-h2:var(--element-text-font-size--rte-heading-h2);--_line-height--rte-heading-h2:var(--element-text-line-height--rte-heading-h2);--_font-size--rte-heading-h3:var(--element-text-font-size--rte-heading-h3);--_line-height--rte-heading-h3:var(--element-text-line-height--rte-heading-h3);--_font-size--rte-heading-h4:var(--element-text-font-size--rte-heading-h4);--_line-height--rte-heading-h4:var(--element-text-line-height--rte-heading-h4);--_font-size--rte-heading-h5:var(--element-text-font-size--rte-heading-h5);--_line-height--rte-heading-h5:var(--element-text-line-height--rte-heading-h5);--_font-size--rte-heading-h6:var(--element-text-font-size--rte-heading-h6);--_line-height--rte-heading-h6:var(--element-text-line-height--rte-heading-h6);font-family:var(--_font-family--rte-body),var(--_font-family-fallback--rte-body);font-size:var(--_font-size--rte-body);font-weight:var(--_font-weight--rte-body);letter-spacing:var(--_letter-spacing--rte-body);line-height:var(--_line-height--rte-body);text-transform:var(--_text-transform--rte-body);h1,h2,h3,h4,h5,h6{font-family:var(--_font-family--rte-heading),var(--_font-family-fallback--rte-heading);font-weight:var(--_font-weight--rte-heading);letter-spacing:var(--_letter-spacing--rte-heading);margin:0 0 var(--size-4);text-transform:var(--_text-transform--rte-heading);@media only screen and (min-width:769px){margin:0 0 var(--size-5)}}h6{font-size:var(--_font-size--rte-heading-h6);line-height:var(--_line-height--rte-heading-h6)}h5{font-size:var(--_font-size--rte-heading-h5);line-height:var(--_line-height--rte-heading-h5)}h4{font-size:var(--_font-size--rte-heading-h4);line-height:var(--_line-height--rte-heading-h4)}h3{font-size:var(--_font-size--rte-heading-h3);line-height:var(--_line-height--rte-heading-h3)}h2{font-size:var(--_font-size--rte-heading-h2);line-height:var(--_line-height--rte-heading-h2)}h1{font-size:var(--_font-size--rte-heading-h1);line-height:var(--_line-height--rte-heading-h1)}p{margin-bottom:var(--size-8);&:last-child{margin-bottom:0}}& table{@media only screen and (max-width:768px){& td,& th{padding:6px 8px}}}.table-wrapper{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.video-wrapper{max-width:100%;overflow:hidden;padding-bottom:56.25%;position:relative;& iframe,& video{height:100%;left:0;position:absolute;top:0;width:100%}}}.tua-devkit{--element-icon-size:20px;--element-icon-width:initial;--element-icon-height:initial;--element-icon-stroke-width:2px;--element-icon-stroke-linejoin:miter;--element-icon-color:inherit;--element-icon-opacity:1}.tua-devkit .element-icon{--_size:var(--element-icon-size);--_width:var(--element-icon-width,var(--_size));--_height:var(--element-icon-height,var(--_size));--_stroke-width:var(--element-icon-stroke-width);--_stroke-linejoin:var(--element-icon-stroke-linejoin);--_color:var(--element-icon-color);--_opacity:var(--element-icon-opacity);display:inline-block;vertical-align:middle;svg{color:var(--_color);display:inline-block;height:var(--_height);opacity:var(--_opacity);vertical-align:middle;width:var(--_width);>*{stroke-width:var(--_stroke-width);stroke-linejoin:var(--_stroke-linejoin)}}}.tua-devkit{--element-button-display:inline-flex;--element-button-width:fit-content;--element-button-height:auto;--element-button-radius:var(--radius-xs);--element-button-flex-direction:row;--element-button-gap:var(--size-2);--element-button-justify-content:center;--element-button-align-items:center;--element-button-white-space:nowrap;--element-button-padding-block:var(--size-3);--element-button-padding-inline:var(--size-5);--element-button-border-width:var(--size-0-25);--element-button-color-primary:var(--color-primary,#000);--element-button-color-secondary:var(--color-secondary,#fff);--element-button-shade-background:0%;--element-button-shade-text:0%;--element-button-shade-border:20%;--element-button-font-family:initial;--element-button-font-family-fallback:initial;--element-button-font-weight:initial;--element-button-letter-spacing:initial;--element-button-text-transform:initial;--element-button-line-height:initial;--element-button-color:initial;--element-button-box-shadow:initial;--element-button-transition-duration:200ms;--element-button-transition-timing:ease;--element-button-transform:none;--element-button-backdrop-filter:none;--element-button-opacity:1;--element-button-shade-background--hover:8%;--element-button-shade-border--hover:30%;--element-button-color-focus:var(--color-focus);--element-button-border-width--focus:var(--size-0-5);--element-button-shade-background--active:16%;--element-button-shade-border--active:var(--element-button-shade-border);--element-button-shade-background--disabled:12%;--element-button-shade-text--disabled:70%;--element-button-shade-border--disabled:0%}.tua-devkit .element-button{--_display:var(--element-button-display);--_width:var(--element-button-width);--_height:var(--element-button-height);--_radius:var(--element-button-radius);--_flex-direction:var(--element-button-flex-direction);--_gap:var(--element-button-gap);--_justify-content:var(--element-button-justify-content);--_align-items:var(--element-button-align-items);--_white-space:var(--element-button-white-space);--_padding-block:var(--element-button-padding-block);--_padding-inline:var(--element-button-padding-inline);--_border-width:var(--element-button-border-width);--_color-primary:var(--element-button-color-primary);--_color-secondary:var(--element-button-color-secondary);--_color-focus:var(--element-button-color-focus);--_outline:none;--_border:none;--_shade-background:var(--element-button-shade-background);--_shade-text:var(--element-button-shade-text);--_shade-border:var(--element-button-shade-border);--_box-shadow:var(
+      --element-button-box-shadow,inset 0 0 0 var(--_border-width) color-mix(in srgb,var(--_color-secondary) var(--_shade-border),transparent)
+    );--_transition-duration:var(--element-button-transition-duration);--_transition-timing:var(--element-button-transition-timing);--_transform:var(--element-button-transform);--_backdrop-filter:var(--element-button-backdrop-filter);--_opacity:var(--element-button-opacity);--element-text-font-family:var(--element-button-font-family);--element-text-font-family-fallback:var(--element-button-font-family-fallback);--element-text-font-weight:var(--element-button-font-weight);--element-text-letter-spacing:var(--element-button-letter-spacing);--element-text-text-transform:var(--element-button-text-transform);--element-text-line-height:var(--element-button-line-height);--element-text-color:var(--element-button-color);--element-text-font-size:var(--element-button-font-size);align-items:var(--_align-items);backdrop-filter:var(--_backdrop-filter);background-color:color-mix(in srgb,var(--_color-secondary) var(--_shade-background),var(--_color-primary));border:var(--_border);border-radius:var(--_radius);box-shadow:var(--_box-shadow);color:color-mix(in srgb,var(--_color-primary) var(--_shade-text),var(--_color-secondary));display:var(--_display);flex-direction:var(--_flex-direction);gap:var(--_gap);height:var(--_height);justify-content:var(--_justify-content);opacity:var(--_opacity);outline:var(--_outline);padding-block:var(--_padding-block);padding-inline:var(--_padding-inline);transform:var(--_transform);transition:all var(--_transition-duration) var(--_transition-timing);white-space:var(--_white-space);width:var(--_width);& svg{--element-icon-size:var(--_icon-size)}&:has(>svg:only-child){--_padding-inline:var(--_padding-block);--_display:flex}&:hover{--_shade-background:var(--element-button-shade-background--hover);--_shade-border:var(--element-button-shade-border--hover)}&:focus-visible,input[type=radio]:focus-visible+&{--_border-width:var(--element-button-border-width--focus);--_box-shadow:inset 0 0 0 var(--_border-width) var(--_color-focus)}&:disabled,.disabled>input[type=radio]+&,input[type=radio]:disabled+&{--_shade-background:var(--element-button-shade-background--disabled);--_shade-text:var(--element-button-shade-text--disabled);--_shade-border:var(--element-button-shade-border--disabled);&:is(:disabled){cursor:not-allowed}}&:active,input[type=radio]:checked+&{--_shade-background:var(--element-button-shade-background--active);--_shade-border:var(--element-button-shade-border--active)}&.element-button--inverted{--_color-primary:var(--element-button-color-secondary);--_color-secondary:var(--element-button-color-primary)}&.element-button--transparent{--_color-primary:transparent;&:disabled{--_shade-border:var(--element-button-shade-border--disabled);--_shade-background:0%}&:disabled:active{--_border-width:var(--element-button-border-width);--_shade-border:var(--element-button-shade-border--disabled)}}&:is(.shopify-payment-button__button--unbranded):hover:not([disabled]){background-color:color-mix(in srgb,var(--_color-secondary) var(--_shade-background),var(--_color-primary))}}.tua-devkit video-media{--default-aspect-ratio:16/9;aspect-ratio:var(--aspect-ratio,var(--default-aspect-ratio));display:block;height:100%;position:relative}.tua-devkit video-media>:is(video,iframe,img,svg){border:0;height:100%;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;width:100%}.tua-devkit video-media>img,.tua-devkit video-media>svg,.tua-devkit video-media>video:not(:fullscreen){object-fit:cover;object-position:center}.tua-devkit .element-video[data-background=true]>.element-placeholder,.tua-devkit .element-video[data-background=true]>video-media{height:100%;position:absolute;width:100%}.tua-devkit video-media:not([loaded])>:is(video,iframe),.tua-devkit video-media[loaded]>img,.tua-devkit video-media[loaded]>svg{opacity:0;visibility:hidden}.tua-devkit{--layout-stack-gap:var(--gap-size-none);--layout-stack-gap--xs:initial;--layout-stack-gap--sm:initial;--layout-stack-gap--md:initial;--layout-stack-gap--lg:initial;--layout-stack-gap--xl:initial;--layout-stack-row-gap:initial;--layout-stack-row-gap--xs:initial;--layout-stack-row-gap--sm:initial;--layout-stack-row-gap--md:initial;--layout-stack-row-gap--lg:initial;--layout-stack-row-gap--xl:initial;--layout-stack-column-gap:initial;--layout-stack-column-gap--xs:initial;--layout-stack-column-gap--sm:initial;--layout-stack-column-gap--md:initial;--layout-stack-column-gap--lg:initial;--layout-stack-column-gap--xl:initial;--layout-stack-justify:flex-start;--layout-stack-align:stretch;--layout-stack-margin:0;--layout-stack-direction:column;--layout-stack-wrap:wrap}.tua-devkit .layout-stack{--_gap--xs:var(--layout-stack-gap--xs,var(--layout-stack-gap));--_gap--sm:var(--layout-stack-gap--sm,var(--_gap--xs));--_gap--md:var(--layout-stack-gap--md,var(--_gap--sm));--_gap--lg:var(--layout-stack-gap--lg,var(--_gap--md));--_gap--xl:var(--layout-stack-gap--xl,var(--_gap--lg));--_gap:var(--_gap--xs);--_row-gap--xs:var(--layout-stack-row-gap--xs,var(--layout-stack-row-gap,var(--_gap)));--_row-gap--sm:var(--layout-stack-row-gap--sm,var(--_row-gap--xs));--_row-gap--md:var(--layout-stack-row-gap--md,var(--_row-gap--sm));--_row-gap--lg:var(--layout-stack-row-gap--lg,var(--_row-gap--md));--_row-gap--xl:var(--layout-stack-row-gap--xl,var(--_row-gap--lg));--_row-gap:var(--_row-gap--xs);--_column-gap--xs:var(--layout-stack-column-gap--xs,var(--layout-stack-column-gap,var(--_gap)));--_column-gap--sm:var(--layout-stack-column-gap--sm,var(--_column-gap--xs));--_column-gap--md:var(--layout-stack-column-gap--md,var(--_column-gap--sm));--_column-gap--lg:var(--layout-stack-column-gap--lg,var(--_column-gap--md));--_column-gap--xl:var(--layout-stack-column-gap--xl,var(--_column-gap--lg));--_column-gap:var(--_column-gap--xs);--_justify:var(--layout-stack-justify);--_align:var(--layout-stack-align);--_margin:var(--layout-stack-margin);--_direction:var(--layout-stack-direction,var(--_layout-stack-direction));--_wrap:var(--layout-stack-wrap);align-items:var(--_align);column-gap:var(--_column-gap);display:flex;flex-direction:var(--_direction);flex-wrap:var(--_wrap);justify-content:var(--_justify);margin:var(--_margin);row-gap:var(--_row-gap)}.tua-devkit .element-image{display:block;max-width:100%;object-fit:cover}.tua-devkit{--layout-section-max-inline-size:var(--page-width,1500px);--layout-section-padding-inline:var(--size-4);--layout-section-padding-inline--xs:initial;--layout-section-padding-inline--sm:initial;--layout-section-padding-inline--md:initial;--layout-section-padding-inline--lg:initial;--layout-section-padding-inline--xl:initial;--layout-section-padding-block:var(--size-8);--layout-section-padding-block--xs:initial;--layout-section-padding-block--sm:initial;--layout-section-padding-block--md:initial;--layout-section-padding-block--lg:initial;--layout-section-padding-block--xl:initial;--layout-section-color:initial;--layout-section-background:initial}.tua-devkit .layout-section{--_max-inline-size:var(--layout-section-max-inline-size);--_padding-inline--xs:var(--layout-section-padding-inline--xs,var(--layout-section-padding-inline));--_padding-inline--sm:var(--layout-section-padding-inline--sm,var(--_padding-inline--xs));--_padding-inline--md:var(--layout-section-padding-inline--md,var(--_padding-inline--sm));--_padding-inline--lg:var(--layout-section-padding-inline--lg,var(--_padding-inline--md));--_padding-inline--xl:var(--layout-section-padding-inline--xl,var(--_padding-inline--lg));--_padding-inline:var(--_padding-inline--xs);--_padding-block--xs:var(--layout-section-padding-block--xs,var(--layout-section-padding-block));--_padding-block--sm:var(--layout-section-padding-block--sm,var(--_padding-block--xs));--_padding-block--md:var(--layout-section-padding-block--md,var(--_padding-block--sm));--_padding-block--lg:var(--layout-section-padding-block--lg,var(--_padding-block--md));--_padding-block--xl:var(--layout-section-padding-block--xl,var(--_padding-block--lg));--_padding-block:var(--_padding-block--xs);--_color:var(--layout-section-color,var(--color-primary,#000));--_background:var(--layout-section-background,var(--color-secondary,#fff));background:var(--_background);color:var(--_color);display:flex;justify-content:center;overflow:hidden;padding-block:var(--_padding-block);padding-inline:var(--_padding-inline);position:relative;width:100%;&>.layout-section__content{display:block;flex-grow:1;max-inline-size:var(--_max-inline-size);width:100%;z-index:1}&.layout-section--full-width>.layout-section__content{max-inline-size:100%}&.layout-section--padding-none{padding-block:0}&.layout-section--padding-top{padding-block-end:0}&.layout-section--padding-bottom{padding-block-start:0}}.tua-devkit{--size-0-25:0.0625rem;--size-0-5:0.125rem;--size-1:0.25rem;--size-1-5:0.375rem;--size-2:0.5rem;--size-2-5:0.625rem;--size-3:0.75rem;--size-3-5:0.875rem;--size-4:1rem;--size-4-5:1.125rem;--size-5:1.25rem;--size-5-5:1.375rem;--size-6:1.5rem;--size-6-5:1.625rem;--size-7:1.75rem;--size-7-5:1.875rem;--size-8:2rem;--size-8-5:2.125rem;--size-9:2.25rem;--size-9-5:2.375rem;--size-10:2.5rem;--size-11:2.75rem;--size-12:3rem;--size-14:3.5rem;--size-16:4rem;--size-18:4.5rem;--size-20:5rem;--size-24:6rem;--size-28:7rem;--size-32:8rem;--text-size-2:0.5rem;--text-size-2-5:0.625rem;--text-size-3:0.75rem;--text-size-3-5:0.875rem;--text-size-4:1rem;--text-size-4-5:1.125rem;--text-size-5:1.25rem;--text-size-5-5:1.375rem;--text-size-6:1.5rem;--text-size-6-5:1.625rem;--text-size-7:1.75rem;--text-size-7-5:1.875rem;--text-size-8:2rem;--text-size-8-5:2.125rem;--text-size-9:2.25rem;--text-size-9-5:2.375rem;--text-size-10:2.5rem;--text-size-11:2.75rem;--text-size-12:3rem;--text-size-14:3.5rem;--text-size-16:4rem;--text-size-18:4.5rem;--text-size-20:5rem;--text-size-24:6rem;--text-size-28:7rem;--text-size-32:8rem;--line-size-none:0px;--line-size-xs:0.5px;--line-size-sm:1px;--line-size-md:2px;--line-size-lg:4px;--line-size-xl:8px;--gap-size-none:0px;--gap-size-2xs:var(--size-1);--gap-size-xs:var(--size-2);--gap-size-sm:var(--size-4);--gap-size-md:var(--size-8);--gap-size-lg:var(--size-12);--gap-size-xl:var(--size-16);--gap-size-2xl:var(--size-24);--radius-xs:4px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-2xl:32px;--radius-none:0px;--radius-full:999px;--shadow-none:0px 0px 0px 0px transparent;--shadow-sm:0px 1px 2px 0px rgba(0,0,0,.08);--shadow-md:0px 2px 4px -1px rgba(0,0,0,.08);--shadow-lg:0px 8px 16px -4px rgba(0,0,0,.08);--shadow-xl:0px 16px 32px -6px rgba(0,0,0,.12);--shadow-2xl:0px 16px 64px -12px rgba(0,0,0,.22);--font-weight-100:100;--font-weight-200:200;--font-weight-300:300;--font-weight-400:400;--font-weight-500:500;--font-weight-600:600;--font-weight-700:700;--font-weight-800:800;--font-weight-900:900;--letter-space-2xs:-0.05em;--letter-space-xs:-0.03em;--letter-space-sm:-0.015em;--letter-space-md:0em;--letter-space-lg:0.015em;--letter-space-xl:0.03em;--letter-space-2xl:0.05em;--letter-space-3xl:0.08em;--letter-space-4xl:0.12em;--line-height-2xs:0.9;--line-height-xs:1;--line-height-sm:1.1;--line-height-md:1.2;--line-height-lg:1.5;--line-height-xl:1.7;--line-height-2xl:2;--shade-0:0%;--shade-4:4%;--shade-8:8%;--shade-12:12%;--shade-16:16%;--shade-20:20%;--shade-30:30%;--shade-40:40%;--shade-50:50%;--shade-60:60%;--shade-70:70%;--shade-80:80%;--shade-90:90%;--shade-100:100%}.tua-devkit *,.tua-devkit :after,.tua-devkit :before{box-sizing:border-box}.tua-devkit{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;line-height:1.15;-webkit-text-size-adjust:100%;margin:0;tab-size:4}.tua-devkit b,.tua-devkit strong{font-weight:bolder}.tua-devkit code,.tua-devkit kbd,.tua-devkit pre,.tua-devkit samp{font-family:ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:1em}.tua-devkit small{font-size:80%}.tua-devkit sub,.tua-devkit sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}.tua-devkit sub{bottom:-.25em}.tua-devkit sup{top:-.5em}.tua-devkit table{border-color:currentcolor}.tua-devkit button,.tua-devkit input,.tua-devkit optgroup,.tua-devkit select,.tua-devkit textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}.tua-devkit [type=button],.tua-devkit [type=reset],.tua-devkit [type=submit],.tua-devkit button{-webkit-appearance:button}.tua-devkit legend{padding:0}.tua-devkit progress{vertical-align:baseline}.tua-devkit ::-webkit-inner-spin-button,.tua-devkit ::-webkit-outer-spin-button{height:auto}.tua-devkit [type=search]{-webkit-appearance:textfield;outline-offset:-2px}.tua-devkit ::-webkit-search-decoration{-webkit-appearance:none}.tua-devkit ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.tua-devkit summary{display:list-item}.tua-devkit .video-with-text-section{display:block;margin-bottom:calc(var(--video-with-text-margin-bottom, 0px)*.75);margin-top:calc(var(--video-with-text-margin-top, 0px)*.75)}@media (min-width:480px){.tua-devkit .video-with-text-section{margin-bottom:var(--video-with-text-margin-bottom,0);margin-top:var(--video-with-text-margin-top,0)}}.tua-devkit .video-with-text-section .layout-section{padding:calc(var(--video-with-text-padding-top, 0px)*.75) var(--size-4) calc(var(--video-with-text-padding-bottom, 0px)*.75)}@media (min-width:480px){.tua-devkit .video-with-text-section .layout-section{padding:var(--video-with-text-padding-top,0) var(--size-6) var(--video-with-text-padding-bottom,0)}}.tua-devkit .video-with-text__inner{align-items:flex-start!important;margin:0 auto;max-width:100%}@media (min-width:720px){.tua-devkit .video-with-text__inner{align-items:stretch!important;flex-direction:var(--video-with-text-desktop-video-placement)!important}}.tua-devkit .video-with-text__video-container{align-items:center;display:flex;line-height:0;max-width:100%;order:var(--video-with-text-mobile-video-order);width:100%}@media (min-width:720px){.tua-devkit .video-with-text__video-container{order:0;width:var(--video-with-text-desktop-video-width)}}.tua-devkit .video-with-text__video-wrapper{aspect-ratio:var(--video-with-text-mobile-video-aspect-ratio);height:auto;position:relative;width:100%}@media (min-width:720px){.tua-devkit .video-with-text__video-wrapper{aspect-ratio:var(--video-with-text-desktop-video-aspect-ratio)}}.tua-devkit .video-with-text__video-container .element-video{height:auto;width:100%;--aspect-ratio:var(--video-with-text-mobile-video-aspect-ratio)!important}@media (min-width:720px){.tua-devkit .video-with-text__video-container .element-video{--aspect-ratio:var(--video-with-text-desktop-video-aspect-ratio)!important}}.tua-devkit .video-with-text__video-container .placeholder-svg{height:100%;width:100%;fill:var(--video-with-text-placeholder-fill-color,initial);background:var(--video-with-text-placeholder-background-color,initial)}.tua-devkit .video-with-text__video-overlay{align-items:center;background:var(--video-with-text-video-cover-bg);display:flex;height:100%;justify-content:center;left:0;padding:var(--size-4);position:absolute;top:0;transition:opacity .3s ease;width:100%;z-index:2}.tua-devkit .video-with-text__video-overlay+*{visibility:hidden}.tua-devkit .video-with-text__video-overlay--hidden+*{visibility:visible}@media (min-width:480px){.tua-devkit .video-with-text__video-overlay{padding:var(--size-6)}}.tua-devkit .video-with-text__video-overlay--hidden{opacity:0;pointer-events:none}.tua-devkit .video-with-text__play-button{appearance:none;background:none;border:0;color:var(--video-with-text-play-button-color);cursor:pointer;line-height:0;margin:0 auto;outline:0;padding:0;position:relative;transition:transform .15s ease;z-index:3}.tua-devkit .video-with-text__play-button:hover{transform:scale(1.05)}.tua-devkit .video-with-text__play-button svg{fill:currentColor}.tua-devkit .video-with-text__content-container{order:var(--video-with-text-mobile-content-order);padding:var(--size-8) var(--size-4);text-align:var(--video-with-text-mobile-content-alignment)}@media (min-width:720px){.tua-devkit .video-with-text__content-container{display:flex;flex:1;flex-direction:column;justify-content:var(--video-with-text-desktop-content-position);order:0;padding:var(--size-14);text-align:var(--video-with-text-desktop-content-alignment)}}.tua-devkit .video-with-text__content-container>:first-child{margin-top:0!important}.tua-devkit .video-with-text__content-container>*{margin-top:var(--size-5)}.tua-devkit .video-with-text__content-container>:has(.element-button){margin-top:var(--size-8)}.tua-devkit .video-with-text__content-container .element-text p{margin:0}.tua-devkit .video-with-text__content-container .element-button{--element-button-box-shadow:none;--element-button-padding-block:var(--size-2-5);--element-button-padding-inline:var(--size-8);--element-button-line-height:1.4;--element-button-radius:var(--radius-none);appearance:none;border:var(--line-size-sm) solid transparent;font:inherit;min-width:var(--size-16);text-decoration:none;transition:background-color .2s ease,border .2s ease}.tua-devkit .video-with-text__content-container .element-button:focus-visible{outline:var(--line-size-md) solid #005bd3}.tua-devkit .video-with-text__content-container .element-button:disabled{cursor:not-allowed}
+{% endstyle %}
+<script type="text/javascript">(()=>{"use strict";class e extends HTMLElement{static tagName="is-land";static prefix="is-land--";static attr={template:"data-island",ready:"ready",defer:"defer-hydration"};static onceCache=new Map;static onReady=new Map;static fallback={":not(is-land,:defined,[defer-hydration])":(e,t,a)=>{let i=document.createElement(a+t.localName);for(let e of t.getAttributeNames())i.setAttribute(e,t.getAttribute(e));let n=t.shadowRoot;if(!n){let e=t.querySelector(":scope > template:is([shadowrootmode], [shadowroot])");if(e){let a=e.getAttribute("shadowrootmode")||e.getAttribute("shadowroot")||"closed";n=t.attachShadow({mode:a}),n.appendChild(e.content.cloneNode(!0))}}return n&&i.attachShadow({mode:n.mode}).append(...n.childNodes),i.append(...t.childNodes),t.replaceWith(i),e.then((()=>{i.shadowRoot&&t.shadowRoot.append(...i.shadowRoot.childNodes),t.append(...i.childNodes),i.replaceWith(t)}))}};constructor(){super(),this.ready=new Promise((e=>{this.readyResolve=e}))}static getParents(a,i=!1){let n=[];for(;a;){if(a.matches&&a.matches(e.tagName)){if(i&&a===i)break;t.hasConditions(a)&&n.push(a)}a=a.parentNode}return n}static async ready(t,a){if(a||(a=e.getParents(t)),0===a.length)return;let i=await Promise.all(a.map((e=>e.wait())));return i.length?i[0]:void 0}forceFallback(){window.Island&&Object.assign(e.fallback,window.Island.fallback);for(let t in e.fallback){let a=Array.from(this.querySelectorAll(t)).reverse();for(let i of a){if(!i.isConnected)continue;let a=e.getParents(i);if(1===a.length){let n=e.ready(i,a);e.fallback[t](n,i,e.prefix)}}}}wait(){return this.ready}async connectedCallback(){t.hasConditions(this)&&this.forceFallback(),await this.hydrate()}getTemplates(){return this.querySelectorAll(`template[${e.attr.template}]`)}replaceTemplates(t){for(let a of t){if(e.getParents(a,this).length>0)continue;let t=a.getAttribute(e.attr.template);if("replace"===t){let e=Array.from(this.childNodes);for(let t of e)this.removeChild(t);this.appendChild(a.content);break}{let i=a.innerHTML;if("once"===t&&i){if(e.onceCache.has(i))return void a.remove();e.onceCache.set(i,!0)}a.replaceWith(a.content)}}}async hydrate(){let a=[];this.parentNode&&a.push(e.ready(this.parentNode));let i=t.getConditions(this);for(let e in i)t.map[e]&&a.push(t.map[e](i[e],this));await Promise.all(a),this.replaceTemplates(this.getTemplates());for(let t of e.onReady.values())await t.call(this,e);this.readyResolve(),this.setAttribute(e.attr.ready,""),this.querySelectorAll(`[${e.attr.defer}]`).forEach((t=>t.removeAttribute(e.attr.defer)))}}class t{static map={visible:t.visible,idle:t.idle,interaction:t.interaction,media:t.media,"save-data":t.saveData};static hasConditions(e){return Object.keys(t.getConditions(e)).length>0}static getConditions(e){let a={};for(let i of Object.keys(t.map))e.hasAttribute(`on:${i}`)&&(a[i]=e.getAttribute(`on:${i}`));return a}static visible(e,t){if("IntersectionObserver"in window)return new Promise((e=>{let a=new IntersectionObserver((t=>{let[i]=t;i.isIntersecting&&(a.unobserve(i.target),e())}));a.observe(t)}))}static idle(){let e=new Promise((e=>{"complete"!==document.readyState?window.addEventListener("load",(()=>e()),{once:!0}):e()}));return"requestIdleCallback"in window?Promise.all([new Promise((e=>{requestIdleCallback((()=>{e()}))})),e]):e}static interaction(e,t){let a=["click","touchstart"];return e&&(a=(e||"").split(",").map((e=>e.trim()))),new Promise((e=>{function i(n){e();for(let e of a)t.removeEventListener(e,i)}for(let e of a)t.addEventListener(e,i,{once:!0})}))}static media(e){let t={matches:!0};if(e&&"matchMedia"in window&&(t=window.matchMedia(e)),!t.matches)return new Promise((e=>{t.addListener((t=>{t.matches&&e()}))}))}static saveData(e){if("connection"in navigator&&navigator.connection.saveData!==("false"!==e))return new Promise((()=>{}))}}var a,i;"customElements"in window&&(a=e.tagName,i=e,customElements.get(a)||("loading"===document.readyState?document.addEventListener("DOMContentLoaded",(()=>{customElements.get(a)||customElements.define(a,i)})):customElements.define(a,i)),window.Island=e),e.ready;const n={any:0,all:1},s=class extends HTMLElement{constructor(){super(),this.player=null,this.pausedByUser=!1,this.playingWhenLastViewed=!1}connectedCallback(){this.hasAttribute("defer-hydration")||this.hydrate()}async hydrate(){const e=this.getPlayerTarget(),t={get:(e,t)=>async()=>{const a=await e;this.playerHandler(a,t)}};this.player=new Proxy(e,t),this.setupInViewHandler()}setupInViewHandler(){!function(e,t,{root:a,margin:i,amount:s="any"}={}){if("undefined"==typeof IntersectionObserver)return()=>{};let r;r="string"==typeof e?document.querySelectorAll(e):e instanceof Element?[e]:Array.from(e||[]);const o=new WeakMap,l=new IntersectionObserver((e=>{e.forEach((e=>{const a=o.get(e.target);if(e.isIntersecting!==Boolean(a))if(e.isIntersecting){const a=t(e);"function"==typeof a?o.set(e.target,a):l.unobserve(e.target)}else a&&(a(e),o.delete(e.target))}))}),{root:a,rootMargin:i,threshold:"number"==typeof s?s:n[s]});r.forEach((e=>l.observe(e)))}(this,(()=>((this.autoplay&&!this.pausedByUser||this.playingWhenLastViewed)&&this.play(),()=>{this.playingWhenLastViewed=this.playing,this.pause()})))}static get observedAttributes(){return["defer-hydration","playing"]}attributeChangedCallback(e,t,a){"defer-hydration"===e&&null===a?this.hydrate():"playing"===e&&this.handlePlayingAttributeChange(t,a)}handlePlayingAttributeChange(e,t){null===e&&""===t?this.dispatchEvent(new CustomEvent("media:play",{bubbles:!0})):null===t&&this.dispatchEvent(new CustomEvent("media:pause",{bubbles:!0}))}play(){this.pausedByUser=!1,this.playing||(this.player.play(),this.playingWhenLastViewed=!0)}pause(){this.pausedByUser=!0,this.playing&&this.player.pause()}getPlayerTarget(){throw new Error("getPlayerTarget must be implemented in a subclass")}playerHandler(e,t){throw new Error("playerHandler must be implemented in a subclass")}get playing(){return this.hasAttribute("playing")}get autoplay(){return this.hasAttribute("autoplay")}};async function r(e,t=null){return t&&window[t]?window[t]:document.querySelector(`script[src="${e}"]`)?(console.warn(`Script with src "${e}" is already loaded.`),o(t)):new Promise(((a,i)=>{const n=document.createElement("script");n.type="text/javascript",n.src=e,n.async=!0,n.onload=()=>{t?o(t).then(a).catch(i):a()},n.onerror=()=>i(new Error(`Failed to load script: ${e}`)),document.head.appendChild(n)}))}function o(e,t=2e3,a=50){const i=Date.now();return new Promise(((n,s)=>{const r=()=>{window[e]?n(window[e]):Date.now()-i>t?s(new Error(`Timeout waiting for ${e}`)):setTimeout(r,a)};r()}))}const l=new Promise((e=>{window.onYouTubeIframeAPIReady=()=>e()}));function d(e,t){e.parentNode.insertBefore(t,e),t.appendChild(e)}!function(e,t){customElements.get(e)||("loading"===document.readyState?document.addEventListener("DOMContentLoaded",(()=>{customElements.get(e)||customElements.define(e,t)})):customElements.define(e,t))}("video-media",class extends s{connectedCallback(){super.connectedCallback(),this.autoplay||this.addEventListener("click",this.play.bind(this),{once:!0}),this.handleReducedMotion()}handleReducedMotion(){window.matchMedia("(prefers-reduced-motion: reduce)").matches&&this.hasAttribute("autoplay")&&(this.removeAttribute("autoplay"),setTimeout((()=>{const e=this.querySelector("video");e&&(e.removeAttribute("autoplay"),e.setAttribute("controls",""));const t=this.querySelector("iframe");t&&t.src.includes("autoplay=1")&&(t.src=t.src.replace(/[?&]autoplay=1[^&]*/g,""))}),100))}getPlayerTarget(){return this.setAttribute("loaded",""),this.host?this.setupThirdPartyVideoElement():this.setupNativeVideoElement()}playerHandler(e,t){"youtube"===this.host?"play"===t?e.playVideo():e.pauseVideo():e[t]()}async setupThirdPartyVideoElement(){let e;const t=this.querySelector("template");return t&&t.replaceWith(t.content.firstElementChild.cloneNode(!0)),e="youtube"===this.host?await this.setupYouTubePlayer():await this.setupVimeoPlayer(),e}setupNativeVideoElement(){const e=this.querySelector("video");return e.addEventListener("play",(()=>{this.setAttribute("playing","")})),e.addEventListener("pause",(()=>{e.paused&&!e.seeking&&this.removeAttribute("playing")})),this.autoplay&&e.addEventListener("click",(()=>{e.paused?e.play():e.pause()})),e}setupYouTubePlayer(){return new Promise((async e=>{window.YT?.Player||await r("https://www.youtube.com/iframe_api"),await l;const t=new YT.Player(this.querySelector("iframe"),{events:{onReady:()=>{e(t)},onStateChange:e=>{e.data===YT.PlayerState.PLAYING?this.setAttribute("playing",""):e.data!==YT.PlayerState.PAUSED&&e.data!==YT.PlayerState.ENDED||this.removeAttribute("playing")}}})}))}setupVimeoPlayer(){return new Promise((async e=>{window.Vimeo?.Player||await r("https://player.vimeo.com/api/player.js");const t=new Vimeo.Player(this.querySelector("iframe"));t.on("play",(()=>this.setAttribute("playing",""))),t.on("pause",(()=>this.removeAttribute("playing"))),t.on("ended",(()=>this.removeAttribute("playing"))),e(t)}))}get host(){return this.getAttribute("host")}});class c extends HTMLElement{connectedCallback(){this.querySelectorAll("table").forEach((e=>{var t=document.createElement("div");t.classList.add("table-wrapper"),d(e,t)})),this.querySelectorAll('iframe[src*="youtube.com/embed"]').forEach((e=>{this.wrapVideo(e)})),this.querySelectorAll('iframe[src*="player.vimeo"]').forEach((e=>{this.wrapVideo(e)})),this.querySelectorAll("a img").forEach((e=>{e.parentNode.classList.add("rte__image")}))}wrapVideo(e){e.src=e.src;var t=document.createElement("div");t.classList.add("video-wrapper"),d(e,t)}}!function(e,t){customElements.get(e)||("loading"===document.readyState?document.addEventListener("DOMContentLoaded",(()=>{customElements.get(e)||customElements.define(e,t)})):customElements.define(e,t))}("element-text-rte",c);class h extends HTMLElement{constructor(){super(),this.overlay=null,this.btn=null,this.videoMedia=null,this.hasPlayedOnce=!1}connectedCallback(){this.overlay=this.querySelector("[data-video-overlay]"),this.btn=this.querySelector("[data-video-play-button]"),this.videoMedia=this.querySelector("video-media"),this.initEventListeners()}disconnectedCallback(){this.btn&&this.btn.removeEventListener("click",this.handleClick)}initEventListeners(){this.btn&&this.btn.addEventListener("click",(e=>this.handleClick(e)))}handleClick(e){e.preventDefault(),this.overlay&&this.overlay.classList.add("video-with-text__video-overlay--hidden"),this.videoMedia&&!this.hasPlayedOnce&&(this.videoMedia.play(),"youtube"===this.videoMedia.host&&requestAnimationFrame((()=>{const e=this.videoMedia.querySelector("iframe");e&&e.contentWindow&&e.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}',"*")})),this.hasPlayedOnce=!0)}}!function(e,t){customElements.get(e)||("loading"===document.readyState?document.addEventListener("DOMContentLoaded",(()=>{customElements.get(e)||customElements.define(e,t)})):customElements.define(e,t))}("video-with-text-section",h)})();</script>
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.video_with_text.name",
+  "settings": [
+    {
+      "type": "video",
+      "id": "shopify_hosted_video",
+      "label": "t:pxu_sections.common.video.shopify_hosted_video",
+      "info": "t:pxu_sections.common.video.shopify_hosted_video_info"
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "t:pxu_sections.common.video.video_url",
+      "info": "t:pxu_sections.common.video.video_url_info",
+      "accept": ["youtube", "vimeo"]
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:pxu_sections.common.video.cover_image",
+      "info": "t:pxu_sections.common.video.cover_image_info"
+    },
+    {
+      "type": "select",
+      "id": "video_playback",
+      "label": "t:pxu_sections.common.video.playback",
+      "options": [
+        {
+          "value": "play_button",
+          "label": "t:pxu_sections.common.video.play_button"
+        },
+        {
+          "value": "autoplay",
+          "label": "t:pxu_sections.common.video.autoplay"
+        }
+      ],
+      "default": "autoplay",
+      "info": "t:pxu_sections.common.video.playback_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "t:pxu_sections.common.video.play_on_loop",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.desktop_layout"
+    },
+    {
+      "type": "select",
+      "id": "desktop_video_aspect_ratio",
+      "label": "t:pxu_sections.common.video.aspect_ratio.desktop_video_aspect_ratio",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:pxu_sections.common.video.aspect_ratio.auto"
+        },
+        {
+          "value": "9:16",
+          "label": "t:pxu_sections.common.video.aspect_ratio.9_16"
+        },
+        {
+          "value": "4:5",
+          "label": "t:pxu_sections.common.video.aspect_ratio.4_5"
+        },
+        {
+          "value": "1:1",
+          "label": "t:pxu_sections.common.video.aspect_ratio.1_1"
+        },
+        {
+          "value": "16:9",
+          "label": "t:pxu_sections.common.video.aspect_ratio.16_9"
+        },
+        {
+          "value": "21:9",
+          "label": "t:pxu_sections.common.video.aspect_ratio.21_9"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "desktop_video_placement",
+      "label": "t:pxu_sections.common.video.desktop_video_placement",
+      "options": [
+        {
+          "value": "row",
+          "label": "t:pxu_sections.common.video.video_first"
+        },
+        {
+          "value": "row-reverse",
+          "label": "t:pxu_sections.common.video.video_second"
+        }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "select",
+      "id": "desktop_video_width",
+      "label": "t:pxu_sections.common.video.desktop_video_width",
+      "options": [
+        {
+          "value": "33.33",
+          "label": "t:pxu_sections.common.sizes.small"
+        },
+        {
+          "value": "50",
+          "label": "t:pxu_sections.common.sizes.medium"
+        },
+        {
+          "value": "66.66",
+          "label": "t:pxu_sections.common.sizes.large"
+        }
+      ],
+      "default": "50"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_position",
+      "label": "t:pxu_sections.common.layout.desktop_content_position",
+      "options": [
+        {
+          "value": "flex-start",
+          "label": "t:pxu_sections.common.layout.top"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "flex-end",
+          "label": "t:pxu_sections.common.layout.bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_content_alignment",
+      "label": "t:pxu_sections.common.layout.desktop_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_video_aspect_ratio",
+      "label": "t:pxu_sections.common.video.aspect_ratio.mobile_video_aspect_ratio",
+      "default": "auto",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:pxu_sections.common.video.aspect_ratio.auto"
+        },
+        {
+          "value": "9:16",
+          "label": "t:pxu_sections.common.video.aspect_ratio.9_16"
+        },
+        {
+          "value": "4:5",
+          "label": "t:pxu_sections.common.video.aspect_ratio.4_5"
+        },
+        {
+          "value": "1:1",
+          "label": "t:pxu_sections.common.video.aspect_ratio.1_1"
+        },
+        {
+          "value": "16:9",
+          "label": "t:pxu_sections.common.video.aspect_ratio.16_9"
+        },
+        {
+          "value": "21:9",
+          "label": "t:pxu_sections.common.video.aspect_ratio.21_9"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_video_placement",
+      "label": "t:pxu_sections.common.video.mobile_video_placement",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:pxu_sections.common.video.video_first"
+        },
+        {
+          "value": "column-reverse",
+          "label": "t:pxu_sections.common.video.video_second"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "select",
+      "id": "mobile_content_alignment",
+      "label": "t:pxu_sections.common.layout.mobile_content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "play_button_color",
+      "label": "t:pxu_sections.common.video.play_button_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:pxu_sections.common.color.background_gradient"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:pxu_sections.common.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.sections.video_with_text.block_heading.default"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size_mobile",
+          "default": 24
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:pxu_sections.common.text.name",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.content",
+          "default": "t:pxu_sections.sections.video_with_text.block_text.default"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "t:pxu_sections.common.button.button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "info": "t:pxu_sections.common.button.background_color_info",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.video_with_text.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "button"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

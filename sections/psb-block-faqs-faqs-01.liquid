@@ -1,0 +1,245 @@
+{%- comment -%}
+  {
+    "name": "Block FAQs 01",
+    "author": "PusherCommerce"
+    "description": "Please DO NOT copy in any form. Any act of copying will be sued and held responsible with the law"
+  }
+{%- endcomment -%}
+
+{% capture minify %}
+  <style>
+    #psb-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+    }
+
+    #psb-{{ section.id }} .ac {
+      border: 1px solid {{ section.settings.border_color }};
+    }
+
+    #psb-{{ section.id }} .ac-trigger  {
+      color: {{ section.settings.text_color }};
+      padding: {{ section.settings.heading_height }}px 30px {{ section.settings.heading_height }}px 15px;
+    }
+    #psb-{{ section.id }} .ac .ac-trigger::after {
+      content: "{{ section.settings.icon_open }}";
+      font-size: {{ section.settings.icon_size }}px;
+      right: 20px;
+    }
+    #psb-{{ section.id }} .ac.is-active > .ac-header .ac-trigger::after {
+      content: "{{ section.settings.icon_close }}";
+      font-size: {{ section.settings.icon_size }}px;
+      right: 20px;
+    }
+
+    #psb-{{ section.id }} .ac-panel,
+    #psb-{{ section.id }} .ac-text {
+      color: {{ section.settings.content_color }};
+    }
+
+    #psb-{{ section.id }} .ac-text {
+      padding: 15px;
+    }
+  </style>
+{% endcapture %}
+{{ minify | strip_newlines }}
+
+<psb-teleport data-to="{{ section.settings.block_id }}">
+  <div id="psb-{{ section.id }}" class="psb-{{ section.id }} psb-section psb-faqs-faqs-01" style="display: none;">
+    <div class="psb-container-fullwidth">
+      <psb-accordion
+        data-duration="300"
+        data-show-multiple="true"
+      >
+        <div class="accordion-container">
+          {% for block in section.blocks %}
+            <div class="ac" {{ block.shopify_attributes }}>
+              <{{ section.settings.heading_tag }} class="ac-header">
+                <button type="button" class="ac-trigger">{{ block.settings.accordion_heading }}</button>
+              </{{ section.settings.heading_tag }}>
+              <div class="ac-panel">
+                {% if block.settings.accordion_page != blank %}
+                  <div class="ac-text psb-rte">{{ block.settings.accordion_page.content }}</div>
+                {% else %}
+                  <div class="ac-text">{{ block.settings.accordion_content }}</div>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </psb-accordion>
+    </div>
+  </div>
+</psb-teleport>
+
+{% schema %}
+{
+  "name": "⚡︎PSB Block: FAQs 01",
+  "tag": "section",
+  "class": "psb-section-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Block ID"
+    },
+    {
+      "type": "text",
+      "id": "block_id",
+      "label": "Block ID",
+      "default": "psb-block-faqs-01"
+    },
+    {
+      "type": "header",
+      "content": "Main settings"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Title color",
+      "default": "#000"
+    },
+    {
+      "type": "color",
+      "id": "content_color",
+      "label": "Content color",
+      "default": "#374151"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#eee"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading tag",
+      "options": [
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "div",
+          "label": "Div"
+        }
+      ],
+      "default": "h4"
+    },
+    {
+      "type": "range",
+      "id": "heading_height",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Expand heading height",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Icon",
+      "info": "More icons: [https://www.symbolsofit.com/en/arrow/](https://www.symbolsofit.com/en/arrow/), or search google icon arrow text"
+    },
+    {
+      "type": "text",
+      "id": "icon_open",
+      "label": "Open icon",
+      "default": "+"
+    },
+    {
+      "type": "text",
+      "id": "icon_close",
+      "label": "Close icon",
+      "default": "–"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon size",
+      "default": 18
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "accordion_heading",
+          "label": "Heading",
+          "default": "Explore many premium sections"
+        },
+        {
+          "type": "richtext",
+          "id": "accordion_content",
+          "label": "Raw content",
+          "default": "<p>Go to the app and choose for yourself the ones that best suit the store</p>"
+        },
+        {
+          "type": "page",
+          "id": "accordion_page",
+          "label": "Raw content from page"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "⚡︎PSB Block: FAQs 01",
+      "blocks": [
+        {
+          "type": "content",
+          "settings": {
+            "accordion_heading": "When will I receive my order?",
+            "accordion_content": "<p>Once your order is placed, you will receive a confirmation email that will include your order details and the selected shipping method. Please allow 3-5 business days transit time to receive your order once it has shipped. This time frame pertains to orders placed within the continental United States and does not include Alaska and Hawaii.</p>"
+          }
+        },
+        {
+          "type": "content",
+          "settings": {
+            "accordion_heading": "Can I cancel my order?",
+            "accordion_content": "<p>After placing your order, we will immediately start working on this, which is why it is unfortunately not possible to cancel your order.</p>"
+          }
+        },
+        {
+          "type": "content",
+          "settings": {
+            "accordion_heading": "How much will shipping cost?",
+            "accordion_content": "<p>Delivery to your doorstep by our local courier costs $20.</p>"
+          }
+        },
+        {
+          "type": "content",
+          "settings": {
+            "accordion_heading": "Can I track my order?",
+            "accordion_content": "<p>On your chosen delivery date, you will receive an SMS reminder regarding the delivery of your order. If you require further assistance, you can call us at +12 345 678.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

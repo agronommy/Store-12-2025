@@ -1,0 +1,54 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-faq-template",
+      "blocks": {
+        "block-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "materials"
+          }
+        },
+        "block-5": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shipping + handling"
+          }
+        }
+      },
+      "block_order": [
+        "block-1",
+        "block-5"
+      ],
+      "settings": {
+        "wide_display": true,
+        "show_banner": true,
+        "image": "shopify://shop_images/thinking.jpg",
+        "caption_content_background": "original",
+        "pretext": "",
+        "title": "Frequently Asked Questions",
+        "subtitle": "",
+        "text_position": "center",
+        "text_align": "center",
+        "button1": "",
+        "button1_link": "",
+        "button1_style": "global-button--banner",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

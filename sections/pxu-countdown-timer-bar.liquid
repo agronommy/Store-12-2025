@@ -1,0 +1,965 @@
+{%- comment -%}
+  🧰 Countdown timer-bar section
+{%- endcomment -%}
+
+{%- capture datetime -%}
+  {{- section.settings.countdown_year | append: '-' -}}
+  {{- section.settings.countdown_month | append: '-' -}}
+  {{- section.settings.countdown_day | append: 'T' -}}
+  {{- section.settings.countdown_hour | append: ':' -}}
+  {{- section.settings.countdown_minute | append: ':00.000' -}}
+{%- endcapture -%}
+
+{%- liquid
+  assign timezone = datetime | date: '%z'
+  assign datetime = datetime | append: timezone
+  assign countdown_message = section.settings.countdown_message
+
+  assign text_color = section.settings.text_color
+  assign background_color = section.settings.background_color
+  assign has_gradient = false
+
+  if section.settings.background_gradient != blank
+    assign background_color = section.settings.background_gradient
+    assign has_gradient = true
+  endif
+
+  assign content_heading_desktop = section.settings.countdown_heading
+  assign content_heading_mobile = section.settings.countdown_heading_mobile | default: content_heading_desktop
+
+  assign content_link = false
+
+  if content_heading_desktop contains "<a" or content_heading_mobile contains "<a"
+    assign content_link = true
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-countdown-timer-bar
+    {% if has_gradient == true %}
+      pxu-countdown-timer-bar--background-gradient
+    {%- endif -%}
+  "
+  style="
+    --pxu-section-text-color: {{ text_color }};
+    --pxu-section-text-color-alpha-50: {{ text_color | color_modify: 'alpha', 0.50 }};
+    --pxu-section-background-color: {{ background_color }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-content-justification: {{ section.settings.countdown_content_justification }};
+  "
+  data-pxu-countdown-timer-bar
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-countdown-timer-bar",
+      "className": "CountdownTimerBarSection",
+      "name": "Countdown timer-bar",
+      "version": "1.0.2",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}",
+      "countdownDatetime": {{ datetime | json }}
+    }
+  </script>
+
+  {% if section.settings.countdown_bar_link != blank and content_link == false %}
+    <a
+      href="{{ section.settings.countdown_bar_link }}"
+  {% else %}
+    <div
+  {% endif %}
+    class="
+      pxu-section__container pxu-countdown-timer-bar__container
+      pxu-countdown-timer-bar__countdown--loading
+
+      {% if section.settings.countdown_timer_complete == true %}
+        pxu-countdown-timer-bar__countdown--hide-on-complete
+      {%- endif %}
+    "
+    data-pxu-countdown-timer-bar-countdown
+  >
+    {% if content_heading_desktop != blank or content_heading_mobile != blank %}
+      <div class="pxu-countdown-timer-bar__content">
+        <h2 class="pxu-countdown-timer-bar__content--desktop">{{ content_heading_desktop }}</h2>
+        <h2 class="pxu-countdown-timer-bar__content--mobile">{{ content_heading_mobile }}</h2>
+      </div>
+    {% endif %}
+    <div class="pxu-countdown-timer-bar__countdown-wrapper">
+      <div class="pxu-countdown-timer-bar__countdown">
+        <time
+          class="
+            pxu-countdown-timer-bar__countdown-datetime
+            pxu-visually-hidden
+          "
+          datetime="{{ datetime }}"
+        >
+        </time>
+
+        {%- for i in (1..4) -%}
+          {%- capture time_cycle -%}
+            {%- cycle 'day', 'hrs', 'min', 'sec' -%}
+          {%- endcapture -%}
+
+          <div
+            class="
+              pxu-countdown-timer-bar__countdown-time
+              pxu-countdown-timer-bar__countdown-time--{{- time_cycle -}}
+            "
+          >
+            <h3
+              class="pxu-countdown-timer-bar__countdown-time-heading"
+              data-pxu-countdown-timer-bar-countdown-{{- time_cycle -}}
+            ></h3>
+
+            <span class="pxu-countdown-timer-bar__countdown-time-text">
+              {{- time_cycle -}}
+            </span>
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- if countdown_message != blank -%}
+        <div class="pxu-countdown-timer-bar__countdown-message pxu-rte">
+          {{- countdown_message -}}
+        </div>
+      {%- endif -%}
+    </div>
+{% if section.settings.countdown_bar_link != blank and content_link == false %}
+  </a>
+{% else %}
+  </div>
+{% endif %}
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-countdown-timer-bar{background:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}.pxu-countdown-timer-bar__container{align-items:center;color:var(--pxu-section-text-color);display:flex;gap:var(--pxu-space-4);justify-content:space-between;text-decoration:none}.pxu-countdown-timer-bar__container:focus,.pxu-countdown-timer-bar__container:hover,.pxu-countdown-timer-bar__container:visited,.pxu-countdown-timer-bar__content{color:var(--pxu-section-text-color)}.pxu-countdown-timer-bar__content{font-size:16px;line-height:1.2;margin:0}.pxu-countdown-timer-bar__content h2>a{color:var(--pxu-section-text-color);-webkit-text-decoration:1px underline;text-decoration:1px underline;text-underline-offset:4px}.pxu-countdown-timer-bar__content h2>a:focus,.pxu-countdown-timer-bar__content h2>a:hover,.pxu-countdown-timer-bar__content h2>a:link,.pxu-countdown-timer-bar__content h2>a:visited{color:inherit}.pxu-countdown-timer-bar__content h2>a:focus-visible,.pxu-countdown-timer-bar__content h2>a:hover{text-decoration-thickness:2px;text-underline-offset:3.5px}.pxu-countdown-timer-bar__content--desktop,.pxu-countdown-timer-bar__content--mobile{color:var(--pxu-section-text-color);margin:0}.pxu-countdown-timer-bar__content--desktop{display:none;font-size:16px}.pxu-countdown-timer-bar__content--mobile{display:block;font-size:14px}.pxu-countdown-timer-bar__countdown-wrapper{align-items:center;display:flex;flex-direction:column;gap:var(--pxu-space-2)}.pxu-countdown-timer-bar__countdown-wrapper:only-child{width:100%}.pxu-countdown-timer-bar__countdown{display:flex;flex:1 0 auto;gap:var(--pxu-space-2)}.pxu-countdown-timer-bar__countdown-time-heading{color:var(--pxu-section-text-color);font-size:12px;line-height:1.2;margin:0;min-width:3em;padding:0 var(--pxu-space-2-5)}.pxu-countdown-timer-bar__countdown-time-text{color:var(--pxu-section-text-color);font-size:10px;letter-spacing:1px;line-height:1.4;margin:0 auto;text-transform:uppercase}.pxu-countdown-timer-bar__countdown-message{display:none;font-size:10px}.pxu-countdown-timer-bar__countdown--complete .pxu-countdown-timer-bar__countdown-message{display:block}@media only screen and (min-width:480px){.pxu-countdown-timer-bar{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}.pxu-countdown-timer-bar__content--desktop{display:block}.pxu-countdown-timer-bar__content--mobile{display:none}.pxu-countdown-timer-bar__container{gap:var(--pxu-space-16);justify-content:var(--pxu-section-content-justification)}.pxu-countdown-timer-bar__countdown-time-heading{font-size:14px}}.pxu-countdown-timer-bar__countdown-time{display:flex;flex:1 0 auto;flex-direction:column;gap:var(--pxu-space-0-5);position:relative;text-align:center}.pxu-countdown-timer-bar__countdown-time:after{background-color:var(--pxu-section-text-color-alpha-50);content:"";height:50%;position:absolute;right:calc((var(--pxu-space-1) + 1px)/-2);top:0;transform:translateY(50%);width:1px}.pxu-countdown-timer-bar__countdown--hide-on-complete.pxu-countdown-timer-bar__countdown--complete .pxu-countdown-timer-bar__countdown,.pxu-countdown-timer-bar__countdown-time:last-child:after{display:none}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+
+class CountdownTimerBarSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.countdown = this.query('[data-pxu-countdown-timer-bar-countdown]');
+    this.days = this.query('[data-pxu-countdown-timer-bar-countdown-day]');
+    this.hours = this.query('[data-pxu-countdown-timer-bar-countdown-hrs]');
+    this.minutes = this.query('[data-pxu-countdown-timer-bar-countdown-min]');
+    this.seconds = this.query('[data-pxu-countdown-timer-bar-countdown-sec]');
+    this.dateTime = this.data.countdownDatetime;
+
+    this.targetDate = this.dateTime ? Date.parse(this.dateTime) : null;
+    this.daysInMs = 1000 * 60 * 60 * 24;
+    this.hoursInMs = this.daysInMs / 24;
+    this.minutesInMs = this.hoursInMs / 60;
+    this.secondsInMs = this.minutesInMs / 60;
+    this.timeoutId = null;
+    this.isLoading = true;
+
+    this.onMount();
+  }
+
+  onMount() {
+    this.startTimer();
+  }
+
+  onUnmount() {
+    this.stopTimer();
+  }
+  updateLoadingState() {
+    // Remove the loading class once the countdown is ready.
+    this.countdown.classList.remove('pxu-countdown-timer__countdown--loading');
+  }
+
+  startTimer() {
+    const interval = 1000;
+    let expectedTime = Date.now() + interval;
+
+    // If the target date has already passed, handle countdown completion.
+    if (this.targetDate <= Date.now()) {
+      this.updateLoadingState();
+      this.handleCountDownComplete();
+      return;
+    }
+
+    const countDown = () => {
+      const currentDate = Date.now();
+      const timeDiff = this.targetDate - currentDate;
+
+      // If time difference is zero or less, stop the timer and handle countdown completion.
+      if (timeDiff <= 0) {
+        this.stopTimer();
+        this.handleCountDownComplete();
+        return;
+      }
+
+      // Convert the time difference, calculate the drift, and adjust the expected time.
+      const remainingTime = this.convertTime(timeDiff);
+      const drift = currentDate - expectedTime;
+      expectedTime += interval;
+
+      // Update the loading state and update the DOM with the remaining time.
+      if (this.isLoading) this.updateLoadingState();
+      this.updateDom(remainingTime);
+
+      this.timeoutId = setTimeout(countDown, Math.max(0, interval - drift));
+    };
+
+    this.timeoutId = setTimeout(countDown, interval);
+  }
+
+  stopTimer() {
+    // Stop the countdown and clear the timeout.
+    clearTimeout(this.timeoutId);
+  }
+
+  convertTime(timeInMs) {
+    // Convert the time difference into days, hours, minutes, and seconds.
+    const days = parseInt(timeInMs / this.daysInMs, 10);
+    timeInMs -= days * this.daysInMs;
+
+    const hours = parseInt(timeInMs / this.hoursInMs, 10);
+    timeInMs -= hours * this.hoursInMs;
+
+    const minutes = parseInt(timeInMs / this.minutesInMs, 10);
+    timeInMs -= minutes * this.minutesInMs;
+
+    const seconds = parseInt(timeInMs / this.secondsInMs, 10);
+
+    // Return an object with the calculated time.
+    return { days, hours, minutes, seconds };
+  }
+
+  updateDom(dateObj) {
+    // Update DOM elements with the remaining time.
+    const { days, hours, minutes, seconds } = dateObj;
+    this.days.textContent = days;
+    this.hours.textContent = hours;
+    this.minutes.textContent = minutes;
+    this.seconds.textContent = seconds;
+  }
+
+  handleCountDownComplete() {
+    // Update the DOM once the countdown is complete.
+    this.updateDom({
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    });
+
+    // Add the complete class once the countdown is complete.
+    this.countdown.classList.add('pxu-countdown-timer-bar__countdown--complete');
+  }
+}
+
+document.querySelectorAll('[data-pxu-countdown-timer-bar]').forEach(($section) => {
+  Section.init($section, CountdownTimerBarSection);
+});
+
+// export class for theme editor instance management
+if (Shopify.designMode) {
+  window.PxuThemeSections.CountdownTimerBarSection = CountdownTimerBarSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.countdown_timer_bar.name",
+  "class": "pxu-countdown-timer-bar-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "countdown_content_justification",
+      "label": "t:pxu_sections.common.layout.desktop_content_justification",
+      "options": [
+        {
+          "label": "t:pxu_sections.common.layout.center",
+          "value": "center"
+        },
+        {
+          "label": "t:pxu_sections.common.layout.space_evenly",
+          "value": "space-evenly"
+        },
+        {
+          "label": "t:pxu_sections.common.layout.space_between",
+          "value": "space-between"
+        }
+      ],
+      "default": "space-between"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.text.content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "countdown_heading",
+      "label": "t:pxu_sections.common.heading.name",
+      "default": "Countdown timer"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "countdown_heading_mobile",
+      "label": "t:pxu_sections.common.heading.mobile_heading",
+      "info": "t:pxu_sections.common.heading.mobile_heading_info"
+    },
+    {
+      "type": "url",
+      "id": "countdown_bar_link",
+      "label": "t:pxu_sections.common.navigation.link",
+      "info": "t:pxu_sections.common.navigation.section_link_info"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.timer.timer"
+    },
+    {
+      "type": "text",
+      "id": "countdown_year",
+      "label": "t:pxu_sections.common.timer.year",
+      "default": "2026"
+    },
+    {
+      "type": "select",
+      "id": "countdown_month",
+      "label": "t:pxu_sections.common.timer.month.month",
+      "options": [
+        {
+          "value": "01",
+          "label": "t:pxu_sections.common.timer.month.option_01"
+        },
+        {
+          "value": "02",
+          "label": "t:pxu_sections.common.timer.month.option_02"
+        },
+        {
+          "value": "03",
+          "label": "t:pxu_sections.common.timer.month.option_03"
+        },
+        {
+          "value": "04",
+          "label": "t:pxu_sections.common.timer.month.option_04"
+        },
+        {
+          "value": "05",
+          "label": "t:pxu_sections.common.timer.month.option_05"
+        },
+        {
+          "value": "06",
+          "label": "t:pxu_sections.common.timer.month.option_06"
+        },
+        {
+          "value": "07",
+          "label": "t:pxu_sections.common.timer.month.option_07"
+        },
+        {
+          "value": "08",
+          "label": "t:pxu_sections.common.timer.month.option_08"
+        },
+        {
+          "value": "09",
+          "label": "t:pxu_sections.common.timer.month.option_09"
+        },
+        {
+          "value": "10",
+          "label": "t:pxu_sections.common.timer.month.option_10"
+        },
+        {
+          "value": "11",
+          "label": "t:pxu_sections.common.timer.month.option_11"
+        },
+        {
+          "value": "12",
+          "label": "t:pxu_sections.common.timer.month.option_12"
+        }
+      ],
+      "default": "01"
+    },
+    {
+      "type": "select",
+      "id": "countdown_day",
+      "label": "t:pxu_sections.common.timer.day.day",
+      "options": [
+        {
+          "value": "01",
+          "label": "t:pxu_sections.common.timer.day.option_01"
+        },
+        {
+          "value": "02",
+          "label": "t:pxu_sections.common.timer.day.option_02"
+        },
+        {
+          "value": "03",
+          "label": "t:pxu_sections.common.timer.day.option_03"
+        },
+        {
+          "value": "04",
+          "label": "t:pxu_sections.common.timer.day.option_04"
+        },
+        {
+          "value": "05",
+          "label": "t:pxu_sections.common.timer.day.option_05"
+        },
+        {
+          "value": "06",
+          "label": "t:pxu_sections.common.timer.day.option_06"
+        },
+        {
+          "value": "07",
+          "label": "t:pxu_sections.common.timer.day.option_07"
+        },
+        {
+          "value": "08",
+          "label": "t:pxu_sections.common.timer.day.option_08"
+        },
+        {
+          "value": "09",
+          "label": "t:pxu_sections.common.timer.day.option_09"
+        },
+        {
+          "value": "10",
+          "label": "t:pxu_sections.common.timer.day.option_10"
+        },
+        {
+          "value": "11",
+          "label": "t:pxu_sections.common.timer.day.option_11"
+        },
+        {
+          "value": "12",
+          "label": "t:pxu_sections.common.timer.day.option_12"
+        },
+        {
+          "value": "13",
+          "label": "t:pxu_sections.common.timer.day.option_13"
+        },
+        {
+          "value": "14",
+          "label": "t:pxu_sections.common.timer.day.option_14"
+        },
+        {
+          "value": "15",
+          "label": "t:pxu_sections.common.timer.day.option_15"
+        },
+        {
+          "value": "16",
+          "label": "t:pxu_sections.common.timer.day.option_16"
+        },
+        {
+          "value": "17",
+          "label": "t:pxu_sections.common.timer.day.option_17"
+        },
+        {
+          "value": "18",
+          "label": "t:pxu_sections.common.timer.day.option_18"
+        },
+        {
+          "value": "19",
+          "label": "t:pxu_sections.common.timer.day.option_19"
+        },
+        {
+          "value": "20",
+          "label": "t:pxu_sections.common.timer.day.option_20"
+        },
+        {
+          "value": "21",
+          "label": "t:pxu_sections.common.timer.day.option_21"
+        },
+        {
+          "value": "22",
+          "label": "t:pxu_sections.common.timer.day.option_22"
+        },
+        {
+          "value": "23",
+          "label": "t:pxu_sections.common.timer.day.option_23"
+        },
+        {
+          "value": "24",
+          "label": "t:pxu_sections.common.timer.day.option_24"
+        },
+        {
+          "value": "25",
+          "label": "t:pxu_sections.common.timer.day.option_25"
+        },
+        {
+          "value": "26",
+          "label": "t:pxu_sections.common.timer.day.option_26"
+        },
+        {
+          "value": "27",
+          "label": "t:pxu_sections.common.timer.day.option_27"
+        },
+        {
+          "value": "28",
+          "label": "t:pxu_sections.common.timer.day.option_28"
+        },
+        {
+          "value": "29",
+          "label": "t:pxu_sections.common.timer.day.option_29"
+        },
+        {
+          "value": "30",
+          "label": "t:pxu_sections.common.timer.day.option_30"
+        },
+        {
+          "value": "31",
+          "label": "t:pxu_sections.common.timer.day.option_31"
+        }
+      ],
+      "default": "01"
+    },
+    {
+      "type": "select",
+      "id": "countdown_hour",
+      "label": "t:pxu_sections.common.timer.hour.hour",
+      "options": [
+        {
+          "value": "00",
+          "label": "t:pxu_sections.common.timer.hour.option_00"
+        },
+        {
+          "value": "01",
+          "label": "t:pxu_sections.common.timer.hour.option_01"
+        },
+        {
+          "value": "02",
+          "label": "t:pxu_sections.common.timer.hour.option_02"
+        },
+        {
+          "value": "03",
+          "label": "t:pxu_sections.common.timer.hour.option_03"
+        },
+        {
+          "value": "04",
+          "label": "t:pxu_sections.common.timer.hour.option_04"
+        },
+        {
+          "value": "05",
+          "label": "t:pxu_sections.common.timer.hour.option_05"
+        },
+        {
+          "value": "06",
+          "label": "t:pxu_sections.common.timer.hour.option_06"
+        },
+        {
+          "value": "07",
+          "label": "t:pxu_sections.common.timer.hour.option_07"
+        },
+        {
+          "value": "08",
+          "label": "t:pxu_sections.common.timer.hour.option_08"
+        },
+        {
+          "value": "09",
+          "label": "t:pxu_sections.common.timer.hour.option_09"
+        },
+        {
+          "value": "10",
+          "label": "t:pxu_sections.common.timer.hour.option_10"
+        },
+        {
+          "value": "11",
+          "label": "t:pxu_sections.common.timer.hour.option_11"
+        },
+        {
+          "value": "12",
+          "label": "t:pxu_sections.common.timer.hour.option_12"
+        },
+        {
+          "value": "13",
+          "label": "t:pxu_sections.common.timer.hour.option_13"
+        },
+        {
+          "value": "14",
+          "label": "t:pxu_sections.common.timer.hour.option_14"
+        },
+        {
+          "value": "15",
+          "label": "t:pxu_sections.common.timer.hour.option_15"
+        },
+        {
+          "value": "16",
+          "label": "t:pxu_sections.common.timer.hour.option_16"
+        },
+        {
+          "value": "17",
+          "label": "t:pxu_sections.common.timer.hour.option_17"
+        },
+        {
+          "value": "18",
+          "label": "t:pxu_sections.common.timer.hour.option_18"
+        },
+        {
+          "value": "19",
+          "label": "t:pxu_sections.common.timer.hour.option_19"
+        },
+        {
+          "value": "20",
+          "label": "t:pxu_sections.common.timer.hour.option_20"
+        },
+        {
+          "value": "21",
+          "label": "t:pxu_sections.common.timer.hour.option_21"
+        },
+        {
+          "value": "22",
+          "label": "t:pxu_sections.common.timer.hour.option_22"
+        },
+        {
+          "value": "23",
+          "label": "t:pxu_sections.common.timer.hour.option_23"
+        }
+      ],
+      "default": "12"
+    },
+    {
+      "type": "select",
+      "id": "countdown_minute",
+      "label": "t:pxu_sections.common.timer.minute.minute",
+      "options": [
+        {
+          "value": "00",
+          "label": "t:pxu_sections.common.timer.minute.option_00"
+        },
+        {
+          "value": "01",
+          "label": "t:pxu_sections.common.timer.minute.option_01"
+        },
+        {
+          "value": "02",
+          "label": "t:pxu_sections.common.timer.minute.option_02"
+        },
+        {
+          "value": "03",
+          "label": "t:pxu_sections.common.timer.minute.option_03"
+        },
+        {
+          "value": "04",
+          "label": "t:pxu_sections.common.timer.minute.option_04"
+        },
+        {
+          "value": "05",
+          "label": "t:pxu_sections.common.timer.minute.option_05"
+        },
+        {
+          "value": "06",
+          "label": "t:pxu_sections.common.timer.minute.option_06"
+        },
+        {
+          "value": "07",
+          "label": "t:pxu_sections.common.timer.minute.option_07"
+        },
+        {
+          "value": "08",
+          "label": "t:pxu_sections.common.timer.minute.option_08"
+        },
+        {
+          "value": "09",
+          "label": "t:pxu_sections.common.timer.minute.option_09"
+        },
+        {
+          "value": "10",
+          "label": "t:pxu_sections.common.timer.minute.option_10"
+        },
+        {
+          "value": "11",
+          "label": "t:pxu_sections.common.timer.minute.option_11"
+        },
+        {
+          "value": "12",
+          "label": "t:pxu_sections.common.timer.minute.option_12"
+        },
+        {
+          "value": "13",
+          "label": "t:pxu_sections.common.timer.minute.option_13"
+        },
+        {
+          "value": "14",
+          "label": "t:pxu_sections.common.timer.minute.option_14"
+        },
+        {
+          "value": "15",
+          "label": "t:pxu_sections.common.timer.minute.option_15"
+        },
+        {
+          "value": "16",
+          "label": "t:pxu_sections.common.timer.minute.option_16"
+        },
+        {
+          "value": "17",
+          "label": "t:pxu_sections.common.timer.minute.option_17"
+        },
+        {
+          "value": "18",
+          "label": "t:pxu_sections.common.timer.minute.option_18"
+        },
+        {
+          "value": "19",
+          "label": "t:pxu_sections.common.timer.minute.option_19"
+        },
+        {
+          "value": "20",
+          "label": "t:pxu_sections.common.timer.minute.option_20"
+        },
+        {
+          "value": "21",
+          "label": "t:pxu_sections.common.timer.minute.option_21"
+        },
+        {
+          "value": "22",
+          "label": "t:pxu_sections.common.timer.minute.option_22"
+        },
+        {
+          "value": "23",
+          "label": "t:pxu_sections.common.timer.minute.option_23"
+        },
+        {
+          "value": "24",
+          "label": "t:pxu_sections.common.timer.minute.option_24"
+        },
+        {
+          "value": "25",
+          "label": "t:pxu_sections.common.timer.minute.option_25"
+        },
+        {
+          "value": "26",
+          "label": "t:pxu_sections.common.timer.minute.option_26"
+        },
+        {
+          "value": "27",
+          "label": "t:pxu_sections.common.timer.minute.option_27"
+        },
+        {
+          "value": "28",
+          "label": "t:pxu_sections.common.timer.minute.option_28"
+        },
+        {
+          "value": "29",
+          "label": "t:pxu_sections.common.timer.minute.option_29"
+        },
+        {
+          "value": "30",
+          "label": "t:pxu_sections.common.timer.minute.option_30"
+        },
+        {
+          "value": "31",
+          "label": "t:pxu_sections.common.timer.minute.option_31"
+        },
+        {
+          "value": "32",
+          "label": "t:pxu_sections.common.timer.minute.option_32"
+        },
+        {
+          "value": "33",
+          "label": "t:pxu_sections.common.timer.minute.option_33"
+        },
+        {
+          "value": "34",
+          "label": "t:pxu_sections.common.timer.minute.option_34"
+        },
+        {
+          "value": "35",
+          "label": "t:pxu_sections.common.timer.minute.option_35"
+        },
+        {
+          "value": "36",
+          "label": "t:pxu_sections.common.timer.minute.option_36"
+        },
+        {
+          "value": "37",
+          "label": "t:pxu_sections.common.timer.minute.option_37"
+        },
+        {
+          "value": "38",
+          "label": "t:pxu_sections.common.timer.minute.option_38"
+        },
+        {
+          "value": "39",
+          "label": "t:pxu_sections.common.timer.minute.option_39"
+        },
+        {
+          "value": "40",
+          "label": "t:pxu_sections.common.timer.minute.option_40"
+        },
+        {
+          "value": "41",
+          "label": "t:pxu_sections.common.timer.minute.option_41"
+        },
+        {
+          "value": "42",
+          "label": "t:pxu_sections.common.timer.minute.option_42"
+        },
+        {
+          "value": "43",
+          "label": "t:pxu_sections.common.timer.minute.option_43"
+        },
+        {
+          "value": "44",
+          "label": "t:pxu_sections.common.timer.minute.option_44"
+        },
+        {
+          "value": "45",
+          "label": "t:pxu_sections.common.timer.minute.option_45"
+        },
+        {
+          "value": "46",
+          "label": "t:pxu_sections.common.timer.minute.option_46"
+        },
+        {
+          "value": "47",
+          "label": "t:pxu_sections.common.timer.minute.option_47"
+        },
+        {
+          "value": "48",
+          "label": "t:pxu_sections.common.timer.minute.option_48"
+        },
+        {
+          "value": "49",
+          "label": "t:pxu_sections.common.timer.minute.option_49"
+        },
+        {
+          "value": "50",
+          "label": "t:pxu_sections.common.timer.minute.option_50"
+        },
+        {
+          "value": "51",
+          "label": "t:pxu_sections.common.timer.minute.option_51"
+        },
+        {
+          "value": "52",
+          "label": "t:pxu_sections.common.timer.minute.option_52"
+        },
+        {
+          "value": "53",
+          "label": "t:pxu_sections.common.timer.minute.option_53"
+        },
+        {
+          "value": "54",
+          "label": "t:pxu_sections.common.timer.minute.option_54"
+        },
+        {
+          "value": "55",
+          "label": "t:pxu_sections.common.timer.minute.option_55"
+        },
+        {
+          "value": "56",
+          "label": "t:pxu_sections.common.timer.minute.option_56"
+        },
+        {
+          "value": "57",
+          "label": "t:pxu_sections.common.timer.minute.option_57"
+        },
+        {
+          "value": "58",
+          "label": "t:pxu_sections.common.timer.minute.option_58"
+        },
+        {
+          "value": "59",
+          "label": "t:pxu_sections.common.timer.minute.option_59"
+        }
+      ],
+      "default": "30"
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown_timer_complete",
+      "label": "t:pxu_sections.common.timer.hide_on_complete",
+      "default": false
+    },
+    {
+      "type": "richtext",
+      "id": "countdown_message",
+      "label": "t:pxu_sections.common.timer.complete_message"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:pxu_sections.common.color.background_gradient"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 0
+    }
+  ],
+  "enabled_on": {
+    "templates": [
+      "*"
+    ],
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.countdown_timer_bar.name"
+    }
+  ]
+}{% endschema %}

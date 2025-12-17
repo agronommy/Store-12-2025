@@ -1,0 +1,2401 @@
+<div class="tua-devkit">
+  <script type="application/json" data-component-data>{ "version": "1.0.0" }</script>
+  
+  {% comment %}assign{% endcomment %}
+  {% assign slot_d41d8cd98f00 = slot %}
+  {% assign slot = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign content_width_d41d8cd98f00 = content_width %}
+  {% assign content_width = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign heading_d41d8cd98f00 = heading %}
+  {% assign heading = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign heading_size_d41d8cd98f00 = heading_size %}
+  {% assign heading_size = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign heading_size_mobile_d41d8cd98f00 = heading_size_mobile %}
+  {% assign heading_size_mobile = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign desktop_layout_d41d8cd98f00 = desktop_layout %}
+  {% assign desktop_layout = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign block_text_size_d41d8cd98f00 = block_text_size %}
+  {% assign block_text_size = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign block_text_size_mobile_d41d8cd98f00 = block_text_size_mobile %}
+  {% assign block_text_size_mobile = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign link_separator_d41d8cd98f00 = link_separator %}
+  {% assign link_separator = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign show_collection_product_count_d41d8cd98f00 = show_collection_product_count %}
+  {% assign show_collection_product_count = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign image_aspect_ratio_d41d8cd98f00 = image_aspect_ratio %}
+  {% assign image_aspect_ratio = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign desktop_image_width_d41d8cd98f00 = desktop_image_width %}
+  {% assign desktop_image_width = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign corner_radius_d41d8cd98f00 = corner_radius %}
+  {% assign corner_radius = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_color_d41d8cd98f00 = text_color %}
+  {% assign text_color = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign background_color_d41d8cd98f00 = background_color %}
+  {% assign background_color = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign background_gradient_d41d8cd98f00 = background_gradient %}
+  {% assign background_gradient = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign enable_animations_d41d8cd98f00 = enable_animations %}
+  {% assign enable_animations = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign padding_top_d41d8cd98f00 = padding_top %}
+  {% assign padding_top = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign padding_bottom_d41d8cd98f00 = padding_bottom %}
+  {% assign padding_bottom = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign margin_top_d41d8cd98f00 = margin_top %}
+  {% assign margin_top = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign margin_bottom_d41d8cd98f00 = margin_bottom %}
+  {% assign margin_bottom = nil %}
+  
+  
+  
+    {% capture slot %}
+      {% for block in section.blocks %}
+        
+  {% comment %}assign{% endcomment %}
+  {% assign _block_17345918da42 = _block %}
+  {% assign _block = block %}
+  {% comment %}assign{% endcomment %}
+  {% assign _section_17345918da42 = _section %}
+  {% assign _section = section %}
+  {% comment %}assign{% endcomment %}
+  {% assign collection_obj_17345918da42 = collection_obj %}
+  {% assign collection_obj = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign block_text_size_17345918da42 = block_text_size %}
+  {% assign block_text_size = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign block_text_size_mobile_17345918da42 = block_text_size_mobile %}
+  {% assign block_text_size_mobile = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign img_17345918da42 = img %}
+  {% assign img = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign desktop_image_width_17345918da42 = desktop_image_width %}
+  {% assign desktop_image_width = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign image_aspect_ratio_17345918da42 = image_aspect_ratio %}
+  {% assign image_aspect_ratio = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign show_collection_product_count_17345918da42 = show_collection_product_count %}
+  {% assign show_collection_product_count = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign custom_title_17345918da42 = custom_title %}
+  {% assign custom_title = nil %}
+  
+  {% liquid
+    assign _block = _block | default: block
+    assign _section = _section | default: section
+    assign b = _block.settings
+    assign s = _section.settings
+    assign collection_obj = collection_obj | default: b.collection | default: s.collection
+    assign block_text_size = block_text_size | default: s.block_text_size | default: 30
+    assign block_text_size_mobile = block_text_size_mobile | default: s.block_text_size_mobile | default: 32
+    assign img = img | default: b.image | default: collection_obj.image
+    assign custom_title = custom_title | default: b.custom_title | default: nil
+    assign desktop_image_width = desktop_image_width | default: b.desktop_image_width | default: s.desktop_image_width | default: 300
+    assign image_aspect_ratio = image_aspect_ratio | default: b.image_aspect_ratio | default: s.image_aspect_ratio | default: 'initial'
+    assign show_collection_product_count = show_collection_product_count | default: b.show_collection_product_count | default: s.show_collection_product_count | default: false
+  
+    assign aspect_ratio_array = image_aspect_ratio | split: '/'
+    assign aspect_ratio = 1.0 | times: aspect_ratio_array[0] | divided_by: aspect_ratio_array[1]
+  
+    if aspect_ratio > 0
+      assign desktop_image_height = desktop_image_width | divided_by: aspect_ratio
+    endif
+  
+    assign img_sizes = desktop_image_width | append: 'px'
+    assign img_width_2x = desktop_image_width | times: 2
+    assign img_widths = desktop_image_width | append: ', ' | append: img_width_2x
+  
+    assign text = custom_title | default: collection_obj.title | default: 'Collection title'
+  %}
+  
+  {% capture _id %}
+  {% comment %}assign{% endcomment %}
+  {% assign block_4471307b5f6d = block %}
+  {% assign block = block %}
+  
+  {%- liquid
+    assign hyphen_separator = '-'
+    assign comma_separator = ','
+  
+    capture id
+      if section != empty
+        echo section.id | prepend: comma_separator
+      endif
+  
+      if block != blank
+        echo block.id | prepend: comma_separator
+      endif
+  
+      if index != blank
+        echo index | prepend: comma_separator
+      endif
+  
+      if name != blank
+        echo name | prepend: comma_separator
+      endif
+    endcapture
+  
+    echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+  -%}
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign block = block_4471307b5f6d %}
+  {% assign block_4471307b5f6d = nil %}{% endcapture %}
+  {% assign image_id = _id | strip | append: '-image' %}
+  
+  {% capture link %}
+    <a
+      class="collection-hover-list__link"
+      href="{{ collection_obj.url }}"
+      {% if img != blank %}
+        data-follow-image="{{ image_id }}"
+      {% endif %}
+    >
+      <span class="collection-hover-list__text">
+        {{- text -}}
+        {%- if show_collection_product_count -%}
+          <sup class="collection-hover-list__count">{{ collection_obj.products.size }}</sup>
+        {%- endif -%}
+      </span>
+    </a>
+    {% if img != blank %}
+      
+  {% comment %}assign{% endcomment %}
+  {% assign id_b41ae7cc06d4 = id %}
+  {% assign id = image_id %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_b41ae7cc06d4 = classlist %}
+  {% assign classlist = 'collection-hover-list__image' %}
+  {% comment %}assign{% endcomment %}
+  {% assign img_b41ae7cc06d4 = img %}
+  {% assign img = img %}
+  {% comment %}assign{% endcomment %}
+  {% assign width_b41ae7cc06d4 = width %}
+  {% assign width = desktop_image_width %}
+  {% comment %}assign{% endcomment %}
+  {% assign aspect_ratio_b41ae7cc06d4 = aspect_ratio %}
+  {% assign aspect_ratio = image_aspect_ratio %}
+  {% comment %}assign{% endcomment %}
+  {% assign loading_b41ae7cc06d4 = loading %}
+  {% assign loading = 'lazy' %}
+  {% comment %}assign{% endcomment %}
+  {% assign alt_b41ae7cc06d4 = alt %}
+  {% assign alt = collection_obj.title %}
+  {% comment %}assign{% endcomment %}
+  {% assign height_b41ae7cc06d4 = height %}
+  {% assign height = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign fetchpriority_b41ae7cc06d4 = fetchpriority %}
+  {% assign fetchpriority = nil %}
+  
+  {%- liquid
+    assign img = img | default: nil
+    assign width = width | default: nil
+    assign height = height | default: nil
+    assign aspect_ratio = aspect_ratio | default: 'initial'
+    assign loading = loading | default: 'eager'
+    assign fetchpriority = fetchpriority | default: 'auto'
+    assign alt = alt | default: img.alt
+    assign classlist = classlist | default: ''
+    assign id = id | default: ''
+  
+    assign class = 'element-image ' | append: classlist | strip
+    assign sizes = width | append: 'px'
+  
+    # Calculate target_ratio - if width & height, ignore aspect_ratio
+    if width and height
+      assign target_ratio = width | divided_by: height | round
+    elsif aspect_ratio != 'initial'
+      assign ratio_parts = aspect_ratio | split: '/'
+      assign target_ratio = 1.0 | times: ratio_parts[0] | divided_by: ratio_parts[1]
+    else 
+      assign target_ratio = img.aspect_ratio
+    endif
+  
+    # Calculate image dimensions
+    if width
+      assign width_2x = width | times: 2
+      assign height_2x = width_2x | divided_by: target_ratio | round
+      assign img_tag_width = width
+      assign img_tag_height = width | divided_by: target_ratio | round
+    elsif height
+      assign height_2x = height | times: 2
+      assign width_2x = height_2x | times: target_ratio | round
+      assign img_tag_height = height
+      assign img_tag_width = height | times: target_ratio | round
+    endif
+  
+    assign img_width = width_2x
+    assign img_height = height_2x
+  -%}
+  
+  {% capture widths %}
+    {% if width %}
+      {{ width }}, {{ width_2x }}
+    {% elsif height %}
+      {{ img_tag_width }}, {{ width_2x }}
+    {% endif %}
+  {% endcapture %}
+  
+  {{ img | image_url: width: img_width, height: img_height | image_tag: 
+    id: id,
+    class: class,
+    width: img_tag_width,
+    height: img_tag_height,
+    alt: alt,
+    loading: loading,
+    fetchpriority: fetchpriority,
+    widths: widths,
+    sizes: sizes
+  }}
+  
+  
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign id = id_b41ae7cc06d4 %}
+  {% assign id_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = classlist_b41ae7cc06d4 %}
+  {% assign classlist_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign img = img_b41ae7cc06d4 %}
+  {% assign img_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign width = width_b41ae7cc06d4 %}
+  {% assign width_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign aspect_ratio = aspect_ratio_b41ae7cc06d4 %}
+  {% assign aspect_ratio_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign loading = loading_b41ae7cc06d4 %}
+  {% assign loading_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign alt = alt_b41ae7cc06d4 %}
+  {% assign alt_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign height = nil %}
+  {% assign height_b41ae7cc06d4 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign fetchpriority = nil %}
+  {% assign fetchpriority_b41ae7cc06d4 = nil %}
+    {% endif %}
+  
+  {% endcapture %}
+  
+  
+  {% comment %}assign{% endcomment %}
+  {% assign id_833431150e89 = id %}
+  {% assign id = _id %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_833431150e89 = text %}
+  {% assign text = link %}
+  {% comment %}assign{% endcomment %}
+  {% assign as_833431150e89 = as %}
+  {% assign as = 'li' %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_833431150e89 = classlist %}
+  {% assign classlist = 'collection-hover-list__item' %}
+  {% comment %}assign{% endcomment %}
+  {% assign variant_833431150e89 = variant %}
+  {% assign variant = 'heading' %}
+  {% comment %}assign{% endcomment %}
+  {% assign inherit_833431150e89 = inherit %}
+  {% assign inherit = true %}
+  {% comment %}assign{% endcomment %}
+  {% assign attributes_833431150e89 = attributes %}
+  {% assign attributes = _block.shopify_attributes %}
+  {% comment %}assign{% endcomment %}
+  {% assign size_833431150e89 = size %}
+  {% assign size = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign style_833431150e89 = style %}
+  {% assign style = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign break_word_833431150e89 = break_word %}
+  {% assign break_word = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign truncate_833431150e89 = truncate %}
+  {% assign truncate = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign visually_hidden_833431150e89 = visually_hidden %}
+  {% assign visually_hidden = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_decoration_833431150e89 = text_decoration %}
+  {% assign text_decoration = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_transform_833431150e89 = text_transform %}
+  {% assign text_transform = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign alignment_833431150e89 = alignment %}
+  {% assign alignment = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign accent_833431150e89 = accent %}
+  {% assign accent = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign locale_833431150e89 = locale %}
+  {% assign locale = nil %}
+  
+  {% liquid
+    assign text = text | default: ''
+    assign as = as | default: 'span'
+    assign classlist = classlist | default: '' | append: ' element-text' | strip
+    assign id = id | default: ''
+    assign variant = variant | default: ''
+    assign size = size | default: ''
+    assign style = style | default: ''
+    assign attributes = attributes | default: ''
+    assign break_word = break_word | default: false, allow_false: true
+    assign truncate = truncate | default: false, allow_false: true
+    assign visually_hidden = visually_hidden | default: false, allow_false: true
+    assign alignment = alignment | default: ''
+    assign text_transform = text_transform | default: 'none'
+    assign text_decoration = text_decoration | default: 'none'
+    assign accent = accent | default: false, allow_false: true
+    assign inherit = inherit | default: false, allow_false: true
+    if variant != blank
+      assign variant_class = 'element-text--' | append: variant
+      if size != blank
+        assign variant_pieces = variant | split: '-'
+        assign variant_class = variant_pieces[0] | append: '-' | append: size
+      endif
+      assign classlist = classlist | append: ' ' | append: variant_class
+    endif
+  
+    if variant == 'rte'
+      assign as = 'element-text-rte'
+    endif
+  
+    if accent
+      assign classlist = classlist | append: ' element-text--accent'
+    endif
+  
+    if alignment != blank
+      assign classlist = classlist | append: ' element-text--align-' | append: alignment
+    endif
+  
+    if break_word
+      assign classlist = classlist | append: ' element-text--break-word'
+    endif
+  
+    if truncate
+      assign classlist = classlist | append: ' element-text--truncate'
+    endif
+  
+    if visually_hidden
+      assign classlist = classlist | append: ' element-text--visually-hidden'
+    endif
+  
+    if text_decoration != 'none'
+      assign classlist = classlist | append: ' element-text--' | append: text_decoration
+    endif
+  
+    if text_transform != 'none'
+      assign classlist = classlist | append: ' element-text--' | append: text_transform
+    endif
+  
+    if inherit
+      assign classlist = classlist | append: ' element-text--inherit'
+    endif
+  %}
+  
+  <{{ as }}
+    {%- if id != blank -%}
+      id="{{ id | strip }}"
+    {%- endif -%}
+  
+    class="{{ classlist }}"
+  
+    {% if attributes != blank %}
+      {{ attributes }}
+    {% endif %}
+  
+    {%- if style != blank -%}
+      style="{{ style }}"
+    {%- endif -%}
+  >
+    {% if locale != blank %}
+      {%- render 'utility.translate', key: locale, fallback: text -%}
+    {% else %}
+      {{ text }}
+    {% endif %}
+  </{{ as }}>
+  
+  {% if variant == 'rte' %}
+    
+  {% endif %}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign id = id_833431150e89 %}
+  {% assign id_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text = text_833431150e89 %}
+  {% assign text_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign as = as_833431150e89 %}
+  {% assign as_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = classlist_833431150e89 %}
+  {% assign classlist_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign variant = variant_833431150e89 %}
+  {% assign variant_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign inherit = inherit_833431150e89 %}
+  {% assign inherit_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign attributes = attributes_833431150e89 %}
+  {% assign attributes_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = nil %}
+  {% assign size_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign style = nil %}
+  {% assign style_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign break_word = nil %}
+  {% assign break_word_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign truncate = nil %}
+  {% assign truncate_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign visually_hidden = nil %}
+  {% assign visually_hidden_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text_decoration = nil %}
+  {% assign text_decoration_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text_transform = nil %}
+  {% assign text_transform_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign alignment = nil %}
+  {% assign alignment_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign accent = nil %}
+  {% assign accent_833431150e89 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign locale = nil %}
+  {% assign locale_833431150e89 = nil %}
+  
+  {% style %}
+    #{{ _id | strip }} {
+      --element-text-font-size: {{ block_text_size_mobile }}px;
+    }
+  
+    @media screen and (width >= 768px) {
+      #{{ _id | strip }} {
+        --element-text-font-size: {{ block_text_size }}px;
+      }
+    }
+  {% endstyle %}
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign _block = _block_17345918da42 %}
+  {% assign _block_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign _section = _section_17345918da42 %}
+  {% assign _section_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign collection_obj = nil %}
+  {% assign collection_obj_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign block_text_size = nil %}
+  {% assign block_text_size_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign block_text_size_mobile = nil %}
+  {% assign block_text_size_mobile_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign img = nil %}
+  {% assign img_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign desktop_image_width = nil %}
+  {% assign desktop_image_width_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign image_aspect_ratio = nil %}
+  {% assign image_aspect_ratio_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign show_collection_product_count = nil %}
+  {% assign show_collection_product_count_17345918da42 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign custom_title = nil %}
+  {% assign custom_title_17345918da42 = nil %}
+      {% endfor %}
+    {% endcapture %}
+  
+  
+  {% liquid
+    assign s = section.settings
+    assign slot = slot | default: ''
+    assign content_width = content_width | default: s.content_width | default: '650px'
+    assign heading = heading | default: s.heading | default: null
+    assign heading_size = heading_size | default: s.heading_size | default: 40
+    assign heading_size_mobile = heading_size_mobile | default: s.heading_size_mobile | default: 24
+    assign desktop_layout = desktop_layout | default: s.desktop_layout | default: 'paragraph'
+    assign block_text_size = block_text_size | default: s.block_text_size | default: 30
+    assign block_text_size_mobile = block_text_size_mobile | default: s.block_text_size_mobile | default: 32
+    assign link_separator = link_separator | default: s.link_separator | default: 'bullet'
+    assign show_collection_product_count = show_collection_product_count | default: s.show_collection_product_count | default: false
+    assign image_aspect_ratio = image_aspect_ratio | default: s.image_aspect_ratio | default: 'initial'
+    assign desktop_image_width = desktop_image_width | default: s.desktop_image_width | default: 300
+    assign corner_radius = corner_radius | default: s.corner_radius | default: 0
+    assign text_color = text_color | default: s.text_color | default: '#000000'
+    assign background_color = background_color | default: s.background_color | default: '#FFFFFF'
+    assign background_gradient = background_gradient | default: s.background_gradient
+    assign enable_animations = enable_animations | default: s.enable_animations | default: true, allow_false: true
+    assign padding_top = padding_top | default: s.padding_top | default: 32
+    assign padding_bottom = padding_bottom | default: s.padding_bottom | default: 32
+    assign margin_top = margin_top | default: s.margin_top | default: 64
+    assign margin_bottom = margin_bottom | default: s.margin_bottom | default: 64
+  
+    case link_separator
+      when 'bullet'
+        assign separator = '•'
+      when 'comma'
+        assign separator = ', '
+      when 'emdash'
+        assign separator = '—'
+      when 'hyphen'
+        assign separator = '-'
+      else
+        assign separator = ''
+    endcase
+  
+    if desktop_layout == 'list'
+      assign separator = ''
+    endif
+  %}
+  
+  {% capture _id %}
+  {% comment %}assign{% endcomment %}
+  {% assign name_1eb656437687 = name %}
+  {% assign name = 'collection-hover-list' %}
+  
+  {%- liquid
+    assign hyphen_separator = '-'
+    assign comma_separator = ','
+  
+    capture id
+      if section != empty
+        echo section.id | prepend: comma_separator
+      endif
+  
+      if block != blank
+        echo block.id | prepend: comma_separator
+      endif
+  
+      if index != blank
+        echo index | prepend: comma_separator
+      endif
+  
+      if name != blank
+        echo name | prepend: comma_separator
+      endif
+    endcapture
+  
+    echo id | remove_first: comma_separator | split: comma_separator | join: hyphen_separator
+  -%}
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign name = name_1eb656437687 %}
+  {% assign name_1eb656437687 = nil %}{% endcapture %}
+  
+  {% capture inner %}
+    {% if heading != blank %}
+      {% style %}
+        #{{ _id | strip }} {
+          --element-text-font-size: {{ heading_size_mobile }}px;
+        }
+  
+        @media screen and (width >= 768px) {
+          #{{ _id | strip }} {
+            --element-text-font-size: {{ heading_size }}px;
+          }
+        }
+      {% endstyle %}
+      
+  {% comment %}assign{% endcomment %}
+  {% assign text_950917ba47c7 = text %}
+  {% assign text = heading %}
+  {% comment %}assign{% endcomment %}
+  {% assign as_950917ba47c7 = as %}
+  {% assign as = 'h1' %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_950917ba47c7 = classlist %}
+  {% assign classlist = 'collection-hover-list__heading' %}
+  {% comment %}assign{% endcomment %}
+  {% assign variant_950917ba47c7 = variant %}
+  {% assign variant = 'heading' %}
+  {% comment %}assign{% endcomment %}
+  {% assign alignment_950917ba47c7 = alignment %}
+  {% assign alignment = 'center' %}
+  {% comment %}assign{% endcomment %}
+  {% assign inherit_950917ba47c7 = inherit %}
+  {% assign inherit = true %}
+  {% comment %}assign{% endcomment %}
+  {% assign id_950917ba47c7 = id %}
+  {% assign id = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign size_950917ba47c7 = size %}
+  {% assign size = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign style_950917ba47c7 = style %}
+  {% assign style = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign break_word_950917ba47c7 = break_word %}
+  {% assign break_word = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign truncate_950917ba47c7 = truncate %}
+  {% assign truncate = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign visually_hidden_950917ba47c7 = visually_hidden %}
+  {% assign visually_hidden = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_decoration_950917ba47c7 = text_decoration %}
+  {% assign text_decoration = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign text_transform_950917ba47c7 = text_transform %}
+  {% assign text_transform = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign accent_950917ba47c7 = accent %}
+  {% assign accent = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign locale_950917ba47c7 = locale %}
+  {% assign locale = nil %}
+  
+  {% liquid
+    assign text = text | default: ''
+    assign as = as | default: 'span'
+    assign classlist = classlist | default: '' | append: ' element-text' | strip
+    assign id = id | default: ''
+    assign variant = variant | default: ''
+    assign size = size | default: ''
+    assign style = style | default: ''
+    assign attributes = attributes | default: ''
+    assign break_word = break_word | default: false, allow_false: true
+    assign truncate = truncate | default: false, allow_false: true
+    assign visually_hidden = visually_hidden | default: false, allow_false: true
+    assign alignment = alignment | default: ''
+    assign text_transform = text_transform | default: 'none'
+    assign text_decoration = text_decoration | default: 'none'
+    assign accent = accent | default: false, allow_false: true
+    assign inherit = inherit | default: false, allow_false: true
+    if variant != blank
+      assign variant_class = 'element-text--' | append: variant
+      if size != blank
+        assign variant_pieces = variant | split: '-'
+        assign variant_class = variant_pieces[0] | append: '-' | append: size
+      endif
+      assign classlist = classlist | append: ' ' | append: variant_class
+    endif
+  
+    if variant == 'rte'
+      assign as = 'element-text-rte'
+    endif
+  
+    if accent
+      assign classlist = classlist | append: ' element-text--accent'
+    endif
+  
+    if alignment != blank
+      assign classlist = classlist | append: ' element-text--align-' | append: alignment
+    endif
+  
+    if break_word
+      assign classlist = classlist | append: ' element-text--break-word'
+    endif
+  
+    if truncate
+      assign classlist = classlist | append: ' element-text--truncate'
+    endif
+  
+    if visually_hidden
+      assign classlist = classlist | append: ' element-text--visually-hidden'
+    endif
+  
+    if text_decoration != 'none'
+      assign classlist = classlist | append: ' element-text--' | append: text_decoration
+    endif
+  
+    if text_transform != 'none'
+      assign classlist = classlist | append: ' element-text--' | append: text_transform
+    endif
+  
+    if inherit
+      assign classlist = classlist | append: ' element-text--inherit'
+    endif
+  %}
+  
+  <{{ as }}
+    {%- if id != blank -%}
+      id="{{ id | strip }}"
+    {%- endif -%}
+  
+    class="{{ classlist }}"
+  
+    {% if attributes != blank %}
+      {{ attributes }}
+    {% endif %}
+  
+    {%- if style != blank -%}
+      style="{{ style }}"
+    {%- endif -%}
+  >
+    {% if locale != blank %}
+      {%- render 'utility.translate', key: locale, fallback: text -%}
+    {% else %}
+      {{ text }}
+    {% endif %}
+  </{{ as }}>
+  
+  {% if variant == 'rte' %}
+    
+  {% endif %}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign text = text_950917ba47c7 %}
+  {% assign text_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign as = as_950917ba47c7 %}
+  {% assign as_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = classlist_950917ba47c7 %}
+  {% assign classlist_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign variant = variant_950917ba47c7 %}
+  {% assign variant_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign alignment = alignment_950917ba47c7 %}
+  {% assign alignment_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign inherit = inherit_950917ba47c7 %}
+  {% assign inherit_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign id = nil %}
+  {% assign id_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = nil %}
+  {% assign size_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign style = nil %}
+  {% assign style_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign break_word = nil %}
+  {% assign break_word_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign truncate = nil %}
+  {% assign truncate_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign visually_hidden = nil %}
+  {% assign visually_hidden_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text_decoration = nil %}
+  {% assign text_decoration_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text_transform = nil %}
+  {% assign text_transform_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign accent = nil %}
+  {% assign accent_950917ba47c7 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign locale = nil %}
+  {% assign locale_950917ba47c7 = nil %}
+    {% endif %}
+    
+  {% comment %}assign{% endcomment %}
+  {% assign slot_3d8680209ab8 = slot %}
+  {% assign slot = slot %}
+  {% comment %}assign{% endcomment %}
+  {% assign as_3d8680209ab8 = as %}
+  {% assign as = 'ul' %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_3d8680209ab8 = classlist %}
+  {% assign classlist = 'collection-hover-list__list' %}
+  {% comment %}assign{% endcomment %}
+  {% assign align_3d8680209ab8 = align %}
+  {% assign align = 'center' %}
+  {% comment %}assign{% endcomment %}
+  {% assign justify_3d8680209ab8 = justify %}
+  {% assign justify = 'center' %}
+  {% comment %}assign{% endcomment %}
+  {% assign style_3d8680209ab8 = style %}
+  {% assign style = '       --layout-stack-row-gap: initial;       --layout-stack-row-gap--md: initial;     ' %}
+  {% comment %}assign{% endcomment %}
+  {% assign id_3d8680209ab8 = id %}
+  {% assign id = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_3d8680209ab8 = gap %}
+  {% assign gap = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_xs_3d8680209ab8 = gap_xs %}
+  {% assign gap_xs = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_sm_3d8680209ab8 = gap_sm %}
+  {% assign gap_sm = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_md_3d8680209ab8 = gap_md %}
+  {% assign gap_md = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_lg_3d8680209ab8 = gap_lg %}
+  {% assign gap_lg = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_xl_3d8680209ab8 = gap_xl %}
+  {% assign gap_xl = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign horizontal_3d8680209ab8 = horizontal %}
+  {% assign horizontal = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign reverse_3d8680209ab8 = reverse %}
+  {% assign reverse = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign wrap_3d8680209ab8 = wrap %}
+  {% assign wrap = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign attributes_3d8680209ab8 = attributes %}
+  {% assign attributes = nil %}
+  
+  {% liquid
+    assign slot = slot | default: ''
+    assign as = as | default: 'div'
+    assign id = id | default: ''
+    assign classlist = classlist | default: '' | append: ' layout-stack' | strip
+    assign horizontal = horizontal | default: false
+    assign reverse = reverse | default: false
+    assign wrap = wrap | default: 'wrap'
+    assign justify = justify | default: ''
+    assign align = align | default: ''
+    assign attributes = attributes | default: ''
+    assign style = style | default: ''
+  
+    assign gap = gap | default: 'none'
+    assign gap_xs = gap_xs | default: gap
+    assign gap_sm = gap_sm | default: gap
+    assign gap_md = gap_md | default: gap
+    assign gap_lg = gap_lg | default: gap
+    assign gap_xl = gap_xl | default: gap
+  
+    if gap != 'none'
+      assign style = style | append: '--layout-stack-gap: var(--gap-size-' | append: gap | append: ');'
+    endif
+  
+    if gap_xs != gap
+      assign style = style | append: '--layout-stack-gap--xs: var(--gap-size-' | append: gap_xs | append: ');'
+    endif
+  
+    if gap_sm != gap
+      assign style = style | append: '--layout-stack-gap--sm: var(--gap-size-' | append: gap_sm | append: ');'
+    endif
+  
+    if gap_md != gap
+      assign style = style | append: '--layout-stack-gap--md: var(--gap-size-' | append: gap_md | append: ');'
+    endif
+  
+    if gap_lg != gap
+      assign style = style | append: '--layout-stack-gap--lg: var(--gap-size-' | append: gap_lg | append: ');'
+    endif
+  
+    if gap_xl != gap
+      assign style = style | append: '--layout-stack-gap--xl: var(--gap-size-' | append: gap_xl | append: ');'
+    endif
+  
+    if justify != blank
+      assign style = style | append: ' --layout-stack-justify: ' | append: justify | append: ';'
+    endif
+  
+    if align != blank
+      assign style = style | append: ' --layout-stack-align: ' | append: align | append: ';'
+    endif
+  
+    if horizontal
+      if reverse
+        assign style = style | append: ' --_layout-stack-direction: row-reverse;'
+      else
+        assign style = style | append: ' --_layout-stack-direction: row;'
+      endif
+    else
+      if reverse
+        assign style = style | append: ' --_layout-stack-direction: column-reverse;'
+      else
+        assign style = style | append: ' --_layout-stack-direction: column;'
+      endif
+    endif
+  
+    if wrap == 'nowrap' or wrap == 'wrap-reverse'
+      assign style = style | append: ' --layout-stack-wrap: ' | append: wrap | append: ';'
+    endif
+  %}
+  
+  <{{ as }}
+    {% if id != blank -%}
+      id="{{ id }}"
+    {%- endif %}
+  
+    class="{{ classlist }}"
+  
+    {% if attributes != blank -%}
+      {{ attributes }}
+    {%- endif %}
+  
+    {% if style != blank -%}
+      style="{{ style }}"
+    {%- endif %}
+  >
+    {{ slot }}
+  </{{ as }}>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% style %}
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_d0f9dd11cb7a = size %}
+  {% assign size = 'sm' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_d0f9dd11cb7a %}
+  {% assign size_d0f9dd11cb7a = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--sm);
+        --_column-gap: var(--_column-gap--sm);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_d0f9dd11cb7a = size %}
+  {% assign size = 'md' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_d0f9dd11cb7a %}
+  {% assign size_d0f9dd11cb7a = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--md);
+        --_column-gap: var(--_column-gap--md);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_6214e5eb8c38 = size %}
+  {% assign size = 'lg' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_6214e5eb8c38 %}
+  {% assign size_6214e5eb8c38 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--lg);
+        --_column-gap: var(--_column-gap--lg);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_6214e5eb8c38 = size %}
+  {% assign size = 'xl' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_6214e5eb8c38 %}
+  {% assign size_6214e5eb8c38 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--xl);
+        --_column-gap: var(--_column-gap--xl);
+      }
+    }
+  {% endstyle %}
+  {% comment %}unassign{% endcomment %}
+  {% assign slot = slot_3d8680209ab8 %}
+  {% assign slot_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign as = as_3d8680209ab8 %}
+  {% assign as_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = classlist_3d8680209ab8 %}
+  {% assign classlist_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign align = align_3d8680209ab8 %}
+  {% assign align_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign justify = justify_3d8680209ab8 %}
+  {% assign justify_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign style = style_3d8680209ab8 %}
+  {% assign style_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign id = nil %}
+  {% assign id_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap = nil %}
+  {% assign gap_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_xs = nil %}
+  {% assign gap_xs_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_sm = nil %}
+  {% assign gap_sm_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_md = nil %}
+  {% assign gap_md_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_lg = nil %}
+  {% assign gap_lg_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_xl = nil %}
+  {% assign gap_xl_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign horizontal = nil %}
+  {% assign horizontal_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign reverse = nil %}
+  {% assign reverse_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign wrap = nil %}
+  {% assign wrap_3d8680209ab8 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign attributes = nil %}
+  {% assign attributes_3d8680209ab8 = nil %}
+  {% endcapture %}
+  
+  {% capture contents %}
+    
+  {% comment %}assign{% endcomment %}
+  {% assign slot_96b360c74a02 = slot %}
+  {% assign slot = inner %}
+  {% comment %}assign{% endcomment %}
+  {% assign style_96b360c74a02 = style %}
+  {% assign style = '       --layout-stack-row-gap: var(--size-8, 32px);       --layout-stack-row-gap--md: var(--size-10, 40px);     ' %}
+  {% comment %}assign{% endcomment %}
+  {% assign as_96b360c74a02 = as %}
+  {% assign as = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign id_96b360c74a02 = id %}
+  {% assign id = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_96b360c74a02 = classlist %}
+  {% assign classlist = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_96b360c74a02 = gap %}
+  {% assign gap = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_xs_96b360c74a02 = gap_xs %}
+  {% assign gap_xs = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_sm_96b360c74a02 = gap_sm %}
+  {% assign gap_sm = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_md_96b360c74a02 = gap_md %}
+  {% assign gap_md = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_lg_96b360c74a02 = gap_lg %}
+  {% assign gap_lg = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign gap_xl_96b360c74a02 = gap_xl %}
+  {% assign gap_xl = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign horizontal_96b360c74a02 = horizontal %}
+  {% assign horizontal = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign reverse_96b360c74a02 = reverse %}
+  {% assign reverse = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign wrap_96b360c74a02 = wrap %}
+  {% assign wrap = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign justify_96b360c74a02 = justify %}
+  {% assign justify = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign align_96b360c74a02 = align %}
+  {% assign align = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign attributes_96b360c74a02 = attributes %}
+  {% assign attributes = nil %}
+  
+  {% liquid
+    assign slot = slot | default: ''
+    assign as = as | default: 'div'
+    assign id = id | default: ''
+    assign classlist = classlist | default: '' | append: ' layout-stack' | strip
+    assign horizontal = horizontal | default: false
+    assign reverse = reverse | default: false
+    assign wrap = wrap | default: 'wrap'
+    assign justify = justify | default: ''
+    assign align = align | default: ''
+    assign attributes = attributes | default: ''
+    assign style = style | default: ''
+  
+    assign gap = gap | default: 'none'
+    assign gap_xs = gap_xs | default: gap
+    assign gap_sm = gap_sm | default: gap
+    assign gap_md = gap_md | default: gap
+    assign gap_lg = gap_lg | default: gap
+    assign gap_xl = gap_xl | default: gap
+  
+    if gap != 'none'
+      assign style = style | append: '--layout-stack-gap: var(--gap-size-' | append: gap | append: ');'
+    endif
+  
+    if gap_xs != gap
+      assign style = style | append: '--layout-stack-gap--xs: var(--gap-size-' | append: gap_xs | append: ');'
+    endif
+  
+    if gap_sm != gap
+      assign style = style | append: '--layout-stack-gap--sm: var(--gap-size-' | append: gap_sm | append: ');'
+    endif
+  
+    if gap_md != gap
+      assign style = style | append: '--layout-stack-gap--md: var(--gap-size-' | append: gap_md | append: ');'
+    endif
+  
+    if gap_lg != gap
+      assign style = style | append: '--layout-stack-gap--lg: var(--gap-size-' | append: gap_lg | append: ');'
+    endif
+  
+    if gap_xl != gap
+      assign style = style | append: '--layout-stack-gap--xl: var(--gap-size-' | append: gap_xl | append: ');'
+    endif
+  
+    if justify != blank
+      assign style = style | append: ' --layout-stack-justify: ' | append: justify | append: ';'
+    endif
+  
+    if align != blank
+      assign style = style | append: ' --layout-stack-align: ' | append: align | append: ';'
+    endif
+  
+    if horizontal
+      if reverse
+        assign style = style | append: ' --_layout-stack-direction: row-reverse;'
+      else
+        assign style = style | append: ' --_layout-stack-direction: row;'
+      endif
+    else
+      if reverse
+        assign style = style | append: ' --_layout-stack-direction: column-reverse;'
+      else
+        assign style = style | append: ' --_layout-stack-direction: column;'
+      endif
+    endif
+  
+    if wrap == 'nowrap' or wrap == 'wrap-reverse'
+      assign style = style | append: ' --layout-stack-wrap: ' | append: wrap | append: ';'
+    endif
+  %}
+  
+  <{{ as }}
+    {% if id != blank -%}
+      id="{{ id }}"
+    {%- endif %}
+  
+    class="{{ classlist }}"
+  
+    {% if attributes != blank -%}
+      {{ attributes }}
+    {%- endif %}
+  
+    {% if style != blank -%}
+      style="{{ style }}"
+    {%- endif %}
+  >
+    {{ slot }}
+  </{{ as }}>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% style %}
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_e922c7aa7596 = size %}
+  {% assign size = 'sm' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_e922c7aa7596 %}
+  {% assign size_e922c7aa7596 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--sm);
+        --_column-gap: var(--_column-gap--sm);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_e922c7aa7596 = size %}
+  {% assign size = 'md' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_e922c7aa7596 %}
+  {% assign size_e922c7aa7596 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--md);
+        --_column-gap: var(--_column-gap--md);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_e922c7aa7596 = size %}
+  {% assign size = 'lg' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_e922c7aa7596 %}
+  {% assign size_e922c7aa7596 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--lg);
+        --_column-gap: var(--_column-gap--lg);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_e922c7aa7596 = size %}
+  {% assign size = 'xl' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_e922c7aa7596 %}
+  {% assign size_e922c7aa7596 = nil %}) {
+      .layout-stack {
+        --_row-gap: var(--_row-gap--xl);
+        --_column-gap: var(--_column-gap--xl);
+      }
+    }
+  {% endstyle %}
+  {% comment %}unassign{% endcomment %}
+  {% assign slot = slot_96b360c74a02 %}
+  {% assign slot_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign style = style_96b360c74a02 %}
+  {% assign style_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign as = nil %}
+  {% assign as_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign id = nil %}
+  {% assign id_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = nil %}
+  {% assign classlist_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap = nil %}
+  {% assign gap_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_xs = nil %}
+  {% assign gap_xs_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_sm = nil %}
+  {% assign gap_sm_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_md = nil %}
+  {% assign gap_md_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_lg = nil %}
+  {% assign gap_lg_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign gap_xl = nil %}
+  {% assign gap_xl_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign horizontal = nil %}
+  {% assign horizontal_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign reverse = nil %}
+  {% assign reverse_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign wrap = nil %}
+  {% assign wrap_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign justify = nil %}
+  {% assign justify_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign align = nil %}
+  {% assign align_96b360c74a02 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign attributes = nil %}
+  {% assign attributes_96b360c74a02 = nil %}
+  {% endcapture %}
+  
+  <collection-hover-list
+    id="{{ _id | strip }}"
+    class="
+      collection-hover-list
+      collection-hover-list--layout-{{ desktop_layout }}
+      collection-hover-list--separator-{{ link_separator }}
+      {% if enable_animations == false %}
+        collection-hover-list--no-animations
+      {% endif %}
+    "
+    style="
+      --separator: '{{ separator }}';
+      --corner-radius: {{ corner_radius }}px;
+      --margin-top: {{ margin_top }}px;
+      --margin-bottom: {{ margin_bottom }}px
+    "
+    enable-animations="{{ enable_animations }}"
+  >
+    {% capture style %}
+      --layout-section-max-inline-size: {{ content_width }};
+      --layout-section-color: {{ text_color }};
+      --layout-section-background: {{ background_gradient }} {{ background_color }};
+      --layout-section-padding-block: {{ padding_top }}px {{ padding_bottom }}px;
+      overflow: visible;
+    {% endcapture %}
+    
+  {% comment %}assign{% endcomment %}
+  {% assign slot_b878af2b55e6 = slot %}
+  {% assign slot = contents %}
+  {% comment %}assign{% endcomment %}
+  {% assign padding_b878af2b55e6 = padding %}
+  {% assign padding = 'both' %}
+  {% comment %}assign{% endcomment %}
+  {% assign style_b878af2b55e6 = style %}
+  {% assign style = style %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_b878af2b55e6 = classlist %}
+  {% assign classlist = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign color_scheme_b878af2b55e6 = color_scheme %}
+  {% assign color_scheme = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign divider_b878af2b55e6 = divider %}
+  {% assign divider = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign full_width_b878af2b55e6 = full_width %}
+  {% assign full_width = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign hydration_b878af2b55e6 = hydration %}
+  {% assign hydration = nil %}
+  
+  {%- liquid
+    assign slot = slot | default: ''
+    assign style = style | default: ''
+    assign classlist = classlist | default: ''
+    assign color_scheme = color_scheme | default: section.settings.color_scheme | default: 'none'
+    assign full_width = full_width | default: section.settings.full_width, allow_false: true | default: false, allow_false: true
+    assign padding = padding | default: section.settings.padding | default: 'both'
+  
+    if padding == 'top'
+      assign classlist = classlist | append: ' layout-section--padding-top' | strip
+    endif
+  
+    if padding == 'bottom'
+      assign classlist = classlist | append: ' layout-section--padding-bottom' | strip
+    endif
+    
+    if padding == 'none'
+      assign classlist = classlist | append: ' layout-section--padding-none' | strip
+    endif
+  
+    if full_width
+      assign classlist = classlist | append: ' layout-section--full-width' | strip
+    endif
+  
+    if color_scheme != 'none'
+      assign classlist = classlist | append: ' color-scheme-' | append: color_scheme | strip
+    endif
+  -%}
+  
+  <div class="layout-section {{ classlist }}" style="{{ style }}">
+    
+  {% comment %}assign{% endcomment %}
+  {% assign color_scheme_8980e889f64b = color_scheme %}
+  {% assign color_scheme = color_scheme %}
+  
+  
+  
+  {%- capture key -%}color_scheme_{{ color_scheme }}_texture{%- endcapture -%}
+  {%- assign texture = settings[key] -%}
+  
+  {% unless texture == 'none' or texture == blank %}
+    {%- if texture == 'linen.jpg'
+      or texture == 'marble.jpg'
+      or texture == 'paper.jpg'
+      or texture == 'sand.jpg'
+      or texture == 'space.jpg'
+      or texture == 'stone.jpg'
+      or texture == 'wildflower.jpg'
+    -%}
+      {% capture image_classes %}
+        scheme-image scheme-texture--{{ texture | remove: '.jpg' }}
+      {% endcapture %}
+      
+  {% comment %}assign{% endcomment %}
+  {% assign asset_2ed1fb739b9e = asset %}
+  {% assign asset = texture %}
+  {% comment %}assign{% endcomment %}
+  {% assign host_2ed1fb739b9e = host %}
+  {% assign host = 'theme' %}
+  {% comment %}assign{% endcomment %}
+  {% assign type_2ed1fb739b9e = type %}
+  {% assign type = 'asset' %}
+  {% comment %}assign{% endcomment %}
+  {% assign classes_2ed1fb739b9e = classes %}
+  {% assign classes = image_classes %}
+  {% comment %}assign{% endcomment %}
+  {% assign data-name_2ed1fb739b9e = data-name %}
+  {% assign data-name = 'texture' %}
+  {% comment %}assign{% endcomment %}
+  {% assign data-value_2ed1fb739b9e = data-value %}
+  {% assign data-value = texture %}
+  {% comment %}assign{% endcomment %}
+  {% assign img_2ed1fb739b9e = img %}
+  {% assign img = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign width_2ed1fb739b9e = width %}
+  {% assign width = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign height_2ed1fb739b9e = height %}
+  {% assign height = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign aspect_ratio_2ed1fb739b9e = aspect_ratio %}
+  {% assign aspect_ratio = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign loading_2ed1fb739b9e = loading %}
+  {% assign loading = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign fetchpriority_2ed1fb739b9e = fetchpriority %}
+  {% assign fetchpriority = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign alt_2ed1fb739b9e = alt %}
+  {% assign alt = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign classlist_2ed1fb739b9e = classlist %}
+  {% assign classlist = nil %}
+  {% comment %}assign{% endcomment %}
+  {% assign id_2ed1fb739b9e = id %}
+  {% assign id = nil %}
+  
+  {%- liquid
+    assign img = img | default: nil
+    assign width = width | default: nil
+    assign height = height | default: nil
+    assign aspect_ratio = aspect_ratio | default: 'initial'
+    assign loading = loading | default: 'eager'
+    assign fetchpriority = fetchpriority | default: 'auto'
+    assign alt = alt | default: img.alt
+    assign classlist = classlist | default: ''
+    assign id = id | default: ''
+  
+    assign class = 'element-image ' | append: classlist | strip
+    assign sizes = width | append: 'px'
+  
+    # Calculate target_ratio - if width & height, ignore aspect_ratio
+    if width and height
+      assign target_ratio = width | divided_by: height | round
+    elsif aspect_ratio != 'initial'
+      assign ratio_parts = aspect_ratio | split: '/'
+      assign target_ratio = 1.0 | times: ratio_parts[0] | divided_by: ratio_parts[1]
+    else 
+      assign target_ratio = img.aspect_ratio
+    endif
+  
+    # Calculate image dimensions
+    if width
+      assign width_2x = width | times: 2
+      assign height_2x = width_2x | divided_by: target_ratio | round
+      assign img_tag_width = width
+      assign img_tag_height = width | divided_by: target_ratio | round
+    elsif height
+      assign height_2x = height | times: 2
+      assign width_2x = height_2x | times: target_ratio | round
+      assign img_tag_height = height
+      assign img_tag_width = height | times: target_ratio | round
+    endif
+  
+    assign img_width = width_2x
+    assign img_height = height_2x
+  -%}
+  
+  {% capture widths %}
+    {% if width %}
+      {{ width }}, {{ width_2x }}
+    {% elsif height %}
+      {{ img_tag_width }}, {{ width_2x }}
+    {% endif %}
+  {% endcapture %}
+  
+  {{ img | image_url: width: img_width, height: img_height | image_tag: 
+    id: id,
+    class: class,
+    width: img_tag_width,
+    height: img_tag_height,
+    alt: alt,
+    loading: loading,
+    fetchpriority: fetchpriority,
+    widths: widths,
+    sizes: sizes
+  }}
+  
+  
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign asset = asset_2ed1fb739b9e %}
+  {% assign asset_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign host = host_2ed1fb739b9e %}
+  {% assign host_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign type = type_2ed1fb739b9e %}
+  {% assign type_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classes = classes_2ed1fb739b9e %}
+  {% assign classes_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign data-name = data-name_2ed1fb739b9e %}
+  {% assign data-name_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign data-value = data-value_2ed1fb739b9e %}
+  {% assign data-value_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign img = nil %}
+  {% assign img_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign width = nil %}
+  {% assign width_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign height = nil %}
+  {% assign height_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign aspect_ratio = nil %}
+  {% assign aspect_ratio_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign loading = nil %}
+  {% assign loading_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign fetchpriority = nil %}
+  {% assign fetchpriority_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign alt = nil %}
+  {% assign alt_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = nil %}
+  {% assign classlist_2ed1fb739b9e = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign id = nil %}
+  {% assign id_2ed1fb739b9e = nil %}
+    {%- else -%}
+      <div class="scheme-{{ texture }}"></div>
+    {%- endif -%}
+  {% endunless %}
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign color_scheme = color_scheme_8980e889f64b %}
+  {% assign color_scheme_8980e889f64b = nil %}
+  
+    <div class="layout-section__content">
+      {{ slot }}
+    </div>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% style %}
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_957549cd3cf9 = size %}
+  {% assign size = 'sm' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_957549cd3cf9 %}
+  {% assign size_957549cd3cf9 = nil %}) {
+      .layout-section {
+        --_padding-inline: var(--_padding-inline--sm);
+        --_padding-block: var(--_padding-block--sm);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_957549cd3cf9 = size %}
+  {% assign size = 'md' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_957549cd3cf9 %}
+  {% assign size_957549cd3cf9 = nil %}) {
+      .layout-section {
+        --_padding-inline: var(--_padding-inline--md);
+        --_padding-block: var(--_padding-block--md);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_957549cd3cf9 = size %}
+  {% assign size = 'lg' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_957549cd3cf9 %}
+  {% assign size_957549cd3cf9 = nil %}) {
+      .layout-section {
+        --_padding-inline: var(--_padding-inline--lg);
+        --_padding-block: var(--_padding-block--lg);
+      }
+    }
+  
+    @media (
+  {% comment %}assign{% endcomment %}
+  {% assign size_957549cd3cf9 = size %}
+  {% assign size = 'xl' %}
+  
+  {%- liquid 
+    assign size_xs = settings.breakpoint-xs | default: 0
+    assign size_sm = settings.breakpoint-sm | default: 576
+    assign size_md = settings.breakpoint-md | default: 768
+    assign size_lg = settings.breakpoint-lg | default: 992
+    assign size_xl = settings.breakpoint-xl | default: 1200
+  
+    assign output = ''
+  
+    case size
+      when 'xs'
+        assign output = 'min-width: ' | append: size_xs | append: 'px'
+      when 'sm'
+        assign output = 'min-width: ' | append: size_sm | append: 'px'
+      when 'md'
+        assign output = 'min-width: ' | append: size_md | append: 'px'
+      when 'lg'
+        assign output = 'min-width: ' | append: size_lg | append: 'px'
+      when 'xl'
+        assign output = 'min-width: ' | append: size_xl | append: 'px'
+    endcase
+  
+    echo output
+  -%}
+  {% comment %}unassign{% endcomment %}
+  {% assign size = size_957549cd3cf9 %}
+  {% assign size_957549cd3cf9 = nil %}) {
+      .layout-section {
+        --_padding-inline: var(--_padding-inline--xl);
+        --_padding-block: var(--_padding-block--xl);
+      }
+    }
+  {% endstyle %}
+  {% comment %}unassign{% endcomment %}
+  {% assign slot = slot_b878af2b55e6 %}
+  {% assign slot_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign padding = padding_b878af2b55e6 %}
+  {% assign padding_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign style = style_b878af2b55e6 %}
+  {% assign style_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign classlist = nil %}
+  {% assign classlist_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign color_scheme = nil %}
+  {% assign color_scheme_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign divider = nil %}
+  {% assign divider_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign full_width = nil %}
+  {% assign full_width_b878af2b55e6 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign hydration = nil %}
+  {% assign hydration_b878af2b55e6 = nil %}
+  </collection-hover-list>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  {% comment %}unassign{% endcomment %}
+  {% assign slot = nil %}
+  {% assign slot_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign content_width = nil %}
+  {% assign content_width_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign heading = nil %}
+  {% assign heading_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign heading_size = nil %}
+  {% assign heading_size_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign heading_size_mobile = nil %}
+  {% assign heading_size_mobile_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign desktop_layout = nil %}
+  {% assign desktop_layout_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign block_text_size = nil %}
+  {% assign block_text_size_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign block_text_size_mobile = nil %}
+  {% assign block_text_size_mobile_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign link_separator = nil %}
+  {% assign link_separator_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign show_collection_product_count = nil %}
+  {% assign show_collection_product_count_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign image_aspect_ratio = nil %}
+  {% assign image_aspect_ratio_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign desktop_image_width = nil %}
+  {% assign desktop_image_width_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign corner_radius = nil %}
+  {% assign corner_radius_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign text_color = nil %}
+  {% assign text_color_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign background_color = nil %}
+  {% assign background_color_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign background_gradient = nil %}
+  {% assign background_gradient_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign enable_animations = nil %}
+  {% assign enable_animations_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign padding_top = nil %}
+  {% assign padding_top_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign padding_bottom = nil %}
+  {% assign padding_bottom_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign margin_top = nil %}
+  {% assign margin_top_d41d8cd98f00 = nil %}
+  {% comment %}unassign{% endcomment %}
+  {% assign margin_bottom = nil %}
+  {% assign margin_bottom_d41d8cd98f00 = nil %}
+  </div>
+  {% style %}
+  .tua-devkit .element-text{&:not(.element-text--inherit){font-family:var(--_font-family),var(--_font-family-fallback);font-weight:var(--_font-weight);letter-spacing:var(--_letter-spacing);line-height:var(--_line-height);text-transform:var(--_text-transform)}&.element-text--align-start{text-align:start}&.element-text--align-center{text-align:center}&.element-text--align-end{text-align:end}&.element-text--align-justify{text-align:justify}&.element-text--break-word{word-break:break-word}&.element-text--truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}&.element-text--visually-hidden{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border:0}&.element-text--line-through{text-decoration:line-through}&.element-text--underline{text-decoration:underline}&.element-text--uppercase{text-transform:uppercase}&.element-text--lowercase{text-transform:lowercase}&.element-text--capitalize{text-transform:capitalize}}.tua-devkit .element-text:is([class*=element-text--body]){&:not(.element-text--inherit){font-family:var(--_font-family--body),var(--_font-family-fallback--body);font-weight:var(--_font-weight--body);letter-spacing:var(--_letter-spacing--body);text-transform:var(--_text-transform--body)}&:where(.element-text--body-xs):not(.element-text--inherit){--_font-size:var(--_font-size--body-xs);line-height:var(--_line-height--body-xs)}&:where(.element-text--body-sm):not(.element-text--inherit){font-size:var(--_font-size--body-sm);line-height:var(--_line-height--body-sm)}&:where(.element-text--body-md):not(.element-text--inherit){font-size:var(--_font-size--body-md);line-height:var(--_line-height--body-md)}&:where(.element-text--body-lg):not(.element-text--inherit){font-size:var(--_font-size--body-lg);line-height:var(--_line-height--body-lg)}}.tua-devkit .element-text:is([class*=element-text--heading]){&:not(.element-text--inherit){font-family:var(--_font-family--heading),var(--_font-family-fallback--heading);font-weight:var(--_font-weight--heading);letter-spacing:var(--_letter-spacing--heading);text-transform:var(--_text-transform--heading)}&:where(.element-text--heading-xs):not(.element-text--inherit){font-size:var(--_font-size--heading-xs);line-height:var(--_line-height--heading-xs)}&:where(.element-text--heading-sm):not(.element-text--inherit){font-size:var(--_font-size--heading-sm);line-height:var(--_line-height--heading-sm)}&:where(.element-text--heading-md):not(.element-text--inherit){font-size:var(--_font-size--heading-md);line-height:var(--_line-height--heading-md)}&:where(.element-text--heading-lg):not(.element-text--inherit){font-size:var(--_font-size--heading-lg);line-height:var(--_line-height--heading-lg)}&:where(.element-text--heading-xl):not(.element-text--inherit){font-size:var(--_font-size--heading-xl);line-height:var(--_line-height--heading-xl)}&:where(.element-text--heading-2xl):not(.element-text--inherit){font-size:var(--_font-size--heading-2xl);line-height:var(--_line-height--heading-2xl)}}.tua-devkit .element-text.element-text--rte{h1,h2,h3,h4,h5,h6{font-family:var(--_font-family--rte-heading),var(--_font-family-fallback--rte-heading);font-weight:var(--_font-weight--rte-heading);letter-spacing:var(--_letter-spacing--rte-heading);margin:0 0 var(--size-4);text-transform:var(--_text-transform--rte-heading);@media only screen and (min-width:769px){margin:0 0 var(--size-5)}}h6{font-size:var(--_font-size--rte-heading-h6);line-height:var(--_line-height--rte-heading-h6)}h5{font-size:var(--_font-size--rte-heading-h5);line-height:var(--_line-height--rte-heading-h5)}h4{font-size:var(--_font-size--rte-heading-h4);line-height:var(--_line-height--rte-heading-h4)}h3{font-size:var(--_font-size--rte-heading-h3);line-height:var(--_line-height--rte-heading-h3)}h2{font-size:var(--_font-size--rte-heading-h2);line-height:var(--_line-height--rte-heading-h2)}h1{font-size:var(--_font-size--rte-heading-h1);line-height:var(--_line-height--rte-heading-h1)}p{margin-bottom:var(--size-8);&:last-child{margin-bottom:0}}& table{@media only screen and (max-width:768px){& td,& th{padding:6px 8px}}}.table-wrapper{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.video-wrapper{max-width:100%;overflow:hidden;padding-bottom:56.25%;position:relative;& iframe,& video{height:100%;left:0;position:absolute;top:0;width:100%}}}.tua-devkit{--element-text-font-family:initial;--element-text-font-family-fallback:initial;--element-text-font-weight:initial;--element-text-letter-spacing:initial;--element-text-text-transform:initial;--element-text-line-height:initial;--element-text-color:initial;--element-text-font-size:initial}.tua-devkit .element-text{--_font-family:var(--element-text-font-family);--_font-family-fallback:var(--element-text-font-family-fallback);--_font-weight:var(--element-text-font-weight);--_letter-spacing:var(--element-text-letter-spacing);--_text-transform:var(--element-text-text-transform);--_line-height:var(--element-text-line-height);--_color:var(--element-text-color);--_font-size:var(--element-text-font-size);color:var(--_color);font-size:var(--_font-size);margin:0;-webkit-font-smoothing:antialiased;&:not(.element-text--inherit){font-family:var(--_font-family),var(--_font-family-fallback);font-weight:var(--_font-weight);letter-spacing:var(--_letter-spacing);line-height:var(--_line-height);text-transform:var(--_text-transform)}&.element-text--align-start{text-align:start}&.element-text--align-center{text-align:center}&.element-text--align-end{text-align:end}&.element-text--align-justify{text-align:justify}&.element-text--break-word{word-break:break-word}&.element-text--truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}&.element-text--visually-hidden{height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;clip:rect(0,0,0,0);border:0}&.element-text--line-through{text-decoration:line-through}&.element-text--underline{text-decoration:underline}&.element-text--uppercase{text-transform:uppercase}&.element-text--lowercase{text-transform:lowercase}&.element-text--capitalize{text-transform:capitalize}}.tua-devkit{--element-text-font-family--body:"Arial";--element-text-font-family-fallback--body:"sans-serif";--element-text-font-weight--body:var(--font-weight-400);--element-text-letter-spacing--body:var(--letter-space-md);--element-text-text-transform--body:none;--element-text-color--body:initial;--element-text-font-size--body:initial;--element-text-font-size--body-xs:var(--text-size-3);--element-text-font-size--body-sm:var(--text-size-3-5);--element-text-font-size--body-md:var(--text-size-4);--element-text-font-size--body-lg:var(--text-size-4-5);--element-text-line-height--body:var(--line-height-md);--element-text-line-height--body-xs:initial;--element-text-line-height--body-sm:initial;--element-text-line-height--body-md:initial;--element-text-line-height--body-lg:initial}.tua-devkit .element-text:is([class*=element-text--body]){--_font-family--body:var(--_font-family,var(--element-text-font-family--body));--_font-family-fallback--body:var(--_font-family-fallback,var(--element-text-font-family-fallback--body));--_font-weight--body:var(--_font-weight,var(--element-text-font-weight--body));--_letter-spacing--body:var(--_letter-spacing,var(--element-text-letter-spacing--body));--_text-transform--body:var(--_text-transform,var(--element-text-text-transform--body));--_color--body:var(--_color,var(--element-text-color--body,currentColor));--_font-size--body:var(--_font-size,var(--element-text-font-size--body));--_font-size--body-xs:var(--_font-size--body,var(--element-text-font-size--body-xs));--_font-size--body-sm:var(--_font-size--body,var(--element-text-font-size--body-sm));--_font-size--body-md:var(--_font-size--body,var(--element-text-font-size--body-md));--_font-size--body-lg:var(--_font-size--body,var(--element-text-font-size--body-lg));--_line-height--body:var(--_line-height,var(--element-text-line-height--body));--_line-height--body-xs:var(--element-text-line-height--body-xs,var(--_line-height--body));--_line-height--body-sm:var(--element-text-line-height--body-sm,var(--_line-height--body));--_line-height--body-md:var(--element-text-line-height--body-md,var(--_line-height--body));--_line-height--body-lg:var(--element-text-line-height--body-lg,var(--_line-height--body));color:var(--_color--body);&:not(.element-text--inherit){font-family:var(--_font-family--body),var(--_font-family-fallback--body);font-weight:var(--_font-weight--body);letter-spacing:var(--_letter-spacing--body);text-transform:var(--_text-transform--body)}&:where(.element-text--body-xs):not(.element-text--inherit){--_font-size:var(--_font-size--body-xs);line-height:var(--_line-height--body-xs)}&:where(.element-text--body-sm):not(.element-text--inherit){font-size:var(--_font-size--body-sm);line-height:var(--_line-height--body-sm)}&:where(.element-text--body-md):not(.element-text--inherit){font-size:var(--_font-size--body-md);line-height:var(--_line-height--body-md)}&:where(.element-text--body-lg):not(.element-text--inherit){font-size:var(--_font-size--body-lg);line-height:var(--_line-height--body-lg)}}.tua-devkit{--element-text-font-family--heading:"Arial";--element-text-font-family-fallback--heading:"sans-serif";--element-text-font-weight--heading:var(--font-weight-700);--element-text-letter-spacing--heading:var(--letter-space-md);--element-text-text-transform--heading:none;--element-text-color--heading:initial;--element-text-font-size--heading:initial;--element-text-font-size--heading-2xl:var(--text-size-12);--element-text-font-size--heading-xl:var(--text-size-8);--element-text-font-size--heading-lg:var(--text-size-6);--element-text-font-size--heading-md:var(--text-size-5);--element-text-font-size--heading-sm:var(--text-size-4-5);--element-text-font-size--heading-xs:var(--text-size-4);--element-text-line-height--heading:var(--line-height-md);--element-text-line-height--heading-2xl:initial;--element-text-line-height--heading-xl:initial;--element-text-line-height--heading-lg:initial;--element-text-line-height--heading-md:initial;--element-text-line-height--heading-sm:initial;--element-text-line-height--heading-xs:initial}.tua-devkit .element-text:is([class*=element-text--heading]){--_font-family--heading:var(--_font-family,var(--element-text-font-family--heading));--_font-family-fallback--heading:var(--_font-family-fallback,var(--element-text-font-family-fallback--heading));--_font-weight--heading:var(--_font-weight,var(--element-text-font-weight--heading));--_letter-spacing--heading:var(--_letter-spacing,var(--element-text-letter-spacing--heading));--_text-transform--heading:var(--_text-transform,var(--element-text-text-transform--heading));--_color--heading:var(--_color,var(--element-text-color--heading,currentColor));--_font-size--heading:var(--_font-size,var(--element-text-font-size--heading));--_font-size--heading-2xl:var(--_font-size--heading,var(--element-text-font-size--heading-2xl));--_font-size--heading-xl:var(--_font-size--heading,var(--element-text-font-size--heading-xl));--_font-size--heading-lg:var(--_font-size--heading,var(--element-text-font-size--heading-lg));--_font-size--heading-md:var(--_font-size--heading,var(--element-text-font-size--heading-md));--_font-size--heading-sm:var(--_font-size--heading,var(--element-text-font-size--heading-sm));--_font-size--heading-xs:var(--_font-size--heading,var(--element-text-font-size--heading-xs));--_line-height--heading:var(--_line-height,var(--element-text-line-height--heading));--_line-height--heading-2xl:var(--element-text-line-height--heading-2xl,var(--_line-height--heading));--_line-height--heading-xl:var(--element-text-line-height--heading-xl,var(--_line-height--heading));--_line-height--heading-lg:var(--element-text-line-height--heading-lg,var(--_line-height--heading));--_line-height--heading-md:var(--element-text-line-height--heading-md,var(--_line-height--heading));--_line-height--heading-sm:var(--element-text-line-height--heading-sm,var(--_line-height--heading));--_line-height--heading-xs:var(--element-text-line-height--heading-xs,var(--_line-height--heading));color:var(--_color--heading);&:not(.element-text--inherit){font-family:var(--_font-family--heading),var(--_font-family-fallback--heading);font-weight:var(--_font-weight--heading);letter-spacing:var(--_letter-spacing--heading);text-transform:var(--_text-transform--heading)}&:where(.element-text--heading-xs):not(.element-text--inherit){font-size:var(--_font-size--heading-xs);line-height:var(--_line-height--heading-xs)}&:where(.element-text--heading-sm):not(.element-text--inherit){font-size:var(--_font-size--heading-sm);line-height:var(--_line-height--heading-sm)}&:where(.element-text--heading-md):not(.element-text--inherit){font-size:var(--_font-size--heading-md);line-height:var(--_line-height--heading-md)}&:where(.element-text--heading-lg):not(.element-text--inherit){font-size:var(--_font-size--heading-lg);line-height:var(--_line-height--heading-lg)}&:where(.element-text--heading-xl):not(.element-text--inherit){font-size:var(--_font-size--heading-xl);line-height:var(--_line-height--heading-xl)}&:where(.element-text--heading-2xl):not(.element-text--inherit){font-size:var(--_font-size--heading-2xl);line-height:var(--_line-height--heading-2xl)}}.tua-devkit{--element-text-font-family--rte-body:var(--element-text-font-family--body);--element-text-font-family-fallback--rte-body:var(--element-text-font-family-fallback--body);--element-text-font-weight--rte-body:var(--element-text-font-weight--body);--element-text-letter-spacing--rte-body:var(--element-text-letter-spacing--body);--element-text-text-transform--rte-body:var(--element-text-text-transform--body);--element-text-font-size--rte-body:var(--element-text-font-size--body-md);--element-text-line-height--rte-body:var(--element-text-line-height--body);--element-text-font-family--rte-heading:var(--element-text-font-family--heading);--element-text-font-family-fallback--rte-heading:var(--element-text-font-family-fallback--heading);--element-text-font-weight--rte-heading:var(--element-text-font-weight--heading);--element-text-letter-spacing--rte-heading:var(--element-text-letter-spacing--heading);--element-text-text-transform--rte-heading:var(--element-text-text-transform--heading);--element-text-font-size--rte-heading-h1:var(--element-text-font-size--heading-xl);--element-text-line-height--rte-heading-h1:var(--element-text-line-height--heading-xl);--element-text-font-size--rte-heading-h2:var(--element-text-font-size--heading-lg);--element-text-line-height--rte-heading-h2:var(--element-text-line-height--heading-lg);--element-text-font-size--rte-heading-h3:var(--element-text-font-size--heading-md);--element-text-line-height--rte-heading-h3:var(--element-text-line-height--heading-md);--element-text-font-size--rte-heading-h4:var(--element-text-font-size--heading-sm);--element-text-line-height--rte-heading-h4:var(--element-text-line-height--heading-sm);--element-text-font-size--rte-heading-h5:var(--element-text-font-size--heading-xs);--element-text-line-height--rte-heading-h5:var(--element-text-line-height--heading-xs);--element-text-font-size--rte-heading-h6:var(--element-text-font-size--heading-xs)}.tua-devkit .element-text.element-text--rte{--_font-family--rte-body:var(--element-text-font-family--rte-body);--_font-family-fallback--rte-body:var(--element-text-font-family-fallback--rte-body);--_font-weight--rte-body:var(--element-text-font-weight--rte-body);--_letter-spacing--rte-body:var(--element-text-letter-spacing--rte-body);--_text-transform--rte-body:var(--element-text-text-transform--rte-body);--_line-height--rte-body:var(--element-text-line-height--rte-body);--_font-size--rte-body:var(--element-text-font-size--rte-body);--_font-family--rte-heading:var(--element-text-font-family--rte-heading);--_font-family-fallback--rte-heading:var(--element-text-font-family-fallback--rte-heading);--_font-weight--rte-heading:var(--element-text-font-weight--rte-heading);--_letter-spacing--rte-heading:var(--element-text-letter-spacing--rte-heading);--_text-transform--rte-heading:var(--element-text-text-transform--rte-heading);--_font-size--rte-heading-h1:var(--element-text-font-size--rte-heading-h1);--_line-height--rte-heading-h1:var(--element-text-line-height--rte-heading-h1);--_font-size--rte-heading-h2:var(--element-text-font-size--rte-heading-h2);--_line-height--rte-heading-h2:var(--element-text-line-height--rte-heading-h2);--_font-size--rte-heading-h3:var(--element-text-font-size--rte-heading-h3);--_line-height--rte-heading-h3:var(--element-text-line-height--rte-heading-h3);--_font-size--rte-heading-h4:var(--element-text-font-size--rte-heading-h4);--_line-height--rte-heading-h4:var(--element-text-line-height--rte-heading-h4);--_font-size--rte-heading-h5:var(--element-text-font-size--rte-heading-h5);--_line-height--rte-heading-h5:var(--element-text-line-height--rte-heading-h5);--_font-size--rte-heading-h6:var(--element-text-font-size--rte-heading-h6);--_line-height--rte-heading-h6:var(--element-text-line-height--rte-heading-h6);font-family:var(--_font-family--rte-body),var(--_font-family-fallback--rte-body);font-size:var(--_font-size--rte-body);font-weight:var(--_font-weight--rte-body);letter-spacing:var(--_letter-spacing--rte-body);line-height:var(--_line-height--rte-body);text-transform:var(--_text-transform--rte-body);h1,h2,h3,h4,h5,h6{font-family:var(--_font-family--rte-heading),var(--_font-family-fallback--rte-heading);font-weight:var(--_font-weight--rte-heading);letter-spacing:var(--_letter-spacing--rte-heading);margin:0 0 var(--size-4);text-transform:var(--_text-transform--rte-heading);@media only screen and (min-width:769px){margin:0 0 var(--size-5)}}h6{font-size:var(--_font-size--rte-heading-h6);line-height:var(--_line-height--rte-heading-h6)}h5{font-size:var(--_font-size--rte-heading-h5);line-height:var(--_line-height--rte-heading-h5)}h4{font-size:var(--_font-size--rte-heading-h4);line-height:var(--_line-height--rte-heading-h4)}h3{font-size:var(--_font-size--rte-heading-h3);line-height:var(--_line-height--rte-heading-h3)}h2{font-size:var(--_font-size--rte-heading-h2);line-height:var(--_line-height--rte-heading-h2)}h1{font-size:var(--_font-size--rte-heading-h1);line-height:var(--_line-height--rte-heading-h1)}p{margin-bottom:var(--size-8);&:last-child{margin-bottom:0}}& table{@media only screen and (max-width:768px){& td,& th{padding:6px 8px}}}.table-wrapper{max-width:100%;overflow:auto;-webkit-overflow-scrolling:touch}.video-wrapper{max-width:100%;overflow:hidden;padding-bottom:56.25%;position:relative;& iframe,& video{height:100%;left:0;position:absolute;top:0;width:100%}}}.tua-devkit{--layout-stack-gap:var(--gap-size-none);--layout-stack-gap--xs:initial;--layout-stack-gap--sm:initial;--layout-stack-gap--md:initial;--layout-stack-gap--lg:initial;--layout-stack-gap--xl:initial;--layout-stack-row-gap:initial;--layout-stack-row-gap--xs:initial;--layout-stack-row-gap--sm:initial;--layout-stack-row-gap--md:initial;--layout-stack-row-gap--lg:initial;--layout-stack-row-gap--xl:initial;--layout-stack-column-gap:initial;--layout-stack-column-gap--xs:initial;--layout-stack-column-gap--sm:initial;--layout-stack-column-gap--md:initial;--layout-stack-column-gap--lg:initial;--layout-stack-column-gap--xl:initial;--layout-stack-justify:flex-start;--layout-stack-align:stretch;--layout-stack-margin:0;--layout-stack-direction:column;--layout-stack-wrap:wrap}.tua-devkit .layout-stack{--_gap--xs:var(--layout-stack-gap--xs,var(--layout-stack-gap));--_gap--sm:var(--layout-stack-gap--sm,var(--_gap--xs));--_gap--md:var(--layout-stack-gap--md,var(--_gap--sm));--_gap--lg:var(--layout-stack-gap--lg,var(--_gap--md));--_gap--xl:var(--layout-stack-gap--xl,var(--_gap--lg));--_gap:var(--_gap--xs);--_row-gap--xs:var(--layout-stack-row-gap--xs,var(--layout-stack-row-gap,var(--_gap)));--_row-gap--sm:var(--layout-stack-row-gap--sm,var(--_row-gap--xs));--_row-gap--md:var(--layout-stack-row-gap--md,var(--_row-gap--sm));--_row-gap--lg:var(--layout-stack-row-gap--lg,var(--_row-gap--md));--_row-gap--xl:var(--layout-stack-row-gap--xl,var(--_row-gap--lg));--_row-gap:var(--_row-gap--xs);--_column-gap--xs:var(--layout-stack-column-gap--xs,var(--layout-stack-column-gap,var(--_gap)));--_column-gap--sm:var(--layout-stack-column-gap--sm,var(--_column-gap--xs));--_column-gap--md:var(--layout-stack-column-gap--md,var(--_column-gap--sm));--_column-gap--lg:var(--layout-stack-column-gap--lg,var(--_column-gap--md));--_column-gap--xl:var(--layout-stack-column-gap--xl,var(--_column-gap--lg));--_column-gap:var(--_column-gap--xs);--_justify:var(--layout-stack-justify);--_align:var(--layout-stack-align);--_margin:var(--layout-stack-margin);--_direction:var(--layout-stack-direction,var(--_layout-stack-direction));--_wrap:var(--layout-stack-wrap);align-items:var(--_align);column-gap:var(--_column-gap);display:flex;flex-direction:var(--_direction);flex-wrap:var(--_wrap);justify-content:var(--_justify);margin:var(--_margin);row-gap:var(--_row-gap)}.tua-devkit .element-image{display:block;max-width:100%;object-fit:cover}.tua-devkit{--layout-section-max-inline-size:var(--page-width,1500px);--layout-section-padding-inline:var(--size-4);--layout-section-padding-inline--xs:initial;--layout-section-padding-inline--sm:initial;--layout-section-padding-inline--md:initial;--layout-section-padding-inline--lg:initial;--layout-section-padding-inline--xl:initial;--layout-section-padding-block:var(--size-8);--layout-section-padding-block--xs:initial;--layout-section-padding-block--sm:initial;--layout-section-padding-block--md:initial;--layout-section-padding-block--lg:initial;--layout-section-padding-block--xl:initial;--layout-section-color:initial;--layout-section-background:initial}.tua-devkit .layout-section{--_max-inline-size:var(--layout-section-max-inline-size);--_padding-inline--xs:var(--layout-section-padding-inline--xs,var(--layout-section-padding-inline));--_padding-inline--sm:var(--layout-section-padding-inline--sm,var(--_padding-inline--xs));--_padding-inline--md:var(--layout-section-padding-inline--md,var(--_padding-inline--sm));--_padding-inline--lg:var(--layout-section-padding-inline--lg,var(--_padding-inline--md));--_padding-inline--xl:var(--layout-section-padding-inline--xl,var(--_padding-inline--lg));--_padding-inline:var(--_padding-inline--xs);--_padding-block--xs:var(--layout-section-padding-block--xs,var(--layout-section-padding-block));--_padding-block--sm:var(--layout-section-padding-block--sm,var(--_padding-block--xs));--_padding-block--md:var(--layout-section-padding-block--md,var(--_padding-block--sm));--_padding-block--lg:var(--layout-section-padding-block--lg,var(--_padding-block--md));--_padding-block--xl:var(--layout-section-padding-block--xl,var(--_padding-block--lg));--_padding-block:var(--_padding-block--xs);--_color:var(--layout-section-color,var(--color-primary,#000));--_background:var(--layout-section-background,var(--color-secondary,#fff));background:var(--_background);color:var(--_color);display:flex;justify-content:center;overflow:hidden;padding-block:var(--_padding-block);padding-inline:var(--_padding-inline);position:relative;width:100%;&>.layout-section__content{display:block;flex-grow:1;max-inline-size:var(--_max-inline-size);width:100%;z-index:1}&.layout-section--full-width>.layout-section__content{max-inline-size:100%}&.layout-section--padding-none{padding-block:0}&.layout-section--padding-top{padding-block-end:0}&.layout-section--padding-bottom{padding-block-start:0}}.tua-devkit{--size-0-25:0.0625rem;--size-0-5:0.125rem;--size-1:0.25rem;--size-1-5:0.375rem;--size-2:0.5rem;--size-2-5:0.625rem;--size-3:0.75rem;--size-3-5:0.875rem;--size-4:1rem;--size-4-5:1.125rem;--size-5:1.25rem;--size-5-5:1.375rem;--size-6:1.5rem;--size-6-5:1.625rem;--size-7:1.75rem;--size-7-5:1.875rem;--size-8:2rem;--size-8-5:2.125rem;--size-9:2.25rem;--size-9-5:2.375rem;--size-10:2.5rem;--size-11:2.75rem;--size-12:3rem;--size-14:3.5rem;--size-16:4rem;--size-18:4.5rem;--size-20:5rem;--size-24:6rem;--size-28:7rem;--size-32:8rem;--text-size-2:0.5rem;--text-size-2-5:0.625rem;--text-size-3:0.75rem;--text-size-3-5:0.875rem;--text-size-4:1rem;--text-size-4-5:1.125rem;--text-size-5:1.25rem;--text-size-5-5:1.375rem;--text-size-6:1.5rem;--text-size-6-5:1.625rem;--text-size-7:1.75rem;--text-size-7-5:1.875rem;--text-size-8:2rem;--text-size-8-5:2.125rem;--text-size-9:2.25rem;--text-size-9-5:2.375rem;--text-size-10:2.5rem;--text-size-11:2.75rem;--text-size-12:3rem;--text-size-14:3.5rem;--text-size-16:4rem;--text-size-18:4.5rem;--text-size-20:5rem;--text-size-24:6rem;--text-size-28:7rem;--text-size-32:8rem;--line-size-none:0px;--line-size-xs:0.5px;--line-size-sm:1px;--line-size-md:2px;--line-size-lg:4px;--line-size-xl:8px;--gap-size-none:0px;--gap-size-2xs:var(--size-1);--gap-size-xs:var(--size-2);--gap-size-sm:var(--size-4);--gap-size-md:var(--size-8);--gap-size-lg:var(--size-12);--gap-size-xl:var(--size-16);--gap-size-2xl:var(--size-24);--radius-xs:4px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-2xl:32px;--radius-none:0px;--radius-full:999px;--shadow-none:0px 0px 0px 0px transparent;--shadow-sm:0px 1px 2px 0px rgba(0,0,0,.08);--shadow-md:0px 2px 4px -1px rgba(0,0,0,.08);--shadow-lg:0px 8px 16px -4px rgba(0,0,0,.08);--shadow-xl:0px 16px 32px -6px rgba(0,0,0,.12);--shadow-2xl:0px 16px 64px -12px rgba(0,0,0,.22);--font-weight-100:100;--font-weight-200:200;--font-weight-300:300;--font-weight-400:400;--font-weight-500:500;--font-weight-600:600;--font-weight-700:700;--font-weight-800:800;--font-weight-900:900;--letter-space-2xs:-0.05em;--letter-space-xs:-0.03em;--letter-space-sm:-0.015em;--letter-space-md:0em;--letter-space-lg:0.015em;--letter-space-xl:0.03em;--letter-space-2xl:0.05em;--letter-space-3xl:0.08em;--letter-space-4xl:0.12em;--line-height-2xs:0.9;--line-height-xs:1;--line-height-sm:1.1;--line-height-md:1.2;--line-height-lg:1.5;--line-height-xl:1.7;--line-height-2xl:2;--shade-0:0%;--shade-4:4%;--shade-8:8%;--shade-12:12%;--shade-16:16%;--shade-20:20%;--shade-30:30%;--shade-40:40%;--shade-50:50%;--shade-60:60%;--shade-70:70%;--shade-80:80%;--shade-90:90%;--shade-100:100%}.tua-devkit *,.tua-devkit :after,.tua-devkit :before{box-sizing:border-box}.tua-devkit{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;line-height:1.15;-webkit-text-size-adjust:100%;margin:0;tab-size:4}.tua-devkit b,.tua-devkit strong{font-weight:bolder}.tua-devkit code,.tua-devkit kbd,.tua-devkit pre,.tua-devkit samp{font-family:ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;font-size:1em}.tua-devkit small{font-size:80%}.tua-devkit sub,.tua-devkit sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}.tua-devkit sub{bottom:-.25em}.tua-devkit sup{top:-.5em}.tua-devkit table{border-color:currentcolor}.tua-devkit button,.tua-devkit input,.tua-devkit optgroup,.tua-devkit select,.tua-devkit textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}.tua-devkit [type=button],.tua-devkit [type=reset],.tua-devkit [type=submit],.tua-devkit button{-webkit-appearance:button}.tua-devkit legend{padding:0}.tua-devkit progress{vertical-align:baseline}.tua-devkit ::-webkit-inner-spin-button,.tua-devkit ::-webkit-outer-spin-button{height:auto}.tua-devkit [type=search]{-webkit-appearance:textfield;outline-offset:-2px}.tua-devkit ::-webkit-search-decoration{-webkit-appearance:none}.tua-devkit ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}.tua-devkit summary{display:list-item}.tua-devkit .collection-hover-list{--underline-thickness:0.075em;display:block;margin-bottom:var(--margin-bottom);margin-top:var(--margin-top)}.tua-devkit .collection-hover-list__heading{line-height:1.4;position:relative;z-index:1}.tua-devkit .collection-hover-list__list{--layout-stack-direction:column;list-style:none;padding:0;@media screen and (width >= 768px){.collection-hover-list--layout-paragraph &{--layout-stack-direction:row}}}.tua-devkit .collection-hover-list__item{line-height:1.6}.tua-devkit .collection-hover-list__link{color:inherit;display:inline-block;line-height:1;position:relative;text-align:center;text-decoration:none;z-index:1;@media screen and (width >= 768px){.collection-hover-list--layout-paragraph &{padding:0 .5em}.collection-hover-list--separator-none &{padding:0 .3em}.collection-hover-list--separator-comma &{padding:0 .35em}&:after{content:var(--separator,"");font-size:.75em;position:absolute;right:0;top:50%;transform:translate(50%,-50%)}.collection-hover-list--separator-comma &:after{bottom:var(--underline-thickness);font-size:1em;top:auto;transform:none}.collection-hover-list__item:last-of-type &:after{display:none}}}.tua-devkit .collection-hover-list__text{background-image:linear-gradient(var(--layout-section-color),var(--layout-section-color));background-position:0 100%;background-repeat:no-repeat;background-size:0 var(--underline-thickness);display:inline;line-height:1.2;transition:background-size .25s ease-out;.collection-hover-list__link:focus &,.collection-hover-list__link:hover &{background-size:100% var(--underline-thickness)}}.tua-devkit .collection-hover-list__count{font-size:.6em;top:auto;vertical-align:super}.tua-devkit .collection-hover-list__image{border-radius:var(--corner-radius);opacity:0;pointer-events:none;position:fixed;transform:translate(-50%,-50%);transition:opacity .3s ease-out;z-index:-1;@media screen and (width < 768px){display:none}@media screen and (pointer:coarse){display:none}}.tua-devkit .collection-hover-list--no-animations{.collection-hover-list__image,.collection-hover-list__text{transition:none}}@media (prefers-reduced-motion:reduce){.tua-devkit .collection-hover-list__image,.tua-devkit .collection-hover-list__text{transition:none}}
+  {% endstyle %}
+  <script type="text/javascript">(()=>{"use strict";const t=class{constructor(){this.events=[]}register(t,e,i){return t&&e&&i?(this.events.push({el:t,event:e,listener:i}),t.addEventListener(e,i),{el:t,event:e,listener:i}):null}unregister({el:t,event:e,listener:i}){return t&&e&&i?(this.events=this.events.filter((s=>t!==s.el||e!==s.event||i!==s.listener)),t.removeEventListener(e,i),{el:t,event:e,listener:i}):null}unregisterAll(){this.events.forEach((({el:t,event:e,listener:i})=>t.removeEventListener(e,i))),this.events=[]}};class e extends HTMLElement{LAG_FACTOR=5;TRANSITION_DURATION=300;constructor(){super(),this.loaded=!1,this.enableAnimations=!0,this.mouseX=null,this.mouseY=null,this.targetImage=null,this.targetImageMinX=null,this.targetImageMaxX=null,this.isAnimating=!1,this.prevTimestamp=null,this.stopping=!1,this.stoppingTimeout=null,this.events=new t}connectedCallback(){window.addEventListener("resize",function(t,e){let i;return function(){let t=this,s=arguments;clearTimeout(i),i=setTimeout((function(){i=null,e.apply(t,s)}),100)}}(0,this.handleResize.bind(this))),this.isDisabled()||this.init()}disconnectedCallback(){this.reset()}init(){this.enableAnimations="false"!==this.getAttribute("enable-animations"),window.matchMedia("(prefers-reduced-motion: reduce)").matches&&(this.enableAnimations=!1),this.triggers=this.querySelectorAll("[data-follow-image]"),this.triggers.forEach((t=>{const e=document.getElementById(t.dataset.followImage);this.events.register(t,"mouseenter",this.initAnimation.bind(this,e)),this.events.register(t,"mouseleave",this.stopAnimation.bind(this))})),this.events.register(this,"mousemove",this.handleMouseMove.bind(this)),this.loaded=!0}reset(){this.events.unregisterAll(),this.resetImages(),this.resetAnimation(),this.loaded=!1}resetImages(){this.triggers.forEach((t=>{const e=document.getElementById(t.dataset.followImage);e.style.left="",e.style.top="",e.style.opacity="0"}))}isDisabled(){return window.matchMedia("(width < 767px)").matches||window.matchMedia("(pointer: coarse)").matches}handleResize(){this.isDisabled()&&this.loaded?this.reset():this.loaded?this.resetImages():this.loaded||this.init()}handleMouseMove(t){this.mouseX=t.clientX,this.mouseY=t.clientY}initAnimation(t){this.stoppingTimeout&&(clearTimeout(this.stoppingTimeout),this.stoppingTimeout=null),this.stopping&&(this.stopping=!1),this.targetImage=t;const e=this.targetImage.getBoundingClientRect();this.targetImageMinX=e.width/2+40,this.targetImageMaxX=window.innerWidth-e.width/2-40,this.targetImage.style.left=`${this.mouseX}px`,this.targetImage.style.top=`${this.mouseY}px`,this.targetImage.style.opacity=1,this.isAnimating=!0,this.animateImage()}stopAnimation(){this.targetImage&&!this.stopping&&(this.stopping=!0,this.targetImage.style.opacity=0,this.stoppingTimeout=setTimeout(this.resetAnimation.bind(this),this.TRANSITION_DURATION))}resetAnimation(){this.targetImage=null,this.targetImageMinX=null,this.targetImageMaxX=null,this.isAnimating=!1,this.prevTimestamp=null,this.stopping=!1,this.stoppingTimeout=null}animateImage(t=0){if(!this.isAnimating)return;if(this.prevTimestamp||(this.prevTimestamp=t),!this.enableAnimations)return this.targetImage.style.left=`${this.mouseX}px`,this.targetImage.style.top=`${this.mouseY}px`,void requestAnimationFrame(this.animateImage.bind(this));const e=(t-this.prevTimestamp)/1e3;if(this.prevTimestamp=t,this.targetImage){const t=parseFloat(this.targetImage.style.left)||this.mouseX,i=parseFloat(this.targetImage.style.top)||this.mouseY,s=1-Math.exp(-this.LAG_FACTOR*e);let n=t+(this.mouseX-t)*s,a=i+(this.mouseY-i)*s;n=Math.max(this.targetImageMinX,Math.min(n,this.targetImageMaxX)),this.targetImage.style.left=`${n}px`,this.targetImage.style.top=`${a}px`}requestAnimationFrame(this.animateImage.bind(this))}}var i,s;i="collection-hover-list",s=e,customElements.get(i)||("loading"===document.readyState?document.addEventListener("DOMContentLoaded",(()=>{customElements.get(i)||customElements.define(i,s)})):customElements.define(i,s))})();</script>
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.collection_hover_list.name",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "t:pxu_sections.common.content_width.label",
+      "options": [
+        {
+          "value": "650px",
+          "label": "t:pxu_sections.common.content_width.regular"
+        },
+        {
+          "value": "800px",
+          "label": "t:pxu_sections.common.content_width.wide"
+        },
+        {
+          "value": "100%",
+          "label": "t:pxu_sections.common.content_width.full_width"
+        }
+      ],
+      "default": "650px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "t:pxu_sections.sections.collection_hover_list.heading.default"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "desktop_layout",
+      "label": "t:pxu_sections.sections.collection_hover_list.desktop_layout.label",
+      "options": [
+        {
+          "value": "list",
+          "label": "t:pxu_sections.sections.collection_hover_list.desktop_layout.list"
+        },
+        {
+          "value": "paragraph",
+          "label": "t:pxu_sections.sections.collection_hover_list.desktop_layout.paragraph"
+        }
+      ],
+      "default": "paragraph"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.typography.block_typography"
+    },
+    {
+      "type": "range",
+      "id": "block_text_size",
+      "label": "t:pxu_sections.common.text.text_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "block_text_size_mobile",
+      "label": "t:pxu_sections.common.text.text_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "link_separator",
+      "label": "t:pxu_sections.sections.collection_hover_list.link_separator.label",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:pxu_sections.sections.collection_hover_list.link_separator.none"
+        },
+        {
+          "value": "bullet",
+          "label": "t:pxu_sections.sections.collection_hover_list.link_separator.bullet"
+        },
+        {
+          "value": "comma",
+          "label": "t:pxu_sections.sections.collection_hover_list.link_separator.comma"
+        },
+        {
+          "value": "emdash",
+          "label": "t:pxu_sections.sections.collection_hover_list.link_separator.emdash"
+        },
+        {
+          "value": "hyphen",
+          "label": "t:pxu_sections.sections.collection_hover_list.link_separator.hyphen"
+        }
+      ],
+      "default": "bullet",
+      "info": "t:pxu_sections.sections.collection_hover_list.link_separator.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_collection_product_count",
+      "label": "t:pxu_sections.sections.collection_hover_list.show_collection_product_count.label",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.image.image"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "t:pxu_sections.common.image.image_ratio",
+      "options": [
+        {
+          "value": "initial",
+          "label": "t:pxu_sections.common.image.adapt"
+        },
+        {
+          "value": "2/3",
+          "label": "t:pxu_sections.common.aspect_ratio.vertical"
+        },
+        {
+          "value": "4/5",
+          "label": "t:pxu_sections.common.aspect_ratio.vertical"
+        },
+        {
+          "value": "1/1",
+          "label": "t:pxu_sections.common.aspect_ratio.square"
+        },
+        {
+          "value": "3/2",
+          "label": "t:pxu_sections.common.aspect_ratio.landscape"
+        }
+      ],
+      "default": "initial"
+    },
+    {
+      "type": "range",
+      "id": "desktop_image_width",
+      "label": "t:pxu_sections.common.image.desktop_image_width",
+      "min": 40,
+      "max": 350,
+      "step": 5,
+      "unit": "px",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "label": "t:pxu_sections.common.style.corner_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:pxu_sections.common.color.background_gradient"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.animations.animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "t:pxu_sections.common.animations.enable_animations",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "t:pxu_sections.common.padding.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "t:pxu_sections.common.margin.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "t:pxu_sections.sections.collection_hover_list.blocks.collection.name",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:pxu_sections.sections.collection_hover_list.blocks.collection.collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.common.image.image"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "t:pxu_sections.sections.collection_hover_list.blocks.collection.custom_title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.collection_hover_list.name",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}{% endschema %}

@@ -1,0 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "settings": {}
+    },
+    "image_with_text_parallax_NGG74F": {
+      "type": "image-with-text-parallax",
+      "blocks": {
+        "image_m3HRMz": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "text": "<p>NIANCE is a Swiss luxury skincare brand known for its uncompromising approach to skin regeneration. Built on advanced cellular science and precision manufacturing, NIANCE formulas are designed to support the skin’s natural repair mechanisms while delivering immediate refinement and long-term resilience.</p><p>What sets NIANCE apart is its focus on <strong>cell communication, bioavailability, and skin longevity</strong>. Each formula is developed to work in harmony with the skin—helping improve firmness, hydration, tone, and overall skin quality without unnecessary irritation.</p>",
+            "button_label": "View all NIANCE products",
+            "link": "shopify://collections/niance",
+            "text_color": "#020f4c",
+            "bg_color": "rgba(0,0,0,0)",
+            "bg_color_gradient": "linear-gradient(\n    to bottom,\n    rgba(135, 206, 235, 0.9) 0%,   /* sky blue with 90% opacity */\n    rgba(240, 248, 255, 0.7) 50%,  /* icy blue with 70% opacity */\n    rgba(255, 255, 255, 0.5) 100%  /* snow white with 50% opacity */\n  )"
+          }
+        },
+        "image_wTytmL": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "text": "<p>NIANCE is a Swiss luxury skincare brand developed at the intersection of advanced cellular science and precision formulation. Our confidence in the brand goes beyond product performance—we have personally met with <strong>Dr. Patrick Schwarzentruber</strong>, the lead scientist responsible for developing NIANCE formulations.</p><p>Meeting Dr. Schwarzentruber gave us direct insight into the scientific rigor behind the brand: how ingredients are selected, how delivery systems are engineered for bioavailability, and how each formula is designed to support long-term skin regeneration rather than short-term cosmetic effects. This firsthand experience reinforced our trust in NIANCE’s methodical, research-driven approach to skin health.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "",
+            "bg_color": "",
+            "bg_color_gradient": "linear-gradient(\n    to bottom,\n    rgba(135, 206, 235, 0.9) 0%,   /* sky blue with 90% opacity */\n    rgba(240, 248, 255, 0.7) 50%,  /* icy blue with 70% opacity */\n    rgba(255, 255, 255, 0.5) 100%  /* snow white with 50% opacity */\n  )"
+          }
+        }
+      },
+      "block_order": [
+        "image_m3HRMz",
+        "image_wTytmL"
+      ],
+      "name": "Parallax with text",
+      "settings": {
+        "wide_display": true,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "parallax_image": "shopify://shop_images/niance_1923-ret3.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "text_columns_with_images_7zrTwt": {
+      "type": "text-columns-with-images",
+      "blocks": {
+        "text_block_hWmAMy": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/epigen12-cell-renewal-supplements-niance-aida-bicaj-9254003.webp",
+            "title": "Epigen12™ Cell Renewal",
+            "heading_size": "regular_text",
+            "text": "<p>EPIGEN12™ Cell Renewal is a revolutionary longevity supplement designed to turn back the biological clock by up to 12 years. With clinically proven results, this advanced formula tackles 10 hallmarks of aging, revitalizing your body at a cellular level for unparalleled rejuvenation and vitality.</p>",
+            "button_label": "vIEW ePIGEN 12",
+            "button_link": "shopify://products/epigen12-cell-renewal",
+            "align_text": "left",
+            "border_style": "none"
+          }
+        },
+        "text_block_KmGF3Y": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/WEIGHT-MANG_-EP-600x600_jpg.webp",
+            "title": "GENR8® BIOTIC Nutritional Supplements WEIGHT MANAGEMENT",
+            "heading_size": "regular_text",
+            "text": "<p>To improve well-being and beauty the unique formula of GENR8® WEIGHT MANAGEMENT enriches fresh and clean Swiss Glacier water with powerful natural ingredients from all over the world that help to enhance your metabolism.</p>",
+            "button_label": "Indulge in Swiss Cellular Science",
+            "button_link": "shopify://products/vitality-genr8-biotic-food-supplement",
+            "align_text": "left",
+            "border_style": "none"
+          }
+        },
+        "text_block_ATn8YN": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/Beauty-Booster-EP-600x600_jpg.webp",
+            "title": "Collagen-Hyaluron Beauty Booster",
+            "heading_size": "regular_text",
+            "text": "<p>Boost your SPA-grade beauty routine from within. Collagen and hyaluronic acid are defining factors for the firmness and elasticity of your skin, hair, bones, nails and joints.<br/><br/></p>",
+            "button_label": "bEUTIFY YOURSELF",
+            "button_link": "shopify://products/collagen-hyaluron-beauty-booster",
+            "align_text": "left",
+            "border_style": "none"
+          }
+        },
+        "text_block_aPXmpT": {
+          "type": "text_block",
+          "settings": {
+            "enable_image": true,
+            "image": "shopify://shop_images/CLEANSE-EP-600x600_jpg.webp",
+            "title": "GENR8® BIOTIC Nutritional Supplements CLEANSE",
+            "heading_size": "regular_text",
+            "text": "<p>NIANCE researchers travelled the globe to study centenarians and their lifestyle. They identified »gut health« as the key factor of our overall well-being, »healthy« aging and beauty. In other words: It shows on the outside when you feel good on the inside.<br/><br/></p>",
+            "button_label": "Reset Your Body — Start Your Cleanse Today",
+            "button_link": "shopify://products/vitality-genr8-biotic-food-supplement",
+            "align_text": "left",
+            "border_style": "none"
+          }
+        }
+      },
+      "block_order": [
+        "text_block_hWmAMy",
+        "text_block_KmGF3Y",
+        "text_block_ATn8YN",
+        "text_block_aPXmpT"
+      ],
+      "name": "Text columns with images",
+      "settings": {
+        "title": "Nutritional Supplements",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "pxu_particle_banner_VFarA8": {
+      "type": "pxu-particle-banner",
+      "name": "t:pxu_sections.sections.particle_banner.name",
+      "settings": {
+        "text_desktop": "NIANCE",
+        "font": "mono",
+        "line_height": 1.2,
+        "text_width_desktop": 80,
+        "duration": 4,
+        "desktop_aspect_ratio": "32:9",
+        "desktop_image": "shopify://shop_images/glacier_jpg.webp",
+        "background_link": "",
+        "text_mobile": "",
+        "text_width_mobile": 80,
+        "mobile_aspect_ratio": "3:2",
+        "text_color": "#b08735",
+        "background_color": "#454545",
+        "background_gradient": "",
+        "image_overlay_opacity": 84,
+        "margin_top": 20,
+        "margin_bottom": 20
+      }
+    },
+    "pxu_multicolumn_NtrHYz": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_NRK7mT": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "What makes NIANCE different",
+            "text": "<ul><li>Swiss-developed formulations grounded in cellular research<br/></li><li>Advanced delivery systems designed for optimal absorption<br/></li><li>A focus on skin regeneration, density, and longevity</li><li>Luxurious textures with true clinical intent<br/></li></ul><p>NIANCE is skincare for clients who value <strong>science, precision, and visible long-term results</strong>.<br/></p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_rJnAgj": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "Who NIANCE is for",
+            "text": "<h3></h3><ul><li>Skin showing visible signs of aging or fatigue<br/></li><li>Clients focused on long-term skin health, not quick fixes<br/></li><li>Those who appreciate luxury skincare backed by real science<br/></li><li>Ideal for normal, dry, and mature skin types</li></ul>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_zM3VeF": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "Our perspective",
+            "text": "<p>NIANCE stands out for its disciplined, science-first philosophy. Having met the scientist behind the formulations gives us added confidence in the integrity, consistency, and performance of the brand. This is skincare that feels refined, intentional, and genuinely effective.</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_NRK7mT",
+        "column_rJnAgj",
+        "column_zM3VeF"
+      ],
+      "name": "t:pxu_sections.sections.multicolumn.name",
+      "settings": {
+        "section_heading": "Why we carry NIANCE",
+        "section_heading_size": 25,
+        "section_heading_size_mobile": 21,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 3,
+        "desktop_content_alignment": "left",
+        "block_heading_size": 18,
+        "block_heading_size_mobile": 18,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "linear-gradient(\n    to bottom,\n    rgba(135, 206, 235, 0.9) 0%,   /* sky blue with 90% opacity */\n    rgba(240, 248, 255, 0.7) 50%,  /* icy blue with 70% opacity */\n    rgba(255, 255, 255, 0.5) 100%  /* snow white with 50% opacity */\n  )",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "image_with_text_parallax_NGG74F",
+    "text_columns_with_images_7zrTwt",
+    "pxu_particle_banner_VFarA8",
+    "pxu_multicolumn_NtrHYz",
+    "newsletter"
+  ]
+}

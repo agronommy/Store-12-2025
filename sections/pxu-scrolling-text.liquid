@@ -1,0 +1,335 @@
+{%- comment -%}
+  🧰 Scrolling text section
+{%- endcomment -%}
+
+{%- liquid
+  assign pause_on_hover = section.settings.scroll_pause
+  assign play_state = 'running'
+  if pause_on_hover
+    assign play_state = 'paused'
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-scrolling-text
+  "
+  style="
+    --pxu-section-width: {{ section.settings.content_width }};
+    --pxu-section-text-color: {{ section.settings.text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-content-alignment: {{ section.settings.content_alignment }};
+    --pxu-scrolling-text-play-state: {{ play_state }};
+    --pxu-scrolling-text-duration: {{ section.settings.scroll_speed }}s;
+    --pxu-scrolling-text-scroll-direction: {{ section.settings.scroll_direction }};
+  "
+  data-pxu-scrolling-text
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-scrolling-text",
+      "className": "ScrollingTextSection",
+      "name": "Scrolling text",
+      "version": "1.0.2",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}"
+    }
+  </script>
+
+  {%- capture scrolling_text_content -%}
+    <div class="pxu-scrolling-text__content" data-scrolling-text-content>
+    {% for block in section.blocks %}
+      {% case block.type %}
+          {% when 'text' %}
+            {% assign text = block.settings.text | strip %}
+            {% if text != blank %}
+              <div
+                id="{{ block.id }}"
+                class="pxu-scrolling-text__text"
+                style="
+                --pxu-text-size: {{ block.settings.text_size }}px;
+                --pxu-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+                {%- if block.settings.text_color != '' -%}
+                  --pxu-section-text-color: {{ block.settings.text_color }};
+                {%- endif -%}
+                "
+                data-scrolling-text-content-item
+                {{ block.shopify_attributes }}
+              >
+                {%- if block.settings.font_style == 'heading' -%}
+                  <h2 class="pxu-scrolling-text__heading pxu-heading">
+                    {{ text }}
+                  </h2>
+                {%- else -%}
+                  <div class="pxu-rte">
+                    {{ text }}
+                  </div>
+                {%- endif -%}
+              </div>
+            {% endif %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  {%- endcapture -%}
+
+  <div class="pxu-section__container pxu-scrolling-text__container">
+    {{- scrolling_text_content -}}
+    {{- scrolling_text_content -}}
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.has-vertical-header .is-beside-vertical-header:has(.pxu-scrolling-text){min-width:0}.pxu-scrolling-text{--pxu-scrolling-text-gap:var(--pxu-space-16);background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding-bottom:calc(var(--pxu-section-padding-bottom, 0)*.75);padding-top:calc(var(--pxu-section-padding-top, 0)*.75);text-align:var(--pxu-section-content-alignment)}@media only screen and (min-width:480px){.pxu-scrolling-text{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding-bottom:var(--pxu-section-padding-bottom,0);padding-top:var(--pxu-section-padding-top,0)}}.pxu-scrolling-text--is-animated:hover .pxu-scrolling-text__content{animation-play-state:var(--pxu-scrolling-text-play-state)}.pxu-scrolling-text--is-animated:focus-within .pxu-scrolling-text__content{animation-play-state:paused}.pxu-scrolling-text__container{display:flex;gap:var(--pxu-space-16);overflow:hidden;position:relative;width:100%}.pxu-scrolling-text__content{align-items:baseline;display:flex;flex-shrink:0;gap:var(--pxu-scrolling-text-gap);justify-content:space-around;min-width:100%}.pxu-scrolling-text--is-animated .pxu-scrolling-text__content{animation:pxu-scrolling-text var(--pxu-scrolling-text-duration) infinite linear var(--pxu-scrolling-text-scroll-direction) running}@media (prefers-reduced-motion:reduce){.pxu-scrolling-text--is-animated .pxu-scrolling-text__content{animation:none!important;transform:none!important}}.pxu-scrolling-text__heading.pxu-heading{font-size:var(--pxu-text-size-mobile);margin-bottom:0}@media only screen and (min-width:860px){.pxu-scrolling-text__heading.pxu-heading{font-size:var(--pxu-text-size)}}.pxu-scrolling-text__text{font-size:var(--pxu-text-size-mobile)}.pxu-scrolling-text__text,.pxu-scrolling-text__text h3{color:var(--pxu-section-text-color)}@media only screen and (min-width:860px){.pxu-scrolling-text__text{font-size:var(--pxu-text-size)}}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+const { debounce } = window.PxuUtils;
+
+class ScrollingTextSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.contentItems = this.$root.querySelectorAll('[data-scrolling-text-content]');
+
+    this.onMount();
+  }
+
+  // Section lifecycle
+
+  onMount() {
+    this._initScroll();
+  }
+
+  _initScroll() {
+    this.contentItems.forEach(el => {
+      const textItems = el.querySelectorAll('[data-scrolling-text-content-item]');
+      const width = el.offsetWidth;
+
+      // Calculate the total width of all marquee items.
+      const totalItemWidth = [...textItems].reduce((total, item) => total + item.offsetWidth, 0);
+
+      // Calculate the number of marquee items needed to fill the container.
+      const numItems = Math.ceil(width / totalItemWidth);
+
+      // Clone and append marquee items.
+      for (let i = 0; i < numItems; i++) {
+        textItems.forEach(item => {
+          const clone = item.cloneNode(true);
+          el.appendChild(clone);
+        });
+      }
+    });
+
+    this._observeAnimations();
+  }
+
+  _observeAnimations() {
+    // Initiate animations in viewport.
+    this.observer = new IntersectionObserver(debounce(([entry]) => {
+      const { isIntersecting } = entry;
+      this.$root.classList.toggle('pxu-scrolling-text--is-animated', isIntersecting);
+    }, 100));
+
+    this.observer.observe(this.$root);
+  }
+
+  onUnmount(){
+    this.observer.unobserve(this.$root);
+  }
+}
+
+document.querySelectorAll('[data-pxu-scrolling-text]').forEach(($section) => {
+  Section.init($section, ScrollingTextSection);
+});
+
+// export class for theme editor instance management
+if (Shopify.designMode) {
+  window.PxuThemeSections.ScrollingTextSection = ScrollingTextSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.scrolling_text.name",
+  "class": "pxu-scrolling-text-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 90,
+      "step": 1,
+      "unit": "s",
+      "label": "t:pxu_sections.sections.scrolling_text.scroll_speed.label",
+      "default": 25,
+      "info": "t:pxu_sections.sections.scrolling_text.scroll_speed.info"
+    },
+    {
+      "type": "select",
+      "id": "scroll_direction",
+      "label": "t:pxu_sections.sections.scrolling_text.scroll_direction.label",
+      "options": [
+        {
+          "value": "reverse",
+          "label": "t:pxu_sections.sections.scrolling_text.scroll_direction.reverse"
+        },
+        {
+          "value": "normal",
+          "label": "t:pxu_sections.sections.scrolling_text.scroll_direction.normal"
+        }
+      ],
+      "default": "reverse"
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_pause",
+      "label": "t:pxu_sections.sections.scrolling_text.scroll_pause",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content":"t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "t:pxu_sections.common.text.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.name",
+          "default": "t:pxu_sections.sections.scrolling_text.blocks.text.text.default"
+        },
+        {
+          "type": "select",
+          "id": "font_style",
+          "label": "t:pxu_sections.common.typography.font",
+          "options": [
+            {
+              "label": "t:pxu_sections.common.heading.name",
+              "value": "heading"
+            },
+            {
+              "label": "t:pxu_sections.common.typography.body",
+              "value": "body"
+            }
+          ],
+          "default": "heading"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "label": "t:pxu_sections.common.text.text_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "default": 40
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "t:pxu_sections.common.color.text_color"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.scrolling_text.name",
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

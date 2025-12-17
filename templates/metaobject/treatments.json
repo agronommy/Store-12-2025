@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_text_BQHUCj": {
+      "type": "image-text",
+      "blocks": {
+        "image_AQhzbg": {
+          "type": "image",
+          "settings": {
+            "image": "{{ metaobject.image.value }}",
+            "title": "{{ metaobject.title.value }}",
+            "text": "{{ metaobject.description | metafield_tag }}<p>Duration: {{ metaobject.time.value }}</p>",
+            "button_label": "Call for appointment",
+            "link": "{{ metaobject.system.url }}",
+            "text_color": "",
+            "bg_color": "#ffffff"
+          }
+        },
+        "image_Nqykp6": {
+          "type": "image",
+          "settings": {
+            "title": "Your headline",
+            "text": "<p>Promotion description appears here.</p>",
+            "button_label": "View all",
+            "link": "{{ metaobject.system.url }}",
+            "text_color": "",
+            "bg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_AQhzbg",
+        "image_Nqykp6"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "image_text_BQHUCj"
+  ]
+}

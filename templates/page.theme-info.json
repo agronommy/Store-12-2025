@@ -1,0 +1,209 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-no-title-template",
+      "settings": {}
+    },
+    "16312832652fd0b481": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/pexels-karolina-grabowska-4194853.jpg",
+        "pretext": "",
+        "title": "Turbo Shopify Theme",
+        "subtitle": "<p>Uplift & refresh your shop</p>",
+        "button1": "Get started",
+        "button1_link": "",
+        "button1_style": "global-button--banner-highlighted",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "center",
+        "text_align": "center",
+        "caption_content_background": "text_box",
+        "mobile_image_crop": "none",
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631283363023d6144": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631283381c46380c6": {
+      "type": "featured-text",
+      "settings": {
+        "title": "Built for speed. Styled with love.",
+        "content": "<p>Turbo is a highly configurable, blazing fast theme that has been optimized for both speed and mobile experience. Turbo fully supports sections and is packed with features like product row sliders, mega menus, testimonials, homepage image gallery, FAQ template, interactive mini cart, team page template, and infinite scrolling. It also boasts features like instantaneous page transitions for ultra-fast navigation and two separate speed modes.</p>",
+        "button_label": "",
+        "button_link": "",
+        "text_size": "featured_text",
+        "text_alignment": "center",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128371310f3527c": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 10,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312833901b2aa296": {
+      "type": "image-text",
+      "blocks": {
+        "16312833901b2aa296-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/pexels-cottonbro-4972598.jpg",
+            "title": "Velocity, refined.",
+            "text": "<p>Turbo is a fully-loaded theme that can easily accommodate high volume, large catalog shops and especially <strong>Shopify Plus</strong> merchants. But it's also an excellent choice for any size shop that's looking for an edge - one that won't sacrifice style and flexibility for enhanced performance.</p>",
+            "button_label": "Purchase theme",
+            "link": "",
+            "text_color": "rgba(0,0,0,0)",
+            "bg_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "16312833901b2aa296-0"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128404169721f73": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 10,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312840050dbb015e": {
+      "type": "featured-text",
+      "settings": {
+        "title": "",
+        "content": "<p><strong>40% of online shoppers abandon a site that takes more than 3 seconds to load!</strong></p>",
+        "button_label": "",
+        "button_link": "",
+        "text_size": "featured_text",
+        "text_alignment": "center",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128405797646d3a": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 10,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631284060a5585d4b": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/about-banner.jpg",
+        "pretext": "",
+        "title": "Dynamic & packed with features",
+        "subtitle": "",
+        "button1": "View shops using Turbo",
+        "button1_link": "",
+        "button1_style": "global-button--banner-highlighted",
+        "button2": "",
+        "button2_link": "",
+        "button2_style": "global-button--banner",
+        "text_position": "left",
+        "text_align": "left",
+        "caption_content_background": "original",
+        "mobile_image_crop": "none",
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312841389fc823c4": {
+      "type": "content-page",
+      "settings": {
+        "content_page": "turbo-styles",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163128416515d73a41": {
+      "type": "content-page",
+      "settings": {
+        "content_page": "turbo-features-list",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312841896547d95c": {
+      "type": "featured-text",
+      "settings": {
+        "title": "Turbo Theme Support",
+        "content": "<p>Our comprehensive <a href=\"https://help.outofthesandbox.com/hc/en-us\">Theme Help Center</a> is where you'll find extensive documentation and video guides for all our themes, including <a href=\"https://help.outofthesandbox.com/hc/en-us/categories/115001109307-Turbo-Shopify-Theme\">Turbo Support Articles.</a> Updating your theme is also quick and easy, using our unique <a href=\"https://outofthesandbox.com/pages/theme-updater-app\">Shopify Theme Updater App</a>!</p>",
+        "button_label": "Get Support",
+        "button_link": "",
+        "text_size": "featured_text",
+        "text_alignment": "center",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16312842272371fe31": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16312832652fd0b481",
+    "1631283363023d6144",
+    "1631283381c46380c6",
+    "163128371310f3527c",
+    "16312833901b2aa296",
+    "163128404169721f73",
+    "16312840050dbb015e",
+    "163128405797646d3a",
+    "1631284060a5585d4b",
+    "16312841389fc823c4",
+    "163128416515d73a41",
+    "16312841896547d95c",
+    "16312842272371fe31"
+  ]
+}

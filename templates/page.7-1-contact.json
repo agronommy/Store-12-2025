@@ -1,0 +1,174 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16480714458dfb9f75": {
+      "type": "image-text",
+      "blocks": {
+        "16480714442a1a08bf-0": {
+          "type": "image",
+          "settings": {
+            "title": "We value your input and opinons!",
+            "text": "<p>We love to hear from our customers and learn about how we can best serve your needs. We also enjoy hearing about how our products have helped you and any stories you have about your journey to wellness, so please share!</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "16480714442a1a08bf-0"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16480713936ebcf59c": {
+      "type": "contact-form",
+      "blocks": {
+        "7caf8d31-9352-4ce2-8d19-befae3ea93c7": {
+          "type": "image",
+          "settings": {
+            "logo_display_width": 150,
+            "text": ""
+          }
+        },
+        "16480713939ae5e83f-0": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Name",
+            "required": false,
+            "field_type": "text"
+          }
+        },
+        "16480713939ae5e83f-1": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Email",
+            "required": true,
+            "field_type": "email"
+          }
+        },
+        "6d7c7491-482c-4ab4-aa80-b61117bb134d": {
+          "type": "custom",
+          "settings": {
+            "label": "Product of interest",
+            "placeholder": "Make a selection",
+            "required": true,
+            "options_1": "Treatments",
+            "options_2": "Biologique Recherche",
+            "options_3": "Skin Evaluation",
+            "options_4": "Find out about the place",
+            "options_5": "",
+            "options_6": "",
+            "field_type": "checkbox"
+          }
+        },
+        "16480713939ae5e83f-2": {
+          "type": "richtext",
+          "settings": {
+            "label": "",
+            "placeholder": "Message",
+            "required": false,
+            "field_type": "textarea"
+          }
+        },
+        "88ffce57-e152-40be-8b71-2512d7321ca0": {
+          "type": "image",
+          "settings": {
+            "logo_display_width": 150,
+            "text": "<p>Please allow two business days for a reply.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "7caf8d31-9352-4ce2-8d19-befae3ea93c7",
+        "16480713939ae5e83f-0",
+        "16480713939ae5e83f-1",
+        "6d7c7491-482c-4ab4-aa80-b61117bb134d",
+        "16480713939ae5e83f-2",
+        "88ffce57-e152-40be-8b71-2512d7321ca0"
+      ],
+      "settings": {
+        "contact_heading": "",
+        "contact_subheading": "",
+        "contact_content": "",
+        "contact_text_position": "center",
+        "contact_text_alignment": "center",
+        "contact_social_buttons": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1648072279627d9f82": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1648071409ab87c22f": {
+      "type": "blog-posts",
+      "settings": {
+        "title": "",
+        "blog_widget_select": "higher-education",
+        "home_page_articles": 3,
+        "blog_tags": false,
+        "blog_author": false,
+        "read_time": true,
+        "blog_date": true,
+        "blog_comment_count": true,
+        "read_more_link": true,
+        "excerpt_display": "full_excerpt",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "16480714017f7dd9ef": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe today",
+        "newsletter_text": "<p>Stay in the know, and receive 10% OFF your next <strong>Chicago </strong>purchase!</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "16480714458dfb9f75",
+    "16480713936ebcf59c",
+    "1648072279627d9f82",
+    "1648071409ab87c22f",
+    "16480714017f7dd9ef"
+  ]
+}

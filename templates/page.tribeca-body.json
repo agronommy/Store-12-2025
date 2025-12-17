@@ -1,0 +1,199 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-multi-column-template",
+      "custom_css": [],
+      "settings": {}
+    },
+    "qq_basic_text_block_iGPXxh": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "subtitle_BccNEf": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "Aida Bicaj Tribeca Spa",
+            "subtitle_color": "",
+            "subtitle_custom_font": false,
+            "subtitle_font": "mono",
+            "subtitle_font_name": "",
+            "subtitle_font_weight": "default",
+            "subtitle_margin_top": 10,
+            "subtitle_margin_bottom": 10,
+            "subtitle_font_size": 0,
+            "subtitle_line_height": 0,
+            "subtitle_letter_spacing": 0,
+            "subtitle_margin_top_mobile": 10,
+            "subtitle_margin_bottom_mobile": 10,
+            "subtitle_font_size_mobile": 0,
+            "subtitle_line_height_mobile": 0,
+            "subtitle_letter_spacing_mobile": 0
+          }
+        },
+        "title_kbLjqg": {
+          "type": "title",
+          "settings": {
+            "title": "Body Treatment Menu",
+            "title_color": "",
+            "title_custom_font": false,
+            "title_font": "mono",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 0,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_d79MFA": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>A LA CARTE ADD-ONS <br/>Exfoliation – only as add on - 30 minutes </p><p>Paraﬃn treatment (hands and feet) </p><p>Firming arm treatment - 30 min</p><p> White stretch marks treatment  </p>",
+            "textblock_color": "",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        },
+        "button_k7UxTk": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_class": "",
+            "button_label": "Button label",
+            "button_link": "",
+            "button_tab": false,
+            "button_custom_font": false,
+            "button_font": "mono",
+            "button_font_name": "",
+            "button_font_weight": "default",
+            "button_max_width": 180,
+            "button_border_width": 0,
+            "button_radius": 0,
+            "button_margin_top": 20,
+            "button_margin_bottom": 20,
+            "button_padding_horizontal": 20,
+            "button_padding_vertical": 10,
+            "button_margin_top_mobile": 20,
+            "button_margin_bottom_mobile": 20,
+            "button_font_size": 0,
+            "button_letter_spacing": 0,
+            "button_font_size_mobile": 0,
+            "button_letter_spacing_mobile": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_color_hover": "#333333",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_BccNEf",
+        "title_kbLjqg",
+        "textblock_d79MFA",
+        "button_k7UxTk"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "#f4f2f2",
+        "content_max_width": 1280,
+        "section_margin_top": 0,
+        "section_margin_bottom": 0,
+        "section_padding_horizontal": 10,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 2,
+        "section_padding_horizontal_mobile": 10,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "86f31cfc-d6b0-4b65-88b5-69daafee0f67": {
+      "type": "image-text",
+      "blocks": {
+        "template--18414489469250__86f31cfc-d6b0-4b65-88b5-69daafee0f67-1679609747cfd6d9b8-0": {
+          "type": "image",
+          "repeater": "{{ page.metafields.custom.treatments.value }}",
+          "settings": {
+            "image": "{{ block.repeater.image.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.description | metafield_tag }}<p>Duration: {{ block.repeater.time.value }}</p><p>Call for appointment: 917-472-7743</p>",
+            "button_label": "Online Booking",
+            "link": "https://login.meevo.com/AidaBicajSalon/ob?locationId=107034",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18414489469250__86f31cfc-d6b0-4b65-88b5-69daafee0f67-1679609747cfd6d9b8-0"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": "li {\n  color: #1e1e73;\n}"
+      }
+    },
+    "82faccb5-d3bf-4d3f-989f-74862d195eb0": {
+      "type": "newsletter",
+      "custom_css": [
+        "h2.title, .newsletter_section {color: #fff;}"
+      ],
+      "settings": {
+        "wide_display": false,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …, Plus 10% off your next order</p>",
+        "newsletter_section_text_align": "center",
+        "image": "shopify://shop_images/Web_Optimized-6517.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "qq_basic_text_block_iGPXxh",
+    "86f31cfc-d6b0-4b65-88b5-69daafee0f67",
+    "82faccb5-d3bf-4d3f-989f-74862d195eb0"
+  ]
+}

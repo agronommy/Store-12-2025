@@ -1,0 +1,357 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {}
+    },
+    "slideshow_ikiFAG": {
+      "type": "slideshow",
+      "blocks": {
+        "image_AYJpFR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/hero_desktop.webp",
+            "pretext": "",
+            "title": "Combining  6  advanced  dermal technologies.",
+            "subtitle": "<p>La Luer delivers visible results and unparalleled customization.</p>",
+            "button1": "The Collection",
+            "button1_link": "shopify://collections/la-luer",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
+          }
+        }
+      },
+      "block_order": [
+        "image_AYJpFR"
+      ],
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "qq_basic_text_block_R6DUki": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "title_zK7xw6": {
+          "type": "title",
+          "settings": {
+            "title": "We Know Your Skin IsImportant To You.",
+            "title_color": "",
+            "title_custom_font": true,
+            "title_font": "ebgaramond_n7",
+            "title_font_name": "",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 25,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_WRXKFc": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>That’s why we’ve dedicated ourselves to understanding the challenges your skin faces and creating the most effective solution possible.</p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "josefin_slab_n6",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 25,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "title_zK7xw6",
+        "textblock_WRXKFc"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 660,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "pxu_multicolumn_3jDHPF": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_M9hWVV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/la-luer-mira-facial-treatment-system-pro-la-luer-aida-bicaj-1977347.png",
+            "image_link": "shopify://products/la-luer-mira-facial-treatment-system-pro",
+            "heading": "LA LUER MIRA FACIAL TREATMENT SYSTEM PRO",
+            "text": "<p>Lift Device + Conductive Gel</p>",
+            "button_label": "Shop now",
+            "button_url": "shopify://products/la-luer-mira-facial-treatment-system-pro",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_egMRMK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/la-luer-hyaluronic-conductive-treatment-gel-la-luer-aida-bicaj-3681571.webp",
+            "image_link": "shopify://products/elixir-de-volume-lip-volumizing-serum",
+            "heading": "La Luer Hyaluronic Conductive Treatment Gel",
+            "text": "<p>Conductive Gel for Mira device</p>",
+            "button_label": "Shop now",
+            "button_url": "shopify://products/la-luer-hyaluronic-conductive-treatment-gel",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_nt9yQP": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/la-luer-thermoactivated-serum-gel-mask-b0x-of-5-la-luer-aida-bicaj-3281464.png",
+            "image_link": "shopify://products/la-luer-thermoactivated-serum-gel-mask-b0x-of-5",
+            "heading": "LA LUER THERMOACTIVATED SERUM GEL MASK",
+            "text": "<p>Hydrating & Renewing Mask</p>",
+            "button_label": "Shop now",
+            "button_url": "shopify://products/la-luer-thermoactivated-serum-gel-mask-b0x-of-5",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_M9hWVV",
+        "column_egMRMK",
+        "column_nt9yQP"
+      ],
+      "settings": {
+        "section_heading": "",
+        "section_heading_size": 40,
+        "section_heading_size_mobile": 30,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 3,
+        "desktop_content_alignment": "center",
+        "block_heading_size": 24,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "background_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "qq_basic_text_block_rkwTay": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "textblock_bHWdcr": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>Personalize La Luer®<br/>to Your Skin's Needs.</p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "josefin_slab_n6",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 43,
+            "textblock_line_height": 45,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "textblock_bHWdcr"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 600,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "featured_collection_FYq3Et": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "La Luer",
+        "collection_description": true,
+        "collection_view_all": false,
+        "collection": "la-luer",
+        "collection_style": "grid",
+        "products_per": 3,
+        "products_limit": 9,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_3X8iJr": {
+      "type": "divider",
+      "name": "Divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "multicolumn_videos_3rtVXj": {
+      "type": "multicolumn-videos",
+      "name": "Multicolumn videos (3)",
+      "settings": {
+        "section_heading": "HEALTHIER SKIN IN THREE STEPS.",
+        "section_heading_size": 30,
+        "section_heading_size_mobile": 20,
+        "heading_position": "center",
+        "image_ratio": "portrait",
+        "mobile_image_ratio": "portrait",
+        "desktop_columns": 3,
+        "mobile_columns": "1",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "block_heading_size": 24,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "text_color": "#000000",
+        "background_color": "#F8F8F8",
+        "background_gradient": "",
+        "video_1_show": true,
+        "video_1_shopify_video": "shopify://files/videos/1st-step.mp4",
+        "video_1_video_link": "",
+        "video_1_heading": "1. PREP",
+        "video_1_text": "<h2></h2><ul><li>Essential for maximal delivery of Microcurrents & Ultrasonic Currents.</li><li>Tri molecular weight hyaluronic acid deeply HYDRATES, PLUMPS, & BRIGHTENS skin.</li><li>Plant extracts reduce redness and soothes skin.</li></ul>",
+        "video_1_button_label": "Learn more",
+        "video_1_button_url": "",
+        "video_1_button_style": "fill",
+        "video_1_button_background_color": "#000000",
+        "video_1_button_text_color": "#FFFFFF",
+        "video_2_show": true,
+        "video_2_shopify_video": "shopify://files/videos/2nd-Step.mp4",
+        "video_2_video_link": "",
+        "video_2_heading": "2. TREAT",
+        "video_2_text": "<ul><li>DETOX to clarify and target blemishes.</li><li>TONE to smooth and reduce appearance of pores.</li><li>LIFT to sculpt and visibly soften fine lines.</li><li>INFUSE to deeply hydrate and brighten skin</li></ul>",
+        "video_2_button_label": "",
+        "video_2_button_url": "",
+        "video_2_button_style": "fill",
+        "video_2_button_background_color": "#000000",
+        "video_2_button_text_color": "#FFFFFF",
+        "video_3_show": true,
+        "video_3_shopify_video": "shopify://files/videos/3rd-Step.mp4",
+        "video_3_video_link": "",
+        "video_3_heading": "3. GLOW",
+        "video_3_text": "<ul><li>Reduced appearance of fine lines and wrinkles.</li><li>Minimized appearance of pores.</li><li>Lifted and sculpted jawline.</li><li>Soft, supple, and deeply hydrated skin.</li></ul>",
+        "video_3_button_label": "",
+        "video_3_button_url": "",
+        "video_3_button_style": "fill",
+        "video_3_button_background_color": "#000000",
+        "video_3_button_text_color": "#FFFFFF",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "newsletter_Ufjpzj": {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_ikiFAG",
+    "qq_basic_text_block_R6DUki",
+    "pxu_multicolumn_3jDHPF",
+    "qq_basic_text_block_rkwTay",
+    "featured_collection_FYq3Et",
+    "divider_3X8iJr",
+    "multicolumn_videos_3rtVXj",
+    "newsletter_Ufjpzj"
+  ]
+}

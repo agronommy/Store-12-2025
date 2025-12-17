@@ -1,0 +1,619 @@
+{%- comment -%}
+  🧰 Particle banner section
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading | strip
+  assign text_color = section.settings.text_color
+  assign text_width_desktop = section.settings.text_width_desktop
+  assign text_width_mobile = section.settings.text_width_mobile
+  assign background_link = section.settings.background_link
+
+  assign background = section.settings.background_color
+  if section.settings.background_gradient != blank
+    assign background = section.settings.background_gradient
+  endif
+
+  assign font = section.settings.font
+  assign font_family = font.family | append: ', ' | append: font.fallback_families | json
+
+  assign desktop_aspect_ratio = section.settings.desktop_aspect_ratio | split: ':'
+  assign desktop_aspect_ratio_a = desktop_aspect_ratio[0] | plus: 0.0
+  assign desktop_aspect_ratio_b = desktop_aspect_ratio[1] | plus: 0.0
+  assign desktop_aspect_ratio = desktop_aspect_ratio_a | divided_by: desktop_aspect_ratio_b
+
+  assign mobile_aspect_ratio = section.settings.mobile_aspect_ratio | split: ':'
+  assign mobile_aspect_ratio_a = mobile_aspect_ratio[0] | plus: 0.0
+  assign mobile_aspect_ratio_b = mobile_aspect_ratio[1] | plus: 0.0
+  assign mobile_aspect_ratio = mobile_aspect_ratio_a | divided_by: mobile_aspect_ratio_b
+
+  assign duration = section.settings.duration
+
+  if section.blocks.size < 1 and background_link != blank
+    assign is_background_link = true
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-particle-banner
+  "
+  style='
+    --pxu-section-background: {{ background }};
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-height-under-text: 0;
+    --pxu-section-aspect-ratio-desktop: {{ desktop_aspect_ratio }};
+    --pxu-section-aspect-ratio-mobile: {{ mobile_aspect_ratio }};
+    --pxu-section-duration: {{ duration }}s;
+    --pxu-section-desktop-image: url({{ section.settings.desktop_image | image_url: width: 1280 }});
+    --pxu-section-mobile-image: url({{ section.settings.mobile_image | image_url: width: 420 }});
+    --pxu-section-image-overlay-opacity: {{ 100 | minus: section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    --pxu-section-desktop-image-position: {{ section.settings.desktop_image.presentation.focal_point }};
+    --pxu-section-mobile-image-position: {{ section.settings.mobile_image.presentation.focal_point }};
+  '
+  data-pxu-particle-banner
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-particle-banner",
+      "className": "ParticleBannerSection",
+      "name": "Particle banner",
+      "version": "1.0.0",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}",
+      "backgroundGradient": "{{ section.settings.background_gradient }}",
+      "textDesktop": "{{ section.settings.text_desktop | newline_to_br | strip_newlines | replace: '<br />', '\n' }}",
+      "textMobile": "{{ section.settings.text_mobile | newline_to_br | strip_newlines | replace: '<br />', '\n' }}",
+      "textWidthDesktop": "{{ text_width_desktop }}",
+      "textWidthMobile": "{{ text_width_mobile }}",
+      "color": "{{ section.settings.text_color }}",
+      "fontFamily": {{ font_family }},
+      "aspectRatioDesktop": "{{ desktop_aspect_ratio }}",
+      "aspectRatioMobile": "{{ mobile_aspect_ratio }}",
+      "duration": "{{ duration }}",
+      "lineHeight": "{{ section.settings.line_height }}"
+    }
+  </script>
+
+  <style class="pxu-particle-banner__font-face" type="text/css">{{ font | font_face }}</style>
+
+  {% capture inner %}
+    <div class="pxu-particle-banner__webgl-container">
+      <canvas data-pxu-chladni></canvas>
+    </div>
+    <h1
+      class="pxu-particle-banner__a11y-text"
+      style='
+        font-family: {{ font.family }}, {{ font.fallback_families }};
+        color: {{ section.settings.text_color }};
+      '
+    >
+      <span class="pxu-particle-banner__a11y-text-desktop">{{ section.settings.text_desktop | newline_to_br }}</span>
+      <span class="pxu-particle-banner__a11y-text-mobile">{{ section.settings.text_mobile | newline_to_br }}</span>
+    </h1>
+  
+    <div class="pxu-section__container pxu-particle-banner__container">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign button_1_label = block.settings.button_1_label | escape
+          assign button_1_url = block.settings.button_1_url
+          assign button_1_style = block.settings.button_1_style
+          assign button_1_background_color = block.settings.button_1_background_color
+          assign button_1_text_color = block.settings.button_1_text_color
+          assign button_1_brightness = button_1_background_color | color_brightness
+          assign button_1_brightness_mod = 'light-on-dark'
+          if button_1_brightness > 127.5
+            assign button_1_brightness_mod = 'dark-on-light'
+          endif
+  
+          assign button_2_label = block.settings.button_2_label | escape
+          assign button_2_url = block.settings.button_2_url
+          assign button_2_style = block.settings.button_2_style
+          assign button_2_background_color = block.settings.button_2_background_color
+          assign button_2_text_color = block.settings.button_2_text_color
+          assign button_2_brightness = button_2_background_color | color_brightness
+          assign button_2_brightness_mod = 'light-on-dark'
+          if button_2_brightness > 127.5
+            assign button_2_brightness_mod = 'dark-on-light'
+          endif
+        -%}
+  
+        {%- if button_1_label != blank or button_2_label != blank -%}
+          <div
+            class="
+              pxu-btn-group
+              pxu-rich-text__btn-group
+              {% if forloop.first %}pxu-rich-text__first-block {% endif %}
+            "
+          >
+            {%- if button_1_label != blank -%}
+              <a
+                class="
+                  pxu-btn
+                  pxu-btn--{{ button_1_style }}
+                  pxu-btn--{{ button_1_brightness_mod }}
+                "
+                style="
+                  --pxu-btn-background-color: {{ button_1_background_color }};
+                  --pxu-btn-text-color: {{ button_1_text_color }};
+                "
+                href="{{ button_1_url }}"
+              >
+                {{- button_1_label -}}
+              </a>
+            {%- endif -%}
+  
+            {%- if button_2_label != blank -%}
+              <a
+                class="
+                  pxu-btn
+                  pxu-btn--{{ button_2_style }}
+                  pxu-btn--{{ button_2_brightness_mod }}
+                "
+                style="
+                  --pxu-btn-background-color: {{ button_2_background_color }};
+                  --pxu-btn-text-color: {{ button_2_text_color }};
+                "
+                href="{{ button_2_url }}"
+              >
+                {{- button_2_label -}}
+              </a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  {% endcapture %}
+
+  {% if is_background_link %}
+    <a href="{{ background_link }}" class="pxu-particle-banner__link" aria-label="{{ section.settings.text_desktop | escape }}">
+      {{ inner }}
+    </a>
+  {% else %}
+    {{ inner }}
+  {% endif %}
+</section>
+
+<script type="module">import*as u from"https://cdnjs.cloudflare.com/ajax/libs/three.js/0.166.1/three.module.min.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const a of document.querySelectorAll('link[rel="modulepreload"]'))i(a);new MutationObserver(a=>{for(const n of a)if(n.type==="childList")for(const o of n.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function t(a){const n={};return a.integrity&&(n.integrity=a.integrity),a.referrerPolicy&&(n.referrerPolicy=a.referrerPolicy),a.crossOrigin==="use-credentials"?n.credentials="include":a.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function i(a){if(a.ep)return;a.ep=!0;const n=t(a);fetch(a.href,n)}})();const F="modulepreload",S=function(e,s){return new URL(e,s).href},W={},R=function(s,t,i){let a=Promise.resolve();if(t&&t.length>0){const o=document.getElementsByTagName("link"),h=document.querySelector("meta[property=csp-nonce]"),g=(h==null?void 0:h.nonce)||(h==null?void 0:h.getAttribute("nonce"));a=Promise.allSettled(t.map(m=>{if(m=S(m,i),m in W)return;W[m]=!0;const c=m.endsWith(".css"),d=c?'[rel="stylesheet"]':"";if(!!i)for(let l=o.length-1;l>=0;l--){const p=o[l];if(p.href===m&&(!c||p.rel==="stylesheet"))return}else if(document.querySelector(`link[href="${m}"]${d}`))return;const f=document.createElement("link");if(f.rel=c?"stylesheet":F,c||(f.as="script"),f.crossOrigin="",f.href=m,g&&f.setAttribute("nonce",g),document.head.appendChild(f),c)return new Promise((l,p)=>{f.addEventListener("load",l),f.addEventListener("error",()=>p(new Error(`Unable to preload CSS for ${m}`)))})}))}function n(o){const h=new Event("vite:preloadError",{cancelable:!0});if(h.payload=o,window.dispatchEvent(h),!h.defaultPrevented)throw o}return a.then(o=>{for(const h of o||[])h.status==="rejected"&&n(h.reason);return s().catch(n)})};var A=`uniform vec2 uResolution;
+uniform float uSize;
+uniform float uTime1;
+uniform float uTime2;
+uniform float uDuration;
+uniform float uFrequency;
+
+attribute vec3 aToPosition;
+attribute float aRandomness;
+
+void main()
+{
+  
+  float duration = uDuration * 10.0;
+
+  
+  float t1 = clamp(uTime1 / duration, 0.0, 1.0);
+  t1 = 1.0 - pow(1.0 - t1, 50.0); 
+  float t2 = clamp(uTime2 / duration, 0.0, 1.0);
+  t2 = 1.0 - pow(1.0 - t2, 50.0); 
+
+  
+  vec2 offCoord = mix(position.xy, aToPosition.xy, 0.05);
+  float strength = sin(uTime1 * uFrequency * aRandomness) * 0.5 + 0.5;
+  vec2 endCoord = mix(position.xy, offCoord, strength);
+  vec2 nextXY = endCoord;
+
+  
+  vec2 endCoord2 = aToPosition.xy + (sin((uTime2 * uFrequency) + position.xy + nextXY) * 0.03);
+  nextXY = mix(nextXY, endCoord2.xy, t2);
+
+  
+  float uAmplitude = 0.25;
+  float zAnimation = uAmplitude * sin(uFrequency * uTime1 * aRandomness) + uAmplitude;
+  float tZ = clamp(uTime1 / (duration * 0.1), 0.0, 0.95);
+  float nextZ = mix(zAnimation, aToPosition.z, 0.1);
+  nextZ = mix(0.0, nextZ, tZ);
+
+  
+  vec4 modelPosition = modelMatrix * vec4(nextXY, nextZ, 1.0);
+  vec4 viewPosition = viewMatrix * modelPosition;
+  vec4 projectedPosition = projectionMatrix * viewPosition;
+  gl_Position = projectedPosition;
+
+  
+  gl_PointSize = uSize * uResolution.y;
+  gl_PointSize *= (1.0 / - viewPosition.z);
+}`,E=`uniform vec3 uColor;
+
+void main()
+{
+    gl_FragColor = vec4(uColor, 1.0);
+}`;function H(e,s){if(e.length<=s)return e;const t=e.length/s,i=[];for(let a=0;a<s;a++)i.push(e[Math.floor(a*t)]);return i}function I(e={}){var x;e.text=((x=e.text)==null?void 0:x.length)>0?e.text:"testing",e.maxPoints=e.maxPoints??2e4,e.lineHeight=e.lineHeight??1.1,e.fontFamily=e.fontFamily??"sans-serif",e.fontStyle=e.fontStyle??"normal",e.fontWeight=e.fontWeight??"normal";const s=e.maxPoints*.0496,t=document.createElement("canvas"),i=t.getContext("2d"),a=`${e.fontStyle} ${e.fontWeight} ${s}px ${e.fontFamily}`;i.font=a;const n=[],o=s*e.lineHeight,h=e.text.split(`
+`);for(const r of h)n.push(r);let g=0;for(const r of n){const M=i.measureText(r).width;g=Math.max(g,M)}const m=g,c=o*n.length,d=Math.floor(m*1.1),w=Math.floor(c*1.5);t.width=d,t.height=w,i.font=a,i.textAlign="center",i.textBaseline="top",i.fillStyle="#fff",i.fillRect(0,0,t.width,t.height),i.fillStyle="#000";for(let r=0;r<n.length;r++)i.fillText(n[r],d-m/2,(w-c)/2+r*o);const f=i.getImageData(0,0,d,w).data,l=[];for(let r=f.length;r>=0;r-=4)if(f[r]<255){const T=r/4%d,M=w-Math.floor(Math.floor(r/d)/4);l.push({x:T,y:M})}const p=H(l,e.maxPoints),b=Math.min(...p.map(r=>r.x)),P=Math.min(...p.map(r=>r.y));p.forEach(r=>{r.x-=b,r.y-=P});const y=Math.max(...p.map(r=>r.x)),v=Math.max(...p.map(r=>r.y));return{points:p,pixelWidth:y,pixelHeight:v}}const z=(e,s,t=0)=>Math.pow(Math.random(),s)*e+t,C=(e,s,t=0)=>(Math.random()<.5?1:-1)*Math.pow(Math.random(),s)*e+t,D=(e,s,t,i=0,a=1,n=1)=>{const o=Math.sqrt(e*e+s*s),h=Math.atan2(s,e),g=o/Math.sqrt(Math.cos(h)**2/a**2+Math.sin(h)**2/n**2),m=Math.pow(Math.random(),t.randomnessPower)*t.randomness,c=g+(Math.random()<(1-i)*.5+.5?1:-1)*m,d=c*Math.cos(h),w=c*Math.sin(h);return{x:d,y:w}},k=(e,s,t,i,a)=>{let n=e.x/s,o=e.y/t;return n*=i,o*=a,n-=i/2,o-=a/2,{x:n,y:o}},_=(e,s)=>{const i=e.domElement.width/e.domElement.height,a=s.fov*(Math.PI/180),n=0-s.position.z,o=2*Math.tan(a/2)*Math.abs(n);return{visibleWidth:o*i,visibleHeight:o}};function O(e){const s=I({text:e.text,maxPoints:e.count,fontFamily:e.fontFamily,fontStyle:e.fontStyle,fontWeight:e.fontWeight,lineHeight:e.lineHeight}),t=s.points;e.count=t.length,e.debug&&console.log("true count:",e.count);const i=s.pixelWidth,a=s.pixelHeight,n=i/a;let o=e.visibleWidth*e.textWidth,h=o/n;h>e.visibleHeight*.8&&(h=e.visibleHeight*.8,o=h*n);const g=!e.prevPositions,m=e.randomness*e.textWidth,c=e.randomnessPower,d=e.prevPositions??new Float32Array(e.count*3),w=new Float32Array(e.count*3),f=new Float32Array(e.count*1);let l=[Number.POSITIVE_INFINITY,Number.POSITIVE_INFINITY,Number.NEGATIVE_INFINITY,Number.NEGATIVE_INFINITY];for(let y=0;y<e.count;y++){const v=y*3;g&&(d[v+0]=(Math.random()-.5)*e.visibleWidth,d[v+1]=(Math.random()-.5)*e.visibleHeight);const x=k(t[y],i,a,o,h),r=D(x.x,x.y,e,.5);r.x=C(m*.3,c*2,r.x),r.y=C(m*.3,c*2,r.y),w[v+0]=r.x,w[v+1]=r.y,f[y]=z(1,1),l=[x.x<l[0]?x.x:l[0],x.y<l[1]?x.y:l[1],x.x>l[2]?x.x:l[2],x.y>l[3]?x.y:l[3]]}const p=(l[3]-l[1])/2;for(let y=1;y<e.count;y++)w[y*3+1]-=l[3]-p;const b=l[2]-l[0],P=l[3]-l[1];return{fromPositions:d,toPositions:w,randoms:f,graphicBoxWidth:b,graphicBoxHeight:P}}const N=e=>{const s=e.entries(),t=[];let i=s.next();for(;i.done===!1;)t.push(i.value),i=s.next();return t};class q{constructor(s,t,i){this.canvas=s,this.particles={},this.params={},this.callback=i,this.params.textDesktop=(t==null?void 0:t.textDesktop)||"pourquoi",this.params.textMobile=(t==null?void 0:t.textMobile)||this.params.textDesktop,this.params.textWidthDesktop=(t==null?void 0:t.textWidthDesktop)??.4,this.params.textWidthMobile=(t==null?void 0:t.textWidthMobile)??.8,this.params.color=(t==null?void 0:t.color)||"#f2b021",this.params.fontFamily=(t==null?void 0:t.fontFamily)||"sans-serif",this.params.aspectRatioMobile=(t==null?void 0:t.aspectRatioMobile)??3/2,this.params.aspectRatioDesktop=(t==null?void 0:t.aspectRatioDesktop)??21/9,this.params.duration=(t==null?void 0:t.duration)??3,this.params.lineHeight=(t==null?void 0:t.lineHeight)??1.2,this.params.count=0,this.params.size=20,this.params.fromWidth=10,this.params.fromHeight=7,this.params.randomness=25,this.params.randomnessPower=25,this.params.frequency=10,this.params.text="",this.params.textWidth=0,this.params.minHeight=400,this.params.width=window.innerWidth,this.params.height=window.innerWidth/this.params.aspectRatioMobile,this.params.pixelRatio=Math.min(window.devicePixelRatio,2),this.params.debug=!1,this.params.fontFace=null,this.params.fontStyle="",this.params.fontWeight="",this.observer=null,this.animationFrame=null,this.resizeTimeout=null,this.shouldMorph=!1,this.morphClock=null,this.scene=null,this.camera=null,this.renderer=null,this.controls=null,this.textDimensions=[0,0],this.lastResize=document.body.clientWidth,!((t==null?void 0:t.textDesktop.length)<1)&&this.onMount()}onMount(){const t=N(document.fonts).find(({family:a})=>this.params.fontFamily.indexOf(a)>-1);this.params.fontStyle=(t==null?void 0:t.style)||"normal",this.params.fontWeight=(t==null?void 0:t.weight)||"normal";const i=`${this.params.fontStyle} ${this.params.fontWeight} 12px ${this.params.fontFamily}`;document.fonts.load(i).then(()=>{var a;this.setHeight(),this.setup(),this.params.debug&&this.debug(),this.plate(),this.initIntersectionObserver(),(a=this.callback)==null||a.call(this),window.addEventListener("resize",this.onResize.bind(this))}).catch(a=>{console.error("Error loading font:",a)})}onUnmount(){this.destroyPlate(),this.observer.unobserve(this.canvas)}initIntersectionObserver(){this.observer=new IntersectionObserver((s,t)=>{s.forEach(i=>{i.isIntersecting&&(this.shouldMorph=!0,this.animate(),t.unobserve(this.canvas))})},{threshold:.66}),this.observer.observe(this.canvas)}setup(){this.scene=new u.Scene,this.camera=new u.PerspectiveCamera(35,this.params.width/this.params.height,.1,100),this.camera.position.set(0,0,8*2),this.scene.add(this.camera),this.renderer=new u.WebGLRenderer({canvas:this.canvas,antialias:!0,alpha:!0}),this.renderer.setSize(this.params.width,this.params.height),this.renderer.setPixelRatio(this.params.pixelRatio)}setHeight(){const s=window.matchMedia("(max-width: 719px)").matches?this.params.aspectRatioMobile:this.params.aspectRatioDesktop;this.params.height=window.innerWidth/s}setCount(){this.params.count=window.matchMedia("(max-width: 719px)").matches?1e4:2e4}setTextParameters(){const s=window.matchMedia("(max-width: 719px)").matches;this.params.text=s?this.params.textMobile:this.params.textDesktop,this.params.textWidth=s?this.params.textWidthMobile:this.params.textWidthDesktop}destroyPlate(){this.stopAnimation(),this.particles.geometry.dispose(),this.particles.material.dispose(),this.scene.remove(this.particles.points),this.particles={}}plate(s=null){this.particles.points&&this.particles.geometry&&this.particles.material&&this.destroyPlate(),this.setCount(),this.setTextParameters();const{visibleWidth:t,visibleHeight:i}=_(this.renderer,this.camera),a=this.camera.fov*Math.PI/180,o=2*Math.tan(a/2)/this.params.height*this.params.size,{fromPositions:h,toPositions:g,randoms:m,graphicBoxWidth:c,graphicBoxHeight:d}=O({text:this.params.text,prevPositions:s,count:this.params.count,fontFamily:this.params.fontFamily,fontStyle:this.params.fontStyle,fontWeight:this.params.fontWeight,debug:this.params.debug,textWidth:this.params.textWidth,fromWidth:this.params.fromWidth,fromHeight:this.params.fromHeight,randomness:this.params.randomness,randomnessPower:this.params.randomnessPower,renderer:this.renderer,camera:this.camera,lineHeight:this.params.lineHeight,visibleWidth:t,visibleHeight:i});this.textDimensions=[c/t,d/i],this.particles.geometry=new u.BufferGeometry,this.particles.geometry.setAttribute("position",new u.BufferAttribute(h,3)),this.particles.geometry.setAttribute("aToPosition",new u.BufferAttribute(g,3)),this.particles.geometry.setAttribute("aRandomness",new u.BufferAttribute(m,1)),this.particles.material=new u.ShaderMaterial({vertexShader:A,fragmentShader:E,uniforms:{uSize:new u.Uniform(o),uResolution:new u.Uniform(new u.Vector2(this.params.width*this.params.pixelRatio,this.params.height*this.params.pixelRatio)),uColor:{value:new u.Color(this.params.color).convertLinearToSRGB()},uTime1:{value:0},uTime2:{value:0},uFrequency:{value:this.params.frequency},uDuration:{value:this.params.duration}}}),this.particles.points=new u.Points(this.particles.geometry,this.particles.material),this.particles.points.onAfterRender=()=>{this.canvas.setAttribute("data-loaded","true")},this.scene.add(this.particles.points)}animate(){if(!this.particles.material){setTimeout(()=>{this.animate()},100);return}if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){this.particles.material.uniforms.uTime1.value=1e4,this.particles.material.uniforms.uTime2.value=1e4,this.renderer.render(this.scene,this.camera);return}const s=new u.Clock,t=()=>{const i=s.getElapsedTime();this.shouldMorph&&(this.morphClock=this.morphClock??i,this.particles.material.uniforms.uTime2.value=i-this.morphClock),this.particles.material.uniforms.uTime1.value=i,this.controls&&this.controls.update(),this.renderer.render(this.scene,this.camera),this.animationFrame=window.requestAnimationFrame(t)};t()}stopAnimation(){this.animationFrame&&(cancelAnimationFrame(this.animationFrame),this.animationFrame=null)}onResize(){Math.abs(this.lastResize-document.body.clientWidth)<10||(clearTimeout(this.resizeTimeout),this.resizeTimeout=setTimeout(()=>{this.setHeight(),this.params.width=window.innerWidth,this.params.pixelRatio=Math.min(window.devicePixelRatio,2),this.camera.aspect=this.params.width/this.params.height,this.camera.updateProjectionMatrix(),this.renderer.setSize(this.params.width,this.params.height),this.renderer.setPixelRatio(this.params.pixelRatio),this.destroyPlate(),this.plate(),this.animate(),this.lastResize=document.body.clientWidth},200))}getTextBoxPercentCoordinates(){this.setTextParameters();const[s,t]=this.textDimensions,i=(1-s)/2*100,a=(1-t)/2*100,n={x:i,y:a},o={x:i+s*100,y:a+t*100};return{topLeft:n,bottomRight:o}}debug(){R(async()=>{const{OrbitControls:s}=await import("three/addons/controls/OrbitControls.js");return{OrbitControls:s}},[],import.meta.url).then(({OrbitControls:s})=>{this.controls=new s(this.camera,this.canvas),this.controls.enableDamping=!0}),R(async()=>{const{GUI:s}=await import("lil-gui");return{GUI:s}},[],import.meta.url).then(({GUI:s})=>{const t=new s({width:340}),i=()=>{this.destroyPlate(),this.plate(),this.animate()};t.addColor(this.params,"color").onFinishChange(()=>{this.params.color=new u.Color(this.params.color),i()}),t.add(this.params,"textDesktop").onChange(i),t.add(this.params,"textMobile").onChange(i),t.add(this.params,"textWidthDesktop").min(.01).max(1).step(.01).onFinishChange(i),t.add(this.params,"textWidthMobile").min(.01).max(1).step(.01).onFinishChange(i),t.add(this.params,"count").min(100).max(3e4).step(100).onFinishChange(i),t.add(this.params,"size").min(1).max(100).step(1).onFinishChange(i),t.add(this.params,"randomness").min(0).max(25).step(.001).onFinishChange(i),t.add(this.params,"randomnessPower").min(1).max(50).step(.001).onFinishChange(i),t.add(this.params,"frequency").min(.01).max(20).step(.01).onFinishChange(i),t.add(this.params,"duration").min(.5).max(10).step(.5).onFinishChange(i)})}}window.PxuThemeSections=window.PxuThemeSections??{};window.PxuThemeSections.Chladni=q;
+</script>
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-particle-banner{background:var(--pxu-section-background);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);position:relative}@media only screen and (min-width:480px){.pxu-particle-banner{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0)}}.pxu-particle-banner:after{background-image:var(--pxu-section-mobile-image,var(--pxu-section-desktop-image));background-position:var(--pxu-section-mobile-image-position,var(--pxu-section-desktop-image-position,center));background-size:cover;content:"";height:100%;left:0;opacity:var(--pxu-section-image-overlay-opacity,1);pointer-events:none;position:absolute;top:0;width:100%;z-index:1}@media only screen and (min-width:720px){.pxu-particle-banner:after{background-image:var(--pxu-section-desktop-image,var(--pxu-section-mobile-image));background-position:var(--pxu-section-desktop-image-position,var(--pxu-section-mobile-image-position,center))}}.pxu-particle-banner__webgl-container{align-items:center;aspect-ratio:var(--pxu-section-aspect-ratio-mobile);display:flex;justify-content:center;position:relative;z-index:2}@media only screen and (min-width:720px){.pxu-particle-banner__webgl-container{aspect-ratio:var(--pxu-section-aspect-ratio-desktop)}}.pxu-particle-banner__link{display:block;text-decoration:none}.pxu-particle-banner__container{align-items:center;bottom:0;display:flex;justify-content:center;left:50%;min-height:var(--pxu-section-height-under-text);opacity:0;padding:var(--pxu-space-3) var(--pxu-space-4);position:absolute;transform:translateX(-50%);transition:opacity var(--pxu-section-duration) ease-out;width:100%;z-index:3}@media only screen and (min-width:480px){.pxu-particle-banner__container{padding-left:var(--pxu-space-6);padding-right:var(--pxu-space-6)}}.pxu-particle-banner.pxu-particle-banner--unsupported .pxu-particle-banner__container,.pxu-particle-banner:has(canvas[data-loaded=true]) .pxu-particle-banner__container{opacity:1}@media only screen and (max-width:719px){.pxu-particle-banner .pxu-btn-group:has(.pxu-btn:nth-child(2)){flex-wrap:nowrap;width:100%}.pxu-particle-banner .pxu-btn-group:has(.pxu-btn:nth-child(2))>*{min-width:0}}.pxu-particle-banner__a11y-text{left:-99999px;margin:0;position:absolute;text-align:center;top:50%;transform:translateY(-50%);width:100%;z-index:1}.pxu-particle-banner--unsupported .pxu-particle-banner__a11y-text{left:0;z-index:3}.pxu-particle-banner__a11y-text-desktop,.pxu-particle-banner__a11y-text-mobile{line-height:inherit!important}.pxu-particle-banner__a11y-text-mobile{display:block}.pxu-particle-banner__a11y-text-desktop{display:none}@media only screen and (min-width:720px){.pxu-particle-banner__a11y-text-mobile{display:none}.pxu-particle-banner__a11y-text-desktop{display:block}}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+
+function webgl_support() {
+  try {
+    var canvas = document.createElement('canvas');
+    return !!window.WebGLRenderingContext &&
+      (canvas.getContext('webgl') || canvas.getContext('experimental-webgl'));
+  } catch (e) {
+    return false;
+  }
+};
+
+class ParticleBannerSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.container = this.$root.querySelector('[data-pxu-chladni]');
+
+    if (webgl_support() && !Shopify.visualPreviewMode) {
+      this.onMount()
+    } else {
+      this.$root.classList.add('pxu-particle-banner--unsupported');
+    }
+  }
+
+  onMount() {
+    const params = {
+      clearColor: this.data.clearColor,
+      textDesktop: this.data.textDesktop,
+      textMobile: this.data.textMobile,
+      textWidthDesktop: parseInt(this.data.textWidthDesktop, 10) / 100,
+      textWidthMobile: parseInt(this.data.textWidthMobile, 10) / 100,
+      color: this.data.color,
+      fontFamily: this.data.fontFamily,
+      aspectRatioMobile: this.data.aspectRatioMobile,
+      aspectRatioDesktop: this.data.aspectRatioDesktop,
+      duration: this.data.duration,
+      lineHeight: parseFloat(this.data.lineHeight)
+    };
+
+    const loadChladni = () => {
+      this.checkInterval = setInterval(() => {
+        if (typeof window.PxuThemeSections?.Chladni === 'function') {
+          clearInterval(this.checkInterval);
+          this.chladni = new window.PxuThemeSections.Chladni(this.container, params, () => {
+            const { bottomRight } = this.chladni.getTextBoxPercentCoordinates();
+            this.$root.style.setProperty(
+              '--pxu-section-height-under-text',
+              `${100 - bottomRight.y}%`
+            );
+          });
+        }
+      }, 500);
+    };
+
+    loadChladni();
+  }
+
+  onUnmount() {
+    clearInterval(this.checkInterval);
+    this.events.unregisterAll();
+    if (this.chladni) this.chladni.onUnmount();
+  }
+}
+
+document.querySelectorAll('[data-pxu-particle-banner]').forEach(($section) => {
+  Section.init($section, ParticleBannerSection);
+});
+
+// export class for theme editor instance management
+if (Shopify.designMode) {
+  window.PxuThemeSections.ParticleBannerSection = ParticleBannerSection;
+}{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.particle_banner.name",
+  "class": "pxu-particle-banner-section",
+  "max_blocks": 1,
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "t:pxu_sections.sections.particle_banner.for_best_performance"
+    },
+    {
+      "type": "textarea",
+      "id": "text_desktop",
+      "label": "t:pxu_sections.common.text.name",
+      "default": "t:pxu_sections.sections.particle_banner.text_desktop.default"
+    },
+    {
+      "type": "font_picker",
+      "id": "font",
+      "label": "t:pxu_sections.common.typography.font",
+      "default": "instrument_sans_i7"
+    },
+    {
+      "type": "range",
+      "id": "line_height",
+      "min": 0.8,
+      "max": 2.0,
+      "step": 0.1,
+      "label": "t:pxu_sections.common.typography.line_height",
+      "default": 1.2
+    },
+    {
+      "type": "range",
+      "id": "text_width_desktop",
+      "min": 30,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "t:pxu_sections.sections.particle_banner.desktop_text_width.label",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "t:pxu_sections.common.animations.animation_duration",
+      "default": 4,
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "unit": "s"
+    },
+    {
+      "type": "select",
+      "id": "desktop_aspect_ratio",
+      "label": "t:pxu_sections.common.aspect_ratio.desktop_aspect_ratio",
+      "default": "32:9",
+      "options": [
+        {
+          "value": "3:2",
+          "label": "t:pxu_sections.common.aspect_ratio.landscape"
+        },
+        {
+          "value": "16:9",
+          "label": "t:pxu_sections.common.aspect_ratio.wide"
+        },
+        {
+          "value": "21:9",
+          "label": "t:pxu_sections.common.aspect_ratio.ultra_wide"
+        },
+        {
+          "value": "32:9",
+          "label": "t:pxu_sections.common.aspect_ratio.ultra_wide_plus"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "t:pxu_sections.common.image.image"
+    },
+    {
+      "type": "url",
+      "id": "background_link",
+      "label": "t:pxu_sections.sections.particle_banner.background_link.label",
+      "info": "t:pxu_sections.sections.particle_banner.background_link.info"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "textarea",
+      "id": "text_mobile",
+      "label": "t:pxu_sections.common.text.mobile_text",
+      "info": "t:pxu_sections.sections.particle_banner.text_mobile.info"
+    },
+    {
+      "type": "range",
+      "id": "text_width_mobile",
+      "min": 30,
+      "max": 90,
+      "step": 1,
+      "unit": "%",
+      "label": "t:pxu_sections.sections.particle_banner.mobile_text_width.label",
+      "default": 80
+    },
+    {
+      "type": "select",
+      "id": "mobile_aspect_ratio",
+      "label": "t:pxu_sections.common.aspect_ratio.mobile_aspect_ratio",
+      "default": "3:2",
+      "options": [
+        {
+          "value": "4:5",
+          "label": "t:pxu_sections.common.aspect_ratio.vertical"
+        },
+        {
+          "value": "1:1", 
+          "label": "t:pxu_sections.common.aspect_ratio.square"
+        },
+        {
+          "value": "3:2",
+          "label": "t:pxu_sections.common.aspect_ratio.landscape"
+        },
+        {
+          "value": "16:9",
+          "label": "t:pxu_sections.common.aspect_ratio.wide"
+        },
+        {
+          "value": "21:9",
+          "label": "t:pxu_sections.common.aspect_ratio.ultra_wide"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "t:pxu_sections.common.image.mobile_image"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#FFF"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#000"
+    },
+    {
+      "type": "color_background",
+      "id": "background_gradient",
+      "label": "t:pxu_sections.common.color.background_gradient"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity", 
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:pxu_sections.sections.particle_banner.image_overlay_opacity.label",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+        {
+      "type": "buttons",
+      "name": "t:pxu_sections.common.button.group",
+      "settings": [
+        {
+          "type": "header",
+          "content": "t:pxu_sections.common.button.button_1"
+        },
+        {
+          "type": "text",
+          "id": "button_1_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_1_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_1_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_1_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "default": "#FFFFFF",
+          "info": "t:pxu_sections.common.button.background_color_info"
+        },
+        {
+          "type": "color",
+          "id": "button_1_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#000000"
+        },
+        {
+          "type": "header",
+          "content": "t:pxu_sections.common.button.button_2"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "label": "t:pxu_sections.common.button.label",
+          "default": "t:pxu_sections.common.button.button"
+        },
+        {
+          "type": "url",
+          "id": "button_2_url",
+          "label": "t:pxu_sections.common.button.link"
+        },
+        {
+          "type": "select",
+          "id": "button_2_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "outline"
+        },
+        {
+          "type": "color",
+          "id": "button_2_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "default": "#FFFFFF",
+          "info": "t:pxu_sections.common.button.background_color_info"
+        },
+        {
+          "type": "color",
+          "id": "button_2_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#000000"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.particle_banner.name"
+    }
+  ]
+}
+{% endschema %}

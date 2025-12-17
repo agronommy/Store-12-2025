@@ -1,0 +1,251 @@
+{% comment %}
+  Product structured data
+  https://developers.google.com/search/docs/data-types/products
+{% endcomment %}
+
+{%- assign selected_variant = product.selected_or_first_available_variant | default: product.variants.first -%}
+{%- assign product_image = selected_variant.featured_image | default: product.featured_image -%}
+
+{%- capture product_name -%}
+  {{ product.title | escape }}
+  {%- if selected_variant.title != 'Default Title' and selected_variant.option1 == 'Default Title' -%}
+  - {{ selected_variant.title }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- assign now = 'now' | date: '%Y-%m-%d' | split: '-' -%}
+
+{% capture year_from_now %}
+  {{ now[0] | plus: 1 }}-{{ now[1] }}-{{ now[2] | at_most: 28 }}
+{% endcapture %}
+{%- assign skin_type_labels = '' -%}
+{% comment %}
+  Product structured data
+  additional property: Skin type
+{% endcomment %}
+{%- if product.metafields.shopify["suitable-for-skin-type"].value != blank -%}
+  {%- assign skin_types = product.metafields.shopify["suitable-for-skin-type"].value -%}
+
+  {%- for st in skin_types -%}
+    {%- assign skin_type_labels = skin_type_labels | append: st.label -%}
+    {%- unless forloop.last -%}
+      {%- assign skin_type_labels = skin_type_labels | append: ', ' -%}
+    {%- endunless -%}
+  {%- endfor -%}
+{%- endif -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": {{ product_name | strip_newlines | json }},
+    "image": {{ product_image | image_url: '1024x1024' | prepend: 'https:' | json }},
+    {% if product.description != blank %}
+      "description": "{{ product.description | strip_html | truncate: 500 | escape }}",
+    {% endif %}
+    {% if product.vendor %}
+      "brand": {
+        "@type": "Brand",
+        "name": {{ product.vendor | json }}
+      },
+    {% endif %}
+    {% if selected_variant.sku != blank %}
+      "sku": {{ selected_variant.sku | json }},
+    {% endif %}
+    {% if selected_variant.barcode != blank %}
+      "mpn": {{ selected_variant.barcode | json }},
+    {% endif %}
+    {% if skin_type_labels != '' %}
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "Suitable for skin type",
+        "value": {{ skin_type_labels | json }}
+      }
+    ],
+    {% endif %}
+    "category": "HealthAndBeauty > Skin Care",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": {{ cart.currency.iso_code | json }},
+      "priceValidUntil": {{ year_from_now | json }},
+     "price": {{ selected_variant.price | divided_by: 100.0 | json }},
+   "hasMerchantReturnPolicy": {
+          "@type": "MerchantReturnPolicy",
+          "applicableCountry": "US",
+          "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,
+          "returnMethod": "https://schema.org/ReturnByMail",
+          "returnFees": "https://schema.org/FreeReturn",
+          "refundType": "https://schema.org/FullRefund"
+        },
+     "availability": "https://schema.org/{% if selected_variant.available %}InStock{% else %}OutOfStock{% endif %}",
+      "url": "{{ shop.url }}{{ selected_variant.url }}",
+      "seller": {
+        "@type": "Organization",
+        "name": {{ shop.name | json }}
+  },
+  
+   "shippingDetails": {
+          "@type": "OfferShippingDetails",
+          "shippingRate": {
+            "@type": "MonetaryAmount",
+            "value": 0,
+            "currency": "USD"
+          },
+          "shippingDestination": {
+            "@type": "DefinedRegion",
+            "addressCountry": "US"
+          },
+          "deliveryTime": {
+            "@type": "ShippingDeliveryTime",
+            "handlingTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 0,
+              "maxValue": 1,
+              "unitCode": "DAY"
+            },
+            "transitTime": {
+              "@type": "QuantitativeValue",
+              "minValue": 1,
+              "maxValue": 3,
+              "unitCode": "DAY"
+            }
+          }
+        }
+      }
+    }
+  }
+</script>
+{%- assign desc = product.description | default: '' -%}
+
+{%- comment -%}
+  HOWTO SCHEMA FROM TAB 3 ("How to Use Lotion P50")
+  Targets structure:
+
+  <li id="tab3">
+    <h2>How to Use ...</h2>
+    <ul>
+      <li><strong>Step 1:</strong> ...</li>
+      <li><strong>Step 2:</strong> ...</li>
+      <li><strong>Step 3:</strong> ...</li>
+    </ul>
+    <p>Additional note...</p>
+  </li>
+{%- endcomment -%}
+
+{%- if desc contains 'id="tab3"' -%}
+  {%- assign tab3_block = desc
+    | split: 'id="tab3"'
+    | last
+    | split: 'id="tab4"'
+    | first
+  -%}
+
+  {%- assign howto_ul_block = tab3_block
+    | split: '<ul>'
+    | last
+    | split: '</ul>'
+    | first
+  -%}
+
+  {%- assign howto_items = howto_ul_block | split: '<li>' -%}
+
+  {%- assign non_empty_steps = 0 -%}
+  {%- for raw in howto_items offset: 1 -%}
+    {%- assign step_text = raw | split: '</li>' | first | strip_html | strip_newlines | strip -%}
+    {%- if step_text != '' -%}
+      {%- assign non_empty_steps = non_empty_steps | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% if non_empty_steps > 0 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "How to use {{ product.title | strip_html | escape }}",
+    "step": [
+      {%- assign step_index = 0 -%}
+      {% for raw in howto_items offset:1 %}
+        {%- assign step_text = raw | split: '</li>' | first | strip_html | strip_newlines | strip -%}
+        {%- if step_text != '' -%}
+          {%- assign step_index = step_index | plus: 1 -%}
+          {
+            "@type": "HowToStep",
+            "text": {{ step_text | json }}
+          }{% if step_index < non_empty_steps %},{% endif %}
+        {%- endif -%}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+{%- endif -%}
+{%- assign desc = product.description | default: '' -%}
+
+{%- comment -%}
+  FAQ SCHEMA FROM TAB 4 ("F.A.Q")
+  Expects structure:
+
+  <li id="tab4">
+    <h4>F.A.Q:</h4>
+    <ul>
+      <li><strong>Question?</strong> Answer text...</li>
+      ...
+    </ul>
+  </li>
+{%- endcomment -%}
+
+{%- if desc contains 'id="tab4"' -%}
+  {%- assign tab4_block = desc
+    | split: 'id="tab4"'
+    | last
+  -%}
+
+  {%- assign faq_ul_block = tab4_block
+    | split: '<ul>'
+    | last
+    | split: '</ul>'
+    | first
+  -%}
+
+  {%- assign faq_items = faq_ul_block | split: '<li>' -%}
+
+  {%- assign faq_count = 0 -%}
+  {%- for raw in faq_items offset: 1 -%}
+    {%- assign li_inner = raw | split: '</li>' | first -%}
+    {%- assign q_part = li_inner | split: '</strong>' | first | strip_html | strip_newlines | strip -%}
+    {%- assign a_part = li_inner | split: '</strong>' | last | strip_html | strip_newlines | strip -%}
+    {%- if q_part != '' and a_part != '' -%}
+      {%- assign faq_count = faq_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {% if faq_count > 0 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- assign faq_index = 0 -%}
+      {% for raw in faq_items offset:1 %}
+        {%- assign li_inner = raw | split: '</li>' | first -%}
+        {%- assign q_part = li_inner | split: '</strong>' | first | strip_html | strip_newlines | strip -%}
+        {%- assign a_part = li_inner | split: '</strong>' | last | strip_html | strip_newlines | strip -%}
+        {%- if q_part != '' and a_part != '' -%}
+          {%- assign faq_index = faq_index | plus: 1 -%}
+          {
+            "@type": "Question",
+            "name": {{ q_part | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ a_part | json }}
+            }
+          }{% if faq_index < faq_count %},{% endif %}
+        {%- endif -%}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+{%- endif -%}

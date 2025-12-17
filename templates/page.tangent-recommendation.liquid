@@ -1,0 +1,46 @@
+{% comment %} This Code has been copied to Customised Template Section - Custom-code.liquid {% endcomment %}
+<link rel="stylesheet" href="https:{{ 'tangent-recommendation.css' | asset_url }}">
+
+<div id="tangent_recommendation_parent_wrapper">
+  
+  <p id="tangent_client_currency" class="hide-element">{{ cart.currency.symbol }}</p>
+  
+  <div id="loading-section" style="">
+    <div class="loader">&nbsp;</div>
+  </div>
+  
+  <div id="tangent_section_selfie_parent_wrapper">
+      <!-- IMAGE SECTION -->
+      <div id="tangent_selfie_container">
+        <img id="tangent_selfie_image" crossorigin='anonymous' src="" height="" width="">
+        
+      </div>
+      <!-- SELFIE TEXT CONTENT SECTION -->
+      <div id="section_selfie_container_parent"></div>
+    </div>
+  <p id="tangent-general-text" class="tangent-general-text">Here is the personalized recommendation for you!</p>
+  <!-- TAB SECTION -->
+  <div id="tab-wrapper">
+    <div class="tab" id="tangent_custom_tabs"> 
+    </div>
+    <div id="tangent_sections_wrapper">
+      <div id="section_basics_container" class="tabcontent">
+      </div>
+      <div id="section_essentials_container" class="tabcontent">
+      </div>
+      <div id="section_works_container" class="tabcontent">
+      </div>
+    </div>
+  </div>
+  
+  <div id="tangent_extra_margin"></div>
+
+  <!-- ADDITIONAL CONTENT  -->
+  <div id="section_additional_content_container_parent"></div>
+  <div id="section_additional_skin_tone_container"></div>
+  <div id="section_additional_lifesyle_container"></div>
+
+  <div id="message-text"></div>
+
+</div>
+<script type="text/javascript" src="https:{{ 'tangent-recommendation.js' | asset_url }}" async></script>

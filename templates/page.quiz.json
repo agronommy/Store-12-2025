@@ -1,0 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "settings": {}
+    },
+    "17237623578011fb3b": {
+      "type": "apps",
+      "blocks": {
+        "tangent_quiz_builder_tangent_iframe_J3xyrg": {
+          "type": "shopify://apps/tangent-quiz/blocks/tangent-iframe/51b4f65b-1bd1-4373-a212-7af0ce5a9774",
+          "settings": {
+            "form_id": "66b6766fa5f753536185e9c5",
+            "width": 100
+          }
+        }
+      },
+      "block_order": [
+        "tangent_quiz_builder_tangent_iframe_J3xyrg"
+      ],
+      "settings": {}
+    },
+    "image_text_wfUMQN": {
+      "type": "image-text",
+      "blocks": {
+        "image_mmprGR": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Deep_cleansing_Custom_bceb8d24-7de3-4ba5-b955-8dc118856127.jpg",
+            "title": "Evaluate your skin instant",
+            "text": "<p>Biologique Recherche’s “Skin Instant” concept refers to the idea that skin is ever-changing and that its needs can vary throughout the day, seasons, and life stages. This approach emphasizes that the skin’s condition is not fixed; rather, it is a \"snapshot\" that captures the skin's current state influenced by both internal and external factors. <br/><br/>The Skin Instant assessment identifies three main categories:<br/><br/>1. Oil Balance: Dry, balanced, or oily.<br/>2. Hydration Level: Dehydrated or well-hydrated.<br/>3. Sensitivity Level: Reactive, normal, or insensitive.<br/><br/>Based on this analysis, Biologique Recherche customizes treatments to match the skin’s immediate needs, aiming for balance and optimal health. This personalized approach helps ensure that the skin gets the most precise care it requires at any given time.</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_mmprGR"
+      ],
+      "settings": {
+        "wide_display": true,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 25,
+        "padding_bottom": 24,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17237623578011fb3b",
+    "image_text_wfUMQN"
+  ]
+}

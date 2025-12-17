@@ -1,0 +1,323 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {}
+    },
+    "pxu_image_collage_with_text_MXpXrq": {
+      "type": "pxu-image-collage-with-text",
+      "blocks": {
+        "heading_CbWRwt": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>The Sunkissed Series</strong>",
+            "heading_size": 25,
+            "heading_size_mobile": 22
+          }
+        },
+        "text_A7ekh4": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Sun-Kissed Summer Series: Your Glow-Up Starts Here</h3><p>This summer, treat your skin to the radiance it deserves with our exclusive Sun-Kissed Summer Series.</p><p>Purchase a series of six Signature 60-minute facials at $425 each, and we’ll gift you the 7th facial — completely free. Because glowing skin should always come with a little extra.</p><h4>Why Choose the Sun-Kissed Series?</h4><ul><li><strong>Stay Radiant All Season</strong>  <br/>Keep your skin consistently refreshed and luminous with regular treatments.</li><li><strong>Invest in You, Save More</strong>  <br/>Enjoy long-term skin benefits while receiving a complimentary facial — a $425 value.</li><li><strong>Indulge in a Bonus Experience</strong>  <br/>Your 7th facial is on us — because self-care should feel like a celebration.</li></ul><p>This limited-time offer is your passport to nourished, glowing skin — all summer long and well into the next season.</p><p><strong>Reserve your Sun-Kissed Summer Series today</strong> and step into your most luminous summer yet.</p>",
+            "text_size": 16,
+            "text_size_mobile": 16
+          }
+        },
+        "button_Lzc7UA": {
+          "type": "button",
+          "settings": {
+            "button_label": "Call Us at 917-472-7743",
+            "button_url": "tel:917-472-7743",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "button_P3iHQy": {
+          "type": "button",
+          "settings": {
+            "button_label": "Book Your Series Online",
+            "button_url": "https://login.meevo.com/AidaBicajSalon/ob?locationId=107034",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_CbWRwt",
+        "text_A7ekh4",
+        "button_Lzc7UA",
+        "button_P3iHQy"
+      ],
+      "disabled": true,
+      "name": "t:pxu_sections.sections.image_collage_with_text.name",
+      "settings": {
+        "image_1": "shopify://shop_images/peel_Medium_9957552b-cc7f-4d0e-a1af-cfaae8f922d0.jpg",
+        "image_2": "shopify://shop_images/A.B-3_Large_e786a2c4-1c5d-4e83-a13d-e29d7eda66f2.jpg",
+        "desktop_image_height": "500",
+        "desktop_image_placement": "first",
+        "layout": "overlap",
+        "show_image_border": true,
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_image_height": "350",
+        "mobile_image_placement": "column",
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "pxu_rich_text_LDeHic": {
+      "type": "pxu-rich-text",
+      "blocks": {
+        "heading_y47h6n": {
+          "type": "heading",
+          "settings": {
+            "heading": "Aida Bicaj Skincare - Tribeca treatments",
+            "heading_size": 40,
+            "heading_size_mobile": 32
+          }
+        }
+      },
+      "block_order": [
+        "heading_y47h6n"
+      ],
+      "name": "t:pxu_sections.sections.rich_text.name",
+      "settings": {
+        "content_width": "650px",
+        "content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "padding_top": 22,
+        "padding_bottom": 22,
+        "margin_top": 22,
+        "margin_bottom": 24
+      }
+    },
+    "tribeca_treatments_i7eJB7": {
+      "type": "tribeca_treatments",
+      "name": "Tribeca Treatments",
+      "settings": {
+        "card_spacing": 24,
+        "section_padding": 20,
+        "card_padding": 16,
+        "image_height": 200,
+        "card_border_radius": 8,
+        "title_size": 20,
+        "description_size": 14,
+        "details_size": 13,
+        "title_color": "#000000",
+        "description_color": "#666666",
+        "details_color": "#888888",
+        "card_background_color": "#ffffff"
+      }
+    },
+    "slideshow_HJYqBL": {
+      "type": "slideshow",
+      "blocks": {
+        "image_9PkTRY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/remodeling_Medium_198599f1-b474-4418-ba92-98d0b5af0655.jpg",
+            "pretext": "<p>All treatments customized to your needs</p>",
+            "title": "Aida Bicaj at Tribeca Location",
+            "subtitle": "",
+            "button1": "Call for appointment",
+            "button1_link": "tel:917-472-7743",
+            "button1_style": "global-button--banner",
+            "button2": "book your online consultation",
+            "button2_link": "https://book.aidabicaj.com/#/206945000000057091",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "translucent_text_box"
+          }
+        }
+      },
+      "block_order": [
+        "image_9PkTRY"
+      ],
+      "disabled": true,
+      "settings": {
+        "wide_display": false,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 6,
+        "activate_adaptiveHeight": false,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_DypLxJ": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "featured_promotions_w8TUqP": {
+      "type": "featured-promotions",
+      "blocks": {
+        "image_6JGjim": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Gift_Card_Aida_Bicaj.svg",
+            "link": "https://na0.meevo.com/EgiftApp/home?tenantId=102672&locationId=107034",
+            "title": "Treat your loved ones",
+            "text": "",
+            "button_label": ""
+          }
+        },
+        "image_kewPGn": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Manual_Lift_Face_Treatment.webp",
+            "link": "https://login.meevo.com/AidaBicajSalon/ob?locationId=107034",
+            "title": "Book your next treatment with us",
+            "text": "",
+            "button_label": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_6JGjim",
+        "image_kewPGn"
+      ],
+      "settings": {
+        "wide_display": false,
+        "promo_text_on_image_enabled": false,
+        "featured_promos_per_row": 2,
+        "featured_links_animation": "fadeInDown",
+        "feature_style": "square",
+        "padding_top": 10,
+        "padding_bottom": 10,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "map_CnQdAt": {
+      "type": "map",
+      "name": "Map",
+      "settings": {
+        "map_wide_display": true,
+        "map_address": "aida bicaj skincare - tribeca",
+        "map_height": 400,
+        "zoom_level": 16,
+        "api_key": "",
+        "show_pin": true,
+        "map_style": "aubergine",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "featured_text_RNm9Uc": {
+      "type": "featured-text",
+      "settings": {
+        "title": "Aida Bicaj Skincare – Tribeca Spa",
+        "content": "<p>Welcome to our <strong>Tribeca spa</strong> at <strong>64 North Moore Street</strong>, where European skincare mastery meets calm minimalism. Our downtown sanctuary offers personalized facials, sculpting massages, and body treatments designed to renew your skin and your senses.</p><h3>Signature Treatments</h3><ul><li><strong>Customized European Facials</strong> — Tailored treatments using <em>Biologique Recherche</em>, <em>Valmont</em>, <em>MBR</em>, and <em>Forlle’d</em> for visible transformation.</li><li><strong>Sculpting & Lymphatic Facial Massage</strong> — Aida’s signature hands-on technique to contour and lift.</li><li><strong>Oxygen & LED Revitalization</strong> — Advanced therapies to energize and smooth skin tone.</li><li><strong>Body Treatments & Spa Rituals</strong> — Rejuvenating therapies for circulation, tone, and hydration.</li><li><strong>Bridal & Event Programs</strong> — Curated skin-prep plans for special occasions.</li></ul><h3>The Tribeca Experience</h3><p>Every visit begins with a private consultation and ends with radiant, balanced skin. Our estheticians, trained by Aida herself, provide expert care in an intimate, restorative setting. Designed for tranquility and results, our Tribeca spa embodies understated luxury.</p><h3>Location & Hours</h3><p><strong>Aida Bicaj Skincare – Tribeca Spa</strong><br/><br/>64 North Moore Street<br/><br/>New York, NY 10013</p><p><strong>Phone:</strong> <a href=\"tel:+19174727743\">917-472-7743</a><br/><br/><strong>Email:</strong> <a href=\"mailto:tribeca@aidabicaj.com\">tribeca@aidabicaj.com</a></p><p><strong>Hours:</strong> Monday – Friday, 10 AM – 7 PM<br/>             Saturday – Sunday, 10 AM – 6 PM<br/><br/><em>By appointment only</em></p><h3>Book Your Appointment</h3><p>Experience one of <strong>Tribeca’s finest spas</strong> — where skincare meets serenity. </p><p><a href=\"https://na0.meevo.com/CustomerPortal/login?tenantId=102672&locationId=107034\" title=\"https://na0.meevo.com/CustomerPortal/login?tenantId=102672&locationId=107034\">Book Now</a></p><p><br/></p>",
+        "button_label": "",
+        "button_link": "",
+        "text_size": "regular_text",
+        "text_alignment": "align_left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_UNpzP3": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "image_text_3UzMhf": {
+      "type": "image-text",
+      "blocks": {
+        "image_fcbdwq": {
+          "type": "image",
+          "repeater": "{{ page.metafields.custom.treatments.value }}",
+          "settings": {
+            "image": "{{ block.repeater.image.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.description | metafield_tag }}<p>Duration: {{ block.repeater.time.value }}</p><p>Price: {{ block.repeater.cost | metafield_tag }}</p><p>Call for appointment: <a href=\"tel:917-472-7743\" title=\"tel:917-472-7743\">917-472-7743</a></p>",
+            "button_label": "Online Booking",
+            "link": "https://login.meevo.com/AidaBicajSalon/ob?locationId=107034",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_fcbdwq"
+      ],
+      "disabled": true,
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …</p>",
+        "newsletter_section_text_align": "center",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pxu_image_collage_with_text_MXpXrq",
+    "pxu_rich_text_LDeHic",
+    "tribeca_treatments_i7eJB7",
+    "slideshow_HJYqBL",
+    "divider_DypLxJ",
+    "featured_promotions_w8TUqP",
+    "map_CnQdAt",
+    "featured_text_RNm9Uc",
+    "divider_UNpzP3",
+    "image_text_3UzMhf",
+    "newsletter"
+  ]
+}

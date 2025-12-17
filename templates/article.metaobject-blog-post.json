@@ -1,0 +1,106 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article-template",
+      "settings": {
+        "featured_image": "content",
+        "wide_display": false,
+        "caption_content_background": "original",
+        "blog_breadcrumb": true,
+        "blog_pagination": true,
+        "blog_tags": false,
+        "blog_byline": false,
+        "read_time": true,
+        "blog_date": true,
+        "blog_author": false,
+        "display_social_buttons": true,
+        "blog_comment_count": true,
+        "blog_additional_posts": true,
+        "read_more_link": false,
+        "toggle": false
+      }
+    },
+    "pxu_image_with_text_UPWVcm": {
+      "type": "pxu-image-with-text",
+      "blocks": {
+        "heading_G8UJxP": {
+          "type": "heading",
+          "settings": {
+            "heading": "{{ article.metafields.custom.picks_ | metafield_text: field: 'title' }}",
+            "heading_size": 40,
+            "heading_size_mobile": 24
+          }
+        },
+        "text_XDEBTT": {
+          "type": "text",
+          "settings": {
+            "text": "{{ shop.metaobjects.aidas_picks[\"aidas-selections-soothing-skin-sensitivities-in-allergy-season\"].desc | metafield_tag }}",
+            "text_size": 16,
+            "text_size_mobile": 16
+          }
+        },
+        "button_4Wwn4X": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_G8UJxP",
+        "text_XDEBTT",
+        "button_4Wwn4X"
+      ],
+      "settings": {
+        "image": "{{ shop.metaobjects.aidas_picks[\"aidas-picks-earth-friendly-products-for-a-simple-skincare-routine\"].image.value }}",
+        "image_height": "adapt",
+        "desktop_image_width": "50",
+        "desktop_image_placement": "row",
+        "desktop_content_position": "center",
+        "desktop_content_alignment": "left",
+        "mobile_image_placement": "column",
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "featured_products_MiJMFr": {
+      "type": "featured-products",
+      "settings": {
+        "title": "{{ article.metafields.custom.picks_ | metafield_text: field: 'title' }}﻿",
+        "collection_description": true,
+        "collection_view_all": true,
+        "product_list": "{{ shop.metaobjects.aidas_picks[\"aidas-selections-soothing-skin-sensitivities-in-allergy-season\"].products.value }}",
+        "collection_style": "grid",
+        "products_per": 3,
+        "products_limit": 9,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pxu_image_with_text_UPWVcm",
+    "featured_products_MiJMFr"
+  ]
+}

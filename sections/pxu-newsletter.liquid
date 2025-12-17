@@ -1,0 +1,446 @@
+{%- comment -%}
+  🧰 Newsletter section
+{%- endcomment -%}
+
+{%- liquid
+  assign image = section.settings.image
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-newsletter
+  "
+  style="
+    --pxu-section-text-color: {{ section.settings.text_color }};
+    --pxu-section-text-color-alpha-30: {{ section.settings.text_color | color_modify: 'alpha', 0.30 }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-desktop-image-placement: {{ section.settings.desktop_image_placement }};
+    --pxu-section-mobile-image-placement: {{ section.settings.mobile_image_placement }};
+  "
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "pxu-newsletter",
+      "name": "Newsletter",
+      "version": "1.0.2"
+    }
+  </script>
+  <div
+    class="
+      pxu-newsletter__container
+      {% if image -%}
+        pxu-newsletter__container--has-image
+      {% endif -%}
+      pxu-section__container
+    "
+  >
+    {%- if image -%}
+      <div class="pxu-newsletter__image-wrapper">
+        {{- image | image_url: width: 1024 | image_tag: class: 'pxu-newsletter__image' -}}
+      </div>
+    {%- endif -%}
+
+    <div class="pxu-newsletter__content">
+      {%- if section.blocks.size > 0 -%}
+        <div class="pxu-newsletter__blocks">
+          {%- for block in section.blocks -%}
+            <div
+              class="
+                pxu-newsletter__block
+                pxu-newsletter__block--{{ block.type }}
+              "
+              {{ block.shopify_attributes }}
+            >
+              {%- case block.type -%}
+                {%- when 'heading' -%}
+                  {%- assign heading = block.settings.heading -%}
+
+                  {%- if heading != blank -%}
+                    <h2
+                      class="pxu-newsletter__heading pxu-heading"
+                      style="
+                        --pxu-section-heading-size: {{ block.settings.heading_size }}px;
+                        --pxu-section-heading-size-mobile: {{ block.settings.heading_size_mobile }}px;
+                      "
+                    >
+                      {{- heading -}}
+                    </h2>
+                  {%- endif -%}
+
+                {%- when 'text' -%}
+                  {%- assign text = block.settings.text -%}
+
+                  {%- if text != blank -%}
+                    <div
+                      class="pxu-newsletter__text pxu-rte"
+                      style="
+                        --pxu-section-text-size: {{ block.settings.text_size }}px;
+                        --pxu-section-text-size-mobile: {{ block.settings.text_size_mobile }}px;
+                      "
+                    >
+                      {{- text -}}
+                    </div>
+                  {%- endif -%}
+
+                {%- when 'email_form' -%}
+                  {%- liquid
+                    assign button_style = block.settings.button_style
+                    assign button_text_color = block.settings.button_text_color
+                    assign button_background_color = block.settings.button_background_color
+
+                    assign button_brightness = button_background_color | color_brightness
+                    assign button_brightness_mod = 'light-on-dark'
+                    if button_brightness > 127.5
+                      assign button_brightness_mod = 'dark-on-light'
+                    endif
+                  -%}
+
+                  {%- form 'customer', id: 'pxu-newsletter__form', class: 'pxu-newsletter__form' -%}
+                    <input type="hidden" name="contact[tags]" value="newsletter">
+
+                    <div class="pxu-newsletter__form-field-wrapper">
+                      <div class="pxu-newsletter__form-field">
+                        <div class="pxu-newsletter__form-input-wrapper pxu-input-wrapper">
+                          <input
+                            id="pxu-newsletter__form-input-{{ section.id }}"
+                            class="
+                              pxu-newsletter__form-input
+                              pxu-input
+                            "
+                            type="email"
+                            name="contact[email]"
+                            value="{{ form.email }}"
+                            aria-required="true"
+                            autocorrect="off"
+                            autocapitalize="off"
+                            autocomplete="email"
+                            placeholder="Email"
+                            {% if form.errors %}
+                              autofocus
+                              aria-invalid="true"
+                              aria-describedby="pxu-newsletter__form-error-{{ section.id }}"
+                            {% elsif form.posted_successfully? %}
+                              aria-describedby="pxu-newsletter__form-success-{{ section.id }}"
+                            {% endif %}
+                            required
+                          >
+
+                          <label
+                            class="pxu-newsletter__form-input-label pxu-input-label"
+                            for="pxu-newsletter__form-input-{{ section.id }}"
+                          >
+                            Email
+                          </label>
+                        </div>
+
+                        <button
+                          class="
+                            pxu-newsletter__form-button
+                            pxu-btn
+                            pxu-btn--{{ button_style }}
+                            pxu-btn--{{ button_brightness_mod }}
+                          "
+                          style="
+                            --pxu-btn-background-color: {{ button_background_color }};
+                            --pxu-btn-text-color: {{ button_text_color }};
+                          "
+                          type="submit"
+                        >
+                          Sign up
+                        </button>
+                      </div>
+
+                      {%- if form.posted_successfully? or form.errors -%}
+                        <div
+                          id="pxu-newsletter__form-{% if form.errors %}error{% else %}success{% endif %}-{{ section.id }}"
+                          class="
+                            pxu-newsletter__form-message
+                            pxu-newsletter__form-message--{% if form.errors %}error{% else %}success{% endif %}
+                          "
+                        >
+                          <p class="pxu-newsletter__form-message-text">
+                            {%- if form.errors -%}
+                              <span class="pxu-newsletter__form-message-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="18"
+                                  height="18"
+                                  viewBox="0 0 18 18"
+                                  fill="none"
+                                >
+                                  <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M16 9C16 12.866 12.866 16 9 16C5.13401 16 2 12.866 2 9C2 5.13401 5.13401 2 9 2C12.866 2 16 5.13401 16 9ZM9.00001 4.5C9.41422 4.50001 9.75001 4.8358 9.75 5.25001L9.74994 9.75001C9.74993 10.1642 9.41414 10.5 8.99993 10.5C8.58572 10.5 8.24993 10.1642 8.24994 9.74999L8.25 5.24999C8.25001 4.83578 8.5858 4.49999 9.00001 4.5ZM9 13.5C9.55228 13.5 10 13.0523 10 12.5C10 11.9477 9.55228 11.5 9 11.5C8.44772 11.5 8 11.9477 8 12.5C8 13.0523 8.44772 13.5 9 13.5Z"
+                                    fill="currentColor"
+                                  />
+                                </svg>
+                              </span>
+                              Invalid email address
+                            {%- else -%}
+                              You've been successfully subscribed!
+                            {%- endif -%}
+                          </p>
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  {%- endform -%}
+              {%- endcase -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-newsletter{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-newsletter{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-newsletter__container{align-items:center;display:flex;flex-direction:var(--pxu-section-mobile-image-placement);row-gap:var(--pxu-space-8)}@media only screen and (min-width:860px){.pxu-newsletter__container{-moz-column-gap:var(--pxu-space-6);column-gap:var(--pxu-space-6);flex-direction:var(--pxu-section-desktop-image-placement)}}.pxu-newsletter__image-wrapper{line-height:0;width:100%}.pxu-newsletter__content,.pxu-newsletter__image-wrapper{flex:1}.pxu-newsletter__image{height:auto;width:100%}.pxu-newsletter__blocks{display:flex;flex-direction:column;margin:0 auto;max-width:650px;row-gap:var(--pxu-space-5)}.pxu-newsletter__block:first-child{margin-top:0}.pxu-newsletter__block--email_form{margin-top:var(--pxu-space-3)}.pxu-newsletter__heading.pxu-heading{font-size:var(--pxu-section-heading-size-mobile);margin:0;text-align:center}@media only screen and (min-width:860px){.pxu-newsletter__heading.pxu-heading{font-size:var(--pxu-section-heading-size)}}.pxu-newsletter__text{font-size:var(--pxu-section-text-size-mobile);text-align:center}@media only screen and (min-width:860px){.pxu-newsletter__text{font-size:var(--pxu-section-text-size)}}.pxu-newsletter__form-field-wrapper{display:flex;flex-direction:column;margin:0 auto;max-width:465px;row-gap:var(--pxu-space-2)}.pxu-newsletter__form-field{display:flex;flex-direction:column;gap:var(--pxu-space-3);justify-content:center;width:100%}@media only screen and (min-width:860px){.pxu-newsletter__form-field{flex-direction:row}}.pxu-newsletter__form-input{height:100%;width:100%}.pxu-newsletter__form-input-wrapper{flex:1}.pxu-newsletter__form-message-text{align-items:center;color:var(--pxu-section-text-color);-moz-column-gap:var(--pxu-space-1);column-gap:var(--pxu-space-1);display:flex;font-size:13px;margin:0}.pxu-newsletter__form-message-icon{line-height:0}</style>
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.newsletter.name",
+  "class": "pxu-newsletter-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:pxu_sections.common.image.image"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_placement",
+      "label": "t:pxu_sections.common.image.desktop_image_placement",
+      "options": [
+        {
+          "value": "row",
+          "label": "t:pxu_sections.common.image.image_first"
+        },
+        {
+          "value": "row-reverse",
+          "label": "t:pxu_sections.common.image.image_second"
+        }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_placement",
+      "label": "t:pxu_sections.common.image.mobile_image_placement",
+      "options": [
+        {
+          "value": "column",
+          "label": "t:pxu_sections.common.image.image_first"
+        },
+        {
+          "value": "column-reverse",
+          "label": "t:pxu_sections.common.image.image_second"
+        }
+      ],
+      "default": "column"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 64
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:pxu_sections.common.heading.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.sections.newsletter.blocks.heading.default"
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "min": 16,
+          "max": 100,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size",
+          "default": 28
+        },
+        {
+          "type": "range",
+          "id": "heading_size_mobile",
+          "min": 16,
+          "max": 64,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.heading.heading_size_mobile",
+          "default": 24
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "t:pxu_sections.common.text.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "t:pxu_sections.common.text.name",
+          "default": "t:pxu_sections.sections.newsletter.blocks.text.default_html"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size",
+          "default": 16
+        },
+        {
+          "type": "range",
+          "id": "text_size_mobile",
+          "min": 12,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "t:pxu_sections.common.text.text_size_mobile",
+          "default": 16
+        }
+      ]
+    },
+    {
+      "type": "email_form",
+      "name": "t:pxu_sections.sections.newsletter.blocks.email_form.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "button_style",
+          "label": "t:pxu_sections.common.button.style",
+          "options": [
+            {
+              "value": "fill",
+              "label": "t:pxu_sections.common.button.fill"
+            },
+            {
+              "value": "outline",
+              "label": "t:pxu_sections.common.button.outline"
+            }
+          ],
+          "default": "fill"
+        },
+        {
+          "type": "color",
+          "id": "button_background_color",
+          "label": "t:pxu_sections.common.color.background_color",
+          "info": "t:pxu_sections.common.button.background_color_info",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "t:pxu_sections.common.color.text_color",
+          "default": "#FFFFFF"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.newsletter.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "email_form"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

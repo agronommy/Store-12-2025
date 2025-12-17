@@ -1,0 +1,340 @@
+{%- comment -%}
+  🧰 Collection list section
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading
+  assign text_color = section.settings.text_color
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-section--animated-{{ section.settings.enable_animations }}
+    pxu-collection-list
+  "
+  style="
+    --pxu-section-heading-size: {{ section.settings.section_heading_size }}px;
+    --pxu-section-heading-size-mobile: {{ section.settings.section_heading_size_mobile }}px;
+    --pxu-section-block-heading-size: {{ section.settings.heading_size }}px;
+    --pxu-section-block-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --pxu-section-text-color: {{ text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-placeholder-fill-color: {{ text_color | color_modify: 'alpha', 0.35 }};
+    --pxu-section-placeholder-background-color: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+    --pxu-section-content-alignment: {{ section.settings.content_alignment }};
+    --pxu-section-desktop-columns: {{ section.settings.desktop_columns }};
+    --pxu-section-mobile-columns: {{ section.settings.mobile_columns }};
+  "
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-collection-list",
+      "className": "CollectionListSection",
+      "name": "Collection list",
+      "version": "1.0.3"
+    }
+  </script>
+
+  <div class="pxu-section__container">
+    {%- if section_heading != blank -%}
+      <h2
+        class="
+          pxu-section__section-heading
+          pxu-collection-list__section-heading
+        "
+      >
+        {{- section_heading -}}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <ul class="pxu-collection-list__collections">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'collection' -%}
+              {%- liquid
+                assign collection = block.settings.collection
+                assign first_product_image = collection.products.first
+                assign image = block.settings.image | default: collection.image | default: first_product_image
+                assign heading = block.settings.heading | default: block.settings.collection.title | default: 'Collection' | escape
+              -%}
+
+              <li
+                class="
+                  pxu-collection-list__collection
+                  pxu-collection-list__collection--{{ section.settings.image_crop }}
+                "
+                {{ block.shopify_attributes }}
+              >
+                <a class="pxu-collection-list__collection-link" href="{{ collection.url }}">
+                  <figure class="pxu-collection-list__collection-image-wrapper">
+                    {%- if image or collection != blank and collection.products_count > 0 -%}
+                      {{- image | image_url: width: 1024 | image_tag: class: 'pxu-collection-list__collection-image' -}}
+                    {%- else -%}
+                      {{- 'collection-1' | placeholder_svg_tag: 'pxu-placeholder' -}}
+                    {%- endif -%}
+                  </figure>
+
+                  <h3 class="pxu-collection-list__collection-heading pxu-heading">
+                    {{- heading -}}
+                  </h3>
+                </a>
+              </li>
+          {%- endcase -%}
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-collection-list{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-collection-list{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-collection-list__collections{display:grid;gap:var(--pxu-space-8) var(--pxu-space-3);grid-template-columns:repeat(var(--pxu-section-mobile-columns),1fr);list-style:none;margin:0;padding:0}@media only screen and (min-width:860px){.pxu-collection-list__collections{gap:var(--pxu-space-10) var(--pxu-space-4);grid-template-columns:repeat(var(--pxu-section-desktop-columns),1fr)}}.pxu-collection-list__collection{list-style:none;text-align:var(--pxu-section-content-alignment)}.pxu-collection-list__collection-link{display:block;text-decoration:none}.pxu-collection-list__collection-image{transition:transform .7s cubic-bezier(0,0,.2,1);width:100%}@media (prefers-reduced-motion:no-preference){.pxu-section:not(.pxu-section--animated-false) .pxu-collection-list__collection-image:hover{transform:scale(1.05)}}.pxu-collection-list__collection--circle .pxu-collection-list__collection-image,.pxu-collection-list__collection--square .pxu-collection-list__collection-image{height:100%;-o-object-fit:cover;object-fit:cover;-o-object-position:center center;object-position:center center}.pxu-collection-list__collection-image-wrapper{line-height:0;margin:0;-webkit-mask-image:radial-gradient(#fff,#000);mask-image:radial-gradient(#fff,#000);overflow:hidden}.pxu-collection-list__collection--circle .pxu-collection-list__collection-image-wrapper{border-radius:50%}.pxu-collection-list__collection--circle .pxu-collection-list__collection-image-wrapper,.pxu-collection-list__collection--square .pxu-collection-list__collection-image-wrapper{aspect-ratio:1/1}.pxu-collection-list__collection-heading.pxu-heading{color:var(--pxu-section-text-color);font-size:var(--pxu-section-block-heading-size-mobile);margin:var(--pxu-space-4) 0 0}@media only screen and (min-width:860px){.pxu-collection-list__collection-heading.pxu-heading{font-size:var(--pxu-section-block-heading-size);margin:var(--pxu-space-5) 0 0}}</style>
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.collection_list.name",
+  "class": "pxu-collection-list-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "Collection list"
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "t:pxu_sections.sections.collection_list.desktop_columns.label",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.sections.collection_list.header_1.content"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "t:pxu_sections.common.layout.content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:pxu_sections.common.layout.left"
+        },
+        {
+          "value": "center",
+          "label": "t:pxu_sections.common.layout.center"
+        },
+        {
+          "value": "right",
+          "label": "t:pxu_sections.common.layout.right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "image_crop",
+      "label": "t:pxu_sections.sections.collection_list.image_crop.label",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:pxu_sections.sections.collection_list.image_crop.option_1.label"
+        },
+        {
+          "value": "square",
+          "label": "t:pxu_sections.sections.collection_list.image_crop.option_2.label"
+        },
+        {
+          "value": "circle",
+          "label": "t:pxu_sections.sections.collection_list.image_crop.option_3.label"
+        }
+      ],
+      "default": "circle"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.sections.collection_list.header_2.content"
+    },
+    {
+      "type": "range",
+      "id": "mobile_columns",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "t:pxu_sections.sections.collection_list.mobile_columns.label",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.animations.animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "t:pxu_sections.common.animations.enable_animations",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "t:pxu_sections.sections.collection_list.blocks.collection.name",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "t:pxu_sections.sections.collection_list.blocks.collection.collection.label"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.sections.collection_list.blocks.collection.image.label"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "t:pxu_sections.sections.collection_list.blocks.collection.heading.label"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.collection_list.name",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

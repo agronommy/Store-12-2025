@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sidebar": {
+      "type": "product-sidebar",
+      "settings": {
+        "toggle": false
+      }
+    },
+    "breadcrumb_seo_E4CcqW": {
+      "type": "breadcrumb-seo",
+      "custom_css": [],
+      "settings": {
+        "custom_class": "",
+        "separator_class": "slashes",
+        "breadcrumbs_alignment": "center",
+        "text_color": "#7f8c8d",
+        "font_weight": "normal",
+        "font_case": "uppercase",
+        "font_size": 12,
+        "padding_left": 40,
+        "padding_right": 10,
+        "padding_top": 8,
+        "padding_bottom": 8,
+        "padding_left_mobile": 8,
+        "padding_right_mobile": 8,
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 8
+      }
+    },
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "34a17b2e-2bb6-4ad1-a128-52f37d90504d": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_y4VTre": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.product_descriptors != blank -%}\n {{ product.metafields.custom.product_descriptors | replace: \",\", \" - \" }}<br><br>\n{%- endif -%}"
+          }
+        },
+        "b71a7d82-042a-43ae-9b0b-11dc91e9a000": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<p>{{ product.metafields.my_fields.skintype.value }}</p>"
+          }
+        },
+        "e2ccd2d9-a672-4b3c-9401-ef876e17b664": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": true
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_gift_card_recipient_form": true
+          }
+        },
+        "custom_liquid_fTqfb9": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.aida_says != blank -%}\n\n<strong>Aida says: </strong>{{ product.metafields.custom.aida_says  }}\n<br>\n\n{%- endif -%}"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {}
+        },
+        "4d18ac1e-f13b-4a2c-84f7-a7e3388cd34f": {
+          "type": "complementary_products",
+          "disabled": true,
+          "settings": {
+            "heading": "Complementary Products",
+            "product_recommendation_limit": 5,
+            "products_per_slide": 2
+          }
+        },
+        "essential_trust_badges_app_block_jynm64": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "single",
+            "banner_id": "e1020a41-6a23-4809-8558-94786acd3b90"
+          }
+        }
+      },
+      "block_order": [
+        "34a17b2e-2bb6-4ad1-a128-52f37d90504d",
+        "title",
+        "custom_liquid_y4VTre",
+        "b71a7d82-042a-43ae-9b0b-11dc91e9a000",
+        "e2ccd2d9-a672-4b3c-9401-ef876e17b664",
+        "price",
+        "form",
+        "custom_liquid_fTqfb9",
+        "description",
+        "share",
+        "4d18ac1e-f13b-4a2c-84f7-a7e3388cd34f",
+        "essential_trust_badges_app_block_jynm64"
+      ],
+      "custom_css": [
+        ".aida {font-style: italic;}"
+      ],
+      "settings": {
+        "product_breadcrumb": false,
+        "media_position": "is-flex-row",
+        "set_product_height": false,
+        "product_height": 500,
+        "video_looping": false,
+        "product_thumbs": true,
+        "gallery_arrows": false,
+        "enable_product_lightbox": false,
+        "activate_zoom": true,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": false
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "wide_display": false,
+        "product_recommendations_style": "grid",
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 4,
+        "recommended_products_limit": 4
+      }
+    },
+    "recently-viewed": {
+      "type": "recently-viewed",
+      "settings": {
+        "rv_title": "Recently viewed products",
+        "rv_max_display": 4,
+        "rv_per": 4,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more …, plus enjoy 10% of your next order.</p>",
+        "newsletter_section_text_align": "center",
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1684160525e8032fd6": {
+      "type": "apps",
+      "blocks": {
+        "fb056889-4f13-41ad-aaea-693b102bf9ae": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "fb056889-4f13-41ad-aaea-693b102bf9ae"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "sidebar",
+    "breadcrumb_seo_E4CcqW",
+    "main",
+    "recommendations",
+    "recently-viewed",
+    "newsletter",
+    "1684160525e8032fd6"
+  ]
+}

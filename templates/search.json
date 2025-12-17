@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "search-template",
+      "blocks": {
+        "7250ff1c-269c-4ee9-9bee-666b7e4b512d": {
+          "type": "filter_by_type",
+          "settings": {}
+        },
+        "887e8fb4-9d56-44d6-bad1-aedd4ec2a835": {
+          "type": "text",
+          "settings": {
+            "title": "find what you seek",
+            "text": "<p>Turbo's <strong>predictive search feature</strong> makes the search task faster by predicting the keyword or query as it is typed, providing a dropdown list of suggestions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "7250ff1c-269c-4ee9-9bee-666b7e4b512d",
+        "887e8fb4-9d56-44d6-bad1-aedd4ec2a835"
+      ],
+      "settings": {
+        "wide_display": true,
+        "image": "shopify://shop_images/orchids.jpg",
+        "caption_content_background": "original",
+        "search_breadcrumb": true,
+        "search_term": "Search...",
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "blog_author": false,
+        "read_more_link": true,
+        "blog_date": true,
+        "toggle": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

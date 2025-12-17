@@ -1,0 +1,395 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-template",
+      "disabled": true,
+      "settings": {}
+    },
+    "pxu_rich_text_h7d9CV": {
+      "type": "pxu-rich-text",
+      "blocks": {
+        "heading_yJCDtd": {
+          "type": "heading",
+          "settings": {
+            "heading": "Aida Bicaj Upper East Side Skin Care Treatments",
+            "heading_size": 40,
+            "heading_size_mobile": 32
+          }
+        }
+      },
+      "block_order": [
+        "heading_yJCDtd"
+      ],
+      "name": "t:pxu_sections.sections.rich_text.name",
+      "settings": {
+        "content_width": "650px",
+        "content_alignment": "center",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "padding_top": 22,
+        "padding_bottom": 22,
+        "margin_top": 22,
+        "margin_bottom": 22
+      }
+    },
+    "ues_treatments_DTxWaY": {
+      "type": "ues_treatments",
+      "name": "UES Treatments",
+      "settings": {
+        "card_spacing": 24,
+        "section_padding": 20,
+        "card_padding": 16,
+        "image_height": 200,
+        "card_border_radius": 8,
+        "title_size": 20,
+        "description_size": 14,
+        "details_size": 13,
+        "title_color": "#000000",
+        "description_color": "#666666",
+        "details_color": "#888888",
+        "card_background_color": "#ffffff"
+      }
+    },
+    "qq_basic_text_block_rXhHJW": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "subtitle_GCGxBL": {
+          "type": "subtitle",
+          "settings": {
+            "subtitle": "eGift Card for Upper East Side Spa",
+            "subtitle_color": "",
+            "subtitle_custom_font": false,
+            "subtitle_font": "mono",
+            "subtitle_font_name": "",
+            "subtitle_font_weight": "default",
+            "subtitle_margin_top": 10,
+            "subtitle_margin_bottom": 10,
+            "subtitle_font_size": 0,
+            "subtitle_line_height": 0,
+            "subtitle_letter_spacing": 0,
+            "subtitle_margin_top_mobile": 10,
+            "subtitle_margin_bottom_mobile": 10,
+            "subtitle_font_size_mobile": 0,
+            "subtitle_line_height_mobile": 0,
+            "subtitle_letter_spacing_mobile": 0
+          }
+        },
+        "title_kn3fTb": {
+          "type": "title",
+          "settings": {
+            "title": "Aida Bicaj Skincare Spa eGift Card",
+            "title_color": "",
+            "title_custom_font": false,
+            "title_font": "mono",
+            "title_font_name": "Aida Bicaj Upper East Side",
+            "title_font_weight": "default",
+            "title_margin_top": 10,
+            "title_margin_bottom": 10,
+            "title_font_size": 0,
+            "title_line_height": 0,
+            "title_letter_spacing": 0,
+            "title_margin_top_mobile": 10,
+            "title_margin_bottom_mobile": 10,
+            "title_font_size_mobile": 0,
+            "title_line_height_mobile": 0,
+            "title_letter_spacing_mobile": 0
+          }
+        },
+        "textblock_naEptw": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p><br/>Indulge in the ultimate luxury of personalized skincare with an eGift card from Aida Bicaj Skincare Spa. Nestled in the heart of Upper East Side, NYC, our spa offers bespoke treatments tailored to rejuvenate and refresh. Perfect for any occasion, give the gift of radiant beauty and relaxation.</p>",
+            "textblock_color": "",
+            "textblock_custom_font": false,
+            "textblock_font": "mono",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 0,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        },
+        "button_P6XefT": {
+          "type": "button",
+          "settings": {
+            "button_class": "",
+            "button_label": "Shop eGift Card",
+            "button_link": "https://na0.meevo.com/EgiftApp/home?tenantId=102672&locationId=105530",
+            "button_tab": true,
+            "button_custom_font": false,
+            "button_font": "mono",
+            "button_font_name": "",
+            "button_font_weight": "default",
+            "button_max_width": 180,
+            "button_border_width": 0,
+            "button_radius": 0,
+            "button_margin_top": 20,
+            "button_margin_bottom": 20,
+            "button_padding_horizontal": 20,
+            "button_padding_vertical": 10,
+            "button_margin_top_mobile": 20,
+            "button_margin_bottom_mobile": 20,
+            "button_font_size": 0,
+            "button_letter_spacing": 0,
+            "button_font_size_mobile": 0,
+            "button_letter_spacing_mobile": 0,
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff",
+            "button_border_color": "#000000",
+            "button_background_color_hover": "#333333",
+            "button_text_color_hover": "#ffffff",
+            "button_border_color_hover": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "subtitle_GCGxBL",
+        "title_kn3fTb",
+        "textblock_naEptw",
+        "button_P6XefT"
+      ],
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 1280,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "bf5c205f-9687-4076-9b3f-9ce1de42a419": {
+      "type": "featured-text",
+      "settings": {
+        "image": "shopify://shop_images/image001_f89c0f7f-abb5-4fe8-96d5-1ecd42c12850.jpg",
+        "title": "Aida Bicaj Skincare – Upper East Side Spa",
+        "content": "<p>Discover timeless beauty and expert skincare at our <strong>Upper East Side spa</strong>, located at <strong>30 East 67th Street, New York, NY 10065</strong>. This is where Aida Bicaj’s renowned European approach to skin health began—an intimate environment dedicated to personalized care, advanced facials, and complete rejuvenation.</p><h3>Signature Treatments</h3><ul><li><strong>Customized European Facials</strong> — Tailored for every skin type using <em>Biologique Recherche</em>, <em>Valmont</em>, <em>MBR</em>, and <em>Forlle’d</em>.</li><li><strong>Sculpting & Lifting Facial Massage</strong> — Aida’s signature manual technique that tones and defines facial contours.</li><li><strong>Deep Cleansing & Oxygen Therapy</strong> — Revives dull skin and restores radiance.</li><li><strong>Targeted Body Treatments</strong> — Improves tone, texture, and circulation for smooth, glowing skin.</li><li><strong>Seasonal & Event Programs</strong> — Customized multi-session regimens for weddings, red-carpet prep, and special occasions.</li></ul><h3>The Upper East Side Experience</h3><p>Our Upper East Side location embodies classic New York sophistication and European precision. Clients enjoy private treatment rooms, personalized skin analysis, and a curated selection of high-performance skincare. From daily maintenance to intensive renewal, every visit reflects Aida’s belief that healthy skin is the foundation of true beauty.</p><h3>Location & Hours</h3><p><strong>Aida Bicaj Skincare – Upper East Side Spa</strong><br/><br/>30 East 67th Street<br/><br/>New York, NY 10065</p><p><strong>Phone:</strong> <a href=\"tel:+12128611007\">212-861-1007</a><br/><br/><strong>Email:</strong> <a href=\"mailto:info@aidabicaj.com\" title=\"ues@aidabicaj.com\">ues@aidabicaj.com</a><br/><br/><strong>Hours:</strong> Monday – Saturday, 10 AM – 6 PM<br/><br/><em>By appointment only</em></p><h3>Book Your Appointment</h3><p>Experience refined skincare and holistic rejuvenation at our <strong>Upper East Side spa</strong>—where New York elegance meets European expertise.</p><p><a href=\"tel:2128611007\" title=\"Phone: 212-861-1007\">Book Now</a></p><p><br/></p>",
+        "button_label": "",
+        "button_link": "tel:212-861-1007",
+        "text_size": "featured_text",
+        "text_alignment": "align_left",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_Cmn9BJ": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "map_dNxfBi": {
+      "type": "map",
+      "name": "Map",
+      "settings": {
+        "map_wide_display": true,
+        "map_address": "aida bicaj skincare - upper east side",
+        "map_height": 400,
+        "zoom_level": 16,
+        "api_key": "",
+        "show_pin": true,
+        "map_style": "default",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_3k3B99": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "12864d9c-6943-4fad-a179-32368695f993": {
+      "type": "image-text",
+      "blocks": {
+        "image_ci4N99": {
+          "type": "image",
+          "repeater": "{{ page.metafields.custom.ues_treatments.value }}",
+          "settings": {
+            "image": "{{ block.repeater.image.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "{{ block.repeater.description | metafield_tag }}<p>Price: {{ block.repeater.price | metafield_tag }}</p><p>Duration: {{ block.repeater.duration.value }}</p>",
+            "button_label": "Call for appointment",
+            "link": "tel:212-861-1007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_ci4N99"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "li {color: #1e1e73;}"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "a7557bb5-0350-4937-b4dc-b2d9a331461d": {
+      "type": "image-text",
+      "blocks": {
+        "template--18447042314562__a7557bb5-0350-4937-b4dc-b2d9a331461d-1680051749f7de116e-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/peel_Custom.jpg",
+            "title": "Add on treatment - PEELS ",
+            "text": "<p>A gentle exfoliating treatment, to reduce fine lines and minimize pores while improving skin texture and radiance. A great treatment to address acne and sun damage and a superior alternative to aggressive acid peels which may damage more fragile skin. The mild exfoliating action of the treatment stimulates natural collagen and elastin production for healthier, more vibrant skin. Our professionals will analyze your skin to customize and help you to select the right peel for your skin type. For best results, one (1) session every two (2) weeks for three (3) months is recommended, with one (1) session every few weeks thereafter, as needed.</p><p> $250, 30 minutes.</p>",
+            "button_label": "call for appointment",
+            "link": "tel:212-861-1007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        },
+        "template--18447042314562__a7557bb5-0350-4937-b4dc-b2d9a331461d-1680051749f7de116e-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/dermaplaning.jpg",
+            "title": "ADD ON TREATMENT DERMAPLANING",
+            "text": "<p>Dermaplaning is a minimally <br/>invasive procedure that effectively removes soft facial hair, known as peach fuzz, which can trap dirt and oils on the skin. By eliminating this hair, dermaplaning helps to enhance the absorption of skincare <br/>products and remove dead skin cells, resulting in smoother and brighter skin. This treatment also improves skin texture and minimizes pores, providing instant results with no downtime. Additionally, it reduces the appearance of acne scars, diminishes fine lines and wrinkles, and delivers exfoliation along with hair removal, leaving the skin feeling rejuvenated. Dermaplaning is suitable for all skin types, except for those with active breakouts.</p><p>The cost of this treatment is $150.</p><p> </p>",
+            "button_label": "call for appointment",
+            "link": "tel:212-861-1007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18447042314562__a7557bb5-0350-4937-b4dc-b2d9a331461d-1680051749f7de116e-0",
+        "template--18447042314562__a7557bb5-0350-4937-b4dc-b2d9a331461d-1680051749f7de116e-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "78787fb0-a2d1-4c81-8208-de2ceb286606": {
+      "type": "image-text",
+      "blocks": {
+        "template--18447042314562__78787fb0-a2d1-4c81-8208-de2ceb286606-1680051749f7de116e-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/dryPedicure.jpg",
+            "title": "NAIL TREATMENTS",
+            "text": "<p>Dry Pedicure This unique pedicure is unlike other <br/>pedicures that involve soaking feet in the water. Instead, we use lotion to soften and disinfect the skin. A set of special tools is then used to buff the feet revealing the softest skin possible.</p><p>Pedicure - $270</p><p>Manicure - $102</p><p><br/><em>Pedicures and Manicures are also offered simultaneously with your facial treatments.</em></p>",
+            "button_label": "call for appointment",
+            "link": "tel:212-861-1007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        },
+        "template--18447042314562__78787fb0-a2d1-4c81-8208-de2ceb286606-1680051749f7de116e-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/eyebrow_design_Custom.jpg",
+            "title": "EYEBROW DESIGN",
+            "text": "<p>Altering the shape of the eyebrow can instantly change<br/> the look of your face. Creating the ideal brow for you takes precision. Using tweezers to shape the brow, we define an individual, personalized shape that you can maintain at home. If necessary, we can recommend products to stimulate hair growth - $95.</p><p>Eyebrow Tint - $55.</p><p></p>",
+            "button_label": "call for appointment",
+            "link": "tel:212-861-1007",
+            "text_color": "#1e1e7e",
+            "bg_color": "",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--18447042314562__78787fb0-a2d1-4c81-8208-de2ceb286606-1680051749f7de116e-0",
+        "template--18447042314562__78787fb0-a2d1-4c81-8208-de2ceb286606-1680051749f7de116e-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "329b2148-0e08-468d-86b9-dd1dc3d9d9a6": {
+      "type": "newsletter",
+      "settings": {
+        "wide_display": true,
+        "display_first_name": false,
+        "display_last_name": false,
+        "newsletter_title": "Subscribe",
+        "newsletter_text": "<p>Sign up to get the latest on sales, new releases and more … PLUS 10% OF YOUR NEXT ORDER</p>",
+        "newsletter_section_text_align": "center",
+        "image": "shopify://shop_images/aidabicajTreatmentRoom_a4c65b18-f8f5-4078-a049-0402d8aabe09.jpg",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "pxu_rich_text_h7d9CV",
+    "ues_treatments_DTxWaY",
+    "qq_basic_text_block_rXhHJW",
+    "bf5c205f-9687-4076-9b3f-9ce1de42a419",
+    "divider_Cmn9BJ",
+    "map_dNxfBi",
+    "divider_3k3B99",
+    "12864d9c-6943-4fad-a179-32368695f993",
+    "a7557bb5-0350-4937-b4dc-b2d9a331461d",
+    "78787fb0-a2d1-4c81-8208-de2ceb286606",
+    "329b2148-0e08-468d-86b9-dd1dc3d9d9a6"
+  ]
+}

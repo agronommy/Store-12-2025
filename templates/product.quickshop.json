@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "layout": "quickshop",
+  "sections": {
+    "main": {
+      "type": "quickshop",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_gnKJYp": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.expiry_disclaimer != blank -%}\n <p style=\"color:red\">{{ product.metafields.custom.expiry_disclaimer  }}</p>\n{%- endif -%}"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": true
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "truncate_description": true,
+            "truncated_words": 30
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "custom_liquid_gnKJYp",
+        "price",
+        "description",
+        "form"
+      ],
+      "settings": {
+        "media_position": "is-flex-row",
+        "set_product_height": true,
+        "product_height": 310,
+        "video_looping": false,
+        "product_thumbs": true,
+        "gallery_arrows": true,
+        "activate_zoom": false,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": false,
+        "show_only_selected_variant_image": true
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

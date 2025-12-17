@@ -1,0 +1,482 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "wrapper": "div.shopify-section-wrapper.section",
+  "sections": {
+    "sidebar": {
+      "type": "product-sidebar",
+      "settings": {
+        "toggle": false
+      }
+    },
+    "breadcrumb_seo_jBNepa": {
+      "type": "breadcrumb-seo",
+      "settings": {
+        "custom_class": "",
+        "separator_class": "slashes",
+        "breadcrumbs_alignment": "left",
+        "text_color": "#020f4c",
+        "font_weight": "normal",
+        "font_case": "uppercase",
+        "font_size": 12,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_Y8M3cV": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.product_descriptors != blank -%}\n {{ product.metafields.custom.product_descriptors | replace: \",\", \" - \" }}<br><br>\n{%- endif -%}"
+          }
+        },
+        "judge_me_reviews_preview_badge_9XBEMJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": true
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_gift_card_recipient_form": true
+          }
+        },
+        "complementary_products_fCxQGn": {
+          "type": "complementary_products",
+          "settings": {
+            "heading": "Complimentary Products",
+            "product_recommendation_limit": 5,
+            "products_per_slide": 2
+          }
+        },
+        "custom_liquid_kqDiKL": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.aida_says != blank -%}\n\n<strong>Aida says: </strong>{{ product.metafields.custom.aida_says  }}\n<br>\n{% endif %}\n<br>"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "essential_trust_badges_app_block_pAjPHh": {
+          "type": "shopify://apps/essential-trust-badges/blocks/app-block/0ff65b25-07e1-408e-950f-f54dd3d1751b",
+          "settings": {
+            "banner_display": "single",
+            "banner_id": "e1020a41-6a23-4809-8558-94786acd3b90"
+          }
+        },
+        "judge_me_reviews_review_snippet_widget_dNN7fG": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "custom_liquid_Y8M3cV",
+        "judge_me_reviews_preview_badge_9XBEMJ",
+        "price",
+        "form",
+        "complementary_products_fCxQGn",
+        "custom_liquid_kqDiKL",
+        "description",
+        "essential_trust_badges_app_block_pAjPHh",
+        "judge_me_reviews_review_snippet_widget_dNN7fG"
+      ],
+      "custom_css": [],
+      "settings": {
+        "product_breadcrumb": false,
+        "media_position": "is-flex-row",
+        "set_product_height": false,
+        "product_height": 500,
+        "video_looping": false,
+        "product_thumbs": true,
+        "gallery_arrows": true,
+        "enable_product_lightbox": true,
+        "activate_zoom": false,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": false,
+        "show_only_selected_variant_image": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1631538607f7ac30eb": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "qq_custom_liquid_gMPGyH": {
+      "type": "QQ-CustomLiquid",
+      "custom_css": [],
+      "settings": {
+        "section_class": "",
+        "subtitle": "",
+        "subtitle_type": "h3",
+        "title": "",
+        "title_type": "h2",
+        "section_background_color": "",
+        "section_width": "fullwidth",
+        "content_max_width": 660,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
+        "subtitle_custom_font": true,
+        "subtitle_font": "garamond_i7",
+        "subtitle_font_name": "",
+        "subtitle_font_weight": "default",
+        "subtitle_color": "",
+        "subtitle_font_size": 0,
+        "subtitle_line_height": 0,
+        "subtitle_letter_spacing": 0,
+        "subtitle_font_size_mobile": 0,
+        "subtitle_line_height_mobile": 0,
+        "title_custom_font": true,
+        "title_font": "ebgaramond_n4",
+        "title_font_name": "",
+        "title_font_weight": "600",
+        "title_color": "",
+        "title_font_size": 0,
+        "title_line_height": 0,
+        "title_letter_spacing": 0,
+        "text_alignment": "center",
+        "title_font_size_mobile": 0,
+        "title_line_height_mobile": 0,
+        "liquid": "{%- if product.metafields.custom.product_highlights != blank -%}\n<div style=\" font-family: ABGaramond; font-size: 25px; font-style: italic; text-align: center;\">\n{{ product.metafields.custom.product_highlights| metafield_tag  }}\n</div>\n<br>\n{% endif %}\n<br>"
+      }
+    },
+    "qq_basic_text_block_VKnpEL": {
+      "type": "QQ-BasicTextBlock",
+      "blocks": {
+        "textblock_3DAAcT": {
+          "type": "textblock",
+          "settings": {
+            "textblock": "<p>One swipe of our Elixir de Volume leaves lips perfectly plumped, silky smooth, and bathed in a luxurious refined shade. Effective from the very first use, it defines lip contours and enhances their natural volume and shape over time</p>",
+            "textblock_color": "",
+            "textblock_custom_font": true,
+            "textblock_font": "ebgaramond_i5",
+            "textblock_font_name": "",
+            "textblock_font_weight": "default",
+            "textblock_margin_top": 10,
+            "textblock_margin_bottom": 10,
+            "textblock_font_size": 25,
+            "textblock_line_height": 0,
+            "textblock_letter_spacing": 0,
+            "textblock_margin_top_mobile": 10,
+            "textblock_margin_bottom_mobile": 10,
+            "textblock_font_size_mobile": 0,
+            "textblock_line_height_mobile": 0,
+            "textblock_letter_spacing_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "textblock_3DAAcT"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_class": "",
+        "text_alignment": "center",
+        "text_alignment_mobile": "center",
+        "section_background_color": "",
+        "content_max_width": 740,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_horizontal": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_horizontal_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20
+      }
+    },
+    "image_text_dN9Mnh": {
+      "type": "image-text",
+      "blocks": {
+        "image_aTE6Yw": {
+          "type": "image",
+          "repeater": "{{ product.metafields.custom.brproductinfo.value }}",
+          "settings": {
+            "image": "{{ block.repeater.br_image.value }}",
+            "title": "{{ block.repeater.title.value }}",
+            "text": "<p>{{ block.repeater.description | metafield_tag }}</p>",
+            "button_label": "",
+            "link": "",
+            "text_color": "#2b2a2a",
+            "bg_color": "#ffffff",
+            "bg_color_gradient": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_aTE6Yw"
+      ],
+      "settings": {
+        "wide_display": false,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row-reverse",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "pxu_multicolumn_4NzBVC": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_Ljy7Ma": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "Sculpted Lips, No Needles Required",
+            "text": "<p>I've always been hesitant about fillers, so when I discovered Elixir de Volume during my stay in Monaco, it was a dream come true. This product not only gives my lips a subtle volumizing effect, but it also has this luxurious feel that makes it a joy to apply. Monika Heiligmann has truly mastered the art of non-invasive lip enhancement!</p><p>— Olivia, Beauty Enthusiast</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_amhYNQ": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "Lip Care Lovers Must-Have",
+            "text": "<p>Elixir de Volume by Monika Heiligmann has given me a confidence boost like no other. The subtle volume it adds to my lips makes me feel effortlessly glamorous. I appreciate the elegant and cooling glass packaging a lot.</p><p>— Victoria, Spa Owner</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_gBwhcD": {
+          "type": "column",
+          "settings": {
+            "image_link": "",
+            "heading": "Fountain of Youth for My Lips",
+            "text": "<p>Monika Heiligmann's Elixir de Volume is a game-changer! After just a few applications, I noticed a remarkable difference in the volume and contour of my lips. The formula is incredibly nourishing, and I love that it's a non-invasive option for achieving that coveted plumpness. My lips feel rejuvenated and oh-so-kissable!</p><p>— Isabella, Aesthetic Clinic Owner</p>",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_Ljy7Ma",
+        "column_amhYNQ",
+        "column_gBwhcD"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "What the Experts Say",
+        "section_heading_size": 30,
+        "section_heading_size_mobile": 25,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 3,
+        "desktop_content_alignment": "center",
+        "block_heading_size": 20,
+        "block_heading_size_mobile": 17,
+        "block_text_size": 14,
+        "block_text_size_mobile": 14,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#ffffff",
+        "background_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "wide_display": false,
+        "product_recommendations_style": "grid",
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 4,
+        "recommended_products_limit": 4
+      }
+    },
+    "1733232210b69bfe82": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_PJVeGb": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_PJVeGb"
+      ],
+      "settings": {}
+    },
+    "qq_custom_liquid_zn9qgz": {
+      "type": "QQ-CustomLiquid",
+      "name": "QQ - Custom Liquid",
+      "settings": {
+        "section_class": "",
+        "subtitle": "Section Subtitle",
+        "subtitle_type": "h3",
+        "title": "Section Title",
+        "title_type": "h2",
+        "section_background_color": "",
+        "section_width": "regular",
+        "content_max_width": 1280,
+        "section_margin_top": 20,
+        "section_margin_bottom": 20,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_margin_top_mobile": 20,
+        "section_margin_bottom_mobile": 20,
+        "section_padding_top_mobile": 20,
+        "section_padding_bottom_mobile": 20,
+        "subtitle_custom_font": false,
+        "subtitle_font": "mono",
+        "subtitle_font_name": "",
+        "subtitle_font_weight": "default",
+        "subtitle_color": "",
+        "subtitle_font_size": 0,
+        "subtitle_line_height": 0,
+        "subtitle_letter_spacing": 0,
+        "subtitle_font_size_mobile": 0,
+        "subtitle_line_height_mobile": 0,
+        "title_custom_font": false,
+        "title_font": "mono",
+        "title_font_name": "",
+        "title_font_weight": "default",
+        "title_color": "",
+        "title_font_size": 0,
+        "title_line_height": 0,
+        "title_letter_spacing": 0,
+        "text_alignment": "center",
+        "title_font_size_mobile": 0,
+        "title_line_height_mobile": 0,
+        "liquid": "{%- if product.metafields.custom.ingredients != blank -%}\n {{ product.metafields.custom.ingredients }}<br><br>\n{%- endif -%}"
+      }
+    },
+    "highlights_banner_YbKqEn": {
+      "type": "highlights-banner",
+      "blocks": {
+        "highlight_yPMM6D": {
+          "type": "highlight",
+          "settings": {
+            "icon": "box",
+            "heading": "Highlight",
+            "liquid": "{%- if product.metafields.custom.ingredients != blank -%}\n {{ product.metafields.custom.ingredients }}<br><br>\n{%- endif -%}"
+          }
+        },
+        "highlight_VkEzet": {
+          "type": "highlight",
+          "settings": {
+            "icon": "chat",
+            "heading": "Highlight",
+            "liquid": "<p>Share information about your store</p>"
+          }
+        },
+        "highlight_hQT6Lh": {
+          "type": "highlight",
+          "settings": {
+            "icon": "transfer",
+            "heading": "Highlight",
+            "liquid": "<p>Share information about your store</p>"
+          }
+        },
+        "highlight_pF3tdU": {
+          "type": "highlight",
+          "settings": {
+            "icon": "pin",
+            "heading": "Highlight",
+            "liquid": "<p>Share information about your store</p>"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_yPMM6D",
+        "highlight_VkEzet",
+        "highlight_hQT6Lh",
+        "highlight_pF3tdU"
+      ],
+      "name": "🧰 Highlights liquid banner",
+      "settings": {
+        "desktop_content_alignment": "center",
+        "desktop_icon_size": 32,
+        "desktop_dividers": "none",
+        "block_heading_size": 20,
+        "block_heading_size_mobile": 18,
+        "block_text_size": 16,
+        "block_text_size_mobile": 15,
+        "mobile_layout": "slider",
+        "mobile_icon_size": 32,
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "icon_color": "#000000",
+        "icon_background_color": "",
+        "background_color": "#f8f8f8",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    }
+  },
+  "order": [
+    "sidebar",
+    "breadcrumb_seo_jBNepa",
+    "main",
+    "1631538607f7ac30eb",
+    "qq_custom_liquid_gMPGyH",
+    "qq_basic_text_block_VKnpEL",
+    "image_text_dN9Mnh",
+    "pxu_multicolumn_4NzBVC",
+    "recommendations",
+    "1733232210b69bfe82",
+    "qq_custom_liquid_zn9qgz",
+    "highlights_banner_YbKqEn"
+  ]
+}

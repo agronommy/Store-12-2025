@@ -1,0 +1,355 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "sidebar": {
+      "type": "product-sidebar",
+      "settings": {
+        "toggle": false
+      }
+    },
+    "breadcrumb_seo_jBNepa": {
+      "type": "breadcrumb-seo",
+      "settings": {
+        "custom_class": "",
+        "separator_class": "slashes",
+        "breadcrumbs_alignment": "left",
+        "text_color": "#020f4c",
+        "font_weight": "normal",
+        "font_case": "uppercase",
+        "font_size": 12,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "product-template",
+      "blocks": {
+        "vendor_6rPGXH": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "custom_liquid_Y8M3cV": {
+          "type": "custom-liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.product_descriptors != blank -%}\n  <h2 class=\"product-subtitle\">\n    {{ product.metafields.custom.product_descriptors | replace: \",\", \" - \" }}\n  </h2>\n{%- endif -%}"
+          }
+        },
+        "custom_liquid_R7iRth": {
+          "type": "custom-liquid",
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.expiry_disclaimer != blank -%}\n <p style=\"color:red\">{{ product.metafields.custom.expiry_disclaimer  }}</p>\n{%- endif -%}"
+          }
+        },
+        "judge_me_reviews_preview_badge_9XBEMJ": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "display_savings": true
+          }
+        },
+        "form": {
+          "type": "form",
+          "settings": {
+            "show_gift_card_recipient_form": true
+          }
+        },
+        "collapsible_liquid_tnb3cU": {
+          "type": "collapsible-liquid",
+          "settings": {
+            "collapsible_liquid": "{% if product.metafields.shopify[\"suitable-for-skin-type\"] != blank %}\n\nSuitable for skin type:\n{% endif %}",
+            "collapsible_liquid_text": "{% if product.metafields.shopify[\"suitable-for-skin-type\"] != blank %}\n\n  \n    <ul>\n      {% for skin_type_ref in product.metafields.shopify[\"suitable-for-skin-type\"].value %}\n        {% assign skin_type = skin_type_ref | metaobject %}\n        <li>{{ skin_type.label }}</li>\n      {% endfor %}\n    </ul>\n\n{% endif %}"
+          }
+        },
+        "collapsible_liquid_rh9UQG": {
+          "type": "collapsible-liquid",
+          "settings": {
+            "collapsible_liquid": "{% if product.metafields.custom.ingredients != blank %}\n\n Complete list of ingredients:\n\n{% endif %}",
+            "collapsible_liquid_text": "{% if product.metafields.custom.ingredients != blank %}\n\n  \n    \n      {{ product.metafields.custom.ingredients }}\n      \n   \n\n{% endif %}"
+          }
+        },
+        "collapsible_liquid_W7mmc8": {
+          "type": "collapsible-liquid",
+          "settings": {
+            "collapsible_liquid": "{%- if product.metafields.custom.aida_says != blank -%}\n\nAida says: \n{% endif %}",
+            "collapsible_liquid_text": "{%- if product.metafields.custom.aida_says != blank -%}\n\n{{ product.metafields.custom.aida_says  }}\n\n{% endif %}"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "custom_liquid_kqDiKL": {
+          "type": "custom-liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{%- if product.metafields.custom.aida_says != blank -%}\n\n<strong>Aida says: </strong>{{ product.metafields.custom.aida_says  }}\n<br>\n{% endif %}\n<br>"
+          }
+        },
+        "complementary_products_fCxQGn": {
+          "type": "complementary_products",
+          "settings": {
+            "heading": "Complimentary Products",
+            "product_recommendation_limit": 5,
+            "products_per_slide": 2
+          }
+        },
+        "judge_me_reviews_review_snippet_widget_dNN7fG": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_snippet_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_6rPGXH",
+        "title",
+        "custom_liquid_Y8M3cV",
+        "custom_liquid_R7iRth",
+        "judge_me_reviews_preview_badge_9XBEMJ",
+        "price",
+        "form",
+        "collapsible_liquid_tnb3cU",
+        "collapsible_liquid_rh9UQG",
+        "collapsible_liquid_W7mmc8",
+        "description",
+        "custom_liquid_kqDiKL",
+        "complementary_products_fCxQGn",
+        "judge_me_reviews_review_snippet_widget_dNN7fG"
+      ],
+      "custom_css": [],
+      "settings": {
+        "product_breadcrumb": false,
+        "media_position": "is-flex-row",
+        "set_product_height": false,
+        "product_height": 500,
+        "video_looping": false,
+        "product_thumbs": true,
+        "gallery_arrows": true,
+        "enable_product_lightbox": true,
+        "activate_zoom": false,
+        "slideshow_speed": 0,
+        "slideshow_animation": "slide",
+        "thumbnail_position": "bottom",
+        "enable_thumbnail_slider": true,
+        "show_only_selected_variant_image": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_liquid_f8haAx": {
+      "type": "custom-liquid",
+      "name": "Custom liquid",
+      "settings": {
+        "custom_liquid": "{% if product.metafields.custom.product_highlights != blank %}\n  <div class=\"product-highlights\">\n    <h2 class=\"highlight-title\"></h2>\n    <p class=\"highlight-text\">\n      {{ product.metafields.custom.product_highlights }}\n    </p>\n  </div>\n{% endif %}",
+        "padding_top": 46,
+        "padding_bottom": 46,
+        "css_class": "",
+        "custom_css": ".highlight-title {\n  font-family: \"Nunito Sans\", sans-serif;\n  font-weight: 700;   /* Bold headline */\n  font-size: 1.3em;\n  color: #1a252f;\n  margin: 0 0 8px;\n}\n.product-highlights {\n  border: 1px solid #d1d9e1;\n  border-radius: 12px;\n  padding: 16px 20px;\n  background-color: #fafbfd;\n  box-shadow: 0 2px 6px rgba(0,0,0,0.05);\n  margin: 20px 0;\n}\n\n.highlight-text {\n  font-family: \"Nunito Sans\", sans-serif;\n  font-weight: 600;   /* Body */\n\n  font-size: 1.1em;\n  line-height: 1.5;\n  text-align: center;\n   color: #2c3e50;\n   margin: 0 0 10px;\n}\n\n.highlight-text strong {\n  font-weight: 700;\n  color: #000;        /* darker for emphasis */\n}\n\n.highlight-text em {\n  font-weight: 600;   /* Semi-bold or keep italic */\n  color: #34495e;\n}"
+      }
+    },
+    "pxu_highlights_banner_tzMiM4": {
+      "type": "pxu-highlights-banner",
+      "blocks": {
+        "highlight_dnmCjt": {
+          "type": "highlight",
+          "settings": {
+            "icon": "truck",
+            "heading": "free shipping",
+            "text": "<p>Minimum $50</p>"
+          }
+        },
+        "highlight_dixREk": {
+          "type": "highlight",
+          "settings": {
+            "icon": "chat",
+            "heading": "Chat",
+            "text": "<p>Ask our expert all your questions</p>"
+          }
+        },
+        "highlight_NtfRpD": {
+          "type": "highlight",
+          "settings": {
+            "icon": "return",
+            "heading": "Easy Returns",
+            "text": "<p>30 Days Returns</p>"
+          }
+        },
+        "highlight_NxK6cg": {
+          "type": "highlight",
+          "settings": {
+            "icon": "information",
+            "heading": "Online Consultation",
+            "text": "<p><a href=\"https://book.aidabicaj.com/#/206945000000057091\" title=\"https://book.aidabicaj.com/#/206945000000057091\">Book online consultation</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "highlight_dnmCjt",
+        "highlight_dixREk",
+        "highlight_NtfRpD",
+        "highlight_NxK6cg"
+      ],
+      "settings": {
+        "desktop_content_alignment": "center",
+        "desktop_icon_size": 32,
+        "desktop_dividers": "none",
+        "block_heading_size": 20,
+        "block_heading_size_mobile": 18,
+        "block_text_size": 16,
+        "block_text_size_mobile": 15,
+        "mobile_layout": "slider",
+        "mobile_icon_size": 32,
+        "mobile_content_alignment": "center",
+        "text_color": "#000000",
+        "icon_color": "#000000",
+        "icon_background_color": "",
+        "background_color": "#f8f8f8",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "1631538607f7ac30eb": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "show_product_recommendations": true,
+        "wide_display": false,
+        "product_recommendations_style": "grid",
+        "product_recommendations_heading": "You may also like",
+        "products_per_row": 4,
+        "recommended_products_limit": 4
+      }
+    },
+    "1733232210b69bfe82": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_PJVeGb": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_PJVeGb"
+      ],
+      "settings": {}
+    },
+    "pxu_menu_list_bdnDkH": {
+      "type": "pxu-menu-list",
+      "blocks": {
+        "menu_nQafy4": {
+          "type": "menu",
+          "settings": {
+            "menu": "accessories",
+            "image": "shopify://shop_images/biologique-recherche-vip-o2-line-biologique-recherche-aida-bicaj-378152.jpg",
+            "heading": ""
+          }
+        },
+        "menu_WCq6r6": {
+          "type": "menu",
+          "settings": {
+            "menu": "biologique-recherche-hair",
+            "heading": ""
+          }
+        },
+        "menu_XczVBC": {
+          "type": "menu",
+          "settings": {
+            "menu": "cosmetics-27",
+            "heading": "Cosmetics"
+          }
+        },
+        "menu_tRWCte": {
+          "type": "menu",
+          "settings": {
+            "menu": "",
+            "heading": ""
+          }
+        },
+        "menu_8jYzFy": {
+          "type": "menu",
+          "settings": {
+            "menu": "",
+            "heading": ""
+          }
+        },
+        "menu_YETBGz": {
+          "type": "menu",
+          "settings": {
+            "menu": "",
+            "heading": ""
+          }
+        }
+      },
+      "block_order": [
+        "menu_nQafy4",
+        "menu_WCq6r6",
+        "menu_XczVBC",
+        "menu_tRWCte",
+        "menu_8jYzFy",
+        "menu_YETBGz"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_heading": "Menu list",
+        "section_heading_size": 22,
+        "section_heading_size_mobile": 20,
+        "block_heading_size": 18,
+        "block_heading_size_mobile": 18,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16,
+        "text_color": "#000000",
+        "link_color": "#000000",
+        "background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 4,
+        "margin_top": 36,
+        "margin_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "sidebar",
+    "breadcrumb_seo_jBNepa",
+    "main",
+    "custom_liquid_f8haAx",
+    "pxu_highlights_banner_tzMiM4",
+    "1631538607f7ac30eb",
+    "recommendations",
+    "1733232210b69bfe82",
+    "pxu_menu_list_bdnDkH"
+  ],
+  "wrapper": "div.shopify-section-wrapper.section"
+}

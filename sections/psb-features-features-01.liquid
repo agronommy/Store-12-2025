@@ -1,0 +1,464 @@
+{%- comment -%}
+  {
+    "name": "Features 01",
+    "author": "PusherCommerce"
+    "description": "Please DO NOT copy in any form. Any act of copying will be sued and held responsible with the law",
+    "Semiwrite": "Yes"
+  }
+{%- endcomment -%}
+{%- capture minify -%}
+  <style>
+    #psb-{{ section.id }} {
+      --psb-gutter-x: 25px;
+      color: {{section.settings.text_color}};
+      background-color: {{section.settings.background_color}};
+      {% if section.settings.section_height == true %}
+        min-height: 100vh;
+      {% endif %}
+      padding-top: {{section.settings.section_padding_top}}px;
+      padding-bottom: {{section.settings.section_padding_bottom}}px;
+      display: flex;
+      align-items: center;
+      line-height: 1.5;
+    }
+
+    #psb-{{ section.id }} .psb-section-inner {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #psb-{{ section.id }} .psb-section-title::before,
+    #psb-{{ section.id }} .psb-section-title::after {
+      display: none;
+    }
+
+    #psb-{{ section.id }} .psb-section-title {
+      color: {{section.settings.text_color}};
+      text-align: {{section.settings.text_align}};
+      margin-top: 0;
+      margin-bottom: 50px;
+      line-height: 1.2;
+      text-align: {{section.settings.text_align}};
+    }
+
+    #psb-{{ section.id }} .psb-feature {
+      padding-left: 100px;
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    #psb-{{ section.id }} .img-wrapper {
+      width: 77px;
+      height: 77px;
+      overflow: hidden;
+      position: absolute;
+      top: -15px;
+      left: 0;
+    }
+
+
+    {% if section.settings.disable_icon_bg != true %}
+    #psb-{{ section.id }} .img-wrapper::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      background-color: {{section.settings.icon_color}};
+      opacity: 0.2;
+    }
+    {% endif %}
+
+    #psb-{{ section.id }} .img-wrapper img,
+    #psb-{{ section.id }} .img-wrapper svg {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 23px;
+      left: 23px;
+      -o-object-fit: contain;
+      object-fit: contain;
+      z-index: 1;
+    }
+
+    #psb-{{ section.id }} .img-wrapper path {
+      fill: {{section.settings.icon_color}};
+    }
+
+    #psb-{{ section.id }} .psb-feature.featured-img {
+      padding-left: 100px;
+    }
+
+    #psb-{{ section.id }} .psb-feature.featured-img::before {
+      display: none;
+    }
+
+    #psb-{{ section.id }} .psb-feature-title {
+      color: {{section.settings.text_color}};
+      margin-top: 0;
+      margin-bottom: 15px;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+
+    {% if section.settings.inherit_fonts == false %}
+      #psb-{{ section.id }} .psb-feature-title  {
+        font-size: 32px;
+      }
+      #psb-{{ section.id }} h1.psb-section-title {
+        font-size: 72px;
+      }
+      #psb-{{ section.id }} h2.psb-section-title {
+        font-size: 56px;
+      }
+      #psb-{{ section.id }} h3.psb-section-title {
+        font-size: 32px;
+      }
+      #psb-{{ section.id }} .psb-section-inner p {
+        font-size: 24px;
+        margin-top: 0;
+      }
+    {% endif %}
+
+    @media only screen and (max-width: 767px) {
+      #psb-{{ section.id }} {
+        min-height: auto;
+        padding-top: {{section.settings.section_padding_top_mobile}}px;
+        padding-bottom: {{section.settings.section_padding_bottom_mobile}}px;
+      }
+      {% if section.settings.inherit_fonts == false %}
+        #psb-{{ section.id }} .psb-feature-title  {
+          font-size: 26px;
+        }
+        #psb-{{ section.id }} h1.psb-section-title {
+          font-size: 50px;
+        }
+        #psb-{{ section.id }} h2.psb-section-title {
+          font-size: 40px;
+        }
+        #psb-{{ section.id }} h3.psb-section-title {
+          font-size: 26px;
+        }
+        #psb-{{ section.id }} .psb-section-inner p {
+          font-size: 20px;
+        }
+      {% endif %}
+
+    #psb-{{ section.id }} .psb-section-title::before,
+    #psb-{{ section.id }} .psb-section-title::after {
+      display: none;
+    }
+
+    #psb-{{ section.id }} .psb-section-title {
+        margin-bottom: 30px;
+      }
+      #psb-{{ section.id }} .psb-feature {
+        padding-left: 55px;
+      }
+      #psb-{{ section.id }} .psb-feature::before {
+        content: '';
+        width: 18px;
+        height: 10px;
+        top: 16px;
+      }
+      #psb-{{ section.id }} .img-wrapper {
+        width: 40px;
+        height: 40px;
+        top: 0;
+      }
+      #psb-{{ section.id }} .img-wrapper img,
+      #psb-{{ section.id }} .img-wrapper svg {
+        width: 20px;
+        height: 20px;
+        top: 10px;
+        left: 10px;
+      }
+      #psb-{{ section.id }} .psb-feature.featured-img {
+        padding-left: 65px;
+      }
+    }
+  </style>
+{%- endcapture -%}
+{{ minify | strip_newlines }}
+
+<div id="psb-{{ section.id }}" class="psb-{{ section.id }} psb-section psb-features-features-01" style="display: none;">
+  <div class="{{ section.settings.container_width }}">
+    <div class="psb-section-inner">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'heading' %}
+            {% if block.settings.heading_text != blank %}
+              <{{ block.settings.heading_tag }} class="psb-section-title" {{ block.shopify_attributes }}>
+                {{ block.settings.heading_text | escape }}
+              </{{ block.settings.heading_tag }}>
+            {% endif %}
+          {% when 'feature' %}
+            <div class="psb-feature {% if block.settings.feature_image != blank %} featured-img {% endif %}" {{ block.shopify_attributes }}>
+              {% if block.settings.feature_image == blank %}
+                <div class="img-wrapper">
+                  {{ block.settings.feature_svg }}
+                </div>
+              {% else %}
+                <div class="img-wrapper">
+                  <img
+                    src="{{ block.settings.feature_image | img_url: '150x' }}"
+                    alt="{{ block.settings.feature_image.alt | escape }}"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                  >
+                </div>
+              {% endif %}
+              {% if block.settings.feature_title != blank %}
+                <h3 class="psb-feature-title">{{ block.settings.feature_title | escape }}</h3>
+              {% endif %}
+              {% if block.settings.feature_text != blank %}
+                <p>{{ block.settings.feature_text | escape }}</p>
+              {% endif %}
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "⚡︎PSB: Features 01",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "container_width",
+      "options": [
+        {
+          "value": "psb-container",
+          "label": "Container"
+        },
+        {
+          "value": "psb-container-fluid",
+          "label": "Container Fluid"
+        },
+        {
+          "value": "psb-container-fullwidth",
+          "label": "Container Fullwidth"
+        }
+      ],
+      "default": "psb-container",
+      "label": "Container width"
+    },
+    {
+      "type": "header",
+      "content": "Main settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "inherit_fonts",
+      "default": false,
+      "label": "Inherit font sizes from theme"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#262424"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Check icon color",
+      "default": "#ff6303"
+    },
+    {
+      "type": "checkbox",
+      "id": "disable_icon_bg",
+      "default": false,
+      "label": "Disable icon background"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Title alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_height",
+      "default": false,
+      "label": "Full screen height"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding-top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding-bottom",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_mobile",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding-top",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_mobile",
+      "min": 0,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Section padding-bottom",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Heading",
+      "type": "heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "heading_text",
+          "label": "Heading text",
+          "default": "Heading text"
+        },
+        {
+          "type": "select",
+          "id": "heading_tag",
+          "label": "Heading tag",
+          "options": [
+            {
+              "value": "h1",
+              "label": "H1"
+            },
+            {
+              "value": "h2",
+              "label": "H2"
+            },
+            {
+              "value": "h3",
+              "label": "H3"
+            }
+          ],
+          "default": "h2"
+        }
+      ]
+    },
+    {
+      "name": "Feature",
+      "type": "feature",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature title",
+          "default": "Feature title"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_text",
+          "label": "Feature text",
+          "default": "Feature text"
+        },
+        {
+          "type": "textarea",
+          "id": "feature_svg",
+          "label": "Feature SVG code. e.g. [More icons: https://icons.getbootstrap.com](https://icons.getbootstrap.com)",
+          "default": "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check-lg' viewBox='0 0 16 16'><path d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z'/></svg>"
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Or upload icon in PNG format"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "⚡︎PSB: Features 01",
+      "settings": {
+        "icon_color": "#ff6303"
+      },
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading_text": "Why People Choose Our App"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Increase conversion rate",
+            "feature_text": "Drive more traffic and convince your customers with a store that is replete with clean, seamless and performance sections.",
+            "feature_svg": "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-bookmark-star-fill' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zM8.16 4.1a.178.178 0 0 0-.32 0l-.634 1.285a.178.178 0 0 1-.134.098l-1.42.206a.178.178 0 0 0-.098.303L6.58 6.993c.042.041.061.1.051.158L6.39 8.565a.178.178 0 0 0 .258.187l1.27-.668a.178.178 0 0 1 .165 0l1.27.668a.178.178 0 0 0 .257-.187L9.368 7.15a.178.178 0 0 1 .05-.158l1.028-1.001a.178.178 0 0 0-.098-.303l-1.42-.206a.178.178 0 0 1-.134-.098L8.16 4.1z'/></svg>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Install, settings and match",
+            "feature_text": "Keep the continuity and dominant design language of the store with the massive set of settings included in each section.",
+            "feature_svg": "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-capslock-fill' viewBox='0 0 16 16'><path d='M7.27 1.047a1 1 0 0 1 1.46 0l6.345 6.77c.6.638.146 1.683-.73 1.683H11.5v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1H1.654C.78 9.5.326 8.455.924 7.816L7.27 1.047zM4.5 13.5a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1v-1z'/></svg>"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_title": "Incredible support",
+            "feature_text": "We love perfection. Any help, even the smallest to make each section blend into your store, we are always available.",
+            "feature_svg": "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-person-lines-fill' viewBox='0 0 16 16'><path d='M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

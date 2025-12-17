@@ -1,0 +1,989 @@
+<style>
+
+  /* Section */
+
+  .ed_tabs-section#ed_section-{{ section.id }} {
+    --section-background-color: {{ section.settings.background_color }};
+    --section-color: {{ section.settings.text_color }};
+
+    --section-padding-left: {{ section.settings.section_padding_left }}px;
+    --section-padding-right: {{ section.settings.section_padding_right }}px;
+    --section-padding-top: {{ section.settings.section_padding_top }}px;
+    --section-padding-bottom: {{ section.settings.section_padding_bottom }}px;
+
+    --section-padding-left-mobile: {{ section.settings.section_padding_left_mobile }}px;
+    --section-padding-right-mobile: {{ section.settings.section_padding_right_mobile }}px;
+    --section-padding-top-mobile: {{ section.settings.section_padding_top_mobile }}px;
+    --section-padding-bottom-mobile: {{ section.settings.section_padding_bottom_mobile }}px;
+
+    --tab-heading-color: {{ section.settings.tab_heading_color }};
+    --tabs-alignment: {{ section.settings.tabs_alignment }};
+    --tab-line-color: {{ section.settings.tab_line_color }};
+    --tab-color-hover: {{ section.settings.tab_color_hover }};
+    --tab-color-active: {{ section.settings.tab_color_active }};
+    --tab-font-size: {{ section.settings.font_size }}px;
+    --tab-font-weight: {{ section.settings.font_weight }};
+
+    --accordion-heading-color: {{ section.settings.accordion_heading_color }};
+    --accordion-line-color: {{ section.settings.accordion_line_color }};
+    --accordion-heading-fontsize: {{ section.settings.accordion_heading_fontsize }}px;
+    --accordion-heading-weight: {{ section.settings.accordion_heading_weight }};
+    
+    --accordion-heading-padding-top: {{ section.settings.accordion_heading_padding_top }}px;
+    --accordion-heading-padding-bottom: {{ section.settings.accordion_heading_padding_bottom }}px;
+    --accordion-heading-padding-left: {{ section.settings.accordion_heading_padding_left }}px;
+    --accordion-heading-padding-right: {{ section.settings.accordion_heading_padding_right }}px;
+
+    --accordion-content-padding-top: {{ section.settings.accordion_content_padding_top }}px;
+    --accordion-content-padding-bottom: {{ section.settings.accordion_content_padding_bottom }}px;
+    --accordion-content-padding-left: {{ section.settings.accordion_content_padding_left }}px;
+    --accordion-content-padding-right: {{ section.settings.accordion_content_padding_right }}px;
+
+  }
+
+  .ed_tabs-section {
+    background-color: var(--section-background-color);
+    color: var(--section-color);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .ed_tabs-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: var(--section-padding-top) var(--section-padding-right) var(--section-padding-bottom) var(--section-padding-left);
+  }
+  @media (max-width: 750px) {
+    .ed_tabs-container {
+      padding: var(--section-padding-top-mobile) var(--section-padding-right-mobile) var(--section-padding-bottom-mobile) var(--section-padding-left-mobile);
+    }
+  }
+  /* Using css variable method doesn't work here, because setting the variable to max-width: none; overwrites the page-width max-width. */
+  /* So let's use section.id this time instead */
+  {% if section.settings.max_width > 0 %}
+    #ed_section-{{ section.id }} .ed_tabs-container {
+      max-width: {{ section.settings.max_width }}px;
+    }
+  {% endif %}
+
+  /* All html elements inside the section should inherit the text color */
+  .ed_tabs-section *,
+  .ed_tabs-section h1, .ed_tabs-section h2, .ed_tabs-section h3, .ed_tabs-section h4, .ed_tabs-section h5, .ed_tabs-section h6,
+  .ed_tabs-section a, .ed_tabs-section p, .ed_tabs-section li, .ed_tabs-section td, .ed_tabs-section th {
+      color: var(--section-color);
+  }
+
+  /* Tab controls */
+
+  nav.ed_tabs {
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1.5rem;
+    align-items: stretch;
+    display: flex;
+    font-size: var(--tab-font-size);
+    font-weight: var(--tab-font-weight);
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  nav.ed_tabs ul {
+    align-items: center;
+    border-bottom-color: var(--tab-line-color);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: var(--tabs-alignment);
+    padding-left: 0;
+    overflow: visible;
+  }
+
+  nav.ed_tabs ul li {
+    display: block;
+  }
+
+  nav.ed_tabs ul li a {
+    text-decoration: none;
+    align-items: center;
+    border-bottom-color: var(--tab-line-color);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: var(--tab-heading-color);
+    display: flex;
+    justify-content: center;
+    margin-bottom: -1px;
+    padding: 0.5em 1em;
+    vertical-align: top;
+  }
+
+  nav.ed_tabs ul li a:hover {
+    border-bottom-color: var(--tab-color-hover);
+    color: var(--tab-color-hover);
+  }
+
+  nav.ed_tabs ul li.is-active a {
+    border-bottom-color: var(--tab-color-active);
+    color: var(--tab-color-active);
+  }
+
+  /* Tab content (desktop) */
+
+
+  /* TABCORDION show/hide functions */
+  .ed_tab-content-inner {
+    display: none;
+  }
+  .is-active .ed_tab-content-inner {
+    display: block;
+  }
+  button.ed_acc-head {
+    display: none;
+  }
+  .accmode .ed_acc-head {
+    display: block;
+  }
+  .accmode nav.ed_tabs {
+    opacity: 0;
+    height: 0;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Accordion styles */
+
+  button.ed_acc-head {
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    
+    font-family: inherit;
+    font-size: var(--accordion-heading-fontsize);
+    font-weight: var(--accordion-heading-weight);
+    padding: var(--accordion-heading-padding-top) var(--accordion-heading-padding-right) var(--accordion-heading-padding-bottom) var(--accordion-heading-padding-left);
+
+    position: relative;
+  }
+
+  button.ed_acc-head span {
+    color: var(--accordion-heading-color);
+  }
+
+  .accmode .ed_tab-content {
+    border-top: 1px solid var(--accordion-line-color);
+    border-bottom: 1px solid var(--accordion-line-color);
+  }
+  .accmode .ed_tab-content + .ed_tab-content {
+    border-top: none;
+  }
+
+  .accmode .ed_tab-content-inner {
+    padding: var(--accordion-content-padding-top) var(--accordion-content-padding-right) var(--accordion-content-padding-bottom) var(--accordion-content-padding-left);
+  }
+
+  .ed_icon-caret {
+    position: absolute;
+    right: var(--accordion-heading-padding-right);
+
+    --icon-size: calc(var(--accordion-heading-fontsize) * 0.5);
+    height: var(--icon-size);
+    top: calc(50% - var(--icon-size) / 2);
+  }
+  .is-active .ed_icon-caret {
+    transform: rotate(180deg);
+  }
+
+  .ed_icon-caret path {
+    fill: var(--accordion-heading-color);
+  }
+
+  /* Block styles */
+
+  {%- for block in section.blocks -%}
+    .tab-{{ block.id }} .ed_tab-content-inner {
+      max-width: {{ block.settings.text_width }};
+      {%- if block.settings.alignment == 'center' -%}
+        margin-left: auto;
+        margin-right: auto;
+      {%- elsif block.settings.alignment == 'left' -%}
+        margin-right: auto;
+      {%- elsif block.settings.alignment == 'right' -%}
+        margin-left: auto;
+      {%- endif -%}
+    }
+  {%- endfor -%}
+
+</style>
+
+{% capture icon-caret %}
+  <svg aria-hidden="true" focusable="false" class="ed_icon-caret" viewBox="0 0 10 6">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+  </svg>
+{% endcapture %}
+
+<div class="ed_tabs-section" id="ed_section-{{ section.id }}">
+  
+  <div class="ed_tabs-container {{ section.settings.container_class }}">
+    <nav class="ed_tabs">
+      <ul>
+        {%- for block in section.blocks -%}
+
+          {%- assign headingOverwriteID = 'tab_' | append: forloop.index | append: '_heading' -%}
+          {%- assign heading = section.settings[headingOverwriteID] | default: block.settings.heading -%}
+
+          {% if heading != blank %}
+            <li class="{% if forloop.first == true %}is-active{% endif %}">
+              <a href="#ed_tab{{forloop.index}}">{{ heading }}</a>
+            </li>
+          {% else  %}
+            <li class="{% if forloop.first == true %}is-active{% endif %}">
+              <a href="#ed_tab{{forloop.index}}">Tab {{ forloop.index }}</a>
+            </li>
+          {% endif %}
+
+        {%- endfor -%}
+      </ul>
+    </nav>
+    {%- for block in section.blocks -%}
+      <div class="ed_tab-content tab-{{ block.id }} {% if forloop.first == true %}is-active{% endif %}" id="ed_tab{{forloop.index}}" >
+  
+        <button class="ed_acc-head"><span>Tab {{ forloop.index }}</span> {{ icon-caret }}</button>
+  
+        {% case block.type %}
+  
+          {% when 'richtext' %}
+            <div class="ed_tab-content-inner rte {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.richtext }}
+            </div>
+  
+          {% when 'description' %}
+            <div class="ed_tab-content-inner rte {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+              {{ product.description }}
+            </div>
+  
+          {% when 'liquid' %}
+            <div class="ed_tab-content-inner {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.liquid }}
+            </div>
+  
+          {% when 'page' %}
+            <div class="ed_tab-content-inner {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+              {{ block.settings.page.content }}
+            </div>
+  
+          {% when '@app' %}
+            <div class="ed_tab-content-inner {{ block.settings.custom_class }}" {{ block.shopify_attributes }}>
+              {% render block %}
+            </div>
+  
+        {% endcase %}
+        
+      </div>
+    {%- endfor -%}
+  </div>
+
+    
+
+</div>
+
+<script>
+
+  (function() {
+
+    const clearActiveTabs = section => {
+      const tabs = section.querySelectorAll(".ed_tabs li");
+      const tabContents = section.querySelectorAll(".ed_tab-content");
+      tabs.forEach(tab => {
+        tab.classList.remove("is-active");
+      });
+      tabContents.forEach(tabContent => {
+        tabContent.classList.remove("is-active");
+      });
+    }
+
+    const addActiveTab = (section, tab) => {
+      tab.classList.add("is-active");
+      const href = tab.querySelector("a").getAttribute("href");
+      const matchingContents = section.querySelector(href);
+      matchingContents.classList.add("is-active");
+    }
+
+    const initializeTabcordion = (section) => {
+      const tabs = section.querySelectorAll(".ed_tabs li");
+      const tabContents = section.querySelectorAll(".ed_tab-content");
+      
+      tabs.forEach(tab => {
+        
+        // Add click event to each tab
+        tab.addEventListener("click", e => {
+          e.preventDefault();
+          clearActiveTabs(section);
+          addActiveTab(section, tab);
+        });
+
+        // Get each tab title and set it as the accordion head title
+        const tabTitle = tab.querySelector("a").textContent;
+        const href = tab.querySelector("a").getAttribute("href");
+        const matchingContent = section.querySelector(href);
+        matchingContent.querySelector(".ed_acc-head span").textContent = tabTitle;
+
+      })
+      
+      // Set up click event for each accordion
+      const accHeads = section.querySelectorAll(".ed_acc-head");
+      accHeads.forEach(accHead => {
+        accHead.addEventListener("click", e => {
+          if (e.target.closest('.ed_tab-content').classList.contains("is-active")) {
+            clearActiveTabs(section);
+          } else {
+            clearActiveTabs(section);
+            const accHeadElement = e.target.closest('.ed_acc-head');
+            const parentId = accHeadElement.parentNode.id;
+            const tab = section.querySelector(`li > a[href="#${parentId}"]`).parentNode;
+            addActiveTab(section, tab);
+          }
+        });
+      });
+      
+      // If tabs don't fit or we are on mobile, add accmode class
+      const breakpoint = 750;
+      const tabList = section.querySelector(".ed_tabs");
+      if (tabList.scrollWidth > tabList.offsetWidth || window.innerWidth < breakpoint) {
+        section.classList.add("accmode");
+      }
+      // Also handle window resizing
+      const resizeObserver = new ResizeObserver(entries => {
+        if (tabList.scrollWidth > tabList.offsetWidth || window.innerWidth < breakpoint) {
+          section.classList.add("accmode");
+        } else {
+          section.classList.remove("accmode");
+          // If the are no active tabs, activate the first one
+          if (!section.querySelector(".ed_tabs li.is-active")) {
+            addActiveTab(section, section.querySelector(".ed_tabs li"));
+          }
+        }
+      });
+      resizeObserver.observe(tabList);
+    }
+
+    let sectionElement = document.querySelector("#ed_section-{{ section.id }}");
+    initializeTabcordion(sectionElement);
+
+    // Theme customizer
+    if (Shopify.designMode) {
+      // re-initialize the tabs js when a section is edited
+      document.addEventListener("shopify:section:load", e => {
+        let sectionElement = document.querySelector(`#ed_section-${e.detail.sectionId}`);
+        initializeTabcordion(sectionElement);
+      });
+      // When a block is selected, activate the corresponding tab
+      document.addEventListener("shopify:block:select", e => {
+        let sectionElement = document.querySelector(`#ed_section-${e.detail.sectionId}`);
+        const blockId = e.detail.blockId;
+        const tabContent = sectionElement.querySelector(`.tab-${blockId}`);
+        const tab = sectionElement.querySelector(`.ed_tabs li a[href="#${tabContent.id}"]`).parentElement;
+        clearActiveTabs(sectionElement);
+        addActiveTab(sectionElement, tab);
+      });
+    }
+
+  })();
+
+</script>
+
+
+{% schema %}
+  {
+    "name": "⚡️ Tabs Section",
+    "settings": [
+      {
+        "type": "header",
+        "content": "⚡️ Tabs Section by ed.codes (V2)",
+        "info": "Purchased from https://edcodes.gumroad.com/l/tabbed-content. For support or feedback, please contact hi@ed.codes."
+      },
+      {
+        "type": "header",
+        "content": "❗ Please save after adding the section",
+        "info": "If you added the section and there's no interactivity (clicking tabs does nothing), please save and refresh."
+      },
+      {
+        "type": "header",
+        "content": "Tab styles (desktop)"
+      },
+      {
+        "type": "select",
+        "id": "tabs_alignment",
+        "label": "Tab Alignment",
+        "options": [
+          {
+            "value": "flex-start",
+            "label": "Left"
+          },
+          {
+            "value": "center",
+            "label": "Center"
+          },
+          {
+            "value": "flex-end",
+            "label": "Right"
+          }
+        ],
+        "default": "flex-start"
+      },
+      {
+        "type": "color",
+        "id": "tab_heading_color",
+        "label": "Tab Text Color",
+        "default": "#4a4a4a"
+      },
+      {
+        "type": "color",
+        "id": "tab_line_color",
+        "label": "Tab Line Color",
+        "default": "#dbdbdb"
+      },
+      {
+        "type": "color",
+        "id": "tab_color_hover",
+        "label": "Tab Color Hover",
+        "default": "#363636"
+      },
+      {
+        "type": "color",
+        "id": "tab_color_active",
+        "label": "Tab Color Active",
+        "default": "#3273dc"
+      },
+      {
+        "type": "range",
+        "id": "font_size",
+        "min": 10,
+        "max": 32,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "select",
+        "id": "font_weight",
+        "label": "Font weight",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          }
+        ],
+        "default": "normal"
+      },
+      {
+        "type": "header",
+        "content": "Accordion styles (mobile)"
+      },
+      {
+        "type": "color",
+        "id": "accordion_heading_color",
+        "label": "Accordion Heading Color",
+        "default": "#4a4a4a"
+      },
+      {
+        "type": "color",
+        "id": "accordion_line_color",
+        "label": "Accordion Line Color",
+        "default": "#dbdbdb"
+      },
+      {
+        "type": "range",
+        "id": "accordion_heading_fontsize",
+        "min": 10,
+        "max": 32,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      },
+      {
+        "type": "select",
+        "id": "accordion_heading_weight",
+        "label": "Font weight",
+        "options": [
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "bold",
+            "label": "Bold"
+          }
+        ],
+        "default": "bold"
+      },
+      {
+        "type": "range",
+        "id": "accordion_heading_padding_top",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Heading Padding Top",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "accordion_heading_padding_bottom",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Heading Padding Bottom",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "accordion_heading_padding_left",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Heading Padding Left",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "accordion_heading_padding_right",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Heading Padding Right",
+        "default": 12
+      },
+      {
+        "type": "range",
+        "id": "accordion_content_padding_top",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Content Padding Top",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "accordion_content_padding_bottom",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Content Padding Bottom",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "accordion_content_padding_left",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Content Padding Left",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "accordion_content_padding_right",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "label": "Content Padding Right",
+        "default": 10
+      },
+      {
+        "type": "header",
+        "content": "Section colors"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Content Text Color",
+        "default": "#000"
+      },
+      {
+        "type": "header",
+        "content": "Container & max-width",
+        "info": "Usually you don't want your content going full-width on larger screens, and you want the sides to line up with the rest of your theme."
+      },
+      {
+        "type": "text",
+        "id": "container_class",
+        "label": "Container class",
+        "info": "Use your themes container class if you know it. For Dawn (and other free themes) the class is 'page-width' (without quotes)."
+      },
+      {
+        "type": "number",
+        "id": "max_width",
+        "label": "Max width (px)",
+        "info": "It's usually best to use the container class if possible. But otherwise, you can set an exact pixel width here. Leave at 0 to disable."
+      },
+      {
+        "type": "header",
+        "content": "Section spacing (desktop)"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_left",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Left padding",
+        "default": 52
+      },
+      {
+        "type": "range",
+        "id": "section_padding_right",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Right padding",
+        "default": 52
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top padding",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom padding",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Section spacing (mobile)"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_left_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Left padding",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "section_padding_right_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Right padding",
+        "default": 16
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Top padding",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom_mobile",
+        "min": 0,
+        "max": 100,
+        "step": 2,
+        "unit": "px",
+        "label": "Bottom padding",
+        "default": 20
+      },
+      {
+        "type": "header",
+        "content": "Overwrite Tab headings (if using app blocks)",
+        "info": "If you are using an app block, there won't be a tab heading because it's impossible to give you settings in app blocks. You can add the tab headings here instead. Be careful with this, because it's based on the order. Re-ordering or deleting blocks will mean you are overwriting the wrong headings."
+      },
+      {
+        "type": "text",
+        "id": "tab_1_heading",
+        "label": "Tab 1",
+        "info": "This overwrites the heading for the first tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_2_heading",
+        "label": "Tab 2",
+        "info": "This overwrites the heading for the second tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_3_heading",
+        "label": "Tab 3",
+        "info": "This overwrites the heading for the third tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_4_heading",
+        "label": "Tab 4",
+        "info": "This overwrites the heading for the fourth tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_5_heading",
+        "label": "Tab 5",
+        "info": "This overwrites the heading for the fifth tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_6_heading",
+        "label": "Tab 6",
+        "info": "This overwrites the heading for the sixth tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_7_heading",
+        "label": "Tab 7",
+        "info": "This overwrites the heading for the seventh tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_8_heading",
+        "label": "Tab 8",
+        "info": "This overwrites the heading for the eighth tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_9_heading",
+        "label": "Tab 9",
+        "info": "This overwrites the heading for the ninth tab."
+      },
+      {
+        "type": "text",
+        "id": "tab_10_heading",
+        "label": "Tab 10",
+        "info": "This overwrites the heading for the tenth tab."
+      }
+    ],
+    "blocks": [
+      {
+        "type": "richtext",
+        "name": "Rich Text",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Rich Text"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext",
+            "label": "Rich Text",
+            "default": "<p>Rich text content</p>"
+          },
+          {
+            "type": "text",
+            "id": "text_width",
+            "label": "Maximum width (use px or %)",
+            "default": "700px",
+            "info": "Full-width text areas are hard to read. So this is a container. Usually less than 800px is best. Make sure you include the unit (px or %)."
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Content alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "left"
+          },
+          {
+            "type": "text",
+            "id": "custom_class",
+            "label": "Custom class",
+            "info": "Add a class to the block to allow for re-using your themes styles or your own CSS."
+          }
+        ]
+      },
+      {
+        "type": "page",
+        "name": "Page",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Page"
+          },
+          {
+            "type": "page",
+            "id": "page",
+            "label": "Page"
+          },
+          {
+            "type": "text",
+            "id": "text_width",
+            "label": "Maximum width (use px or %)",
+            "default": "700px",
+            "info": "Full-width text areas are hard to read. So this is a container. Usually less than 800px is best. Make sure you include the unit (px or %)."
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Content alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "left"
+          }
+        ]
+      },
+      {
+        "type": "description",
+        "name": "Product Description",
+        "settings": [
+          {
+            "type": "header",
+            "content": "Product Description",
+            "info": "This only works on product pages."
+          },
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Description"
+          },
+          {
+            "type": "text",
+            "id": "text_width",
+            "label": "Maximum width (use px or %)",
+            "default": "700px",
+            "info": "Full-width text areas are hard to read. So this is a container. Usually less than 800px is best. Make sure you include the unit (px or %)."
+          },
+          {
+            "type": "select",
+            "id": "alignment",
+            "label": "Content alignment",
+            "options": [
+              {
+                "value": "left",
+                "label": "Left"
+              },
+              {
+                "value": "center",
+                "label": "Center"
+              },
+              {
+                "value": "right",
+                "label": "Right"
+              }
+            ],
+            "default": "left"
+          },
+          {
+            "type": "text",
+            "id": "custom_class",
+            "label": "Custom class",
+            "info": "Add a class to the block to allow for re-using your themes styles or your own css."
+          }
+        ]
+      },
+      {
+        "type": "liquid",
+        "name": "Liquid",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Liquid"
+          },
+          {
+            "type": "liquid",
+            "id": "liquid",
+            "label": "Liquid",
+            "default": "Add code here"
+          }
+        ]
+      },
+      {
+        "type": "@app"
+      }
+    ],
+    "presets": [
+      {
+        "name": "⚡️ Tabs Section",
+        "blocks": [
+          {
+            "type": "description"
+          },
+          {
+            "type": "richtext"
+          },
+          {
+            "type": "liquid"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

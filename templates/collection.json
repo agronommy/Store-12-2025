@@ -1,0 +1,91 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "175084980307ac4326": {
+      "type": "apps",
+      "blocks": {
+        "smile_io_smile_landing_page_earning_rule_highlight_rYDQHf": {
+          "type": "shopify://apps/smile-io/blocks/smile-landing-page-earning-rule-highlight/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+          "settings": {
+            "primary_colour": "#333333",
+            "secondary_colour": "#ffffff",
+            "title_text": "Earn points for every order placed",
+            "description_text": "The more you spend, the more you save.",
+            "button_text": "Ways to earn"
+          }
+        }
+      },
+      "block_order": [
+        "smile_io_smile_landing_page_earning_rule_highlight_rYDQHf"
+      ],
+      "disabled": true,
+      "settings": {}
+    },
+    "breadcrumb_seo_CHzyAb": {
+      "type": "breadcrumb-seo",
+      "name": "⚡️ Breadcrumbs",
+      "settings": {
+        "custom_class": ".one-whole-column",
+        "separator_class": "arrows",
+        "breadcrumbs_alignment": "left",
+        "text_color": "#8d8d8d",
+        "font_weight": "normal",
+        "font_case": "default",
+        "font_size": 16,
+        "max_width": 1200,
+        "padding_left": 20,
+        "padding_right": 20,
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left_mobile": 20,
+        "padding_right_mobile": 20,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "main": {
+      "type": "collection-template",
+      "blocks": {
+        "faceted_filtering_8aHxjX": {
+          "type": "faceted_filtering",
+          "settings": {
+            "show_filter_product_count": false
+          }
+        }
+      },
+      "block_order": [
+        "faceted_filtering_8aHxjX"
+      ],
+      "custom_css": [
+        ".product-rating {color: #e8bf67;}"
+      ],
+      "settings": {
+        "featured_collection_image": false,
+        "wide_display": false,
+        "caption_content_background": "original",
+        "display_collection_title": true,
+        "collection_breadcrumb": false,
+        "collection_tags": true,
+        "collection_sort": true,
+        "products_per_row": 4,
+        "pagination_limit": 12,
+        "toggle": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "175084980307ac4326",
+    "breadcrumb_seo_CHzyAb",
+    "main"
+  ]
+}

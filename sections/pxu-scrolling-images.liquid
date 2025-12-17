@@ -1,0 +1,517 @@
+{%- comment -%}
+  Renders a scrolling-images component.
+
+  Section accepts:
+  - scroll_speed {number} - The speed of the scrolling animation
+  - scroll_direction {string} - The direction of the scrolling animation
+  - scroll_pause {boolean} - Whether the scrolling animation should pause on hover
+  - aspect_ratio {string} - The aspect ratio of the scrolling images
+  - corner_radius {number} - The border radius of the scrolling images
+  - background_color {string} - The background color of the scrolling image section
+  - padding_top {number} - The top padding of the scrolling image section
+  - padding_bottom {number} - The bottom padding of the scrolling image section
+  - margin_top {number} - The top margin of the scrolling image section
+  - margin_bottom {number} - The bottom margin of the scrolling image section
+
+  Blocks accept:
+  - image {image_url} - The image to display
+  - desktop_image_width {number} - The width of the image on desktop
+  - mobile_image_width {number} - The width of the image on mobile
+  - link {url} - A link the image should point to
+
+  Usage:
+  {% render 'scrolling-images'  %}
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading
+  assign section_heading_size = section.settings.section_heading_size
+  assign section_heading_size_mobile = section.settings.section_heading_size_mobile
+  assign scroll_speed = section.settings.scroll_speed
+  assign scroll_direction = section.settings.scroll_direction
+  assign scroll_pause = section.settings.scroll_pause
+  assign aspect_ratio = section.settings.aspect_ratio
+  assign corner_radius = section.settings.corner_radius
+  assign image_gap = section.settings.image_gap
+  assign text_color = section.settings.text_color
+  assign background_color = section.settings.background_color
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign margin_top = section.settings.margin_top
+  assign margin_bottom = section.settings.margin_bottom
+
+  case image_gap
+    when 'small':
+      assign image_gap_desktop = '32px'
+      assign image_gap_mobile = '24px'
+    when 'medium':
+      assign image_gap_desktop = '64px'
+      assign image_gap_mobile = '48px'
+    when 'large':
+      assign image_gap_desktop = '128px'
+      assign image_gap_mobile = '96px'
+  endcase
+
+  assign pause_on_hover = scroll_pause
+  assign play_state = 'running'
+  if pause_on_hover
+    assign play_state = 'paused'
+  endif
+-%}
+
+<scrolling-images
+  id="{{ section.id }}"
+  class="scrolling-images"
+  style="
+    --aspect-ratio: {{ aspect_ratio }};
+    --corner-radius: {{ corner_radius }}px;
+    --image-gap: {{ image_gap }};
+    --heading-size-desktop: {{ section_heading_size }}px;
+    --heading-size-mobile: {{ section_heading_size_mobile }}px;
+    --text-color: {{ text_color }};
+    --placeholder-fill-color: {{ text_color | color_modify: 'alpha', 0.35 }};
+    --placeholder-background-color: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --background-color: {{ background_color }};
+    --padding-top: {{ padding_top }}px;
+    --padding-bottom: {{ padding_bottom }}px;
+    --margin-top: {{ margin_top }}px;
+    --margin-bottom: {{ margin_bottom }}px;
+    --play-state: {{ play_state }};
+    --duration: {{ scroll_speed }}s;
+    --scroll-direction: {{ scroll_direction }};
+    --animation-image-gap: {{ image_gap_mobile }};
+    --image-gap-desktop: {{ image_gap_desktop }};
+    --image-gap-mobile: {{ image_gap_mobile }};
+  "
+>
+  {%- if section_heading != blank -%}
+    <h2 class="scrolling-images__heading pxu-section__section-heading">
+      {{ section_heading }}
+    </h2>
+  {%- endif -%}
+
+  {%- capture scrolling_image_content -%}
+    <div class="scrolling-images__content" data-scrolling-image-content>
+      {% for block in section.blocks %}
+        {%- liquid
+          assign image = block.settings.image
+          assign desktop_width = block.settings.desktop_image_width
+          assign mobile_width = block.settings.mobile_image_width
+          assign link = block.settings.link
+        -%}
+
+        {% capture scrolling_image_content_item_attrs %}
+          id="{{ block.id }}"
+          class="scrolling-images__content-item"
+          style="
+            --desktop-image-width: {{ desktop_width }}px;
+            --mobile-image-width: {{ mobile_width }}px;
+          "
+          data-scrolling-image-content-item
+        {% endcapture %}
+
+        {% if link != blank %}
+          <a
+            href="{{ link }}"
+            {{ scrolling_image_content_item_attrs }}
+            {{ block.shopify_attributes }}
+          >
+        {% else %}
+          <div
+            {{ scrolling_image_content_item_attrs }}
+            {{ block.shopify_attributes }}
+          >
+        {% endif %}
+
+        {% if image != blank %}
+          {{ image | image_url: width: 400 | image_tag: class: 'scrolling-images__image-tag' }}
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+
+        {% if link != blank %}
+          </a>
+        {% else %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {%- endcapture -%}
+
+  <div class="scrolling-images__container">
+    {{- scrolling_image_content -}}
+    {{- scrolling_image_content -}}
+  </div>
+</scrolling-images>
+
+<style type="text/css">
+  .has-vertical-header .is-beside-vertical-header:has(.scrolling-images) {
+    min-width: 0;
+
+    /* fix for Flex vertical header */
+  }
+
+  .scrolling-images {
+    display: block;
+    padding-top: calc(var(--padding-top, 0) * 0.75);
+    padding-bottom: calc(var(--padding-bottom, 0) * 0.75);
+    margin-top: calc(var(--margin-top, 0) * 0.75);
+    margin-bottom: calc(var(--margin-bottom, 0) * 0.75);
+    font-size: var(--heading-size-mobile);
+    color: var(--text-color);
+    background-color: var(--background-color);
+
+    @media only screen and (width >=480px) {
+      padding-top: var(--padding-top, 0);
+      padding-bottom: var(--padding-bottom, 0);
+      margin-top: var(--margin-top, 0);
+      margin-bottom: var(--margin-bottom, 0);
+      font-size: var(--heading-size-desktop);
+    }
+
+    .scrolling-images__content {
+      display: flex;
+      flex-shrink: 0;
+      gap: var(--image-gap-mobile);
+      align-items: center;
+      min-width: 100%;
+
+      @media only screen and (width >=480px) {
+        gap: var(--image-gap-desktop);
+      }
+    }
+
+    &.scrolling-images--is-animated .scrolling-images__content {
+      animation: scrolling-images var(--duration) infinite linear var(--scroll-direction) running;
+
+      @media (prefers-reduced-motion: reduce) {
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+
+    &.scrolling-images--is-animated:hover .scrolling-images__content,
+    &.scrolling-images--is-animated:focus-within .scrolling-images__content {
+      animation-play-state: var(--play-state);
+    }
+
+    .scrolling-images__container {
+      position: relative;
+      display: flex;
+      gap: var(--image-gap-mobile);
+      width: 100%;
+      overflow: hidden;
+
+      @media only screen and (width >=480px) {
+        gap: var(--image-gap-desktop);
+      }
+    }
+
+    .scrolling-images__content-item {
+      width: var(--mobile-image-width);
+      height: auto;
+      aspect-ratio: var(--aspect-ratio);
+
+      @media only screen and (width >=480px) {
+        width: var(--desktop-image-width);
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: var(--aspect-ratio);
+        object-fit: cover;
+        border-radius: var(--corner-radius);
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: var(--placeholder-background-color);
+        border-radius: var(--corner-radius);
+        fill: var(--placeholder-fill-color);
+      }
+    }
+
+    a.scrolling-images__content-item:focus {
+      img,
+      svg {
+        outline: 2px solid blue;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  @keyframes scrolling-images {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(calc(-100% - var(--animation-image-gap)));
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.scrolling_images.name",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "Scrolling images"
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size_mobile",
+      "min": 16,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 90,
+      "step": 1,
+      "unit": "s",
+      "label": "t:pxu_sections.sections.scrolling_images.scroll_speed.label",
+      "default": 50,
+      "info": "t:pxu_sections.sections.scrolling_images.scroll_speed.info"
+    },
+    {
+      "type": "select",
+      "id": "scroll_direction",
+      "label": "t:pxu_sections.sections.scrolling_images.scroll_direction.label",
+      "options": [
+        {
+          "value": "normal",
+          "label": "t:pxu_sections.sections.scrolling_images.scroll_direction.normal"
+        },
+        {
+          "value": "reverse",
+          "label": "t:pxu_sections.sections.scrolling_images.scroll_direction.reverse"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "checkbox",
+      "id": "scroll_pause",
+      "label": "t:pxu_sections.sections.scrolling_images.scroll_pause",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.image.image_layout"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "t:pxu_sections.common.image.image_ratio",
+      "options": [
+        {
+          "value": "auto",
+          "label": "t:pxu_sections.common.image.adapt"
+        },
+        {
+          "value": "2/3",
+          "label": "t:pxu_sections.common.image.aspect_ratio_2_3"
+        },
+        {
+          "value": "4/5",
+          "label": "t:pxu_sections.common.image.aspect_ratio_4_5"
+        },
+        {
+          "value": "1/1",
+          "label": "t:pxu_sections.common.image.aspect_ratio_1_1"
+        },
+        {
+          "value": "3/2",
+          "label": "t:pxu_sections.common.image.aspect_ratio_3_2"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "corner_radius",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.style.corner_radius",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "image_gap",
+      "label": "Image gap",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#F8F8F8"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "t:pxu_sections.common.image.image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.common.image.image"
+        },
+        {
+          "type": "range",
+          "id": "desktop_image_width",
+          "label": "t:pxu_sections.common.image.desktop_image_width",
+          "min": 40,
+          "max": 350,
+          "step": 5,
+          "unit": "px",
+          "default": 140
+        },
+        {
+          "type": "range",
+          "id": "mobile_image_width",
+          "label": "t:pxu_sections.common.image.mobile_image_width",
+          "min": 40,
+          "max": 350,
+          "step": 5,
+          "unit": "px",
+          "default": 100
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:pxu_sections.common.navigation.link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.scrolling_images.name",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
