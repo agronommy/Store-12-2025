@@ -17,17 +17,35 @@
           "settings": {
             "image": "shopify://shop_images/glacier_jpg.webp",
             "pretext": "",
-            "title": "Today, we are proud to introduce NIANCE.",
-            "subtitle": "<p>Originating from the Swiss Alps, Niance is a holistic method. It combines their proprietary Swiss Glacier Complex® for topical rejuvenation with a powerful range of bio-nutrient supplements.</p>",
+            "title": "Introducing niance",
+            "subtitle": "",
             "button1": "discover the holistic ritual",
             "button1_link": "shopify://pages/niance-skincare-swiss-cellular-science-luxury-skincare",
-            "button1_style": "global-button--banner-text-highlighted",
+            "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
             "button2_style": "global-button--banner",
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "darken_bg"
+          }
+        },
+        "image_wcLDkQ": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "pretext": "",
+            "title": "Your headline",
+            "subtitle": "",
+            "button1": "",
+            "button1_link": "",
+            "button1_style": "global-button--banner",
+            "button2": "",
+            "button2_link": "",
+            "button2_style": "global-button--banner",
+            "text_position": "center",
+            "text_align": "center",
+            "caption_content_background": "original"
           }
         },
         "image_LYEEqr": {
@@ -53,6 +71,7 @@
       },
       "block_order": [
         "image_MiW3tq",
+        "image_wcLDkQ",
         "image_LYEEqr"
       ],
       "custom_css": [],
@@ -439,8 +458,9 @@
     },
     "featured_collection_Pqz7yT": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
-        "title": "Notable Price Reductions",
+        "title": "Fresh Additions to Your Ritual",
         "collection_description": false,
         "collection_view_all": true,
         "collection": "curated-sale-collection",
@@ -627,12 +647,12 @@
             "title": "Join the Skincare Conversation",
             "title_color": "",
             "title_size_v2": 0,
-            "alignment": "left",
+            "alignment": "center",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 0,
             "instafeed_margin_sides": 19,
             "show_instagram_link": true,
-            "link_alignment": "left",
+            "link_alignment": "center",
             "link_color": "#000000",
             "background_color": "",
             "feed_id": "",
@@ -644,6 +664,97 @@
         "instafeed_app_block_mnCUNt"
       ],
       "settings": {}
+    },
+    "pxu_multicolumn_zAGVqx": {
+      "type": "pxu-multicolumn",
+      "blocks": {
+        "column_gUygKA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_4.png",
+            "image_link": "https://officeofthesurface.substack.com/p/vol-50-lights-currents-extraction",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_EKL7ex": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_5.png",
+            "image_link": "https://www.townandcountrymag.com/style/beauty-products/a64540948/biologique-recherche-masque-vivant-review/",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_Bhy3bg": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/3D340601-9351-4631-9D6C-8E765412D387_L0_001-11_24_2025_8_55_10_AM_c51f8b28-6d1d-44ae-ba09-4886d77ae587.jpg",
+            "image_link": "",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "column_7PjzBD": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/Press.png",
+            "image_link": "https://www.townandcountrymag.com/style/beauty-products/a69002715/french-girl-beauty-aida-biaj/",
+            "heading": "",
+            "text": "",
+            "button_label": "",
+            "button_url": "",
+            "button_style": "fill",
+            "button_background_color": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "column_gUygKA",
+        "column_EKL7ex",
+        "column_Bhy3bg",
+        "column_7PjzBD"
+      ],
+      "name": "t:pxu_sections.sections.multicolumn.name",
+      "settings": {
+        "section_heading": "Hot Off The Press",
+        "section_heading_size": 35,
+        "section_heading_size_mobile": 30,
+        "heading_position": "center",
+        "image_ratio": "square",
+        "desktop_columns": 4,
+        "desktop_content_alignment": "center",
+        "block_heading_size": 20,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 14,
+        "block_text_size_mobile": 15,
+        "mobile_image_ratio": "square",
+        "mobile_columns": "1",
+        "mobile_content_alignment": "left",
+        "text_color": "#000000",
+        "background_color": "#f8f8f8",
+        "background_gradient": "",
+        "padding_top": 32,
+        "padding_bottom": 32,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
     },
     "173438936116a09330": {
       "type": "apps",
@@ -716,6 +827,7 @@
       "blocks": {
         "judge_me_reviews_featured_carousel_aEreQF": {
           "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "disabled": true,
           "settings": {
             "maxwidth": 1080
           }
@@ -804,7 +916,7 @@
       "type": "newsletter",
       "custom_css": [],
       "settings": {
-        "wide_display": false,
+        "wide_display": true,
         "display_first_name": false,
         "display_last_name": false,
         "newsletter_title": "Join our VIP club",
@@ -835,6 +947,7 @@
     "pxu_menu_list_EcWph4",
     "163122133209fcb476",
     "17631356295e3c9d87",
+    "pxu_multicolumn_zAGVqx",
     "173438936116a09330",
     "blog_posts_nXNC6E",
     "17313261890f93d02f",

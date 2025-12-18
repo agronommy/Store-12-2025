@@ -210,9 +210,7 @@
     "vimeo_link": "",
     "whatsapp_link": "",
     "youtube_link": "https://youtube.com/@AidaBicajSkinCare",
-
     "favicon": "shopify://shop_images/AbBW_82821e19-c31e-47c8-8290-4ca02a9bb945.svg",
-
     "enable_back_to_top_button": false,
     "back_to_top_button_style": "primary",
     "disqus_enabled": false,
@@ -1918,16 +1916,6 @@
           "greeting_message": ""
         }
       },
-      "7046932070715527255": {
-        "type": "shopify://apps/puco-sections-blocks/blocks/app-embed-javascript/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
-        "disabled": false,
-        "settings": {}
-      },
-      "12723626199553905971": {
-        "type": "shopify://apps/puco-sections-blocks/blocks/app-embed-stylesheet/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
-        "disabled": false,
-        "settings": {}
-      },
       "15154131639906026026": {
         "type": "shopify://apps/tinyseo/blocks/broken-link-embed/0605268f-f7c4-4e95-b560-e43df7d59ae4",
         "disabled": false,
@@ -1981,6 +1969,16 @@
       "pagefly-page-builder": {
         "type": "shopify://apps/pagefly-page-builder/blocks/app-embed/83e179f7-59a0-4589-8c66-c0dddf959200",
         "disabled": false,
+        "settings": {}
+      },
+      "7046932070715527255": {
+        "type": "shopify://apps/puco-sections-blocks/blocks/app-embed-javascript/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
+        "disabled": true,
+        "settings": {}
+      },
+      "12723626199553905971": {
+        "type": "shopify://apps/puco-sections-blocks/blocks/app-embed-stylesheet/f1ea0cb9-0193-44b7-bab7-d0fd6bec6cbf",
+        "disabled": true,
         "settings": {}
       }
     }
