@@ -15,37 +15,19 @@
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DSC01264.jpg",
+            "image": "shopify://shop_images/glacier_jpg.webp",
             "pretext": "",
-            "title": "Introducing niance",
-            "subtitle": "",
+            "title": "Today, we are proud to introduce NIANCE.",
+            "subtitle": "<p>Originating from the Swiss Alps, Niance is a holistic method. It combines their proprietary Swiss Glacier Complex® for topical rejuvenation with a powerful range of bio-nutrient supplements.</p>",
             "button1": "discover the holistic ritual",
             "button1_link": "shopify://pages/niance-skincare-swiss-cellular-science-luxury-skincare",
-            "button1_style": "global-button--banner",
+            "button1_style": "global-button--banner-text-highlighted",
             "button2": "",
             "button2_link": "",
             "button2_style": "global-button--banner",
             "text_position": "center",
             "text_align": "center",
             "caption_content_background": "darken_bg"
-          }
-        },
-        "image_wcLDkQ": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "pretext": "",
-            "title": "Your headline",
-            "subtitle": "",
-            "button1": "",
-            "button1_link": "",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
-            "caption_content_background": "original"
           }
         },
         "image_LYEEqr": {
@@ -71,7 +53,6 @@
       },
       "block_order": [
         "image_MiW3tq",
-        "image_wcLDkQ",
         "image_LYEEqr"
       ],
       "custom_css": [],
@@ -86,23 +67,6 @@
         "mobile_text_color": "#020f4c",
         "padding_top": 31,
         "padding_bottom": 18,
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
-    "featured_collection_pGYCgh": {
-      "type": "featured-collection",
-      "name": "Featured collection",
-      "settings": {
-        "title": "new & noteworthy",
-        "collection_description": true,
-        "collection_view_all": false,
-        "collection": "niance",
-        "collection_style": "slider",
-        "products_per": 5,
-        "products_limit": 11,
-        "padding_top": 0,
-        "padding_bottom": 0,
         "css_class": "",
         "custom_css": ""
       }
@@ -149,7 +113,6 @@
         "content_bzPpwn",
         "timer_YLCf4d"
       ],
-      "disabled": true,
       "name": "t:pxu_sections.sections.countdown_timer.name",
       "settings": {
         "section_height": "small",
@@ -315,7 +278,6 @@
     },
     "1631220042ad7f3b3f": {
       "type": "divider",
-      "disabled": true,
       "settings": {
         "divider_spacing": 10,
         "divider_border": true,
@@ -325,7 +287,6 @@
     },
     "featured_collection_Ure66m": {
       "type": "featured-collection",
-      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "title": "Timeless Treasures: Luxury Gift Ideas for the Season",
@@ -341,11 +302,145 @@
         "custom_css": ""
       }
     },
+    "pxu_mosaic_fYtT3L": {
+      "type": "pxu-mosaic",
+      "blocks": {
+        "mosaic_item_m6JUm3": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/Gamme_lait.jpg",
+            "heading": "<strong>Step 1. Cleanse – Respect the Barrier</strong>",
+            "heading_size": 24,
+            "heading_size_mobile": 22,
+            "text": "<p>Start every morning and evening with a <strong>gentle milky cleanser</strong> that respects your skin’s pH and lipid barrier.</p><p><br/> <em>Lait S.R.</em>, <em>Lait VIP O2</em>, <em>Lait EV or Lait Dermo-s</em> depending on your skin’s condition.<br/></p><p><br/></p>",
+            "text_size": 16,
+            "text_size_mobile": 15,
+            "button_label": "Cleansers",
+            "button_url": "shopify://collections/biologique-recherche-cleansers",
+            "button_style": "fill",
+            "button_background_color": "#2b2a2a",
+            "button_text_color": "#ffffff",
+            "text_color": "#ffffff",
+            "image_overlay_color": "#000000",
+            "image_overlay_opacity": 51
+          }
+        },
+        "mosaic_item_iEqDqR": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/SM_LotionP50Range_356be59c-b6c9-4692-8937-b9ac8fc780e8.jpg",
+            "heading": "<strong>Step 2: Exfoliate – The Magic of Lotions</strong>",
+            "heading_size": 24,
+            "heading_size_mobile": 22,
+            "text": "<p>This step is what makes Biologique Recherche truly iconic.</p><p> <em>Lotion P50</em> (available in different strengths for different skin types).<br/></p><p><br/><br/></p><p><br/><br/></p>",
+            "text_size": 16,
+            "text_size_mobile": 15,
+            "button_label": "Lotion P50",
+            "button_url": "shopify://collections/biologique-recherche-lotion-p50",
+            "button_style": "fill",
+            "button_background_color": "#2b2a2a",
+            "button_text_color": "#ffffff",
+            "text_color": "#ffffff",
+            "image_overlay_color": "#000000",
+            "image_overlay_opacity": 50
+          }
+        },
+        "mosaic_item_JjdXj3": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/J_Serums_range_1000x1000_85269b16-4a92-45ad-8d93-54f2eb4b6e5d.jpg",
+            "heading": "<strong>Step 3: Treat – Serums That Act Like Skincare Medicine</strong>",
+            "heading_size": 24,
+            "heading_size_mobile": 22,
+            "text": "<p>Biologique Recherche serums are highly concentrated and targeted. This is where customization really begins.</p><p>Quintessential serums like <em>Amniotique VG</em> (hydrating), <em>Extraits Tissulaires</em> (regenerating), or <em>Colostrum VG</em> (nourishing).<br/><br/>Targeted serums like <em>Sérum Elastine</em> (fine lines), <em>Sérum Oligo-Protéines Marines</em> (brightening), or <em>Sérum Iso-Placenta</em> (healing post-acne).<br/></p>",
+            "text_size": 16,
+            "text_size_mobile": 15,
+            "button_label": "SERUMS",
+            "button_url": "shopify://collections/biologique-recherche-serums",
+            "button_style": "fill",
+            "button_background_color": "#2b2a2a",
+            "button_text_color": "#ffffff",
+            "text_color": "#ffffff",
+            "image_overlay_color": "#000000",
+            "image_overlay_opacity": 51
+          }
+        },
+        "mosaic_item_BCYcnd": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/I_Creams_range_1000x1000_1284beb6-01a3-4b45-923f-82a8c47f364c.jpg",
+            "heading": "<strong>Step 4: Seal & Protect – Nourishing Creams</strong>",
+            "heading_size": 24,
+            "heading_size_mobile": 22,
+            "text": "<p>Your skin needs both water and lipids. The right cream locks in moisture, protects from environmental damage, and adds comfort.</p><p><br/> <em>Crème Dermopurifiante</em> for congestion, <em>Crème VIP O2</em> for brightening, <em>Crème MSR-H</em> for mature skin, or <em>Crème Placenta</em> for post-acne healing.<br/></p><p><br/></p>",
+            "text_size": 16,
+            "text_size_mobile": 15,
+            "button_label": "CREAMS",
+            "button_url": "shopify://collections/biologique-recherche-creams",
+            "button_style": "fill",
+            "button_background_color": "#2b2a2a",
+            "button_text_color": "#ffffff",
+            "text_color": "#ffffff",
+            "image_overlay_color": "#000000",
+            "image_overlay_opacity": 50
+          }
+        },
+        "mosaic_item_Cxfhjf": {
+          "type": "mosaic_item",
+          "settings": {
+            "image": "shopify://shop_images/SM_Masks_202105.jpg",
+            "heading": "<strong>Optional But Essential: Masks & Finishing Serums</strong>",
+            "heading_size": 24,
+            "heading_size_mobile": 22,
+            "text": "<p>Can be used weekly or as needed for an instant glow or deep detox.<br/><br/>Like <em>Fluide VIP O2</em> or <em>Serum Yall-O2</em> can be applied after cream to protect, smooth, and give that luminous, glassy finish we all love.</p>",
+            "text_size": 16,
+            "text_size_mobile": 15,
+            "button_label": "MASKS",
+            "button_url": "shopify://collections/biologique-recherche-masks",
+            "button_style": "fill",
+            "button_background_color": "#2b2a2a",
+            "button_text_color": "#ffffff",
+            "text_color": "#ffffff",
+            "image_overlay_color": "#000000",
+            "image_overlay_opacity": 52
+          }
+        }
+      },
+      "block_order": [
+        "mosaic_item_m6JUm3",
+        "mosaic_item_iEqDqR",
+        "mosaic_item_JjdXj3",
+        "mosaic_item_BCYcnd",
+        "mosaic_item_Cxfhjf"
+      ],
+      "settings": {
+        "desktop_section_height": "small",
+        "content_alignment": "middle-center",
+        "corner_radius": 20,
+        "remove_space": false,
+        "mobile_layout": "stacked",
+        "mobile_image_height": "400",
+        "background_color": "#ffffff",
+        "enable_animations": true,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 64,
+        "margin_bottom": 64
+      }
+    },
+    "divider_6EkQ7R": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
     "featured_collection_Pqz7yT": {
       "type": "featured-collection",
-      "disabled": true,
       "settings": {
-        "title": "Fresh Additions to Your Ritual",
+        "title": "Notable Price Reductions",
         "collection_description": false,
         "collection_view_all": true,
         "collection": "curated-sale-collection",
@@ -354,6 +449,84 @@
         "products_limit": 4,
         "padding_top": 0,
         "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_jdcDWC": {
+      "type": "divider",
+      "name": "Divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "featured_collection_CLtbrF": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "title": "Latest arrivals",
+        "collection_description": false,
+        "collection_view_all": true,
+        "collection": "new",
+        "collection_style": "grid",
+        "products_per": 4,
+        "products_limit": 10,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "image_with_text_overlay_9DEMN6": {
+      "type": "image-with-text-overlay",
+      "custom_css": [],
+      "settings": {
+        "wide_display": false,
+        "image": "shopify://shop_images/IMG_2294.jpg",
+        "pretext": "<p>Online Skin Care Evaluation</p>",
+        "title": "What is your Skin Instant",
+        "subtitle": "<p>Discover your perfect skincare routine with just a click! Our quick and thorough quiz helps you understand your skin’s needs and provides personalized product recommendations and self-care practices to enhance your skin health holistically. </p><p>If you prefer online consultation with our expert, book yours now!</p>",
+        "button1": "Take your quiz",
+        "button1_link": "shopify://pages/aida-skincare-quiz-test",
+        "button1_style": "global-button--primary",
+        "button2": "Book your consultation",
+        "button2_link": "https://book.aidabicaj.com/#/206945000000057091",
+        "button2_style": "global-button--primary",
+        "text_position": "left",
+        "text_align": "center",
+        "caption_content_background": "translucent_text_box",
+        "mobile_image_crop": true,
+        "mobile_text_below_image": true,
+        "mobile_text_color": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "1631220072ded907d6": {
+      "type": "search",
+      "disabled": true,
+      "settings": {
+        "wide_display": true,
+        "search_title": "Search our shop",
+        "search_text": "",
+        "search_section_text_align": "center",
+        "search_term": "Find your next favorite piece",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "163122012902971166": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
         "css_class": "",
         "custom_css": ""
       }
@@ -418,7 +591,6 @@
         "menu_Ce8QW9",
         "menu_cgxV9J"
       ],
-      "disabled": true,
       "custom_css": [],
       "settings": {
         "section_heading": "Luxury Brands",
@@ -437,69 +609,8 @@
         "margin_bottom": 30
       }
     },
-    "text_columns_with_images_qwwRGD": {
-      "type": "text-columns-with-images",
-      "blocks": {
-        "text_block_Q6qHca": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/cleanser-27-cosmetics-27-aida-bicaj-4823224.webp",
-            "title": "Cleanse",
-            "heading_size": "regular_text",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "align_text": "left",
-            "border_style": "none"
-          }
-        },
-        "text_block_V6iRJa": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/Lotions_P50_Masque_Heaven_Univers.jpg",
-            "title": "Balance",
-            "heading_size": "regular_text",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "align_text": "left",
-            "border_style": "none"
-          }
-        },
-        "text_block_yt8hhX": {
-          "type": "text_block",
-          "settings": {
-            "enable_image": true,
-            "image": "shopify://shop_images/baume-27-lips-and-contour-cosmetics-27-aida-bicaj-2391473.webp",
-            "title": "protect",
-            "heading_size": "regular_text",
-            "text": "",
-            "button_label": "",
-            "button_link": "",
-            "align_text": "left",
-            "border_style": "none"
-          }
-        }
-      },
-      "block_order": [
-        "text_block_Q6qHca",
-        "text_block_V6iRJa",
-        "text_block_yt8hhX"
-      ],
-      "name": "Text columns with images",
-      "settings": {
-        "title": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "163122133209fcb476": {
       "type": "divider",
-      "disabled": true,
       "settings": {
         "divider_spacing": 20,
         "divider_border": true,
@@ -516,12 +627,12 @@
             "title": "Join the Skincare Conversation",
             "title_color": "",
             "title_size_v2": 0,
-            "alignment": "center",
+            "alignment": "left",
             "instafeed_margin_top": 0,
             "instafeed_margin_bottom": 0,
             "instafeed_margin_sides": 19,
             "show_instagram_link": true,
-            "link_alignment": "center",
+            "link_alignment": "left",
             "link_color": "#000000",
             "background_color": "",
             "feed_id": "",
@@ -532,100 +643,7 @@
       "block_order": [
         "instafeed_app_block_mnCUNt"
       ],
-      "disabled": true,
       "settings": {}
-    },
-    "pxu_multicolumn_zAGVqx": {
-      "type": "pxu-multicolumn",
-      "blocks": {
-        "column_gUygKA": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_4.png",
-            "image_link": "https://officeofthesurface.substack.com/p/vol-50-lights-currents-extraction",
-            "heading": "",
-            "text": "",
-            "button_label": "",
-            "button_url": "",
-            "button_style": "fill",
-            "button_background_color": "#000000",
-            "button_text_color": "#ffffff"
-          }
-        },
-        "column_EKL7ex": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_5.png",
-            "image_link": "https://www.townandcountrymag.com/style/beauty-products/a64540948/biologique-recherche-masque-vivant-review/",
-            "heading": "",
-            "text": "",
-            "button_label": "",
-            "button_url": "",
-            "button_style": "fill",
-            "button_background_color": "#000000",
-            "button_text_color": "#ffffff"
-          }
-        },
-        "column_Bhy3bg": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/3D340601-9351-4631-9D6C-8E765412D387_L0_001-11_24_2025_8_55_10_AM_c51f8b28-6d1d-44ae-ba09-4886d77ae587.jpg",
-            "image_link": "",
-            "heading": "",
-            "text": "",
-            "button_label": "",
-            "button_url": "",
-            "button_style": "fill",
-            "button_background_color": "#000000",
-            "button_text_color": "#ffffff"
-          }
-        },
-        "column_7PjzBD": {
-          "type": "column",
-          "settings": {
-            "image": "shopify://shop_images/Press.png",
-            "image_link": "https://www.townandcountrymag.com/style/beauty-products/a69002715/french-girl-beauty-aida-biaj/",
-            "heading": "",
-            "text": "",
-            "button_label": "",
-            "button_url": "",
-            "button_style": "fill",
-            "button_background_color": "#000000",
-            "button_text_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "column_gUygKA",
-        "column_EKL7ex",
-        "column_Bhy3bg",
-        "column_7PjzBD"
-      ],
-      "disabled": true,
-      "name": "t:pxu_sections.sections.multicolumn.name",
-      "settings": {
-        "section_heading": "Hot Off The Press",
-        "section_heading_size": 35,
-        "section_heading_size_mobile": 30,
-        "heading_position": "center",
-        "image_ratio": "square",
-        "desktop_columns": 4,
-        "desktop_content_alignment": "center",
-        "block_heading_size": 20,
-        "block_heading_size_mobile": 24,
-        "block_text_size": 14,
-        "block_text_size_mobile": 15,
-        "mobile_image_ratio": "square",
-        "mobile_columns": "1",
-        "mobile_content_alignment": "left",
-        "text_color": "#000000",
-        "background_color": "#f8f8f8",
-        "background_gradient": "",
-        "padding_top": 32,
-        "padding_bottom": 32,
-        "margin_top": 64,
-        "margin_bottom": 64
-      }
     },
     "173438936116a09330": {
       "type": "apps",
@@ -676,7 +694,6 @@
     },
     "blog_posts_nXNC6E": {
       "type": "blog-posts",
-      "disabled": true,
       "settings": {
         "title": "Aida's Blog",
         "blog_widget_select": "biologique-recherche-better-skin-care-with-aida",
@@ -699,7 +716,6 @@
       "blocks": {
         "judge_me_reviews_featured_carousel_aEreQF": {
           "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "disabled": true,
           "settings": {
             "maxwidth": 1080
           }
@@ -708,8 +724,16 @@
       "block_order": [
         "judge_me_reviews_featured_carousel_aEreQF"
       ],
-      "disabled": true,
       "settings": {}
+    },
+    "163122234350329613": {
+      "type": "divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": true,
+        "css_class": "",
+        "custom_css": ""
+      }
     },
     "pxu_highlights_banner_DnLxVn": {
       "type": "pxu-highlights-banner",
@@ -754,7 +778,6 @@
         "highlight_UHJQty",
         "highlight_f7AFjU"
       ],
-      "disabled": true,
       "name": "🧰 Highlights banner",
       "settings": {
         "desktop_content_alignment": "center",
@@ -779,10 +802,9 @@
     },
     "newsletter-1": {
       "type": "newsletter",
-      "disabled": true,
       "custom_css": [],
       "settings": {
-        "wide_display": true,
+        "wide_display": false,
         "display_first_name": false,
         "display_last_name": false,
         "newsletter_title": "Join our VIP club",
@@ -793,147 +815,31 @@
         "css_class": "",
         "custom_css": ""
       }
-    },
-    "ss_instafeed_2_j9KhFy": {
-      "type": "ss-instafeed-2",
-      "blocks": {
-        "slide_W7fVPC": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Aida_at_Tribeca_Front_Desk_Cover_Image.jpg",
-            "url": ""
-          }
-        },
-        "slide_yXgiLi": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_xzf5mjxzf5mjxzf5.png",
-            "url": ""
-          }
-        },
-        "slide_ACgHq7": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/futurist-v-the-elixir-future-1-fl-oz-aida-bicaj-5742904.webp",
-            "url": ""
-          }
-        },
-        "slide_hfHXch": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/AidaSpa1_7236a531-7612-41c3-8d7a-09d7bb81f830_1600x_2.jpg",
-            "url": ""
-          }
-        },
-        "slide_HqdJNf": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/masque-visolastine-biologique-recherche-aida-bicaj-308810.jpg",
-            "url": ""
-          }
-        },
-        "slide_NHjhyc": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/IMG_2313.jpg",
-            "url": ""
-          }
-        },
-        "slide_eQyrCV": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/available_exclusively_at_aidabicaj.com.png",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_W7fVPC",
-        "slide_yXgiLi",
-        "slide_ACgHq7",
-        "slide_hfHXch",
-        "slide_HqdJNf",
-        "slide_NHjhyc",
-        "slide_eQyrCV"
-      ],
-      "name": "SS - Instafeed #2",
-      "settings": {
-        "top": "",
-        "top_custom": false,
-        "top_font": "josefin_sans_n4",
-        "top_size": 5,
-        "top_height": 100,
-        "top_align": "center",
-        "heading": "@aida.bicaj",
-        "heading_custom": false,
-        "heading_font": "playfair_display_n4",
-        "heading_size": 16,
-        "heading_height": 50,
-        "heading_align": "left",
-        "heading_mt": 0,
-        "subheading": "",
-        "subheading_custom": false,
-        "subheading_font": "josefin_sans_n4",
-        "subheading_size": 16,
-        "subheading_height": 50,
-        "subheading_align": "center",
-        "subheading_mt": 12,
-        "slider_mt": 20,
-        "slider_row": "3",
-        "slider_row_mobile": "3",
-        "slider_gap": 2,
-        "slider_gap_mobile": 32,
-        "autoplay": false,
-        "autoplay_speed": 3,
-        "nav_size": 30,
-        "nav_size_mobile": 30,
-        "hide_nav": true,
-        "hide_nav_mobile": false,
-        "image_radius": 12,
-        "top_color": "#e69e6c",
-        "heading_color": "#2b2a2a",
-        "subheading_color": "#aba49d",
-        "nav_btn_bg": "#ffffff",
-        "nav_btn_hover_bg": "#e69e6c",
-        "nav_border": "#e69e6c",
-        "nav_border_hover": "#e69e6c",
-        "nav_icon": "#e69e6c",
-        "nav_hover_icon": "#ffffff",
-        "background_color": "#ffffff",
-        "background_gradient": "",
-        "border_color": "#000000",
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "padding_top": 24,
-        "padding_bottom": 20,
-        "padding_horizontal": 5,
-        "padding_horizontal_mobile": 1.5,
-        "full_width": true,
-        "content_width": 50,
-        "border_thickness": 0,
-        "lazy": true
-      }
     }
   },
   "order": [
     "slideshow_kAdTpR",
-    "featured_collection_pGYCgh",
     "pxu_countdown_timer_MXYkyQ",
     "pxu_mosaic_w4Wy3e",
     "pxu_before_after_image_fgNLFX",
     "1631220042ad7f3b3f",
     "featured_collection_Ure66m",
+    "pxu_mosaic_fYtT3L",
+    "divider_6EkQ7R",
     "featured_collection_Pqz7yT",
+    "divider_jdcDWC",
+    "featured_collection_CLtbrF",
+    "image_with_text_overlay_9DEMN6",
+    "1631220072ded907d6",
+    "163122012902971166",
     "pxu_menu_list_EcWph4",
-    "text_columns_with_images_qwwRGD",
     "163122133209fcb476",
     "17631356295e3c9d87",
-    "pxu_multicolumn_zAGVqx",
     "173438936116a09330",
     "blog_posts_nXNC6E",
     "17313261890f93d02f",
+    "163122234350329613",
     "pxu_highlights_banner_DnLxVn",
-    "newsletter-1",
-    "ss_instafeed_2_j9KhFy"
+    "newsletter-1"
   ]
 }

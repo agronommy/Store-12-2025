@@ -16,7 +16,6 @@
       "blocks": {
         "footer_0": {
           "type": "logo",
-          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/AIDA_BICAJ_LOGO_FINAL_070522.svg",
             "text_align": "center",
@@ -55,10 +54,10 @@
       "settings": {
         "copyright_text": "",
         "display_designed_by": false,
-        "display_payment_methods": false,
-        "enable_follow_on_shop": false,
+        "display_payment_methods": true,
+        "enable_follow_on_shop": true,
         "show_locale_selector": false,
-        "show_currency_selector": false
+        "show_currency_selector": true
       }
     }
   },
