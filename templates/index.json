@@ -15,11 +15,11 @@
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/DSC01264.jpg",
+            "image": "shopify://shop_images/1080x1080-HOMEPAGE_FEMME.jpg",
             "pretext": "",
-            "title": "Introducing niance",
+            "title": "",
             "subtitle": "",
-            "button1": "discover the holistic ritual",
+            "button1": "",
             "button1_link": "shopify://pages/niance-skincare-swiss-cellular-science-luxury-skincare",
             "button1_style": "global-button--banner",
             "button2": "",
@@ -27,7 +27,7 @@
             "button2_style": "global-button--banner",
             "text_position": "center",
             "text_align": "center",
-            "caption_content_background": "darken_bg"
+            "caption_content_background": "original"
           }
         },
         "image_wcLDkQ": {
