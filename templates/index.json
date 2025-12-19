@@ -15,12 +15,12 @@
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/1080x1080-HOMEPAGE_FEMME.jpg",
+            "image": "shopify://shop_images/br_502697c5-f599-47e4-8c57-814004cb6bea.jpg",
             "pretext": "",
             "title": "",
-            "subtitle": "",
+            "subtitle": "<p>With every Biologique Recherche purchase of $300 or more, we will be delighted to select a token of appreciation to elevate your routine.</p>",
             "button1": "",
-            "button1_link": "shopify://pages/niance-skincare-swiss-cellular-science-luxury-skincare",
+            "button1_link": "shopify://collections",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
