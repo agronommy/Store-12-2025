@@ -1,4 +1,4 @@
-{%- comment -%}
+{%- doc -%}
   Renders a scrolling-images component.
 
   Section accepts:
@@ -21,7 +21,7 @@
 
   Usage:
   {% render 'scrolling-images'  %}
-{%- endcomment -%}
+{%- enddoc -%}
 
 {%- liquid
   assign section_heading = section.settings.section_heading
@@ -62,6 +62,9 @@
 <scrolling-images
   id="{{ section.id }}"
   class="scrolling-images"
+  image-gap-desktop="{{ image_gap_desktop | remove: 'px' }}"
+  image-gap-mobile="{{ image_gap_mobile | remove: 'px' }}"
+  pause-on-hover="{{ pause_on_hover }}"
   style="
     --aspect-ratio: {{ aspect_ratio }};
     --corner-radius: {{ corner_radius }}px;
@@ -79,7 +82,6 @@
     --play-state: {{ play_state }};
     --duration: {{ scroll_speed }}s;
     --scroll-direction: {{ scroll_direction }};
-    --animation-image-gap: {{ image_gap_mobile }};
     --image-gap-desktop: {{ image_gap_desktop }};
     --image-gap-mobile: {{ image_gap_mobile }};
   "
@@ -108,6 +110,8 @@
             --mobile-image-width: {{ mobile_width }}px;
           "
           data-scrolling-image-content-item
+          data-desktop-width="{{ desktop_width }}"
+          data-mobile-width="{{ mobile_width }}"
         {% endcapture %}
 
         {% if link != blank %}
@@ -124,7 +128,22 @@
         {% endif %}
 
         {% if image != blank %}
-          {{ image | image_url: width: 400 | image_tag: class: 'scrolling-images__image-tag' }}
+          {% assign mobile_width_2x = mobile_width | times: 2 %}
+          {% assign desktop_width_2x = desktop_width | times: 2 %}
+          {% capture widths %}
+            {{ mobile_width }}px, {{ desktop_width }}px, {{ mobile_width_2x }}px, {{ desktop_width_2x }}px
+          {% endcapture %}
+          {% capture sizes %}
+            (min-width: 480px) {{ desktop_width }}px, {{ mobile_width }}px
+          {% endcapture %}
+
+          {{ image | image_url: width: width_2x | image_tag: 
+            class: 'scrolling-images__image-tag',
+            width: desktop_width,
+            loading: 'lazy',
+            widths: widths,
+            sizes: sizes
+          }}
         {% else %}
           {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
         {% endif %}
@@ -145,116 +164,147 @@
 </scrolling-images>
 
 <style type="text/css">
-  .has-vertical-header .is-beside-vertical-header:has(.scrolling-images) {
-    min-width: 0;
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.has-vertical-header .is-beside-vertical-header:has(.scrolling-images){min-width:0}.scrolling-images{--current-gap:var(--image-gap-mobile);background-color:var(--background-color);color:var(--text-color);display:block;font-size:var(--heading-size-mobile);margin-bottom:calc(var(--margin-bottom, 0)*.75);margin-top:calc(var(--margin-top, 0)*.75);overflow:hidden;padding-bottom:calc(var(--padding-bottom, 0)*.75);padding-top:calc(var(--padding-top, 0)*.75);width:100%}@media only screen and (min-width:480px){.scrolling-images{--current-gap:var(--image-gap-desktop);font-size:var(--heading-size-desktop);margin-bottom:var(--margin-bottom,0);margin-top:var(--margin-top,0);padding-bottom:var(--padding-bottom,0);padding-top:var(--padding-top,0)}}.scrolling-images .scrolling-images__content{align-items:center;display:flex;flex-shrink:0;gap:var(--current-gap);min-width:100%}.scrolling-images.scrolling-images--is-animated .scrolling-images__content{animation:scrolling-images var(--duration) infinite linear var(--scroll-direction) running}@media (prefers-reduced-motion:reduce){.scrolling-images.scrolling-images--is-animated .scrolling-images__content{animation:none!important;transform:none!important}}.scrolling-images.scrolling-images--is-animated:focus-within .scrolling-images__content,.scrolling-images.scrolling-images--is-animated:hover .scrolling-images__content{animation-play-state:var(--play-state)}@media (pointer:coarse){.scrolling-images.scrolling-images--is-animated:focus-within .scrolling-images__content,.scrolling-images.scrolling-images--is-animated:hover .scrolling-images__content{animation-play-state:initial}}.scrolling-images .scrolling-images__container{display:flex;gap:var(--current-gap);overflow:hidden;position:relative;width:100%}.scrolling-images .scrolling-images__content-item{aspect-ratio:var(--aspect-ratio);height:auto;width:var(--mobile-image-width)}@media only screen and (min-width:480px){.scrolling-images .scrolling-images__content-item{width:var(--desktop-image-width)}}.scrolling-images .scrolling-images__content-item img{aspect-ratio:var(--aspect-ratio);border-radius:var(--corner-radius);display:block;height:auto;-o-object-fit:cover;object-fit:cover;width:100%}.scrolling-images .scrolling-images__content-item svg{background-color:var(--placeholder-background-color);border-radius:var(--corner-radius);display:block;height:100%;width:100%;fill:var(--placeholder-fill-color)}.scrolling-images a.scrolling-images__content-item:focus img,.scrolling-images a.scrolling-images__content-item:focus svg{outline:2px solid blue;outline-offset:2px}@keyframes scrolling-images{0%{transform:translateX(0)}to{transform:translateX(calc(-100% - var(--current-gap)))}}</style>
+{% javascript %}
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
 
-    /* fix for Flex vertical header */
+class ScrollingImages extends HTMLElement {
+  constructor() {
+    super();
+    this.paused = false;
   }
 
-  .scrolling-images {
-    display: block;
-    padding-top: calc(var(--padding-top, 0) * 0.75);
-    padding-bottom: calc(var(--padding-bottom, 0) * 0.75);
-    margin-top: calc(var(--margin-top, 0) * 0.75);
-    margin-bottom: calc(var(--margin-bottom, 0) * 0.75);
-    font-size: var(--heading-size-mobile);
-    color: var(--text-color);
-    background-color: var(--background-color);
+  // Section lifecycle
 
-    @media only screen and (width >=480px) {
-      padding-top: var(--padding-top, 0);
-      padding-bottom: var(--padding-bottom, 0);
-      margin-top: var(--margin-top, 0);
-      margin-bottom: var(--margin-bottom, 0);
-      font-size: var(--heading-size-desktop);
-    }
+  connectedCallback() {
+    this.scrollingImageContent = this.querySelectorAll('[data-scrolling-image-content]'); // wrapper containing images
+    if (!this.scrollingImageContent.length) return;
+    this.pauseOnHover = this.getAttribute('pause-on-hover') === 'true';
+    this.#initScroll();
+    this.#handleResize();
+    this.#setupTouchClick();
+  }
 
-    .scrolling-images__content {
-      display: flex;
-      flex-shrink: 0;
-      gap: var(--image-gap-mobile);
-      align-items: center;
-      min-width: 100%;
+  disconnectedCallback() {
+    if (this.observer) {
+      this.observer.unobserve(this);
+      this.observer = null;
+    };
+    if (this.ro) {
+      this.ro.unobserve(this);
+      this.ro = null;
+    };
+  }
 
-      @media only screen and (width >=480px) {
-        gap: var(--image-gap-desktop);
+  #handleResize() {
+    if (this.ro) return;
+
+    this.ro = new ResizeObserver(
+      debounce(() => {
+        this.#initScroll();
+      }, 50)
+    );
+
+    this.ro.observe(this);
+  }
+
+  #initScroll() {
+    this.scrollingImageContent.forEach((el) => {
+      // Get gap from custom element attributes instead of computed style
+      const isDesktop = window.matchMedia('(min-width: 480px)').matches;
+      const imageGap = parseInt(
+        isDesktop 
+          ? this.getAttribute('image-gap-desktop') 
+          : this.getAttribute('image-gap-mobile'),
+        10
+      );
+      
+      const marqueeItems = el.querySelectorAll(
+        '[data-scrolling-image-content-item]:not([data-is-clone])'
+      );
+      
+      const width = el.offsetWidth;
+
+      // Calculate the total width of all marquee items using data attributes from individual items
+      let totalItemWidth = [...marqueeItems].reduce(
+        (total, item) => {
+          const itemWidth = parseInt(
+            isDesktop 
+              ? item.dataset.desktopWidth 
+              : item.dataset.mobileWidth,
+            10
+          );
+          return total + (itemWidth + imageGap);
+        },
+        0
+      );
+
+
+      if (totalItemWidth > 0) totalItemWidth -= imageGap;
+
+      // Ensure we have enough content for smooth infinite scroll (minimum 2 sets)
+      const numImageGroups = Math.max(2, Math.ceil((width * 1.5) / Math.max(totalItemWidth, 1)));
+      
+      // Check how many clone groups we currently have
+      const existingClones = el.querySelectorAll('[data-is-clone="true"]');
+      const currentCloneGroups = existingClones.length / marqueeItems.length;
+      
+      // Only modify clones if the required number has changed
+      if (Math.floor(currentCloneGroups) !== numImageGroups - 1) {
+        // Remove existing clones
+        existingClones.forEach(clone => clone.remove());
+        
+        // Clone and append marquee items if we don't have enough to fill the container
+        for (let i = 1; i < numImageGroups; i++) {
+          marqueeItems.forEach((item) => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('data-is-clone', 'true');
+            el.appendChild(clone);
+          });
+        }
       }
-    }
 
-    &.scrolling-images--is-animated .scrolling-images__content {
-      animation: scrolling-images var(--duration) infinite linear var(--scroll-direction) running;
-
-      @media (prefers-reduced-motion: reduce) {
-        transform: none !important;
-        animation: none !important;
+      // Adjust animation duration based on the number of cloned groups to maintain consistent speed
+      if (numImageGroups > 1) {
+        const originalDuration = parseFloat(getComputedStyle(this).getPropertyValue('--duration'));
+        const adjustedDuration = originalDuration * numImageGroups;
+        el.style.setProperty('--duration', `${adjustedDuration}s`);
       }
-    }
+    });
 
-    &.scrolling-images--is-animated:hover .scrolling-images__content,
-    &.scrolling-images--is-animated:focus-within .scrolling-images__content {
-      animation-play-state: var(--play-state);
-    }
-
-    .scrolling-images__container {
-      position: relative;
-      display: flex;
-      gap: var(--image-gap-mobile);
-      width: 100%;
-      overflow: hidden;
-
-      @media only screen and (width >=480px) {
-        gap: var(--image-gap-desktop);
-      }
-    }
-
-    .scrolling-images__content-item {
-      width: var(--mobile-image-width);
-      height: auto;
-      aspect-ratio: var(--aspect-ratio);
-
-      @media only screen and (width >=480px) {
-        width: var(--desktop-image-width);
-      }
-
-      img {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: var(--aspect-ratio);
-        object-fit: cover;
-        border-radius: var(--corner-radius);
-      }
-
-      svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        background-color: var(--placeholder-background-color);
-        border-radius: var(--corner-radius);
-        fill: var(--placeholder-fill-color);
-      }
-    }
-
-    a.scrolling-images__content-item:focus {
-      img,
-      svg {
-        outline: 2px solid blue;
-        outline-offset: 2px;
-      }
+    if (!this.observer) {
+      this.#observeAnimations();
     }
   }
 
-  @keyframes scrolling-images {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(calc(-100% - var(--animation-image-gap)));
-    }
+  #observeAnimations() {
+    // Initiate animations in viewport.
+    this.observer = new IntersectionObserver(([entry]) => {
+      const { isIntersecting } = entry;
+      this.classList.toggle('scrolling-images--is-animated', isIntersecting);
+    });
+    this.observer.observe(this);
   }
-</style>
 
+  #setupTouchClick() {
+    if (!window.matchMedia('(pointer: coarse)').matches || !this.pauseOnHover) return;
+    
+    this.addEventListener('click', (e) => {
+      this.paused = !this.paused;
+      this.scrollingImageContent.forEach((el) => {
+        el.style.animationPlayState = this.paused ? 'paused' : 'running';
+      });
+    });
+  }
+}
+
+customElements.define('scrolling-images', ScrollingImages);{% endjavascript %}
 {% schema %}
 {
   "name": "t:pxu_sections.sections.scrolling_images.name",
@@ -362,19 +412,19 @@
     {
       "type": "select",
       "id": "image_gap",
-      "label": "Image gap",
+      "label": "t:pxu_sections.common.image.image_gap",
       "options": [
         {
           "value": "small",
-          "label": "Small"
+          "label": "t:pxu_sections.common.sizes.small"
         },
         {
           "value": "medium",
-          "label": "Medium"
+          "label": "t:pxu_sections.common.sizes.medium"
         },
         {
           "value": "large",
-          "label": "Large"
+          "label": "t:pxu_sections.common.sizes.large"
         }
       ],
       "default": "medium"
@@ -513,5 +563,4 @@
       ]
     }
   ]
-}
-{% endschema %}
+}{% endschema %}
