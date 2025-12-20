@@ -222,7 +222,8 @@
         "aspect_ratio_3_2": "Landscape (3:2)",
         "aspect_ratio_4_5": "Portrait (4:5)",
         "image_layout": "Image layout",
-        "mobile_image_width": "Mobile image width"
+        "mobile_image_width": "Mobile image width",
+        "image_gap": "Image gap"
       },
       "layout": {
         "bottom": "Bottom",
@@ -1054,7 +1055,7 @@
         }
       },
       "scrolling_images": {
-        "name": "🧰 Scrolling images",
+        "name": "🧰 Scrolling Images",
         "scroll_direction": {
           "label": "Scroll direction",
           "normal": "Right to left",
