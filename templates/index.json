@@ -107,58 +107,36 @@
         "custom_css": ""
       }
     },
-    "pxu_countdown_timer_MXYkyQ": {
-      "type": "pxu-countdown-timer",
+    "image_text_hqPBkR": {
+      "type": "image-text",
       "blocks": {
-        "content_bzPpwn": {
-          "type": "content",
+        "image_8WxACC": {
+          "type": "image",
           "settings": {
-            "heading": "The Aida Bicaj Seasonal Shopping Event",
-            "heading_size": 40,
-            "heading_size_mobile": 32,
-            "text": "<p>Enjoy 20% off<br/>All In-Spa Product Purchases<br/>*Exclusions Apply</p><p>Wednesday December 17th<br/>NYC Tribeca Spa | 12-6 pm</p>",
-            "text_size": 16,
-            "text_size_mobile": 16,
-            "content_alignment": "left",
-            "button_label": "RSVP",
-            "button_url": "shopify://pages/the-aida-bicaj-seasonal-shopping-event",
-            "button_style": "fill",
-            "button_background_color": "#000000",
-            "button_text_color": "#ffffff",
-            "content_alignment_mobile": "center"
-          }
-        },
-        "timer_YLCf4d": {
-          "type": "timer",
-          "settings": {
-            "countdown_year": "2025",
-            "countdown_month": "12",
-            "countdown_day": "17",
-            "countdown_hour": "11",
-            "countdown_minute": "30",
-            "countdown_timer_complete": false,
-            "countdown_message": "",
-            "countdown_style": "outline",
-            "countdown_text_color": "#000000",
-            "countdown_background_color": "#ffffff",
-            "countdown_opacity": 100
+            "image": "shopify://shop_images/Gemini_Generated_Image_sq85msq85msq85ms.png",
+            "title": "The Signature of Radiance",
+            "text": "<p>Discover a curated realm of elite skincare and bespoke treatments. Indulge in the exceptional.</p>",
+            "button_label": "Purchase a Gift Card",
+            "link": "shopify://products/gift-card",
+            "text_color": "",
+            "bg_color": "",
+            "bg_color_gradient": ""
           }
         }
       },
       "block_order": [
-        "content_bzPpwn",
-        "timer_YLCf4d"
+        "image_8WxACC"
       ],
-      "disabled": true,
-      "name": "t:pxu_sections.sections.countdown_timer.name",
+      "name": "Image with text",
       "settings": {
-        "section_height": "small",
-        "image": "shopify://shop_images/AB-Tribeca.jpg",
-        "text_color": "#ffffff",
-        "image_overlay_color": "#000000",
-        "image_overlay_opacity": 25,
-        "margin_top": 20,
-        "margin_bottom": 20
+        "wide_display": true,
+        "featured_links_per_row": "1",
+        "frontpage_text_align": "left",
+        "frontpage_image_position": "row",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
       }
     },
     "pxu_mosaic_w4Wy3e": {
@@ -917,7 +895,7 @@
   "order": [
     "slideshow_kAdTpR",
     "featured_collection_pGYCgh",
-    "pxu_countdown_timer_MXYkyQ",
+    "image_text_hqPBkR",
     "pxu_mosaic_w4Wy3e",
     "pxu_before_after_image_fgNLFX",
     "1631220042ad7f3b3f",
