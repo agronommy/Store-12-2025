@@ -1,0 +1,338 @@
+{%- comment -%}
+  🧰 Logo list section
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading | strip
+  assign text_color = section.settings.text_color
+
+  assign has_slider = false
+  if section.settings.mobile_layout == "slider"
+    assign has_slider = true
+  endif
+
+  assign slider_modifier = "mobile-grid"
+  if has_slider
+    assign slider_modifier = "mobile-slider"
+  endif
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-logo-list
+    pxu-logo-list--{{ slider_modifier }}
+  "
+  style="
+    --pxu-section-heading-size: {{ section.settings.section_heading_size }}px;
+    --pxu-section-heading-size-mobile: {{ section.settings.section_heading_size_mobile }}px;
+    --pxu-section-text-color: {{ text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-placeholder-fill-color: {{ text_color | color_modify: 'alpha', 0.35 }};
+    --pxu-section-placeholder-background-color: {{ text_color | color_modify: 'alpha', 0.15 }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+  "
+  data-pxu-logo-list
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-logo-list",
+      "className": "LogoListSection",
+      "name": "Logo list",
+      "version": "1.1.0",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}",
+      "hasSlider": {{ has_slider }}
+    }
+  </script>
+  <div class="pxu-section__container pxu-logo-list__container">
+    {%- if section_heading != blank -%}
+      <h2 class="pxu-section__section-heading pxu-logo-list__section-heading">
+        {{- section_heading -}}
+      </h2>
+    {%- endif -%}
+
+    <div class="pxu-logo-list__inner">
+
+      {% if has_slider %}
+        <div
+          class="
+            pxu-carousel
+            pxu-carousel--sm-down
+            pxu-carousel--v-center
+          "
+        >
+          <div
+            class="pxu-carousel__items"
+            data-pxu-carousel="xxs,xs"
+          >
+            {%- for block in section.blocks -%}
+              <div class="pxu-carousel__item" data-pxu-carousel-item>
+                {%- liquid
+                  assign link_url = block.settings.link_url
+                  assign image = block.settings.image
+                -%}
+                <div class="pxu-logo-list__logo" {{ block.shopify_attributes }}>
+                  {% if link_url != blank %}
+                    <a class="pxu-logo-list__link" href="{{ link_url }}">
+                  {% endif %}
+
+                  {% if image %}
+                    {{ image | image_url: width: 500 | image_tag: class: 'pxu-logo-list__logo-image' }}
+                  {% else %}
+                    {{ 'image' | placeholder_svg_tag: 'pxu-placeholder' }}
+                  {% endif %}
+
+                  {% if link_url != blank %}
+                    </a>
+                  {% endif %}
+                </div>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+
+      {% else %}
+        {%- for block in section.blocks -%}
+          {%- liquid
+            assign link_url = block.settings.link_url
+            assign image = block.settings.image
+          -%}
+          <div
+            class="pxu-logo-list__logo"
+            {{ block.shopify_attributes }}
+          >
+            {% if link_url != blank %}
+              <a class="pxu-logo-list__link" href="{{ link_url }}">
+            {% endif %}
+
+            {% if image %}
+              {{ image | image_url: width: 500 | image_tag: class: 'pxu-logo-list__logo-image' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'pxu-placeholder' }}
+            {% endif %}
+
+            {% if link_url != blank %}
+              </a>
+            {% endif %}
+          </div>
+        {%- endfor -%}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-logo-list{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-logo-list{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-logo-list__inner{align-items:center;display:flex;flex-wrap:wrap;gap:var(--pxu-space-12) var(--pxu-space-16);justify-content:center}.pxu-logo-list__logo{line-height:0;max-width:100px;width:100%}.pxu-logo-list__logo-image{height:auto}.pxu-logo-list__link{display:block}@media only screen and (max-width:719px){.pxu-logo-list--mobile-slider .pxu-logo-list__inner{display:block}.pxu-logo-list--mobile-slider .pxu-logo-list__logo{margin-right:var(--pxu-space-12)}.pxu-carousel__item:last-child .pxu-logo-list--mobile-slider .pxu-logo-list__logo{margin-right:0}}</style>
+{% javascript %}
+const { Section, Carousel } = window.PxuThemeSections;
+class LogoListSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.carousel = null;
+
+    this.onMount();
+  }
+
+  onMount() {
+    if (!this.data.hasSlider) return;
+    this.carousel = new Carousel(this.$root, {
+      draggable: true,
+      groupCells: true,
+      cellAlign: 'left'
+    });
+    setTimeout(() => {
+      this.carousel.onMount();
+    }, 100);
+  }
+
+  onUnmount() {
+    if (!this.carousel) return;
+    this.carousel.onUnmount();
+    this.carousel = null;
+  }
+
+  onBlockSelect(event) {
+    if (!this.data.hasSlider || !this.carousel) return;
+    const $slide = event.target.parentElement;
+    this.carousel.selectSlide($slide);
+  }
+}
+
+document.querySelectorAll(`[data-pxu-logo-list]`).forEach(($section) => {
+  Section.init($section, LogoListSection);
+});
+
+// Export for theme editor instance management.
+if (Shopify.designMode) {
+  window.PxuThemeSections.LogoListSection = LogoListSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.logo_list.name",
+  "class": "pxu-logo-list-section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "t:pxu_sections.common.heading.section_heading"
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.layout.mobile_layout"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "t:pxu_sections.common.layout.layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:pxu_sections.common.layout.grid"
+        },
+        {
+          "value": "slider",
+          "label": "t:pxu_sections.common.slider.slider"
+        }
+      ],
+      "default": "grid"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.color.color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "t:pxu_sections.sections.logo_list.block_logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:pxu_sections.common.image.image"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "t:pxu_sections.common.navigation.link"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.logo_list.name",
+      "blocks": [
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        },
+        {
+          "type": "logo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
