@@ -1,0 +1,403 @@
+{%- comment -%}
+  🧰 FAQ section
+{%- endcomment -%}
+
+{%- liquid
+  assign section_heading = section.settings.section_heading | strip
+-%}
+
+<section
+  id="{{ section.id }}"
+  class="
+    pxu-section
+    pxu-section--animated-{{ section.settings.enable_animations }}
+    pxu-faq
+  "
+  style="
+    --pxu-section-heading-size: {{ section.settings.section_heading_size }}px;
+    --pxu-section-heading-size-mobile: {{ section.settings.section_heading_size_mobile }}px;
+    --pxu-section-width: {{ section.settings.content_width }};
+    --pxu-section-text-color: {{ section.settings.text_color }};
+    --pxu-section-background-color: {{ section.settings.background_color }};
+    --pxu-section-padding-top: {{ section.settings.padding_top }}px;
+    --pxu-section-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --pxu-section-margin-top: {{ section.settings.margin_top }}px;
+    --pxu-section-margin-bottom: {{ section.settings.margin_bottom }}px;
+
+    --pxu-section-category-size: {{ section.settings.category_size }}px;
+    --pxu-section-category-size-mobile: {{ section.settings.category_size_mobile }}px;
+    --pxu-section-row-content-size: {{ section.settings.row_content_size }}px;
+    --pxu-section-row-content-size-mobile: {{ section.settings.row_content_size_mobile }}px;
+
+    --pxu-heading-size: {{ section.settings.heading_size }}px;
+    --pxu-heading-size-mobile: {{ section.settings.heading_size_mobile }}px;
+    --pxu-text-size: {{ section.settings.text_size }}px;
+    --pxu-text-size-mobile: {{ section.settings.text_size_mobile }}px;
+  "
+  data-pxu-faq
+>
+  <script
+    type="application/json"
+    data-component-data
+  >
+    {
+      "id": "{{ section.id }}",
+      "handle": "pxu-faq",
+      "className": "FaqSection",
+      "name": "FAQ",
+      "version": "1.0.2",
+      "scriptsUrl": "{{ 'scripts.js' | asset_url | replace: '/assets/', '/compiled_assets/' }}"
+    }
+  </script>
+
+  <div class="pxu-section__container pxu-faq__container">
+    {%- if section_heading != blank -%}
+      <h2 class="pxu-section__section-heading pxu-faq__section-heading">
+        {{- section_heading -}}
+      </h2>
+    {%- endif -%}
+
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'heading' %}
+          {% assign heading = block.settings.heading | strip %}
+          {% if heading != blank %}
+            <h3
+              id="{{ block.id }}"
+              class="pxu-faq__heading pxu-heading"
+              {{ block.shopify_attributes }}
+            >
+              {{ heading }}
+            </h3>
+          {% endif %}
+
+        {% when 'question' %}
+          {% liquid
+            assign question = block.settings.question | strip_html
+            assign answer = block.settings.answer | strip
+          %}
+          {% if question != blank and answer != blank %}
+            <div
+              id="{{ block.id }}"
+              class="pxu-details"
+              {{ block.shopify_attributes }}
+            >
+              <details
+                class="pxu-details__item-term"
+                aria-details="answer-{{ block.id }}"
+                data-pxu-faq-item-term
+              >
+                <summary class="pxu-details__question">
+                  <span class="pxu-details__question-text">{{ question }}</span>
+                  <svg class="pxu-details__icon" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                    <path class="pxu-details__icon-left" d="M7 6.75L12.5 1.25" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"></path>
+                    <path class="pxu-details__icon-right" d="M7 6.75L1.5 1.25" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"></path>    
+                  </svg>
+                </summary>
+              </details>
+              <div
+                id="answer-{{ block.id }}"
+                class="pxu-details__answer"
+                data-pxu-faq-answer
+              >
+                <div class="pxu-details__answer-content pxu-rte">
+                  {{ answer }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style type="text/css">
+.pxu-section{--pxu-current-bp:"xxs"}@media only screen and (min-width:480px){.pxu-section{--pxu-current-bp:"xs"}}@media only screen and (min-width:720px){.pxu-section{--pxu-current-bp:"small"}}@media only screen and (min-width:860px){.pxu-section{--pxu-current-bp:"medium"}}@media only screen and (min-width:1024px){.pxu-section{--pxu-current-bp:"large"}}.pxu-faq{background-color:var(--pxu-section-background-color);color:var(--pxu-section-text-color);margin-bottom:calc(var(--pxu-section-margin-bottom, 0)*.75);margin-top:calc(var(--pxu-section-margin-top, 0)*.75);padding:calc(var(--pxu-section-padding-top, 0)*.75) var(--pxu-space-4) calc(var(--pxu-section-padding-bottom, 0)*.75)}@media only screen and (min-width:480px){.pxu-faq{margin-bottom:var(--pxu-section-margin-bottom,0);margin-top:var(--pxu-section-margin-top,0);padding:var(--pxu-section-padding-top,0) var(--pxu-space-6) var(--pxu-section-padding-bottom,0)}}.pxu-faq__heading.pxu-heading{font-size:var(--pxu-heading-size-mobile);margin:var(--pxu-space-14) 0 var(--pxu-space-8) 0}.pxu-faq__heading.pxu-heading:first-of-type{margin-top:0}@media only screen and (min-width:860px){.pxu-faq__heading.pxu-heading{font-size:var(--pxu-heading-size)}}.pxu-details:first-child,.pxu-faq__heading+.pxu-details{padding-top:0}</style>
+{% javascript %}
+const { Section } = window.PxuThemeSections;
+const { debounce } = window.PxuUtils;
+class FaqSection extends Section {
+  constructor($root) {
+    super($root);
+    this.$root = $root;
+    this.id = $root.id;
+    this.data = this.loadData();
+    this.$answers = this.queryAll('[data-pxu-faq-answer]');
+
+    this.onMount();
+  }
+
+  onMount() {
+    this.initEventListeners();
+    this.updateItemHeights();
+  }
+
+  onUnmount() {
+    this.events.unregisterAll();
+  }
+
+  initEventListeners() {
+    this.events.register(window, 'resize', debounce(
+      () => this.updateItemHeights(), 200)
+    );
+  }
+
+  updateItemHeights() {
+    this.$answers.forEach(($answer) => {
+      const openHeight = $answer.scrollHeight;
+      $answer.style.setProperty('--open-height', `${openHeight}px`);
+    });
+  }
+
+  onBlockSelect(event) {
+    const { blockId } = event.detail;
+    const $block = document.getElementById(blockId);
+    const $itemTerm = $block.querySelector('[data-pxu-faq-item-term]');
+    if (!$itemTerm) return;
+    $itemTerm.open = true;
+  }
+
+  onBlockDeselect(event) {
+    const { blockId } = event.detail;
+    const $block = document.getElementById(blockId);
+    const $itemTerm = $block.querySelector('[data-pxu-faq-item-term]');
+    if (!$itemTerm) return;
+    $itemTerm.open = false;
+  }
+}
+
+document.querySelectorAll(`[data-pxu-faq]`).forEach(($section) => {
+  Section.init($section, FaqSection);
+});
+
+// Export for theme editor instance management.
+if (Shopify.designMode) {
+  window.PxuThemeSections.FaqSection = FaqSection;
+}
+{% endjavascript %}
+{% schema %}
+{
+  "name": "t:pxu_sections.sections.faq.name",
+  "class": "pxu-faq-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "content_width",
+      "label": "t:pxu_sections.common.content_width.label",
+      "options": [
+        {
+          "value": "650px",
+          "label": "t:pxu_sections.common.content_width.regular"
+        },
+        {
+          "value": "800px",
+          "label": "t:pxu_sections.common.content_width.wide"
+        },
+        {
+          "value": "100%",
+          "label": "t:pxu_sections.common.content_width.full_width"
+        }
+      ],
+      "default": "650px"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "section_heading",
+      "label": "t:pxu_sections.common.heading.section_heading",
+      "default": "t:pxu_sections.sections.faq.section_heading"
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.typography.block_typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "min": 16,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.heading.heading_size_mobile",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.text.text_size_mobile",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:pxu_sections.common.color.text_color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:pxu_sections.common.color.background_color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.animations.animations"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animations",
+      "label": "t:pxu_sections.common.animations.enable_animations",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.padding.header"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.top",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.padding.bottom",
+      "default": 32
+    },
+    {
+      "type": "header",
+      "content": "t:pxu_sections.common.margin.header"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.top",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "t:pxu_sections.common.margin.bottom",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "t:pxu_sections.common.heading.name",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "t:pxu_sections.common.heading.name",
+          "default": "t:pxu_sections.common.heading.name"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "t:pxu_sections.sections.faq.block_question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "t:pxu_sections.sections.faq.block_question",
+          "default": "t:pxu_sections.sections.faq.block_question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "t:pxu_sections.sections.faq.block_answer",
+          "default": "t:pxu_sections.sections.faq.block_answer_default"
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "presets": [
+    {
+      "name": "t:pxu_sections.sections.faq.name",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        },
+        {
+          "type": "question"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
