@@ -25,10 +25,10 @@
         "cart_icon": "bag",
         "show_locale_selector": false,
         "show_currency_selector": false,
-        "logo_display_width": 105,
-        "logo": "shopify://shop_images/AB_Logo_Variants_3_3561139b-4306-46c4-a2b4-0e7111cc65d0.png",
-        "logo_home": "shopify://shop_images/AB_Logo_Variants_3_3561139b-4306-46c4-a2b4-0e7111cc65d0.png",
-        "logo_mobile": "shopify://shop_images/AB_Logo_Variants_2_3e16254a-4852-45d2-a439-12fda658919c.png",
+        "logo_display_width": 125,
+        "logo": "shopify://shop_images/Untitled_design_13.png",
+        "logo_home": "shopify://shop_images/Untitled_design_13.png",
+        "logo_mobile": "shopify://shop_images/Untitled_design_13.png",
         "main_linklist": "main-menu",
         "main_linklist2": "treatments",
         "vertical_menu": true,
@@ -36,7 +36,7 @@
         "search_enabled": true,
         "fixed_header": true,
         "logo_position": "center",
-        "logo_alignment": "left",
+        "logo_alignment": "center",
         "menu_position": "inline",
         "menu_alignment": "center"
       }
@@ -562,45 +562,6 @@
       "settings": {
         "parent": ""
       }
-    },
-    "pxu_announcement_slider_7WURAR": {
-      "type": "pxu-announcement-slider",
-      "blocks": {
-        "announcement_Vk86Xb": {
-          "type": "announcement",
-          "settings": {
-            "text": "FAST, FREE U.S. SHIPPING ON ORDERS $50+ • FREE SAMPLES WITH EVERY ORDER",
-            "mobile_text": "",
-            "link": ""
-          }
-        },
-        "announcement_pJCewj": {
-          "type": "announcement",
-          "settings": {
-            "text": "UNLOCK THE SECRETS TO RADIANT SKIN WITH OUR TAILORED QUIZ",
-            "mobile_text": "",
-            "link": "https://aidabicaj.com/pages/aida-skincare-quiz-test"
-          }
-        }
-      },
-      "block_order": [
-        "announcement_Vk86Xb",
-        "announcement_pJCewj"
-      ],
-      "name": "t:pxu_sections.sections.announcement_slider.name",
-      "settings": {
-        "auto_rotate": false,
-        "rotation_speed": 7,
-        "show_arrows": false,
-        "text_size": 12,
-        "text_size_mobile": 12,
-        "text_color": "#ffffff",
-        "background_color": "#000000",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "margin_top": 0,
-        "margin_bottom": 0
-      }
     }
   },
   "order": [
@@ -609,7 +570,6 @@
     "dc8aed72-4245-4112-97c1-3da179ada797",
     "747e2c76-cfc7-44b4-b6d3-65e301d26061",
     "70f4de70-bc9f-4da6-a949-676cd2a404a5",
-    "c8fc6b94-45cb-49c5-8a90-0d3a49327767",
-    "pxu_announcement_slider_7WURAR"
+    "c8fc6b94-45cb-49c5-8a90-0d3a49327767"
   ]
 }

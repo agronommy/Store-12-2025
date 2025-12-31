@@ -9,13 +9,43 @@
  */
 {
   "sections": {
+    "single_video_section_rnFbzB": {
+      "type": "single-video-section",
+      "name": "Single video",
+      "settings": {
+        "section_heading": "",
+        "section_heading_size": 16,
+        "section_heading_size_mobile": 30,
+        "image_ratio": "landscape",
+        "shopify_video": "shopify://files/videos/0521_BrandFilm_NT (1).mp4",
+        "video_link": "",
+        "block_heading": "",
+        "block_text": "",
+        "button_label": "Learn more",
+        "button_url": "",
+        "button_style": "fill",
+        "button_background_color": "#000000",
+        "button_text_color": "#FFFFFF",
+        "text_color": "#000000",
+        "background_color": "#F8F8F8",
+        "background_gradient": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "block_heading_size": 24,
+        "block_heading_size_mobile": 24,
+        "block_text_size": 16,
+        "block_text_size_mobile": 16
+      }
+    },
     "slideshow_kAdTpR": {
       "type": "slideshow",
       "blocks": {
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_9.png",
+            "image": "shopify://shop_images/Receive_an_exclusive_suprise_with_your_online_Biologique_Recherche_order._2.png",
             "pretext": "<h2>A Little Something for You This Season</h2>",
             "title": "Enjoy a curated gift with purchase",
             "subtitle": "<p>While supplies last.</p>",
@@ -74,6 +104,7 @@
         "image_wcLDkQ",
         "image_LYEEqr"
       ],
+      "disabled": true,
       "custom_css": [],
       "name": "Slideshow",
       "settings": {
@@ -135,6 +166,43 @@
         "frontpage_image_position": "row",
         "padding_top": 0,
         "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_H8Mfmz": {
+      "type": "divider",
+      "name": "Divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "featured_collection_EpXWbF": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "SHOP BEST SELLERS",
+        "collection_description": false,
+        "collection_view_all": false,
+        "collection": "best-sellers",
+        "collection_style": "slider",
+        "products_per": 4,
+        "products_limit": 15,
+        "padding_top": 0,
+        "padding_bottom": 18,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "divider_Dxi8Vn": {
+      "type": "divider",
+      "name": "Divider",
+      "settings": {
+        "divider_spacing": 20,
+        "divider_border": false,
         "css_class": "",
         "custom_css": ""
       }
@@ -480,8 +548,8 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify://shop_images/cleanser-27-cosmetics-27-aida-bicaj-4823224.webp",
-            "title": "Cleanse",
+            "image": "shopify://shop_images/masque-visolastine-biologique-recherche-aida-bicaj-308810.jpg",
+            "title": "biologique recherche",
             "heading_size": "regular_text",
             "text": "",
             "button_label": "",
@@ -494,8 +562,8 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify://shop_images/Lotions_P50_Masque_Heaven_Univers.jpg",
-            "title": "Balance",
+            "image": "shopify://shop_images/mbr_53b15a4a-71b7-41b5-87a1-bc6ee56f98b3.jpg",
+            "title": "MBR",
             "heading_size": "regular_text",
             "text": "",
             "button_label": "",
@@ -508,8 +576,8 @@
           "type": "text_block",
           "settings": {
             "enable_image": true,
-            "image": "shopify://shop_images/baume-27-lips-and-contour-cosmetics-27-aida-bicaj-2391473.webp",
-            "title": "protect",
+            "image": "shopify://shop_images/valmont_v_line_c363757b-75c5-47eb-a136-e2c5e54228f0.jpg",
+            "title": "valmont",
             "heading_size": "regular_text",
             "text": "",
             "button_label": "",
@@ -526,7 +594,67 @@
       ],
       "name": "Text columns with images",
       "settings": {
-        "title": "",
+        "title": "FEATURED BRANDS",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "css_class": "",
+        "custom_css": ""
+      }
+    },
+    "shoppable_image_pdJD7x": {
+      "type": "shoppable-image",
+      "blocks": {
+        "shoppable_image_cwJHcH": {
+          "type": "shoppable-image",
+          "settings": {
+            "card_styling": "square",
+            "elements_outline": true,
+            "hotspot_color": "",
+            "product_1": "",
+            "image_alignment_1": "center-center",
+            "x_axis_1": 50,
+            "y_axis_1": 50,
+            "button_label_1": "View product",
+            "product_2": "",
+            "image_alignment_2": "center-center",
+            "x_axis_2": 25,
+            "y_axis_2": 25,
+            "button_label_2": "View product",
+            "product_3": "",
+            "image_alignment_3": "center-center",
+            "x_axis_3": 75,
+            "y_axis_3": 75,
+            "button_label_3": "View product",
+            "product_4": "",
+            "image_alignment_4": "center-center",
+            "x_axis_4": 20,
+            "y_axis_4": 80,
+            "button_label_4": "View product",
+            "call_to_action": "Your call-to-action",
+            "subtitle": "",
+            "text_align": "center",
+            "button_label": "View collection",
+            "button_link": "",
+            "button_style": "global-button--banner-text-highlighted",
+            "cta_bg_color": "#f2f2f2"
+          }
+        }
+      },
+      "block_order": [
+        "shoppable_image_cwJHcH"
+      ],
+      "name": "Shoppable image",
+      "settings": {
+        "wide_display": true,
+        "slideshow_text_animation": "fadeInDown",
+        "slideshow_animation": "fade",
+        "slideshow_speed": 0,
+        "title": "Shoppable image",
+        "quick_view": false,
+        "bottom_bar": true,
+        "product_thumbnails": true,
+        "cta": true,
+        "bottom_bar_image_style": "natural",
         "padding_top": 0,
         "padding_bottom": 0,
         "css_class": "",
@@ -893,23 +1021,23 @@
       ],
       "name": "SS - Instafeed #2",
       "settings": {
-        "top": "",
-        "top_custom": false,
-        "top_font": "josefin_sans_n4",
-        "top_size": 5,
-        "top_height": 100,
-        "top_align": "center",
+        "top": "join the skincare conversation",
+        "top_custom": true,
+        "top_font": "playfair_display_n4",
+        "top_size": 21,
+        "top_height": 160,
+        "top_align": "left",
         "heading": "@aida.bicaj",
         "heading_custom": false,
-        "heading_font": "playfair_display_n4",
-        "heading_size": 16,
-        "heading_height": 50,
+        "heading_font": "inter_n3",
+        "heading_size": 18,
+        "heading_height": 150,
         "heading_align": "left",
         "heading_mt": 0,
         "subheading": "",
         "subheading_custom": false,
         "subheading_font": "josefin_sans_n4",
-        "subheading_size": 16,
+        "subheading_size": 12,
         "subheading_height": 50,
         "subheading_align": "center",
         "subheading_mt": 12,
@@ -925,7 +1053,7 @@
         "hide_nav": true,
         "hide_nav_mobile": false,
         "image_radius": 12,
-        "top_color": "#e69e6c",
+        "top_color": "#2b2a2a",
         "heading_color": "#2b2a2a",
         "subheading_color": "#aba49d",
         "nav_btn_bg": "#ffffff",
@@ -951,9 +1079,13 @@
     }
   },
   "order": [
+    "single_video_section_rnFbzB",
     "slideshow_kAdTpR",
     "featured_collection_pGYCgh",
     "image_text_hqPBkR",
+    "divider_H8Mfmz",
+    "featured_collection_EpXWbF",
+    "divider_Dxi8Vn",
     "multicolumn_videos_QxATKd",
     "pxu_mosaic_w4Wy3e",
     "pxu_before_after_image_fgNLFX",
@@ -962,6 +1094,7 @@
     "featured_collection_Pqz7yT",
     "pxu_menu_list_EcWph4",
     "text_columns_with_images_qwwRGD",
+    "shoppable_image_pdJD7x",
     "163122133209fcb476",
     "17631356295e3c9d87",
     "pxu_multicolumn_zAGVqx",
