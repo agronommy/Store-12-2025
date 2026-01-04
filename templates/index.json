@@ -9,72 +9,42 @@
  */
 {
   "sections": {
-    "single_video_section_rnFbzB": {
-      "type": "single-video-section",
-      "name": "Single video",
-      "settings": {
-        "section_heading": "",
-        "section_heading_size": 16,
-        "section_heading_size_mobile": 30,
-        "image_ratio": "landscape",
-        "shopify_video": "shopify://files/videos/0521_BrandFilm_NT (1).mp4",
-        "video_link": "",
-        "block_heading": "",
-        "block_text": "",
-        "button_label": "Learn more",
-        "button_url": "",
-        "button_style": "fill",
-        "button_background_color": "#000000",
-        "button_text_color": "#FFFFFF",
-        "text_color": "#000000",
-        "background_color": "#F8F8F8",
-        "background_gradient": "",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "block_heading_size": 24,
-        "block_heading_size_mobile": 24,
-        "block_text_size": 16,
-        "block_text_size_mobile": 16
-      }
-    },
     "slideshow_kAdTpR": {
       "type": "slideshow",
       "blocks": {
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Receive_an_exclusive_suprise_with_your_online_Biologique_Recherche_order._2.png",
-            "pretext": "<h2>A Little Something for You This Season</h2>",
-            "title": "Enjoy a curated gift with purchase",
-            "subtitle": "<p>While supplies last.</p>",
+            "image": "shopify://shop_images/Untitled_design_23.png",
+            "pretext": "<h2>introducing</h2>",
+            "title": "toner 27",
+            "subtitle": "<p>Refined. Functional. Essential.</p>",
             "button1": "Shop Now",
-            "button1_link": "shopify://collections",
+            "button1_link": "shopify://products/toner-27",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
             "button2_style": "global-button--banner-highlighted",
-            "text_position": "center",
+            "text_position": "left",
             "text_align": "center",
-            "caption_content_background": "darken_bg"
+            "caption_content_background": "original"
           }
         },
         "image_wcLDkQ": {
           "type": "image",
-          "disabled": true,
           "settings": {
+            "image": "shopify://shop_images/Untitled_design_24.png",
             "pretext": "",
-            "title": "Your headline",
-            "subtitle": "",
+            "title": "GIFT WITH PURCHASE",
+            "subtitle": "<p>while supplies last</p>",
             "button1": "",
             "button1_link": "",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
             "button2_style": "global-button--banner",
-            "text_position": "center",
-            "text_align": "center",
+            "text_position": "left",
+            "text_align": "left",
             "caption_content_background": "original"
           }
         },
@@ -104,18 +74,17 @@
         "image_wcLDkQ",
         "image_LYEEqr"
       ],
-      "disabled": true,
       "custom_css": [],
       "name": "Slideshow",
       "settings": {
         "wide_display": true,
-        "slideshow_text_animation": "fadeInDown",
+        "slideshow_text_animation": "fadeIn",
         "slideshow_animation": "fade",
         "slideshow_speed": 6,
         "activate_adaptiveHeight": false,
         "mobile_text_below_image": true,
         "mobile_text_color": "#020f4c",
-        "padding_top": 31,
+        "padding_top": 25,
         "padding_bottom": 18,
         "css_class": "",
         "custom_css": ""
@@ -1079,7 +1048,6 @@
     }
   },
   "order": [
-    "single_video_section_rnFbzB",
     "slideshow_kAdTpR",
     "featured_collection_pGYCgh",
     "image_text_hqPBkR",
