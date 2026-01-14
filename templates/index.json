@@ -15,10 +15,10 @@
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_23.png",
+            "image": "shopify://shop_images/clg_cream_optimized.jpg",
             "pretext": "<h2>introducing</h2>",
-            "title": "toner 27",
-            "subtitle": "<p>Refined. Functional. Essential.</p>",
+            "title": "NEW FORLLE'D ARRIVALS",
+            "subtitle": "<p>enzyme exfoliation and collagen support</p>",
             "button1": "Shop Now",
             "button1_link": "shopify://products/toner-27",
             "button1_style": "global-button--banner",
@@ -27,52 +27,12 @@
             "button2_style": "global-button--banner-highlighted",
             "text_position": "left",
             "text_align": "center",
-            "caption_content_background": "original"
-          }
-        },
-        "image_wcLDkQ": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_24.png",
-            "pretext": "",
-            "title": "GIFT WITH PURCHASE",
-            "subtitle": "<p>while supplies last</p>",
-            "button1": "",
-            "button1_link": "",
-            "button1_style": "global-button--banner",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner",
-            "text_position": "left",
-            "text_align": "left",
-            "caption_content_background": "original"
-          }
-        },
-        "image_LYEEqr": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "image": "shopify://shop_images/br_502697c5-f599-47e4-8c57-814004cb6bea.jpg",
-            "pretext": "<p>What is your serum<br/></p>",
-            "title": "Biologique Recherche",
-            "subtitle": "<p>High-performance skincare<br/>powered by French expertise.</p>",
-            "button1": "discover your serum",
-            "button1_link": "shopify://collections/biologique-recherche-quintessential-serums",
-            "button1_style": "global-button--primary",
-            "button2": "",
-            "button2_link": "",
-            "button2_style": "global-button--banner-text",
-            "text_position": "left",
-            "text_align": "center",
-            "caption_content_background": "darken_bg",
-            "mobile_image": "shopify://shop_images/1080x1080-HOMEPAGE_FEMME.jpg"
+            "caption_content_background": "darken_bg"
           }
         }
       },
       "block_order": [
-        "image_MiW3tq",
-        "image_wcLDkQ",
-        "image_LYEEqr"
+        "image_MiW3tq"
       ],
       "custom_css": [],
       "name": "Slideshow",
