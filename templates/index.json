@@ -51,6 +51,48 @@
         "custom_css": ""
       }
     },
+    "1768506750aecf1bee": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b46f46c_V4PUba": {
+          "type": "ai_gen_block_b46f46c",
+          "settings": {
+            "quote_1": "\"Holds the magic of great skin\" - Forbes",
+            "quote_2": "\"Experts in the art of maintaining healthy, glowing skin\" - Skincare Anarchy",
+            "quote_3": "\"Everything Aida says about it all comes true\" - Town & Country",
+            "quote_4": "\"The reason everyone's at least considered Biologique Recherche P50\" - Into The Gloss",
+            "quote_5": "\"One of my absolute favorite facials\" - Architectural Digest",
+            "quote_6": "\"A personalized skincare experience\" - Modern Luxury",
+            "quote_7": "",
+            "quote_8": "",
+            "quote_9": "",
+            "quote_10": "",
+            "scroll_speed": 45,
+            "pause_on_hover": true,
+            "show_icon": false,
+            "icon_style": "quote",
+            "icon_size": 20,
+            "icon_spacing": 15,
+            "icon_color": "#020f4c",
+            "text_font": "playfair_display_n4",
+            "text_size": 18,
+            "text_weight": "300",
+            "text_transform": "none",
+            "letter_spacing": 0,
+            "text_color": "#2b2a2a",
+            "quote_spacing": 30,
+            "padding_vertical": 50,
+            "background_color": "#ffffff",
+            "desktop_width_percent": 100
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b46f46c_V4PUba"
+      ],
+      "settings": {}
+    },
     "featured_collection_pGYCgh": {
       "type": "featured-collection",
       "name": "Featured collection",
@@ -881,23 +923,6 @@
         "margin_bottom": 64
       }
     },
-    "newsletter-1": {
-      "type": "newsletter",
-      "disabled": true,
-      "custom_css": [],
-      "settings": {
-        "wide_display": true,
-        "display_first_name": false,
-        "display_last_name": false,
-        "newsletter_title": "Join our VIP club",
-        "newsletter_text": "<p>Subscribe to our monthly newsletter for sneak peeks at new collections and early access to promos and flash sales!</p>",
-        "newsletter_section_text_align": "center",
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "css_class": "",
-        "custom_css": ""
-      }
-    },
     "ss_instafeed_2_j9KhFy": {
       "type": "ss-instafeed-2",
       "blocks": {
@@ -1021,6 +1046,7 @@
   },
   "order": [
     "slideshow_kAdTpR",
+    "1768506750aecf1bee",
     "featured_collection_pGYCgh",
     "divider_YbJhRK",
     "image_text_hqPBkR",
@@ -1043,7 +1069,6 @@
     "blog_posts_nXNC6E",
     "17313261890f93d02f",
     "pxu_highlights_banner_DnLxVn",
-    "newsletter-1",
     "ss_instafeed_2_j9KhFy"
   ]
 }
