@@ -15,12 +15,12 @@
         "image_MiW3tq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/clg_cream_optimized.jpg",
-            "pretext": "<h2>introducing</h2>",
-            "title": "NEW FORLLE'D ARRIVALS",
-            "subtitle": "<p>enzyme exfoliation and collagen support</p>",
+            "image": "shopify://shop_images/BFCM_Gift_Card_Promo_Instagram_Post_45_1.png",
+            "pretext": "",
+            "title": "AN EXCEPTIONAL VALENTINE'S DAY GIFT",
+            "subtitle": "<p>The Valentine’s exclusive special is now available</p>",
             "button1": "Shop Now",
-            "button1_link": "shopify://collections/forlled",
+            "button1_link": "shopify://products/gift-card",
             "button1_style": "global-button--banner",
             "button2": "",
             "button2_link": "",
@@ -28,7 +28,7 @@
             "text_position": "left",
             "text_align": "center",
             "caption_content_background": "original",
-            "mobile_image": "shopify://shop_images/clg_optimized.jpg"
+            "mobile_image": "shopify://shop_images/BFCM_Gift_Card_Promo_Instagram_Post_45_1.png"
           }
         }
       },
@@ -38,7 +38,7 @@
       "custom_css": [],
       "name": "Slideshow",
       "settings": {
-        "wide_display": true,
+        "wide_display": false,
         "slideshow_text_animation": "fadeIn",
         "slideshow_animation": "fade",
         "slideshow_speed": 6,
