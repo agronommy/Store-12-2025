@@ -37,7 +37,7 @@
       data-products-per-slide="{{ visible_products }}"
       data-products-limit="{{ limit }}"
       data-products-available="{{ products_length }}">
-  {% for product_handle in metaobject.products.value products limit: loop_limit %}
+  {% for product_handle in metaobject.products.value limit: loop_limit %}
     {% assign product = all_products[product_handle] %}
     {%- assign collection_handles = product.collections | map: 'handle' -%}
 
@@ -144,3 +144,14 @@
     {% endif %}
   {% endfor %}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% for product_handle in metaobject.products.value products limit: loop_limit
+    %}"
+  to: "{% for product_handle in metaobject.products.value limit: loop_limit %}"
+  position: 1533..1604
+{% endcomment %}

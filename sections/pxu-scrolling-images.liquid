@@ -41,13 +41,13 @@
   assign margin_bottom = section.settings.margin_bottom
 
   case image_gap
-    when 'small':
+    when 'small'
       assign image_gap_desktop = '32px'
       assign image_gap_mobile = '24px'
-    when 'medium':
+    when 'medium'
       assign image_gap_desktop = '64px'
       assign image_gap_mobile = '48px'
-    when 'large':
+    when 'large'
       assign image_gap_desktop = '128px'
       assign image_gap_mobile = '96px'
   endcase
@@ -563,4 +563,19 @@ customElements.define('scrolling-images', ScrollingImages);{% endjavascript %}
       ]
     }
   ]
-}{% endschema %}
+}{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "    when 'small':"
+  to: "    when 'small'"
+  position: 2030..2046
+- from: "    when 'medium':"
+  to: "    when 'medium'"
+  position: 2126..2143
+- from: "    when 'large':"
+  to: "    when 'large'"
+  position: 2223..2239
+{%- endcomment -%}
