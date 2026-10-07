@@ -103,14 +103,7 @@
       <section class="section">
         <div class="container">
           <div class="one-whole column">
-            {%
-              render 'metaobject-product-loop',
-              limit: section.settings.products_limit | plus: 1,
-              products: collection,
-              collection: collection,
-              skip_product: product,
-              products_per_row: products_per_row,
-            %}
+            {% render 'metaobject-product-loop', limit: section.settings.products_limit, plus: 1, products: collection, collection: collection, skip_product: product, products_per_row: products_per_row %}
           </div>
         </div>
       </section>
@@ -289,4 +282,23 @@
   }
 }
 
-{% endschema %}
+{% endschema %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%
+                  render 'metaobject-product-loop',
+                  limit: section.settings.products_limit | plus: 1,
+                  products: collection,
+                  collection: collection,
+                  skip_product: product,
+                  products_per_row: products_per_row,
+                %}
+  to: "{% render 'metaobject-product-loop', limit: section.settings.products_limit,
+    plus: 1, products: collection, collection: collection, skip_product: product,
+    products_per_row: products_per_row %}"
+  position: 3413..3605
+{%- endcomment -%}

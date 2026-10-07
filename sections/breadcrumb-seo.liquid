@@ -116,7 +116,7 @@
               <a href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
             </li>
           
-          {%- when 'product' and product.handle -%}
+          {%- when 'product' -%}
             {% for parentCollection in product.metafields.custom.breadcrumbs.value %}
               <li>
                 <a href="{{ parentCollection.url }}">{{ parentCollection.title }}</a>
@@ -126,7 +126,7 @@
               <a href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
             </li>
         
-          {%- when 'collection' and collection.handle -%}
+          {%- when 'collection' -%}
             {% for parentCollection in collection.metafields.custom.breadcrumb.value %}
               <li>
                 <a href="{{ parentCollection.url }}">{{ parentCollection.title }}</a>
@@ -171,7 +171,7 @@
           "item": "{{ shop.url }}{{ page.url }}"
         }
       {% endcapture %}
-    {% when 'product' and product.handle %}
+    {% when 'product' %}
       {% capture schemaList %}
         {% assign position = 0 %}
         {% for parentCollection in product.metafields.custom.breadcrumbs.value %}
@@ -190,7 +190,7 @@
           "item": "{{ shop.url }}{{ product.url }}"
         }
       {% endcapture %}
-    {% when 'collection' and collection.handle %}
+    {% when 'collection' %}
       {% capture schemaList %}
         {% assign position = 0 %}
         {% for parentCollection in collection.metafields.custom.breadcrumb.value %}
@@ -505,3 +505,22 @@
 </script>
 
 
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- when 'product' and product.handle -%}"
+  to: "{%- when 'product' -%}"
+  position: 3820..3842
+- from: "{%- when 'collection' and collection.handle -%}"
+  to: "{%- when 'collection' -%}"
+  position: 4219..4244
+- from: "{% when 'product' and product.handle %}"
+  to: "{% when 'product' %}"
+  position: 5532..5552
+- from: "{% when 'collection' and collection.handle %}"
+  to: "{% when 'collection' %}"
+  position: 6216..6239
+{% endcomment %}
