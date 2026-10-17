@@ -280,7 +280,7 @@
         "mobile_text_size": 16,
         "desktop_content_alignment": "center",
         "button_label": "Read the blog post",
-        "button_link": "shopify://blogs/biologique-recherche-better-skin-care-with-aida/why-creme-pto-metamorphique-replaced-creme-adn-metamorphique",
+        "button_link": "shopify://blogs/better-skin-care-with-aida/why-creme-pto-metamorphique-replaced-creme-adn-metamorphique",
         "button_style": "fill",
         "button_background_color": "#000000",
         "button_text_color": "#ffffff",
@@ -807,7 +807,7 @@
       "type": "blog-posts",
       "settings": {
         "title": "Aida's Blog",
-        "blog_widget_select": "biologique-recherche-better-skin-care-with-aida",
+        "blog_widget_select": "better-skin-care-with-aida",
         "home_page_articles": 4,
         "blog_tags": false,
         "blog_author": false,
